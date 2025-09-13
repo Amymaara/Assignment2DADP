@@ -21,7 +21,7 @@ public class FPController : MonoBehaviour
     [Header("Pickup Settings")]
     public float pickupRange = 5f;
     public Transform holdPoint;
-    private PickUpObject pickupController;
+    private PickUpController pickupController;
 
     [Header("UI Elements")]
     public TextMeshProUGUI pickupText;
@@ -45,7 +45,7 @@ public class FPController : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
-        pickupController = GetComponent<PickUpObject>();
+        pickupController = GetComponent<PickUpController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -89,9 +89,9 @@ public class FPController : MonoBehaviour
             pickupController.Drop();
         }
     }
-    //public void OnInteract(InputAction.CallbackContext ctx)
-    //{
-        //if (!ctx.performed) return;
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
 
         //if (dialogueController && dialogueController.gameObject.activeInHierarchy)
         //{
@@ -99,13 +99,14 @@ public class FPController : MonoBehaviour
             //return;
         //}
         
-        //Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-        //if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
-        //{
-            //var interactable = hit.collider.GetComponent<IInteractable>();
-            //if (interactable != null) interactable.Interact();
-        //}
-    //}
+        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
+        {
+            Debug.Log("Interacted with: " + hit.collider.name);
+            //var interactable = hit.collider.GetComponent<InteractController>();
+            //if (interactable != null) interactable.Interactable();
+        }
+    }
 
     public void HandleMovement()
     {

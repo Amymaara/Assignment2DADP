@@ -7,7 +7,7 @@ using UnityEngine;
 // Author: Hayes, A
 // Date: 09/08/2025
 // Avalability: DIGA2001A Lecture Slides
-public class PickUpObject : MonoBehaviour
+public class PickUpController : MonoBehaviour
 {
     [Header("Hold Settings")]
     public Transform holdPos;
