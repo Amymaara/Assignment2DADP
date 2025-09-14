@@ -1,6 +1,7 @@
+using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
 
 // Title: First Person Controller Script
 // Author: Hayes, A
@@ -89,22 +90,52 @@ public class FPController : MonoBehaviour
             pickupController.Drop();
         }
     }
-    public void OnInteract(InputAction.CallbackContext context)
+    public void OnInteract(InputAction.CallbackContext ctx)
     {
-        if (!context.performed) return;
-
-        //if (dialogueController && dialogueController.gameObject.activeInHierarchy)
-        //{
-            //dialogueController.DisplayNextParagraph(dialogueText);
-            //return;
-        //}
-        
-        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
+        if (ctx.phase == InputActionPhase.Started)
         {
-            Debug.Log("Interacted with: " + hit.collider.name);
-            //var interactable = hit.collider.GetComponent<InteractController>();
-            //if (interactable != null) interactable.Interactable();
+            Debug.Log("Press started");
+
+            /*
+            if (dialogueController && dialogueController.gameObject.activeInHierarchy)
+            {
+                dialogueController.DisplayNextParagraph(dialogueText);
+                return;
+            }
+            */
+
+            Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+            Debug.Log("Raycast fired");
+            if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
+            {
+                // try and fill in the cauldron bar thing
+                if (hit.collider.TryGetComponent<IFillable>(out var fillable))
+                {
+                    //cauldronFill = fillable;
+                    //cauldronFill.OnFillStart();
+                    //filling = true;
+                    Debug.Log("Started filling");
+                    return;
+                }
+
+                // normal interactable items
+                if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
+                {
+                    interactable.Interact();
+                }
+            }
+        }
+        else if (ctx.phase == InputActionPhase.Canceled)
+        {
+            /*
+            if (cauldronFill != null)
+            {
+                Debug.Log("Cancelling Fill");
+                cauldronFill.OnFillStop();
+                cauldronFill = null;
+                filling = false;
+            }
+            */
         }
     }
 
