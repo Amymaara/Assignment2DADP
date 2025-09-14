@@ -14,8 +14,8 @@ public class RuneInteractables : IngredientObject
     {
         None,
         Star,
-        Square,
-        Triangle
+        Moon,
+        Trifecta
     }
 
     public RuneMaterial material;

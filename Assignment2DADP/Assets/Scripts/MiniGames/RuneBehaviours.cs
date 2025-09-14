@@ -6,8 +6,8 @@ public class RuneBehaviour : MonoBehaviour
 {
     [Header("Stamps")]
     public GameObject star;
-    public GameObject square;
-    public GameObject triangle;
+    public GameObject moon;
+    public GameObject trifecta;
     public GameObject canvas;
     public GameObject firstButton;
 
@@ -27,8 +27,8 @@ public class RuneBehaviour : MonoBehaviour
     public Material stone;
 
     public Material Star;
-    public Material Triangle;
-    public Material Square;
+    public Material Trifecta;
+    public Material Moon;
 
 
 
@@ -77,27 +77,27 @@ public class RuneBehaviour : MonoBehaviour
 
     }
 
-    public void OnSquareButton()
+    public void OnMoonButton()
     {
-        square.SetActive(true);
+        moon.SetActive(true);
         cursor.SetActive(true);
         playerLine.SetActive(true);
         canvas.SetActive(false);
-        workstation.playerRune.stamp = RuneInteractables.Stamp.Square;
+        workstation.playerRune.stamp = RuneInteractables.Stamp.Moon;
         workstation.playerRune.secondMesh.SetActive(true);
-        workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Square;
+        workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Moon;
         drawing.canDraw = true;
     }
 
-    public void OnTriangleButton()
+    public void OnTrifectaButton()
     {
-        triangle.SetActive(true);
+        trifecta.SetActive(true);
         cursor.SetActive(true);
         playerLine.SetActive(true);
         canvas.SetActive(false);
-        workstation.playerRune.stamp = RuneInteractables.Stamp.Triangle;
+        workstation.playerRune.stamp = RuneInteractables.Stamp.Trifecta;
         workstation.playerRune.secondMesh.SetActive(true);
-        workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Triangle;
+        workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Trifecta;
         drawing.canDraw = true;
     }
 
