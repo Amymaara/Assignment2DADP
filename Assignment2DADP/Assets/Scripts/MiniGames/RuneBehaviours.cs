@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Windows;
 
 public class RuneBehaviour : MonoBehaviour
 {
@@ -37,24 +38,30 @@ public class RuneBehaviour : MonoBehaviour
         if (input != null)
         {
             inputProduct = input;
-            if (input.material == RuneInteractables.RuneMaterial.Wood)
-            {
-                runeOnTable.gameObject.GetComponent<Renderer>().material = wood;
-            }
-            else if (input.material == RuneInteractables.RuneMaterial.Stone)
-            {
-                runeOnTable.gameObject.GetComponent<Renderer>().material = stone;
-            }
-            else if (input.material == RuneInteractables.RuneMaterial.Bone)
-            {
-                runeOnTable.gameObject.GetComponent<Renderer>().material = bone;
-            }
+            EditRuneOnTable();
         }
 
         drawing.canDraw = false;
         inputManager.SwitchToRuneDrawing();
         EventSystem.current.SetSelectedGameObject(firstButton);
         canvas.SetActive(true);
+    }
+
+    private void EditRuneOnTable()
+    {
+
+        if (inputProduct.material == RuneInteractables.RuneMaterial.Wood)
+        {
+            runeOnTable.gameObject.GetComponent<Renderer>().material = wood;
+        }
+        else if (inputProduct.material == RuneInteractables.RuneMaterial.Stone)
+        {
+            runeOnTable.gameObject.GetComponent<Renderer>().material = stone;
+        }
+        else if (inputProduct.material == RuneInteractables.RuneMaterial.Bone)
+        {
+            runeOnTable.gameObject.GetComponent<Renderer>().material = bone;
+        }
     }
 
     public void OnStarButton()
