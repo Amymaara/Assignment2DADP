@@ -13,7 +13,7 @@ public class PickUpController : MonoBehaviour
     public Transform holdPos;
     public string holdLayerName = "holdLayer";
 
-    private GameObject heldObject;
+    public GameObject heldObject;
     private Rigidbody heldObjectRb;
     private GameObject playerRef;
     private int holdLayer;
