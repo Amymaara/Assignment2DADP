@@ -2,6 +2,7 @@ using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 // Title: First Person Controller Script
 // Author: Hayes, A
@@ -96,6 +97,8 @@ public class FPController : MonoBehaviour
         {
             Debug.Log("Press started");
 
+            int mask = ~LayerMask.GetMask("holdLayer");
+
             /*
             if (dialogueController && dialogueController.gameObject.activeInHierarchy)
             {
@@ -106,7 +109,7 @@ public class FPController : MonoBehaviour
 
             Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
             Debug.Log("Raycast fired");
-            if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
+            if (Physics.Raycast(ray, out RaycastHit hit, interactRange, mask, QueryTriggerInteraction.Ignore))
             {
                 // try and fill in the cauldron bar thing
                 if (hit.collider.TryGetComponent<IFillable>(out var fillable))
