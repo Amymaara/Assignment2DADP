@@ -16,6 +16,7 @@ public class PotionFillManager : MonoBehaviour
 
     [Header("MiniGame Setup")]
     public InputManager inputManager;
+    public PotionBehaviour potionBehaviour;
 
     private float sagePercent = 0f;
     private float tearsPercent = 0f;
@@ -31,39 +32,44 @@ public class PotionFillManager : MonoBehaviour
 
     public void StartSection()
     {
-        if (PotionBarCanvas.activeInHierarchy == false)
+        if (potionBehaviour.currentState == PotionBehaviour.CauldronState.Filling)
         {
-            PotionBarCanvas.SetActive(true);
-        }
-        holding = fpcontroller.holdObject;
-        if (holding == null) return;
-
-        else
-        {
-            PotionInteractables temp = holding.GetComponent<PotionInteractables>();
-            if (temp != null)
+            if (PotionBarCanvas.activeInHierarchy == false)
             {
-                ingredient = temp;
+                PotionBarCanvas.SetActive(true);
             }
+
+            holding = fpcontroller.holdObject;
+            if (holding == null) return;
+
+            else
+            {
+                PotionInteractables temp = holding.GetComponent<PotionInteractables>();
+                if (temp != null)
+                {
+                    ingredient = temp;
+                }
+            }
+            if (ingredient == null) return;
+
+            if (currentHeight >= maxFillHeight)
+            {
+                OnFullMeter();
+                return;
+            }
+
+
+            currentSection = Instantiate(fillSectionPrefab, fillContainer);
+            currentRect = currentSection.GetComponent<RectTransform>();
+            currentRect.sizeDelta = new Vector2(currentRect.sizeDelta.x, 0f);
+
+
+            Image img = currentSection.GetComponent<Image>();
+            img.color = ingredient.fillColour;
+
+            filling = true;
         }
-        if (ingredient == null) return;
-
-        if (currentHeight >= maxFillHeight)
-        {
-            OnFullMeter();
-            return;
-        }
-
-
-        currentSection = Instantiate(fillSectionPrefab, fillContainer);
-        currentRect = currentSection.GetComponent<RectTransform>();
-        currentRect.sizeDelta = new Vector2(currentRect.sizeDelta.x, 0f);
-
-
-        Image img = currentSection.GetComponent<Image>();
-        img.color = ingredient.fillColour;
-
-        filling = true;
+        else return;
     }
 
 
@@ -130,6 +136,7 @@ public class PotionFillManager : MonoBehaviour
 
         CheckRecipe();
         inputManager.SwitchToPotionMix();
+        potionBehaviour.currentState = PotionBehaviour.CauldronState.Bottling;
         ResetMeter();
 
     }
@@ -145,6 +152,7 @@ public class PotionFillManager : MonoBehaviour
             && sagePercent < 270f && sagePercent > 230f
             && moonPercent < 270f && moonPercent > 230f)
         {
+            potionBehaviour.recipe = PotionBehaviour.Recipe.Love;
             Debug.Log("Made a Love Potion");
 
         }
@@ -152,11 +160,13 @@ public class PotionFillManager : MonoBehaviour
         else if (sagePercent < 270f && sagePercent > 230f
             && bloodPercent < 770 && bloodPercent > 730)
         {
+            potionBehaviour.recipe = PotionBehaviour.Recipe.Knowledge;
             Debug.Log("Made a Knowledge Potion");
         }
 
         else
         {
+            potionBehaviour.recipe = PotionBehaviour.Recipe.None;
             Debug.Log("No Potion Made");
         }
     }

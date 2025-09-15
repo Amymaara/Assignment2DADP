@@ -29,6 +29,7 @@ public class FPController : MonoBehaviour
 
     [Header("UI Elements")]
     public TextMeshProUGUI pickupText;
+    public InputManager inputManager;
 
     [Header("Audio")]
     //public WalkingAudio walkingSound;
@@ -36,6 +37,7 @@ public class FPController : MonoBehaviour
     [Header("Minigame Settings")]
     public bool filling = false;
     private IFillable cauldronFill;
+    public PotionBehaviour potionBehaviour;
 
     [Header("Interaction")]
     [SerializeField] private float interactRange = 3f;
@@ -70,6 +72,12 @@ public class FPController : MonoBehaviour
 
         
     }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        inputManager.SwitchToUI();
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -82,28 +90,25 @@ public class FPController : MonoBehaviour
     public void OnPickup(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        {
-            if (heldObject == null)
-            {
-                Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-                if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
-                {
-                    PickUpObject pickUp = hit.collider.GetComponent<PickUpObject>();
-                    if (pickUp != null)
-                    {
-                        pickUp.PickUp(holdPoint);
-                        heldObject = pickUp;
 
-                    }
+        if (heldObject == null)
+        {
+            Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+            if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
+            {
+                PickUpObject pickUp = hit.collider.GetComponent<PickUpObject>();
+                if (pickUp != null)
+                {
+                    ForcePickUp(pickUp.gameObject);
                 }
             }
-            else
-            {
-                heldObject.Drop();
-                heldObject = null;
-                holdObject = null;
-            }
         }
+        else
+        {
+            ForceDrop();
+        }
+    
+    
         /*
        
         
@@ -135,6 +140,45 @@ public class FPController : MonoBehaviour
 
     }
 
+    public void ForcePickUp(GameObject obj)
+    {
+        ForceDrop();
+
+        PickUpObject pickUp = obj.GetComponent<PickUpObject>();
+        if (pickUp != null)
+        {
+            pickUp.PickUp(holdPoint, gameObject);
+            heldObject = pickUp;
+
+            IngredientObject intObj = obj.GetComponent<IngredientObject>();
+            if (intObj != null)
+                holdObject = intObj;
+        }
+    }
+
+    public void ForceDrop()
+    {
+        if (heldObject != null)
+        {
+            heldObject.Drop();
+            heldObject = null;
+            holdObject = null;
+        }
+    }
+
+    public void SpawnFullBottleInHand(GameObject bottlePrefab)
+    {
+        if (bottlePrefab == null)
+        {
+            Debug.LogWarning("No bottle prefab");
+            return;
+        }
+
+        ForceDrop();
+
+        GameObject bottleInstance = Instantiate(bottlePrefab, holdPoint.position, holdPoint.rotation);
+        ForcePickUp(bottleInstance);
+    }
 
     public void OnInteract(InputAction.CallbackContext ctx)
     {
@@ -155,7 +199,7 @@ public class FPController : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
             {
                 // try and fill in the cauldron bar thing
-                if (hit.collider.TryGetComponent<IFillable>(out var fillable))
+                if (hit.collider.TryGetComponent<IFillable>(out var fillable) && potionBehaviour.currentState == PotionBehaviour.CauldronState.Filling)
                 {
                     cauldronFill = fillable;
                     cauldronFill.OnFillStart();
@@ -165,7 +209,7 @@ public class FPController : MonoBehaviour
                 }
 
                 // normal interactable items
-                if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
+                else if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
                 {
                     interactable.Interact();
                 }
