@@ -1,101 +1,75 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.InputSystem;
 using UnityEngine;
 
-// Title: How to Pick Up and Drop Objects in Unity
-// Author: Hayes, A
-// Date: 09/08/2025
-// Avalability: DIGA2001A Lecture Slides
 public class PickUpObject : MonoBehaviour
 {
-    public GameObject player;
-    public Transform holdPos;
-    public float pickUpRange = 3f;
+    private Rigidbody rb;
+    private Collider objCollider;
+    private Transform holdPos;        
+    private GameObject player;
+    private bool isHeld = false;
+    private int holdLayer;
 
-    private GameObject heldObject;
-    private Rigidbody heldObjectRb;
-    private bool canDrop = true;
-    private int LayerNumber;
-
-    void Start()
+    private void Awake()
     {
-        LayerNumber = LayerMask.NameToLayer("holdLayer");
+        rb = GetComponent<Rigidbody>();
+        objCollider = GetComponent<Collider>();
+        holdLayer = LayerMask.NameToLayer("holdLayer");
     }
 
-    void Update()
+    private void Update()
     {
-        if (heldObject != null)
+        if (isHeld && holdPos != null)
         {
             MoveObject();
-            StopClipping();
         }
     }
 
-    void OnPickUp(InputAction.CallbackContext context)
+
+    public void PickUp(Transform holdPoint, GameObject playerObj = null)
     {
-        if (!context.performed) return;
-        if (heldObject == null) // if no object is held
+        holdPos = holdPoint;
+        player = playerObj;
+        isHeld = true;
+
+        rb.isKinematic = true;
+        transform.SetParent(holdPos, true);
+        gameObject.layer = holdLayer;
+
+        if (player != null)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+            Collider playerCol = player.GetComponent<Collider>();
+            if (playerCol != null)
             {
-                if (hit.transform.CompareTag("canPickUp"))
-                {
-                    DoPickUp(hit.transform.gameObject);
-                }
+                Physics.IgnoreCollision(objCollider, playerCol, true);
             }
         }
-    }
-    public void PickUp(Transform holdPoint)
-    {
-        DoPickUp(gameObject); // reuse your existing method
     }
 
     public void Drop()
     {
-        DropObject();
-    }
+        if (!isHeld) return;
 
-    private void DoPickUp(GameObject pickUpObject)
-    {
-        if (pickUpObject.TryGetComponent(out Rigidbody rb))
+        if (player != null)
         {
-            heldObject = pickUpObject;
-            heldObjectRb = rb;
-            heldObjectRb.isKinematic = true; // make the object kinematic
-            heldObject.transform.parent = holdPos.transform;
-            heldObject.layer = LayerNumber; // set the layer to holdLayer
-
-            Physics.IgnoreCollision(heldObject.GetComponent<Collider>(), player.GetComponent<Collider>(), true); // ignore collision with player
+            Collider playerCol = player.GetComponent<Collider>();
+            if (playerCol != null)
+            {
+                Physics.IgnoreCollision(objCollider, playerCol, false);
+            }
         }
 
+        gameObject.layer = 0;
+        rb.isKinematic = false;
+        transform.SetParent(null, true);
+
+        isHeld = false;
+        holdPos = null;
+        player = null;
     }
-    private void DropObject()
+
+    private void MoveObject()
     {
-        Physics.IgnoreCollision(heldObject.GetComponent<Collider>(), player.GetComponent<Collider>(), false); // stop ignoring collision with player
-        heldObject.layer = 0;
-        heldObjectRb.isKinematic = false; // make the object non-kinematic
-        heldObject.transform.parent = null; // remove parent
-        heldObject = null; // clear the held object
+        transform.position = holdPos.position;
+        transform.rotation = holdPos.rotation;
     }
-
-    void MoveObject()
-    {
-        heldObject.transform.position = holdPos.transform.position; // move the object to the hold position
-    }
-
-    void StopClipping()
-    {
-        var clipRange = Vector3.Distance(heldObject.transform.position, transform.position);
-        RaycastHit[] hits;
-        hits = Physics.RaycastAll(transform.position, transform.TransformDirection(Vector3.forward), clipRange);
-
-        if (hits.Length > 1)
-        {
-            heldObject.transform.position = transform.position + new Vector3(0f, -0.5f, 0f); // move the object to the hold position
-        }
-    }
-
 }
-
