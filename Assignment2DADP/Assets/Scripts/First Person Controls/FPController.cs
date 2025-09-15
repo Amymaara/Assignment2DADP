@@ -22,6 +22,7 @@ public class FPController : MonoBehaviour
 
     [Header("Pickup Settings")]
     public float pickupRange = 5f;
+    private PickUpObject heldObject;
     public Transform holdPoint;
     private PickUpController pickupController;
 
@@ -69,6 +70,30 @@ public class FPController : MonoBehaviour
     public void OnPickup(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
+        {
+            if (heldObject == null)
+            {
+                Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+                if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
+                {
+                    PickUpObject pickUp = hit.collider.GetComponent<PickUpObject>();
+                    if (pickUp != null)
+                    {
+                        pickUp.PickUp(holdPoint);
+                        heldObject = pickUp;
+                        
+                    }
+                }
+            }
+            else
+            {
+                heldObject.Drop();
+                heldObject = null;
+               // holdObject = null;
+            }
+        }
+        /*
+        if (!context.performed) return;
         if (pickupController == null) // if no object is held try pickup
             {
                Debug.LogWarning("No Pickup Controller Found");
@@ -90,7 +115,10 @@ public class FPController : MonoBehaviour
         {
             pickupController.Drop();
         }
+        */
     }
+
+
     public void OnInteract(InputAction.CallbackContext ctx)
     {
         if (ctx.phase == InputActionPhase.Started)

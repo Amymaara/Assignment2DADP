@@ -329,17 +329,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""214eeb1e-6d76-4d2d-87b4-50b8080042ed"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""e0ccb273-01ac-43ac-915f-2ea07c18d680"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
