@@ -10,9 +10,9 @@ public class PotionFillManager : MonoBehaviour
     public GameObject PotionBarCanvas;
 
     [Header("Current Ingredient")]
-    public GameObject holding;
+    public IngredientObject holding;
     public PotionInteractables ingredient;
-    public PickUpController pickUpController;
+    public FPController fpcontroller;
 
     [Header("MiniGame Setup")]
     public InputManager inputManager;
@@ -35,8 +35,7 @@ public class PotionFillManager : MonoBehaviour
         {
             PotionBarCanvas.SetActive(true);
         }
-
-        holding = pickUpController.heldObject;
+        holding = fpcontroller.holdObject;
         if (holding == null) return;
 
         else
@@ -103,7 +102,7 @@ public class PotionFillManager : MonoBehaviour
         currentSection = null;
         currentRect = null;
         ingredient = null;
-        //Destroy(pickUpController.heldObject.gameObject);
+        Destroy(fpcontroller.holdObject.gameObject);
     }
 
     public void UpdateIngredients(float bar)

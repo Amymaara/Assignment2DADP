@@ -22,8 +22,9 @@ public class FPController : MonoBehaviour
 
     [Header("Pickup Settings")]
     public float pickupRange = 5f;
-    private PickUpObject heldObject;
+    public PickUpObject heldObject;
     public Transform holdPoint;
+    public IngredientObject holdObject;
     private PickUpController pickupController;
 
     [Header("UI Elements")]
@@ -31,6 +32,10 @@ public class FPController : MonoBehaviour
 
     [Header("Audio")]
     //public WalkingAudio walkingSound;
+
+    [Header("Minigame Settings")]
+    public bool filling = false;
+    private IFillable cauldronFill;
 
     [Header("Interaction")]
     [SerializeField] private float interactRange = 3f;
@@ -55,8 +60,15 @@ public class FPController : MonoBehaviour
 
     private void Update()
     {
+        if (cauldronFill != null && filling)
+        {
+            cauldronFill.Fill();
+        }
+
         HandleMovement();
         HandleLook();
+
+        
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -81,7 +93,7 @@ public class FPController : MonoBehaviour
                     {
                         pickUp.PickUp(holdPoint);
                         heldObject = pickUp;
-                        
+
                     }
                 }
             }
@@ -89,10 +101,13 @@ public class FPController : MonoBehaviour
             {
                 heldObject.Drop();
                 heldObject = null;
-               // holdObject = null;
+                holdObject = null;
             }
         }
         /*
+       
+        
+
         if (!context.performed) return;
         if (pickupController == null) // if no object is held try pickup
             {
@@ -115,17 +130,18 @@ public class FPController : MonoBehaviour
         {
             pickupController.Drop();
         }
+
         */
+
     }
 
 
     public void OnInteract(InputAction.CallbackContext ctx)
     {
+
         if (ctx.phase == InputActionPhase.Started)
         {
             Debug.Log("Press started");
-
-            int mask = ~LayerMask.GetMask("holdLayer");
 
             /*
             if (dialogueController && dialogueController.gameObject.activeInHierarchy)
@@ -136,15 +152,14 @@ public class FPController : MonoBehaviour
             */
 
             Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-            Debug.Log("Raycast fired");
-            if (Physics.Raycast(ray, out RaycastHit hit, interactRange, mask, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
             {
                 // try and fill in the cauldron bar thing
                 if (hit.collider.TryGetComponent<IFillable>(out var fillable))
                 {
-                    //cauldronFill = fillable;
-                    //cauldronFill.OnFillStart();
-                    //filling = true;
+                    cauldronFill = fillable;
+                    cauldronFill.OnFillStart();
+                    filling = true;
                     Debug.Log("Started filling");
                     return;
                 }
@@ -158,7 +173,6 @@ public class FPController : MonoBehaviour
         }
         else if (ctx.phase == InputActionPhase.Canceled)
         {
-            /*
             if (cauldronFill != null)
             {
                 Debug.Log("Cancelling Fill");
@@ -166,7 +180,6 @@ public class FPController : MonoBehaviour
                 cauldronFill = null;
                 filling = false;
             }
-            */
         }
     }
 
