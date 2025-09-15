@@ -110,7 +110,7 @@ public class FPController : MonoBehaviour
     
     
         /*
-       
+       // This is the old pickup/pickupcontroller stuff
         
 
         if (!context.performed) return;
