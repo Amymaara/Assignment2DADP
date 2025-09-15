@@ -45,6 +45,7 @@ public class RuneBehaviour : MonoBehaviour
         inputManager.SwitchToRuneDrawing();
         EventSystem.current.SetSelectedGameObject(firstButton);
         canvas.SetActive(true);
+        cursor.SetActive(false);
     }
 
     private void EditRuneOnTable()
