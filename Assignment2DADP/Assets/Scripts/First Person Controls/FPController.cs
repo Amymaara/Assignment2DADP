@@ -29,6 +29,7 @@ public class FPController : MonoBehaviour
 
     [Header("UI Elements")]
     public TextMeshProUGUI pickupText;
+    public InputManager inputManager;
 
     [Header("Audio")]
     //public WalkingAudio walkingSound;
@@ -70,6 +71,12 @@ public class FPController : MonoBehaviour
 
         
     }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        inputManager.SwitchToUI();
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -93,7 +100,11 @@ public class FPController : MonoBehaviour
                     {
                         pickUp.PickUp(holdPoint);
                         heldObject = pickUp;
-
+                        IngredientObject intObj = pickUp.gameObject.GetComponent<IngredientObject>();
+                        if (intObj != null)
+                        {
+                            holdObject = intObj;
+                        }
                     }
                 }
             }
@@ -104,6 +115,7 @@ public class FPController : MonoBehaviour
                 holdObject = null;
             }
         }
+    
         /*
        
         

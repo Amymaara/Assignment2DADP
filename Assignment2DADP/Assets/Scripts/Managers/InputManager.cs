@@ -7,7 +7,7 @@ public class InputManager : MonoBehaviour
     public GameObject cursor;
     public CameraManager manager;
     public GameObject RuneMinigame;
-    //public GameObject popUpCanvas;
+    public GameObject pauseMenu;
     //public GameObject ToolTipsCanvas;
     //public GameObject DialogueCanvas;
     public GameObject PotionWorldSpaceCanvas;
@@ -26,6 +26,7 @@ public class InputManager : MonoBehaviour
         RuneMinigame.SetActive(false);
         potionMix.SetActive(false);
         cursor.SetActive(false);
+        pauseMenu.SetActive(false);
         player.SetActive(true);
         player.GetComponent<Renderer>().enabled = true;
         player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
@@ -35,14 +36,13 @@ public class InputManager : MonoBehaviour
     public void SwitchToUI()
     {
         player.SetActive(true);
-
+        pauseMenu.SetActive(true);
         player.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
     }
 
     public void SwitchToRuneDrawing()
     {
         RuneMinigame.SetActive(true);
-
         player.SetActive(false);
         cursor.SetActive(true);
         manager.SwitchToRuneCam();
