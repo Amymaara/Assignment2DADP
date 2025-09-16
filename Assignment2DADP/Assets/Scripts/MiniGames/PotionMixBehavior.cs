@@ -96,9 +96,23 @@ public class PotionMixBehaviour : MonoBehaviour
     public void OnMinigameComplete()
     {
         // send the success or fail bool to wherever it needs to go like particle effect player?
+
+        if (!MinigameSuccess)
+        {
+            potionBehaviour.recipe = PotionBehaviour.Recipe.None;
+            // play fail particles/ fail sound
+        }
+
+        if (MinigameSuccess)
+        {
+            // play particles/ success sound
+        }
+
         potionBehaviour.currentState = PotionBehaviour.CauldronState.Bottling;
         inputManager.SwitchToGameplay();
     }
+
+    
 
     public void OnLeft(InputAction.CallbackContext context)
     {
