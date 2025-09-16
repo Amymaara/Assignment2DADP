@@ -31,11 +31,12 @@ public class QuestEvents
     }
 
     public event Action<string> onQuestStateChange;
-    public void QuestStateChange(Quest quest)
+   /* public void QuestStateChange(Quest quest)
     {
         if (onQuestStateChange != null)
         {
-            onQuestStateChange(quest);
+            onQuestStateChange(Quest quest);
         }
     }
+   */
 }

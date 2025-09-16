@@ -26,13 +26,15 @@ public class QuestManager : MonoBehaviour
         GameEventsManager.instance.questEvents.onFinishQuest -= FinishQuest;
     }
 
-    private void Start()
+   /* private void Start()
     {
         foreach (Quest quest in questMap.Values)
         {
             GameEventsManager.instance.questEvents.QuestStateChange(quest);
         }
     }
+
+    */
     private void StartQuest(string id)
     {
         Debug.Log("Quest Start" + id);
