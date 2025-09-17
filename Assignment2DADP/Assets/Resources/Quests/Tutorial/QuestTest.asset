@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: QuestTest
   m_EditorClassIdentifier: 
   <id>k__BackingField: QuestTest
-  displayName: 
+  displayName: QuestTest
   questPrerequisite: []
   questStepPrefabs:
   - {fileID: 766019769368037690, guid: ea49891f996ea8f4bb4b455792817783, type: 3}

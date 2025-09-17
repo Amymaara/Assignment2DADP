@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
 
@@ -10,7 +11,7 @@ public class QuestManager : MonoBehaviour
     {
         questMap = CreateQuestMap();
 
-        Quest quest = GetQuestById(" [QM] QuestTest");
+        Quest quest = GetQuestById("QuestTest");
     }
 
     private void OnEnable()
@@ -38,20 +39,65 @@ public class QuestManager : MonoBehaviour
         
     }
 
-    
+    private void ChangeQuestState(string id, QuestState state)
+    {
+        Quest quest = GetQuestById(id);
+        quest.state = state;
+        GameEventsManager.instance.questEvents.QuestStateChange(quest);
+    }
+
+    private bool CheckRequirementsMet(Quest quest)
+    {
+        bool meetsRequirements = true;
+
+        foreach (QuestInfoSO prerequisiteQuestInfo in quest.info.questPrerequisite)
+        {
+            if (GetQuestById(prerequisiteQuestInfo.id).state != QuestState.FINSIHED)
+            {
+                meetsRequirements = false;
+            }
+        }
+
+        return meetsRequirements;
+    }
+
+    private void Update()
+    {
+        foreach (Quest quest in questMap.Values)
+        {
+            if (quest.state == QuestState.REQUIREMENTS_NOT_MET && CheckRequirementsMet(quest))
+            {
+                ChangeQuestState(quest.info.id, QuestState.CAN_START);
+            }
+        }
+    }
     private void StartQuest(string id)
     {
-        Debug.Log("[QM] Quest Start" + id);
+        Quest quest = GetQuestById(id);
+        quest.InstantiateCurrentQuestStep(this.transform);
+        ChangeQuestState(quest.info.id, QuestState.IN_PROGRESS);
     }
 
     private void AdvanceQuest(string id)
     {
-        Debug.Log("QM] Advance Quest" + id);
+        Quest quest = GetQuestById(id);
+        quest.MoveToNextSTep();
+
+        if (quest.CurrentStepExists())
+        {
+            quest.InstantiateCurrentQuestStep(this.transform);
+        }
+
+        else
+        {
+            ChangeQuestState(quest.info.id, QuestState.CAN_FINISH);
+        }
     }
 
     private void FinishQuest(string id)
     {
-        Debug.Log("[QM] Finish Quest" + id);
+        Quest quest = GetQuestById(id);
+        ChangeQuestState(quest.info.id, QuestState.FINSIHED);
     }
     private Dictionary<string, Quest> CreateQuestMap()
     {

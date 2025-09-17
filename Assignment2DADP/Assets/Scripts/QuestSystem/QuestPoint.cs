@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using UnityEngine;
 
 
@@ -6,6 +7,10 @@ public class QuestPoint : MonoBehaviour
 {
     [Header("Quest")]
     [SerializeField] private QuestInfoSO questInfoForPoint;
+
+    [Header("Config")]
+    [SerializeField] private bool startPoint = true;
+    [SerializeField] private bool endPoint = true;
 
     private bool playerIsNear = false;
     private string questId;
@@ -45,16 +50,21 @@ public class QuestPoint : MonoBehaviour
             return;
         }
 
-        GameEventsManager.instance.questEvents.StartQuest(questId);
-        GameEventsManager.instance.questEvents.AdvanceQuest(questId);
-        GameEventsManager.instance.questEvents.FinishQuest(questId);
+        if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)
+        {
+            GameEventsManager.instance.questEvents.StartQuest(questId);
+        }
+
+        else if (currentQuestState.Equals(QuestState.CAN_FINISH) && endPoint)
+        {
+            GameEventsManager.instance.questEvents.FinishQuest(questId);
+        }
     }
     private void QuestStateChange(Quest quest)
     {
         if (quest.info.id.Equals(questId))
         {
             currentQuestState = quest.state;
-            Debug.Log("[QP] Quest with id:" + questId + "updated to state:" + currentQuestState);
         }
     }
     private void OnTriggerEnter(Collider otherCollider)
