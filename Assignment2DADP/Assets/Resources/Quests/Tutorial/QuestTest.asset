@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d837bd8a297e2984daae830c03db763d, type: 3}
-  m_Name: FPC_tutorial
+  m_Name: QuestTest
   m_EditorClassIdentifier: 
-  <id>k__BackingField: FPC_tutorial
-  displayName: Learn to use your new body
+  <id>k__BackingField: QuestTest
+  displayName: 
   questPrerequisite: []
-  questStepPrefabs: []
+  questStepPrefabs:
+  - {fileID: 766019769368037690, guid: ea49891f996ea8f4bb4b455792817783, type: 3}

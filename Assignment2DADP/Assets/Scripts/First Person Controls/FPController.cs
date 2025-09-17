@@ -225,6 +225,17 @@ public class FPController : MonoBehaviour
                 filling = false;
             }
         }
+
+        if (ctx.performed)
+        {
+            
+            var mgr = GameEventsManager.instance;
+            if (mgr?.inputEvents != null)
+            {
+                mgr.inputEvents.InteractPressed();
+                Debug.Log("[FPController] fired bus: inputEvents.InteractPressed()");
+            }
+        }
     }
 
     public void HandleMovement()

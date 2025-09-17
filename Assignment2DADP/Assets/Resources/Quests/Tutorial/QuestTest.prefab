@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4710405655958441538
+--- !u!1 &766019769368037690
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2897456735394326715}
-  - component: {fileID: 2130268835031279382}
+  - component: {fileID: 6658900613210678930}
+  - component: {fileID: 5528911754052165958}
   m_Layer: 0
-  m_Name: fpc_movementQuestStep
+  m_Name: QuestTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2897456735394326715
+--- !u!4 &6658900613210678930
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4710405655958441538}
+  m_GameObject: {fileID: 766019769368037690}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.422822, y: 0.17212042, z: 3.9941604}
+  m_LocalPosition: {x: 4.8546925, y: 0.077317916, z: 1.2765918}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2130268835031279382
+--- !u!114 &5528911754052165958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4710405655958441538}
+  m_GameObject: {fileID: 766019769368037690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2dcf8f30d8d9c045a442a79d56325b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1671e7bcc983bb643a23c8161be36c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 0}
-  Movement: Movement
-  Look: Look
-  Interact: Interact
-  player: {fileID: 0}
-  mainCamera: {fileID: 0}
-  interactTarget: {fileID: 0}
-  moveRequired: 3
-  lookRequired: 180
-  toolTip: {fileID: 0}
+  autoCompleteDelay: 5

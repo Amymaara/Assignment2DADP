@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class QuestManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class QuestManager : MonoBehaviour
     {
         questMap = CreateQuestMap();
 
-        Quest quest = GetQuestById("FPC_tutorial");
+        Quest quest = GetQuestById(" [QM] QuestTest");
     }
 
     private void OnEnable()
@@ -26,28 +27,31 @@ public class QuestManager : MonoBehaviour
         GameEventsManager.instance.questEvents.onFinishQuest -= FinishQuest;
     }
 
-   /* private void Start()
+   private void Start()
     {
+        Debug.Log("[QM] quest able to start");
         foreach (Quest quest in questMap.Values)
         {
             GameEventsManager.instance.questEvents.QuestStateChange(quest);
+           
         }
+        
     }
 
-    */
+    
     private void StartQuest(string id)
     {
-        Debug.Log("Quest Start" + id);
+        Debug.Log("[QM] Quest Start" + id);
     }
 
     private void AdvanceQuest(string id)
     {
-        Debug.Log("Advance Quest" + id);
+        Debug.Log("QM] Advance Quest" + id);
     }
 
     private void FinishQuest(string id)
     {
-        Debug.Log("Finish Quest" + id);
+        Debug.Log("[QM] Finish Quest" + id);
     }
     private Dictionary<string, Quest> CreateQuestMap()
     {
@@ -58,7 +62,7 @@ public class QuestManager : MonoBehaviour
         {
             if (idToQuestMap.ContainsKey(questInfo.id))
             {
-                Debug.LogWarning("Duplicate ID found wheen creating qyest map:" + questInfo.id);
+                Debug.LogWarning("[QM] Duplicate ID found wheen creating qyest map:" + questInfo.id);
             }
             idToQuestMap.Add(questInfo.id, new Quest(questInfo));
         }
@@ -71,7 +75,7 @@ public class QuestManager : MonoBehaviour
         Quest quest = questMap[id];
         if (quest == null)
         {
-            Debug.LogError("Id not foind is quest map" + id);
+            Debug.LogError("[QM] Id not foind is quest map" + id);
         }
         return quest;
     }
