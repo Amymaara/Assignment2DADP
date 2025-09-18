@@ -233,7 +233,6 @@ public class FPController : MonoBehaviour
             if (mgr?.inputEvents != null)
             {
                 mgr.inputEvents.InteractPressed();
-                Debug.Log("[FPController] fired bus: inputEvents.InteractPressed()");
             }
         }
     }

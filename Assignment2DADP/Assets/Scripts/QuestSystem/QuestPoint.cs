@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent (typeof(SphereCollider))]
 public class QuestPoint : MonoBehaviour
 {
+    [Header("Dialogue")]
+    [SerializeField] private string dialogueKnotName;
+    
     [Header("Quest")]
     [SerializeField] private QuestInfoSO questInfoForPoint;
 
@@ -31,34 +34,42 @@ public class QuestPoint : MonoBehaviour
        GameEventsManager.instance.questEvents.onQuestStateChange += QuestStateChange;
        GameEventsManager.instance.inputEvents.onInteractPressed += InteractPressed;
 
-        Debug.Log("[QP] Enabled: Waiting for player + interact");
 
     }
     private void OnDisable()
     {
        GameEventsManager.instance.questEvents.onQuestStateChange -= QuestStateChange;
        GameEventsManager.instance.inputEvents.onInteractPressed -= InteractPressed;
-
-        Debug.Log("[QP] Disabled");
     }
 
-    private void InteractPressed()
+    private void InteractPressed(InputEventsContext inputEventsContext)
     {
-        Debug.Log("[QP] Interact pressed");
-        if (!playerIsNear)
+        if (!playerIsNear || !inputEventsContext.Equals(InputEventsContext.DEFAULT))
         {
             return;
         }
 
-        if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)
+        if (!dialogueKnotName.Equals(""))
         {
-            GameEventsManager.instance.questEvents.StartQuest(questId);
+            GameEventsManager.instance.dialogueEvents.EnterDialogue(dialogueKnotName);
         }
 
-        else if (currentQuestState.Equals(QuestState.CAN_FINISH) && endPoint)
+        else
         {
-            GameEventsManager.instance.questEvents.FinishQuest(questId);
+            if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)
+            {
+                GameEventsManager.instance.questEvents.StartQuest(questId);
+            }
+
+            else if (currentQuestState.Equals(QuestState.CAN_FINISH) && endPoint)
+            {
+                GameEventsManager.instance.questEvents.FinishQuest(questId);
+            }
+
         }
+
+
+        
     }
     private void QuestStateChange(Quest quest)
     {
@@ -72,7 +83,6 @@ public class QuestPoint : MonoBehaviour
         if (otherCollider.CompareTag("Player"))
         {
             playerIsNear = true;
-            Debug.Log("[QP] Player entered trigger");
         }
     }
     private void OnTriggerExit(Collider otherCollider)
@@ -80,7 +90,6 @@ public class QuestPoint : MonoBehaviour
         if (otherCollider.CompareTag("Player"))
         {
             playerIsNear = false;
-            Debug.Log("[QP] Player exited trigger");
         }
     }
 }

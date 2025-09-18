@@ -13,6 +13,8 @@ public class GameEventsManager : MonoBehaviour
 
     public InputEvents inputEvents;
 
+    public PlayerEvents playerEvents;   
+
     private void Awake()
     {
         if (instance != null)
@@ -24,8 +26,9 @@ public class GameEventsManager : MonoBehaviour
         //initialise all events
 
         questEvents = new QuestEvents();
+        inputEvents = new InputEvents(); 
         dialogueEvents = new DialogueEvents();
-        inputEvents = new InputEvents();   
+        playerEvents = new PlayerEvents();  
     }
 
 }

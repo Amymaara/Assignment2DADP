@@ -3,14 +3,19 @@ using System;
 
 public class InputEvents
 {
-    public event Action onInteractPressed;
+    public InputEventsContext inputEventsContext { get; private set; } = InputEventsContext.DEFAULT;
+
+    public void ChangeInputEventsContext(InputEventsContext newContext)
+    {
+        this.inputEventsContext = newContext;
+    }
+    public event Action<InputEventsContext> onInteractPressed;
 
     public void InteractPressed()
     {
         if (onInteractPressed != null)
         {
-            onInteractPressed();
-            UnityEngine.Debug.Log("[InputEvents] fired bus: onInteractPressed invoked");
+            onInteractPressed(this.inputEventsContext);
         }
     }
 }

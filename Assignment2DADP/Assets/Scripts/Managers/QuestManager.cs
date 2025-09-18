@@ -55,6 +55,7 @@ public class QuestManager : MonoBehaviour
             if (GetQuestById(prerequisiteQuestInfo.id).state != QuestState.FINSIHED)
             {
                 meetsRequirements = false;
+                break;
             }
         }
 
