@@ -95,7 +95,7 @@ public class PotionMixBehaviour : MonoBehaviour
 
     public void OnMinigameComplete()
     {
-        // send the success or fail bool to wherever it needs to go like particle effect player?
+        // send the success or fail bool to wherever it needs to go like particle effect player?, maybe sound and stuff should only play after player leaves minigame?
 
         if (!MinigameSuccess)
         {

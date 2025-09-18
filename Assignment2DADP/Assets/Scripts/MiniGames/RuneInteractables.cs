@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RuneInteractables : IngredientObject
 {
-
+   
     public enum RuneMaterial
     {
         Wood,

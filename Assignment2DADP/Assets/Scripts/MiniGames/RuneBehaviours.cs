@@ -28,9 +28,7 @@ public class RuneBehaviour : MonoBehaviour
     public Material bone;
     public Material stone;
 
-    public GameObject StarRune;
-    public GameObject MoonRune;
-    public GameObject TrifectaRune;
+    
    
 
     //public Material Star;
@@ -38,7 +36,7 @@ public class RuneBehaviour : MonoBehaviour
     //public Material Moon;
     //public GameObject ScribbleRune;
 
-    public GameObject finishedRunePrefab;
+    
 
 
     public void OnRuneTableInteract(RuneInteractables input)
@@ -113,34 +111,26 @@ public class RuneBehaviour : MonoBehaviour
 
     public void Outcome(float accuracy)
     {
-        RuneInteractables finishedRune = finishedRunePrefab.GetComponent<RuneInteractables>();
+        FinishedRuneObject finishedRune = outPutProduct.GetComponent<FinishedRuneObject>();
+        finishedRune.skillAcurracy = accuracy;
+        Destroy(controller.heldObject.gameObject);
+        Instantiate(outPutProduct);
 
         if (accuracy < 0.77f)
         {
-
             // play fail effects / sounds once minigame closes?
-            finishedRune.material = 
+            finishedRune.SetMaterial(RuneInteractables.Stamp.Scribbles, workstation.playerRune.material);
 
         }
         else
         {
             //play pass effects/sounds
 
-            if (workstation.playerRune.stamp == RuneInteractables.Stamp.Star)
-            {
-                
-            }
-            else if (workstation.playerRune.stamp == RuneInteractables.Stamp.Moon)
-            {
-
-            }
-            else if (workstation.playerRune.stamp == RuneInteractables.Stamp.Trifecta)
-            {
-
-            }
-
+                finishedRune.SetMaterial(workstation.playerRune.stamp, workstation.playerRune.material);
             
         }
+
+        controller.SpawnFullBottleInHand(outPutProduct);
     }
 
 }
