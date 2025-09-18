@@ -18,6 +18,7 @@ public class InputManager : MonoBehaviour
         //SwitchToUI();
         //ToolTipsCanvas.SetActive(true);
         SwitchToGameplay();
+        PotionWorldSpaceCanvas.SetActive(false);
 
     }
 
@@ -42,6 +43,7 @@ public class InputManager : MonoBehaviour
 
     public void SwitchToRuneDrawing()
     {
+        PotionWorldSpaceCanvas.SetActive(false);
         RuneMinigame.SetActive(true);
         player.SetActive(false);
         cursor.SetActive(true);
