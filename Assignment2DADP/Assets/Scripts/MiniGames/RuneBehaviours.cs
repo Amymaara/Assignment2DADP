@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Windows;
@@ -12,6 +13,7 @@ public class RuneBehaviour : MonoBehaviour
     public GameObject firstButton;
 
     [Header("Player Movement")]
+    public FPController controller;
     public GameObject cursor;
     public GameObject playerLine;
     public InputManager inputManager;
@@ -19,17 +21,22 @@ public class RuneBehaviour : MonoBehaviour
 
     [Header("Runes")]
     public RuneInteractables inputProduct;
+    public GameObject outPutProduct;
     public GameObject runeOnTable;
-    public RuneInteractables outputProduct;
     public RuneWorkstation workstation;
     public Material wood;
     public Material bone;
     public Material stone;
 
-    public Material Star;
-    public Material Trifecta;
-    public Material Moon;
+    
+   
 
+    //public Material Star;
+    //public Material Trifecta;
+    //public Material Moon;
+    //public GameObject ScribbleRune;
+
+    
 
 
     public void OnRuneTableInteract(RuneInteractables input)
@@ -72,8 +79,8 @@ public class RuneBehaviour : MonoBehaviour
         playerLine.SetActive(true);
         canvas.SetActive(false);
         workstation.playerRune.stamp = RuneInteractables.Stamp.Star;
-        workstation.playerRune.secondMesh.SetActive(true);
-        workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Star;
+        //workstation.playerRune.secondMesh.SetActive(true);
+        //workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Star;
         drawing.canDraw = true;
 
     }
@@ -85,8 +92,8 @@ public class RuneBehaviour : MonoBehaviour
         playerLine.SetActive(true);
         canvas.SetActive(false);
         workstation.playerRune.stamp = RuneInteractables.Stamp.Moon;
-        workstation.playerRune.secondMesh.SetActive(true);
-        workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Moon;
+        //workstation.playerRune.secondMesh.SetActive(true);
+        //workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Moon;
         drawing.canDraw = true;
     }
 
@@ -97,10 +104,33 @@ public class RuneBehaviour : MonoBehaviour
         playerLine.SetActive(true);
         canvas.SetActive(false);
         workstation.playerRune.stamp = RuneInteractables.Stamp.Trifecta;
-        workstation.playerRune.secondMesh.SetActive(true);
-        workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Trifecta;
+        //workstation.playerRune.secondMesh.SetActive(true);
+        //workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Trifecta;
         drawing.canDraw = true;
     }
 
+    public void Outcome(float accuracy)
+    {
+        FinishedRuneObject finishedRune = outPutProduct.GetComponent<FinishedRuneObject>();
+        finishedRune.skillAcurracy = accuracy;
+        Destroy(controller.heldObject.gameObject);
+        Instantiate(outPutProduct);
+
+        if (accuracy < 0.77f)
+        {
+            // play fail effects / sounds once minigame closes?
+            finishedRune.SetMaterial(RuneInteractables.Stamp.Scribbles, workstation.playerRune.material);
+
+        }
+        else
+        {
+            //play pass effects/sounds
+
+                finishedRune.SetMaterial(workstation.playerRune.stamp, workstation.playerRune.material);
+            
+        }
+
+        controller.SpawnFullBottleInHand(outPutProduct);
+    }
 
 }

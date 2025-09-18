@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &125984483704596036
+--- !u!1 &4315198633951607275
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,62 +8,93 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7446874461505855268}
-  - component: {fileID: 7606375078474567910}
-  - component: {fileID: 5170570867766242348}
-  - component: {fileID: 2342688136278039012}
-  - component: {fileID: 7864283404123249746}
-  - component: {fileID: 7801008811389138107}
-  - component: {fileID: 5024008377448361833}
+  - component: {fileID: 6333839711293723634}
+  - component: {fileID: 7598286940319798674}
+  - component: {fileID: 2219764733867459371}
+  - component: {fileID: 4782279951460803419}
+  - component: {fileID: 6082182047947953316}
+  - component: {fileID: 4164971689899154998}
+  - component: {fileID: 5585509829932162488}
   m_Layer: 6
-  m_Name: EmptyBottle
+  m_Name: FinishedRune
   m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7446874461505855268
+--- !u!4 &6333839711293723634
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125984483704596036}
+  m_GameObject: {fileID: 4315198633951607275}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4113407, y: -5.245, z: -3.901}
-  m_LocalScale: {x: 0.18, y: 0.3927273, z: 0.18}
+  m_LocalPosition: {x: 2.4113407, y: -5.3758307, z: -4.1893306}
+  m_LocalScale: {x: 0.22, y: 0.22, z: 0.22}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7606375078474567910
+--- !u!33 &7598286940319798674
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125984483704596036}
+  m_GameObject: {fileID: 4315198633951607275}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &5170570867766242348
+--- !u!114 &2219764733867459371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125984483704596036}
+  m_GameObject: {fileID: 4315198633951607275}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3397af439110d041bd7e888399ab915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!23 &2342688136278039012
+--- !u!114 &4782279951460803419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4315198633951607275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfe8f5191d210d74bad0f5712e5ff8b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishedProduct: 1
+  station: 0
+  material: 2
+  stamp: 1
+  skillAcurracy: 0.82246375
+  Materials:
+  - {fileID: 2100000, guid: dfcfd428ab99aa546b200507fa9898c9, type: 2}
+  - {fileID: 2100000, guid: a5ae3edbe9a77db47b64dbece8a41e19, type: 2}
+  - {fileID: 2100000, guid: 97a1aafb55f5435489732167f164e70a, type: 2}
+  - {fileID: 2100000, guid: 4722d0e664f2ba34ea2ca13df0e2a101, type: 2}
+  - {fileID: 2100000, guid: 4722d0e664f2ba34ea2ca13df0e2a101, type: 2}
+  - {fileID: 2100000, guid: 4722d0e664f2ba34ea2ca13df0e2a101, type: 2}
+  - {fileID: 2100000, guid: 102fbd4868719df4880051a4e9f16457, type: 2}
+  - {fileID: 2100000, guid: 102fbd4868719df4880051a4e9f16457, type: 2}
+  - {fileID: 2100000, guid: 102fbd4868719df4880051a4e9f16457, type: 2}
+  - {fileID: 2100000, guid: 7287636d40c661a489a4012b471c0811, type: 2}
+  - {fileID: 2100000, guid: 7287636d40c661a489a4012b471c0811, type: 2}
+  - {fileID: 2100000, guid: 7287636d40c661a489a4012b471c0811, type: 2}
+  ThisRune: {fileID: 4315198633951607275}
+--- !u!23 &6082182047947953316
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125984483704596036}
+  m_GameObject: {fileID: 4315198633951607275}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -80,7 +111,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 10480d168ab659041af1044405233153, type: 2}
+  - {fileID: 2100000, guid: 4722d0e664f2ba34ea2ca13df0e2a101, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,13 +133,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7864283404123249746
+--- !u!65 &4164971689899154998
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125984483704596036}
+  m_GameObject: {fileID: 4315198633951607275}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -123,13 +154,13 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &7801008811389138107
+--- !u!54 &5585509829932162488
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125984483704596036}
+  m_GameObject: {fileID: 4315198633951607275}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -150,17 +181,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5024008377448361833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125984483704596036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e085267044448848aead7ced078d837, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  recipe: 0
-  state: 0

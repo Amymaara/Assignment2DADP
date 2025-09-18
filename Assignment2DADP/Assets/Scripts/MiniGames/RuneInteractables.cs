@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RuneInteractables : IngredientObject
 {
-
+   
     public enum RuneMaterial
     {
         Wood,
@@ -15,7 +15,8 @@ public class RuneInteractables : IngredientObject
         None,
         Star,
         Moon,
-        Trifecta
+        Trifecta,
+        Scribbles
     }
 
     public RuneMaterial material;
@@ -23,6 +24,6 @@ public class RuneInteractables : IngredientObject
 
     public float skillAcurracy = 0; // how accurate is the skill based part of the assignment
 
-    public GameObject secondMesh;
+    //public GameObject secondMesh;
 
 }
