@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 
 public class RuneDraw : MonoBehaviour
@@ -18,6 +19,7 @@ public class RuneDraw : MonoBehaviour
     public GameObject stampset;
     public InputManager inputManager;
     public RuneWorkstation workstation;
+    //public RuneBehaviour runeBehaviour;
     //public Belladona cat;
     public GameObject firstButton;
 
@@ -178,18 +180,18 @@ public class RuneDraw : MonoBehaviour
         float playerAccuracy = CalculateAccuracy(targetLine, playerLine, pointSpacing, accuracyThreshold);
         Debug.Log(playerAccuracy);
         workstation.playerRune.skillAcurracy = playerAccuracy;
+        workstation.runeBehavior.Outcome(playerAccuracy);
         playerLine.positionCount = 0;
         cursor.SetActive(false);
         targetLineGameObject.SetActive(false);
-        inputManager.SwitchToGameplay();
         workstation.playerRune.finishedProduct = true;
-        //Outcome();
         playerLineGameObject.SetActive(false); // the object this script is on
-
-
+        inputManager.SwitchToGameplay();
     }
 
-    // delete old object, spawn in a new one
+    
+
+    
 
     /*
     public void Outcome()
