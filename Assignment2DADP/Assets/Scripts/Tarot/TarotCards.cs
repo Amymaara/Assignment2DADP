@@ -11,11 +11,12 @@ public enum TarotCardType
 [CreateAssetMenu(fileName = "NewCard", menuName = "Tarot/Card")]
 public class TarotCards : ScriptableObject
 {
-    public string cardName;
     public string heading;
     [TextArea] public string description;
     public Sprite cardFront;
 
     public TarotCardType cardType;
     public string itemID;
+
+    [TextArea] public string recipe;
 }

@@ -47,6 +47,7 @@ public class TarotManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
+        playerInput.SwitchCurrentActionMap("UI");  // switch to UI controls
         StartSpread(chosenReading); // Setup spread 
     }
     public void CompleteOrder() // called on order completion
@@ -77,6 +78,9 @@ public class TarotManager : MonoBehaviour
         spread[2] = currentReading.reasonWhyCards;
 
         continueButton.gameObject.SetActive(false);
+        continueButton.interactable = true;
+        continueButton.onClick.RemoveAllListeners();
+        continueButton.onClick.AddListener(OnContinueButton);
 
         // initialize cards
         for (int i = 0; i < 3; i++)
@@ -155,6 +159,8 @@ public class TarotManager : MonoBehaviour
         if (spread[index].cardType == TarotCardType.Item)
         {
             itemToMake = spread[index].itemID;
+            objectiveUI.SetObjective(itemToMake);
+            objectiveUI.SetRecipe(spread[index].recipe);
         }
 
         // show continue button if all cards flipped

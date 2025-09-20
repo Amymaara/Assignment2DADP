@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4045a8ebb5b3b894f880e95c057df58e, type: 3}
   m_Name: Knowledge Potion
   m_EditorClassIdentifier: 
-  cardName: Knowledge Potion
   heading: 'Item:'
   description: Knowledge Potion
   cardFront: {fileID: 7482667652216324306, guid: 19dc7039ec51db2469f7832ccb9d581e, type: 3}
   cardType: 1
   itemID: Knowledge Potion
+  recipe: '1: Sage
+
+    3: Dragon Blood'
