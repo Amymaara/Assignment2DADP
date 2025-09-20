@@ -7,6 +7,9 @@ public class RuneWorkstation : MonoBehaviour, IInteractable
     public RuneBehaviour runeBehavior;
     public RuneInteractables playerRune;
 
+    public ParticleSystem SuccessParticles;
+    public ParticleSystem FailParticles;
+
 
     public void Interact()
     {

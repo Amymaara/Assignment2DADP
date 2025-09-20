@@ -119,13 +119,14 @@ public class RuneBehaviour : MonoBehaviour
         if (accuracy < 0.77f)
         {
             // play fail effects / sounds once minigame closes?
+            workstation.FailParticles.Play();
             finishedRune.SetMaterial(RuneInteractables.Stamp.Scribbles, workstation.playerRune.material);
 
         }
         else
         {
-            //play pass effects/sounds
-
+                // fail sounds?
+                workstation.SuccessParticles.Play();
                 finishedRune.SetMaterial(workstation.playerRune.stamp, workstation.playerRune.material);
             
         }
