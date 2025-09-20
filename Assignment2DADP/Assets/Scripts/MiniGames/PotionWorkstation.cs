@@ -5,6 +5,11 @@ public class PotionWorkstation : MonoBehaviour, IFillable, IInteractable
     public PotionFillManager fillManager;
     public PotionBehaviour potionBehaviour;
     public GameObject heldObject;
+
+    public ParticleSystem ParticleSuccess;
+    public ParticleSystem ParticleFail;
+
+
     public void OnFillStart()
     {
         Debug.Log("Trying To Fill");

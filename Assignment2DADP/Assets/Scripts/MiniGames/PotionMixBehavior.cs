@@ -18,6 +18,7 @@ public class PotionMixBehaviour : MonoBehaviour
     public bool MinigameSuccess;
     public Slider TimerSlider;
     private bool GameEnded;
+    public PotionWorkstation cauldron;
 
     public void OnEnable()
     {
@@ -100,12 +101,13 @@ public class PotionMixBehaviour : MonoBehaviour
         if (!MinigameSuccess)
         {
             potionBehaviour.recipe = PotionBehaviour.Recipe.None;
-            // play fail particles/ fail sound
+            cauldron.ParticleFail.Play();
         }
 
         if (MinigameSuccess)
         {
             // play particles/ success sound
+            cauldron.ParticleSuccess.Play();
         }
 
         potionBehaviour.currentState = PotionBehaviour.CauldronState.Bottling;
