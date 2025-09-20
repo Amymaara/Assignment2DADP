@@ -721,6 +721,45 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Tarot"",
+            ""id"": ""4a7f4f13-1e4a-4cc1-be28-379d7a70a4de"",
+            ""actions"": [
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""8be9c657-9a4f-49a1-9abc-2b14b32ee33b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""5c00b1ce-2891-4069-882c-8fe4ad62b899"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59e75606-1530-4509-a689-5599db9e710b"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Controller"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -773,6 +812,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
+        // Tarot
+        m_Tarot = asset.FindActionMap("Tarot", throwIfNotFound: true);
+        m_Tarot_Interact = m_Tarot.FindAction("Interact", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -781,6 +823,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_Runes.enabled, "This will cause a leak and performance issues, Controls.Runes.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Potions.enabled, "This will cause a leak and performance issues, Controls.Potions.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, Controls.UI.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Tarot.enabled, "This will cause a leak and performance issues, Controls.Tarot.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1324,6 +1367,102 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="UIActions" /> instance referencing this action map.
     /// </summary>
     public UIActions @UI => new UIActions(this);
+
+    // Tarot
+    private readonly InputActionMap m_Tarot;
+    private List<ITarotActions> m_TarotActionsCallbackInterfaces = new List<ITarotActions>();
+    private readonly InputAction m_Tarot_Interact;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Tarot".
+    /// </summary>
+    public struct TarotActions
+    {
+        private @Controls m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public TarotActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Tarot/Interact".
+        /// </summary>
+        public InputAction @Interact => m_Wrapper.m_Tarot_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Tarot; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="TarotActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(TarotActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="TarotActions" />
+        public void AddCallbacks(ITarotActions instance)
+        {
+            if (instance == null || m_Wrapper.m_TarotActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_TarotActionsCallbackInterfaces.Add(instance);
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="TarotActions" />
+        private void UnregisterCallbacks(ITarotActions instance)
+        {
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="TarotActions.UnregisterCallbacks(ITarotActions)" />.
+        /// </summary>
+        /// <seealso cref="TarotActions.UnregisterCallbacks(ITarotActions)" />
+        public void RemoveCallbacks(ITarotActions instance)
+        {
+            if (m_Wrapper.m_TarotActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="TarotActions.AddCallbacks(ITarotActions)" />
+        /// <seealso cref="TarotActions.RemoveCallbacks(ITarotActions)" />
+        /// <seealso cref="TarotActions.UnregisterCallbacks(ITarotActions)" />
+        public void SetCallbacks(ITarotActions instance)
+        {
+            foreach (var item in m_Wrapper.m_TarotActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_TarotActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="TarotActions" /> instance referencing this action map.
+    /// </summary>
+    public TarotActions @Tarot => new TarotActions(this);
     private int m_KeyboardSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1465,5 +1604,20 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnEscape(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Tarot" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="TarotActions.AddCallbacks(ITarotActions)" />
+    /// <seealso cref="TarotActions.RemoveCallbacks(ITarotActions)" />
+    public interface ITarotActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

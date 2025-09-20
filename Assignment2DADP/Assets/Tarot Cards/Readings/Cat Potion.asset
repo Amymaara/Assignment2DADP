@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e44c003a585674a8504d2fba20e3da, type: 3}
+  m_Name: Cat Potion
+  m_EditorClassIdentifier: 
+  causeOfDeathCards: {fileID: 11400000, guid: f1267e8e744a7134993b11b456f2dd71, type: 2}
+  itemCards: {fileID: 11400000, guid: 53c06194a19b1044fb5c852ab71689a5, type: 2}
+  reasonWhyCards: {fileID: 11400000, guid: d48a96321dd9fef49aaffe8b3bf6f010, type: 2}

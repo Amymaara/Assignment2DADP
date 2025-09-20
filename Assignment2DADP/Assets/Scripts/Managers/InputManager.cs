@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour
     public CameraManager manager;
     public GameObject RuneMinigame;
     public GameObject pauseMenu;
+    public GameObject tarot;
     //public GameObject ToolTipsCanvas;
     //public GameObject DialogueCanvas;
     public GameObject PotionWorldSpaceCanvas;
@@ -40,6 +41,7 @@ public class InputManager : MonoBehaviour
         pauseMenu.SetActive(true);
         player.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
     }
+
 
     public void SwitchToRuneDrawing()
     {

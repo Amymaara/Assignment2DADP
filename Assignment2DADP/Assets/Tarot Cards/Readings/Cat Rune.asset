@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e44c003a585674a8504d2fba20e3da, type: 3}
+  m_Name: Cat Rune
+  m_EditorClassIdentifier: 
+  causeOfDeathCards: {fileID: 11400000, guid: 0da4701b61055f54c9e3b33b6f769b82, type: 2}
+  itemCards: {fileID: 11400000, guid: a50c6d517ade8d94eb167dbd45666ee8, type: 2}
+  reasonWhyCards: {fileID: 11400000, guid: e4b9d6d0767120e4bb148b9606f01e7f, type: 2}
