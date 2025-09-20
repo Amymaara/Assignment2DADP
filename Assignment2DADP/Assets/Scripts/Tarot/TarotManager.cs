@@ -54,6 +54,7 @@ public class TarotManager : MonoBehaviour
         orderInProgress = false;
         objectiveUI.HideObjectiveCard();    // hides orderUI if there is no active order
     }
+
     public void OnContinueButton()  // closes tarotUI once all cards are flipped
     {
         CloseSpread();
