@@ -1,5 +1,5 @@
 using System.Collections;
-
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -21,8 +21,9 @@ public class SpawnManager : MonoBehaviour
         public GameObject prefab;
         public Transform spawnPoint;
         public float respawnDelay = 2f;
-
+        public int maxSpawnedObjects = 4;
         [HideInInspector] public bool isRespawning = false;
+        [HideInInspector] public List<GameObject> spawnedObjects = new List<GameObject>();
     }
 
     public IngredientSlot[] slots;
@@ -34,12 +35,13 @@ public class SpawnManager : MonoBehaviour
             Instantiate(slot.prefab, slot.spawnPoint.position, slot.spawnPoint.rotation);
         }
     }
+
     public void OnObjectLeftShelf(string ingredientName)
     {
         IngredientSlot slot = System.Array.Find(slots, s => s.ingredientName == ingredientName);
         if (slot != null && !slot.isRespawning)
         {
-            Debug.Log("Trying To Respawning");
+            Debug.Log("Trying to respawn " + ingredientName);
             StartCoroutine(Respawn(slot));
         }
     }
@@ -47,9 +49,25 @@ public class SpawnManager : MonoBehaviour
     private IEnumerator Respawn(IngredientSlot slot)
     {
         slot.isRespawning = true;
-        Debug.Log("Respawning");
+        Debug.Log("Respawning " + slot.ingredientName);
         yield return new WaitForSeconds(slot.respawnDelay);
-        Instantiate(slot.prefab, slot.spawnPoint.position, slot.spawnPoint.rotation);
+        Spawn(slot);
         slot.isRespawning = false;
     }
+
+    private void Spawn(IngredientSlot slot)
+    {
+        GameObject obj = Instantiate(slot.prefab, slot.spawnPoint.position, slot.spawnPoint.rotation);
+
+        
+        slot.spawnedObjects.Add(obj);
+
+     
+        if (slot.spawnedObjects.Count > slot.maxSpawnedObjects)
+        {
+            Destroy(slot.spawnedObjects[0]);
+            slot.spawnedObjects.RemoveAt(0);
+        }
+    }
 }
+
