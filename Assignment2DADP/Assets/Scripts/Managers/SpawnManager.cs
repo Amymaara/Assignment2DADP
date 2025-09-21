@@ -1,17 +1,27 @@
+using Mono.Cecil.Cil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class SpawnManager : MonoBehaviour
 {
     // This script spawns a new ingredient on the shelf if the player picksit up after a short delay.
-    // I still need to add a limit for the number of each type of ingredient in a scene so that it cant be spammed.
+    // I combined a few different tutorials/recources
 
-    // https://discussions.unity.com/t/respawn-a-pickup-using-instantiate/545091/5
 
+    // Title: Respawn a pickup using Instantiate (Unity Discussion forum snippet)
+    // Author: Unity community user(s)
+    // Date Accessed: 15 September 2025
+    //Availability:https://discussions.unity.com/t/respawn-a-pickup-using-instantiate/545091/5
+
+
+    // Title: How to Make an Object Spawner in Unity (Unity C# Tutorial)
+    //Author: Omogonix
+    // Date Accessed: 15 September 2025
     // https://www.youtube.com/watch?v=GtjoE1cA9Qs
 
-    //https://www.youtube.com/watch?v=sUMEnIUeVro
+
 
 
     [System.Serializable]
@@ -41,7 +51,6 @@ public class SpawnManager : MonoBehaviour
         IngredientSlot slot = System.Array.Find(slots, s => s.ingredientName == ingredientName);
         if (slot != null && !slot.isRespawning)
         {
-            Debug.Log("Trying to respawn " + ingredientName);
             StartCoroutine(Respawn(slot));
         }
     }
@@ -49,7 +58,6 @@ public class SpawnManager : MonoBehaviour
     private IEnumerator Respawn(IngredientSlot slot)
     {
         slot.isRespawning = true;
-        Debug.Log("Respawning " + slot.ingredientName);
         yield return new WaitForSeconds(slot.respawnDelay);
         Spawn(slot);
         slot.isRespawning = false;

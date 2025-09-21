@@ -76,7 +76,12 @@ public class PotionFillManager : MonoBehaviour
         else return;
     }
 
-
+   //I did use chatGPT for this part since i couldnt find any resources online
+    //Title: Potion Fill Bar Slider Help
+    //Author: ChatGPT 
+    //Date accessed: 30 August 2025
+    //Code version: 1
+    //Availability: https://chatgpt.com/c/689cde06-8b18-832c-bd0d-f75bdde15edd
     public void GrowSection()
     {
         if (!filling || currentRect == null) return;

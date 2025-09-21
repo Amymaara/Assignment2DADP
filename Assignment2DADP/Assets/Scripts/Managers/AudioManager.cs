@@ -12,6 +12,9 @@ public class AudioManager : MonoBehaviour
     {
         // list all sounds here in order assign to inspector
         FOOTSTEP,
+        MINIGAMESUCCESS,
+        MINIGAMEFAIL,
+        POTIONBUBBLES,
         AMBIENCE
     }
 

@@ -52,6 +52,10 @@ public class FPController : MonoBehaviour
     private Vector3 velocity;
     private float verticalRotation = 0f;
 
+
+    [SerializeField] private float footstepInterval = 0.3f; 
+    private float footstepTimer = 0f;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -70,7 +74,20 @@ public class FPController : MonoBehaviour
         HandleMovement();
         HandleLook();
 
-        
+        if (moveInput.magnitude > 0)
+        {
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0f)
+            {
+                AudioManager.PlaySound(AudioManager.SoundType.FOOTSTEP, 0.3f);
+                footstepTimer = footstepInterval;
+            }
+        }
+        else
+        {
+            footstepTimer = 0f; 
+        }
+
     }
 
     public void OnPause(InputAction.CallbackContext context)
@@ -83,7 +100,7 @@ public class FPController : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
         if (moveInput != null)
         {
-            AudioManager.PlaySound(AudioManager.SoundType.FOOTSTEP);
+            //AudioManager.PlaySound(AudioManager.SoundType.FOOTSTEP);
         }
     }
     public void OnLook(InputAction.CallbackContext context)

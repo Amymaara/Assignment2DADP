@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static AudioManager;
 
 public class PotionMixBehaviour : MonoBehaviour
 {
@@ -21,10 +22,13 @@ public class PotionMixBehaviour : MonoBehaviour
     public PotionWorkstation cauldron;
     public Material badPotion;
 
+
     public void OnEnable()
     {
         MiniGameSetUp();
         GameEnded = false;
+        AudioManager.PlaySound(SoundType.POTIONBUBBLES, 0.5f);
+
     }
 
     private void OnDisable()
@@ -48,7 +52,10 @@ public class PotionMixBehaviour : MonoBehaviour
     }
 
     // random object spawning help from this video
-    // https://www.youtube.com/watch?v=bIM3VAiZHeQ
+    // Title: How to Spawn Random Objects in Unity
+    // Author: Unity Ace
+    // Date Accessed: 15 September 2025 
+    // Accesibility: https://www.youtube.com/watch?v=bIM3VAiZHeQ
     public void MiniGameSetUp()
     {
         for (int i = 0; i < 6; i++)
@@ -103,6 +110,7 @@ public class PotionMixBehaviour : MonoBehaviour
         {
             potionBehaviour.recipe = PotionBehaviour.Recipe.None;
             cauldron.ParticleFail.Play();
+            AudioManager.PlaySound(SoundType.MINIGAMEFAIL, 1);
             potionBehaviour.LiquidCauldron.GetComponent<Renderer>().material = badPotion;
         }
 
@@ -110,6 +118,7 @@ public class PotionMixBehaviour : MonoBehaviour
         {
             // play particles/ success sound
             cauldron.ParticleSuccess.Play();
+            AudioManager.PlaySound(SoundType.MINIGAMESUCCESS,1);
         }
 
         potionBehaviour.currentState = PotionBehaviour.CauldronState.Bottling;
@@ -170,7 +179,10 @@ public class PotionMixBehaviour : MonoBehaviour
         }
     }
 
-
+    // Title: The 2 BEST Ways to Time DELAY a FUNCTION - Unity
+    // Author: Pixel Soup - The Indie Game Detective
+    // Date Accessed: 15 September 2025 
+    // random object spawning help from this video
     // https://www.youtube.com/watch?v=jwEPKY9poa4
 
     public void StartMiniGameEndDelay()
