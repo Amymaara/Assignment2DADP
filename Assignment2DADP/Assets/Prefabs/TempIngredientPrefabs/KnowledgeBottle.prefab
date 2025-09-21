@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6839674718334637721}
   - component: {fileID: 1009177372212060526}
   - component: {fileID: 2836721290115268119}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: KnowledgeBottle
   m_TagString: canPickUp
   m_Icon: {fileID: 0}

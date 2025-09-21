@@ -25,7 +25,7 @@ public class FPController : MonoBehaviour
     public PickUpObject heldObject;
     public Transform holdPoint;
     public IngredientObject holdObject;
-    private PickUpController pickupController;
+  
 
     [Header("UI Elements")]
     public TextMeshProUGUI pickupText;
@@ -55,7 +55,7 @@ public class FPController : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
-        pickupController = GetComponent<PickUpController>();
+        
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }

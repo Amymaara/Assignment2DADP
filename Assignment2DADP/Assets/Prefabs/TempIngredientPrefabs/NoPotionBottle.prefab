@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2232290714270931693}
   - component: {fileID: 4523716821513452428}
   - component: {fileID: 680577285607937118}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: NoPotionBottle
   m_TagString: canPickUp
   m_Icon: {fileID: 0}
