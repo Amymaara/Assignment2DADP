@@ -1,3 +1,4 @@
+using UnityEditor.SpeedTree.Importer;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,6 +29,9 @@ public class PotionFillManager : MonoBehaviour
     private GameObject currentSection;
     private RectTransform currentRect;
     private bool filling = false;
+
+    public GameObject PotionLiquid;
+    public Material[] materials;
 
 
     public void StartSection()
@@ -154,6 +158,7 @@ public class PotionFillManager : MonoBehaviour
         {
             potionBehaviour.recipe = PotionBehaviour.Recipe.Love;
             Debug.Log("Made a Love Potion");
+            PotionLiquid.GetComponent<Renderer>().material = materials[0];
 
         }
 
@@ -162,13 +167,18 @@ public class PotionFillManager : MonoBehaviour
         {
             potionBehaviour.recipe = PotionBehaviour.Recipe.Knowledge;
             Debug.Log("Made a Knowledge Potion");
+            PotionLiquid.GetComponent<Renderer>().material = materials[1];
         }
 
         else
         {
             potionBehaviour.recipe = PotionBehaviour.Recipe.None;
             Debug.Log("No Potion Made");
+            PotionLiquid.GetComponent<Renderer>().material = materials[2];
+
         }
+
+        PotionLiquid.SetActive(true);
     }
 
     public void ResetMeter()

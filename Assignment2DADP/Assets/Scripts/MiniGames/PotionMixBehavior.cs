@@ -19,6 +19,7 @@ public class PotionMixBehaviour : MonoBehaviour
     public Slider TimerSlider;
     private bool GameEnded;
     public PotionWorkstation cauldron;
+    public Material badPotion;
 
     public void OnEnable()
     {
@@ -102,6 +103,7 @@ public class PotionMixBehaviour : MonoBehaviour
         {
             potionBehaviour.recipe = PotionBehaviour.Recipe.None;
             cauldron.ParticleFail.Play();
+            potionBehaviour.LiquidCauldron.GetComponent<Renderer>().material = badPotion;
         }
 
         if (MinigameSuccess)

@@ -2827,6 +2827,11 @@ MonoBehaviour:
   fpcontroller: {fileID: 1117391003}
   inputManager: {fileID: 408812788}
   potionBehaviour: {fileID: 408812789}
+  PotionLiquid: {fileID: 889733885}
+  materials:
+  - {fileID: 2100000, guid: 1d5855e18f337af4ab286ae48af90899, type: 2}
+  - {fileID: 2100000, guid: bbc049f64450dbd499e20d97fa0587b2, type: 2}
+  - {fileID: 2100000, guid: 2619da66382316e4c8e3b803e4a6d087, type: 2}
 --- !u!114 &408812786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2906,6 +2911,7 @@ MonoBehaviour:
   LovePotion: {fileID: 2756564746496537742, guid: 555163b82fe9dac47b6b71d803b36ff6, type: 3}
   KnowledgePotion: {fileID: 2754922140071808583, guid: e33bf55cfae28ed4080f6f4a4e9fd486, type: 3}
   NoRecipePotion: {fileID: 6247292637252689994, guid: 1b053ccb10af25142afd6978b99f1885, type: 3}
+  LiquidCauldron: {fileID: 0}
   currentState: 0
   recipe: 0
   controller: {fileID: 1117391003}
@@ -3141,7 +3147,7 @@ Transform:
   m_GameObject: {fileID: 463970856}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -947.734, y: -539.008, z: 8.855}
+  m_LocalPosition: {x: -946.126, y: -538.703, z: 8.855}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5227,6 +5233,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: CauldronDone
       objectReference: {fileID: 0}
+    - target: {fileID: 5233112405309087440, guid: ecbb7874dae909048983b2814e607c21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442510506162454399, guid: ecbb7874dae909048983b2814e607c21, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442510506162454399, guid: ecbb7874dae909048983b2814e607c21, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2619da66382316e4c8e3b803e4a6d087, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -6011,6 +6029,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4624541091517217199, guid: b686528df93783b42a21290a4b84b759, type: 3}
   m_PrefabInstance: {fileID: 834716933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &889733885 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5233112405309087440, guid: ecbb7874dae909048983b2814e607c21, type: 3}
+  m_PrefabInstance: {fileID: 762769034}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &918372521 stripped
 Transform:
@@ -6803,6 +6826,7 @@ MonoBehaviour:
   MinigameSuccess: 0
   TimerSlider: {fileID: 286839255}
   cauldron: {fileID: 227155112}
+  badPotion: {fileID: 2100000, guid: 2619da66382316e4c8e3b803e4a6d087, type: 2}
 --- !u!4 &1065668043
 Transform:
   m_ObjectHideFlags: 0
