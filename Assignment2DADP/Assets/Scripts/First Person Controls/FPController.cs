@@ -81,6 +81,10 @@ public class FPController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        if (moveInput != null)
+        {
+            AudioManager.PlaySound(AudioManager.SoundType.FOOTSTEP);
+        }
     }
     public void OnLook(InputAction.CallbackContext context)
     {
