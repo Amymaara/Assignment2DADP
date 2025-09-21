@@ -25016,7 +25016,7 @@ MonoBehaviour:
   deadzone: 0.5
   maxMovePerFrame: 0.01
   fixedWorldY: 0.116
-  smoothSpeed: 10
+  smoothSpeed: 6
   runeRadius: 0.25
   canDraw: 0
 --- !u!114 &775160654
@@ -25092,6 +25092,34 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6746af1e-11a3-40e8-b543-902f47ffbba8
     m_ActionName: 'Runes/Draw[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ce4cb4fd-7fac-4b48-afee-1b3407e16575
+    m_ActionName: 'Player/Pause[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5f930167-9011-4f69-a7e6-7debf5a9d9ee
+    m_ActionName: 'Potions/Left[/Keyboard/a,/Keyboard/leftArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ea8bd646-6b24-4160-9bfb-7d276f29f5c5
+    m_ActionName: 'Potions/Right[/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5354c563-1f40-4260-832b-65895cceb821
+    m_ActionName: 'Potions/Down[/Keyboard/s,/Keyboard/downArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f9137c9c-087b-4641-9ce0-f5ff29543584
+    m_ActionName: 'Potions/Up[/Keyboard/w,/Keyboard/upArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 71be76d6-a1ac-420e-baa0-1019acf318ba
+    m_ActionName: 'UI/Escape[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8be9c657-9a4f-49a1-9abc-2b14b32ee33b
+    m_ActionName: 'Tarot/Interact[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Runes
