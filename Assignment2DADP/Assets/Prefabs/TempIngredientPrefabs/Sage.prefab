@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3951940833334407106}
   - component: {fileID: 2627273608689411102}
   - component: {fileID: 2380881453148053983}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Sage
   m_TagString: canPickUp
   m_Icon: {fileID: 0}

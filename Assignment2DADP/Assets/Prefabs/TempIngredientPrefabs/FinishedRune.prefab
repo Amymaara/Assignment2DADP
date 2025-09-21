@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6082182047947953316}
   - component: {fileID: 4164971689899154998}
   - component: {fileID: 5585509829932162488}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: FinishedRune
   m_TagString: canPickUp
   m_Icon: {fileID: 0}
