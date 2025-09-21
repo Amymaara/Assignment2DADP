@@ -21,6 +21,8 @@ public class PotionBehaviour : MonoBehaviour
     public GameObject KnowledgePotion;
     public GameObject NoRecipePotion;
 
+    public GameObject LiquidCauldron;
+
     public CauldronState currentState = CauldronState.Filling;
     public Recipe recipe;
 
@@ -49,6 +51,7 @@ public class PotionBehaviour : MonoBehaviour
         }
 
         currentState = CauldronState.Filling;
+        LiquidCauldron.SetActive(false);
     }
 
    
