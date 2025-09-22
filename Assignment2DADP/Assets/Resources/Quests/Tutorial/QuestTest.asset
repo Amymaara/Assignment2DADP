@@ -16,4 +16,4 @@ MonoBehaviour:
   displayName: QuestTest
   questPrerequisite: []
   questStepPrefabs:
-  - {fileID: 766019769368037690, guid: ea49891f996ea8f4bb4b455792817783, type: 3}
+  - {fileID: 5173252846241212568, guid: ea49891f996ea8f4bb4b455792817783, type: 3}
