@@ -12,6 +12,14 @@ public class AudioManager : MonoBehaviour
     {
         // list all sounds here in order assign to inspector
         FOOTSTEP,
+        MINIGAMESUCCESS,
+        MINIGAMEFAIL,
+        POTIONBUBBLES,
+        POTIONFILL,
+        RUNEDRAW,
+        FLIPCARD,
+        BUTTON,
+        PICKUP,
         AMBIENCE
     }
 
@@ -30,4 +38,6 @@ public class AudioManager : MonoBehaviour
         
         instance.audioSource.PlayOneShot(instance.soundList[(int)sound], volume);
     }
+
+    
 }

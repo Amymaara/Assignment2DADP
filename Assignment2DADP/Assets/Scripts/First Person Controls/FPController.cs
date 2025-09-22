@@ -3,6 +3,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static AudioManager;
 
 // Title: First Person Controller Script
 // Author: Hayes, A
@@ -52,6 +53,11 @@ public class FPController : MonoBehaviour
     private Vector3 velocity;
     private float verticalRotation = 0f;
 
+   
+
+    [SerializeField] private float footstepInterval = 0.3f; 
+    private float footstepTimer = 0f;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -65,12 +71,29 @@ public class FPController : MonoBehaviour
         if (cauldronFill != null && filling)
         {
             cauldronFill.Fill();
-        }
+
+           
+
+           
+        } 
 
         HandleMovement();
         HandleLook();
 
-        
+        if (moveInput.magnitude > 0)
+        {
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0f)
+            {
+                AudioManager.PlaySound(AudioManager.SoundType.FOOTSTEP, 0.12f);
+                footstepTimer = footstepInterval;
+            }
+        }
+        else
+        {
+            footstepTimer = 0f; 
+        }
+
     }
 
     public void OnPause(InputAction.CallbackContext context)
@@ -83,7 +106,7 @@ public class FPController : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
         if (moveInput != null)
         {
-            AudioManager.PlaySound(AudioManager.SoundType.FOOTSTEP);
+            //AudioManager.PlaySound(AudioManager.SoundType.FOOTSTEP);
         }
     }
     public void OnLook(InputAction.CallbackContext context)
@@ -148,9 +171,11 @@ public class FPController : MonoBehaviour
     {
         ForceDrop();
 
+        
         PickUpObject pickUp = obj.GetComponent<PickUpObject>();
         if (pickUp != null)
         {
+            AudioManager.PlaySound(SoundType.PICKUP, 0.05f);
             pickUp.PickUp(holdPoint, gameObject);
             heldObject = pickUp;
 
@@ -164,6 +189,7 @@ public class FPController : MonoBehaviour
     {
         if (heldObject != null)
         {
+            
             heldObject.Drop();
             heldObject = null;
             holdObject = null;

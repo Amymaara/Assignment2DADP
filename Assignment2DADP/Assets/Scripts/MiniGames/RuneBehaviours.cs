@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Windows;
+using static AudioManager;
 
 public class RuneBehaviour : MonoBehaviour
 {
@@ -74,6 +75,7 @@ public class RuneBehaviour : MonoBehaviour
 
     public void OnStarButton()
     {
+        AudioManager.PlaySound(SoundType.BUTTON, 1);
         star.SetActive(true);
         cursor.SetActive(true);
         playerLine.SetActive(true);
@@ -87,6 +89,7 @@ public class RuneBehaviour : MonoBehaviour
 
     public void OnMoonButton()
     {
+        AudioManager.PlaySound(SoundType.BUTTON, 1);
         moon.SetActive(true);
         cursor.SetActive(true);
         playerLine.SetActive(true);
@@ -99,6 +102,7 @@ public class RuneBehaviour : MonoBehaviour
 
     public void OnTrifectaButton()
     {
+        AudioManager.PlaySound(SoundType.BUTTON, 1);
         trifecta.SetActive(true);
         cursor.SetActive(true);
         playerLine.SetActive(true);
@@ -119,14 +123,16 @@ public class RuneBehaviour : MonoBehaviour
         if (accuracy < 0.77f)
         {
             // play fail effects / sounds once minigame closes?
+            AudioManager.PlaySound(SoundType.MINIGAMEFAIL, 1);
             workstation.FailParticles.Play();
             finishedRune.SetMaterial(RuneInteractables.Stamp.Scribbles, workstation.playerRune.material);
 
         }
         else
         {
-                // fail sounds?
-                workstation.SuccessParticles.Play();
+            // fail sounds?
+            AudioManager.PlaySound(SoundType.MINIGAMESUCCESS, 1);
+            workstation.SuccessParticles.Play();
                 finishedRune.SetMaterial(workstation.playerRune.stamp, workstation.playerRune.material);
             
         }

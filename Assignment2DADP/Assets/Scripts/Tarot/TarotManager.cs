@@ -1,8 +1,9 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using System.Collections;
+using static AudioManager;
 
 public class TarotManager : MonoBehaviour
 {
@@ -59,6 +60,7 @@ public class TarotManager : MonoBehaviour
     public void OnContinueButton()  // closes tarotUI once all cards are flipped
     {
         CloseSpread();
+        AudioManager.PlaySound(SoundType.BUTTON, 1);
     }
 
     // Private Methods
@@ -119,6 +121,7 @@ public class TarotManager : MonoBehaviour
     {
         if (revealed[index]) return;
         revealed[index] = true;
+        AudioManager.PlaySound(SoundType.FLIPCARD, 1);
         StartCoroutine(FlipCard(index));
     }
 

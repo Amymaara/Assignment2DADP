@@ -3,7 +3,11 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    // https://www.youtube.com/watch?v=S12x7txHS1c
+    // This whole script is based on this video:
+    // Title: Unity Tutorial : Creating a Timer using a slider
+    // Author: CatoDevs
+    // Date Accesed: 15 September 2025
+    // Accesibility: https://www.youtube.com/watch?v=S12x7txHS1c
 
 
     public Slider TimerSlider;

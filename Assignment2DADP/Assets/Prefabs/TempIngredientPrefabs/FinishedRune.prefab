@@ -73,7 +73,7 @@ MonoBehaviour:
   station: 0
   material: 2
   stamp: 3
-  skillAcurracy: 0.865625
+  skillAcurracy: 0.75
   Materials:
   - {fileID: 2100000, guid: dfcfd428ab99aa546b200507fa9898c9, type: 2}
   - {fileID: 2100000, guid: a5ae3edbe9a77db47b64dbece8a41e19, type: 2}
