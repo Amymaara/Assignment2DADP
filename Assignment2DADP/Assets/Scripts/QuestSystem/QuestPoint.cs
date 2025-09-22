@@ -27,7 +27,6 @@ public class QuestPoint : MonoBehaviour
 
     private void OnEnable()
     {
-       
         var mgr = GameEventsManager.instance;
         if (mgr == null) { Debug.LogError("[QP] GameEventsManager not ready"); return; }
         

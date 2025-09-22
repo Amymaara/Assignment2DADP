@@ -9,7 +9,7 @@ public class QuestTest : QuestSteps
 
     private void Start()
     {
-        Debug.Log("[SimpleQuestStep] Started step, will finish after delay...");
+        Debug.Log("[QuestTest] Started step, will finish after delay...");
         Invoke(nameof(FinishStep), autoCompleteDelay);
 
        
@@ -26,7 +26,7 @@ public class QuestTest : QuestSteps
 
     void FinishStep()
     {
-        Debug.Log("[SimpleQuestStep] Completing step now!");
+        Debug.Log("[QuestTest] Completing step now!");
         FinishQuestStep();  
     }
 }

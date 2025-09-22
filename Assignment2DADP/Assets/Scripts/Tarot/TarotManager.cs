@@ -40,6 +40,9 @@ public class TarotManager : MonoBehaviour
     // Starts Tarot reading as chosen by customer system
     public void OpenTarotSpread(TarotReadings chosenReading)
     {
+        Debug.Log("Invoking Complete from Tarot ");
+        FindFirstObjectByType<PotionStep1>()?.CompleteFromTarot();
+
         if (isSpreadActive || orderInProgress) return;
         isSpreadActive = true;
         tarotCanvas.SetActive(true);
@@ -50,6 +53,8 @@ public class TarotManager : MonoBehaviour
 
         playerInput.SwitchCurrentActionMap("UI");  // switch to UI controls
         StartSpread(chosenReading); // Setup spread 
+
+        
     }
     public void CompleteOrder() // called on order completion
     {
@@ -67,7 +72,7 @@ public class TarotManager : MonoBehaviour
 
     // Ensures card spread has chosen reading
     // Assigns sprites, descriptions etc. to cards
-    private void StartSpread(TarotReadings chosenReading)
+    public void StartSpread(TarotReadings chosenReading)
     {
         //Debug.Log("StartSpread called");
 
@@ -98,7 +103,7 @@ public class TarotManager : MonoBehaviour
     }
 
     // Closes TarotUI
-    private void CloseSpread()
+    public void CloseSpread()
     {
         tarotCanvas.SetActive(false);
 

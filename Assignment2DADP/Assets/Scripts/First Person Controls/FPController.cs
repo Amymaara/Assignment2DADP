@@ -215,7 +215,7 @@ public class FPController : MonoBehaviour
 
         if (ctx.phase == InputActionPhase.Started)
         {
-            Debug.Log("Press started");
+          
 
             /*
             if (dialogueController && dialogueController.gameObject.activeInHierarchy)
