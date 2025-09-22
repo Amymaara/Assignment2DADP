@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 6648013385540844692}
   - component: {fileID: 229458982739525175}
   - component: {fileID: 7736176692997012181}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Love Potion final
-  m_TagString: Untagged
+  m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

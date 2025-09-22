@@ -10,14 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 436371501568116529}
   - component: {fileID: 4658049536387812472}
+  - component: {fileID: 7892304548661916682}
   - component: {fileID: 5622529172886507840}
   - component: {fileID: 3229232071013835483}
-  - component: {fileID: 7892304548661916682}
   - component: {fileID: 5945544363013256041}
   - component: {fileID: 4332499350056899486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Potion bottle empty final
-  m_TagString: Untagged
+  m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,6 +45,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4516382330896356447}
   m_Mesh: {fileID: -2791614404357145954, guid: 01c3a8c05b267b147a28e7bd21431321, type: 3}
+--- !u!114 &7892304548661916682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516382330896356447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3397af439110d041bd7e888399ab915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &5622529172886507840
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -68,7 +80,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 655455893538073400, guid: 01c3a8c05b267b147a28e7bd21431321, type: 3}
+  - {fileID: 2100000, guid: d09221591b6038749b92f398450da84e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,18 +116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipe: 0
   state: 0
---- !u!114 &7892304548661916682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4516382330896356447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3397af439110d041bd7e888399ab915, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &5945544363013256041
 Rigidbody:
   m_ObjectHideFlags: 0

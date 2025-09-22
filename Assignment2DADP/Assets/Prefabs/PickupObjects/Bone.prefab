@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 3224311734259609075}
   - component: {fileID: 5992516155054967104}
   - component: {fileID: 7039562640265065633}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone
-  m_TagString: Untagged
+  m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
