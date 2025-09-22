@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 1627762740242000779}
   - component: {fileID: 4117827285710372404}
   - component: {fileID: 1504652038467827817}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FinishedRunePrefab
-  m_TagString: Untagged
+  m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
