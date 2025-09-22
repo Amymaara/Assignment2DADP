@@ -15,6 +15,11 @@ public class AudioManager : MonoBehaviour
         MINIGAMESUCCESS,
         MINIGAMEFAIL,
         POTIONBUBBLES,
+        POTIONFILL,
+        RUNEDRAW,
+        FLIPCARD,
+        BUTTON,
+        PICKUP,
         AMBIENCE
     }
 
@@ -33,4 +38,6 @@ public class AudioManager : MonoBehaviour
         
         instance.audioSource.PlayOneShot(instance.soundList[(int)sound], volume);
     }
+
+    
 }

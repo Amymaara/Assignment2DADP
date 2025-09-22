@@ -9,6 +9,8 @@ public class PotionFillManager : MonoBehaviour
     public GameObject fillSectionPrefab;  // UI Image prefab
     public float maxFillHeight = 1000f;    // maximum total height of fill
     public GameObject PotionBarCanvas;
+    private float fillTimer = 0f;
+    [SerializeField] private float fillInterval = 0.05f;
 
     [Header("Current Ingredient")]
     public IngredientObject holding;
@@ -33,6 +35,7 @@ public class PotionFillManager : MonoBehaviour
     public GameObject PotionLiquid;
     public Material[] materials;
 
+  
 
     public void StartSection()
     {
@@ -72,6 +75,12 @@ public class PotionFillManager : MonoBehaviour
             img.color = ingredient.fillColour;
 
             filling = true;
+
+            if (fpcontroller.heldObject.gameObject != null)
+            {
+                Destroy(fpcontroller.holdObject.gameObject);
+
+            }
         }
         else return;
     }
@@ -92,6 +101,13 @@ public class PotionFillManager : MonoBehaviour
 
         currentRect.sizeDelta = new Vector2(currentRect.sizeDelta.x, newHeight);
 
+        fillTimer -= Time.deltaTime;
+        if (fillTimer <= 0f)
+        {
+            AudioManager.PlaySound(AudioManager.SoundType.POTIONFILL, 0.05f);
+            fillTimer = fillInterval;
+        }
+
         // check if bar is max height
         if (currentHeight + newHeight >= maxFillHeight)
         {
@@ -100,6 +116,7 @@ public class PotionFillManager : MonoBehaviour
             OnFullMeter();
             filling = false;
         }
+
 
     }
 
@@ -117,7 +134,9 @@ public class PotionFillManager : MonoBehaviour
         currentSection = null;
         currentRect = null;
         ingredient = null;
-        Destroy(fpcontroller.holdObject.gameObject);
+
+      
+       
     }
 
     public void UpdateIngredients(float bar)

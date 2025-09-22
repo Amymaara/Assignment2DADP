@@ -27,7 +27,7 @@ public class PotionMixBehaviour : MonoBehaviour
     {
         MiniGameSetUp();
         GameEnded = false;
-        AudioManager.PlaySound(SoundType.POTIONBUBBLES, 0.5f);
+        AudioManager.PlaySound(SoundType.POTIONBUBBLES, 0.2f);
 
     }
 
@@ -79,6 +79,7 @@ public class PotionMixBehaviour : MonoBehaviour
 
     public void NextArrow()
     {
+       
         if (currentIndex <= ArrowPrefabs.Length)
         {
             currentIndex++;
@@ -97,6 +98,7 @@ public class PotionMixBehaviour : MonoBehaviour
 
     public void EditArrow()
     {
+        AudioManager.PlaySound(SoundType.BUTTON, 1);
         GameObject temp = RandomArrows[currentIndex];
         Image img = temp.GetComponent<Image>();
         img.color = Color.grey;

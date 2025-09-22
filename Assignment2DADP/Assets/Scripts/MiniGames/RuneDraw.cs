@@ -42,6 +42,8 @@ public class RuneDraw : MonoBehaviour
     public float runeRadius = 5f;
     public bool canDraw;
 
+
+
     private void Start()
     {
         previousCursorPosition = transform.position;
@@ -74,8 +76,8 @@ public class RuneDraw : MonoBehaviour
         if (isDrawing)
         {
             DrawingStart();
-        }
 
+        }
     }
 
 
@@ -160,7 +162,8 @@ public class RuneDraw : MonoBehaviour
             DrawingStop();
         }
     }
-
+    int currentcount = 10;
+    
     public void DrawingStart()
     {
         Vector3 currentCursorPosition = cursor.transform.transform.position;
@@ -169,6 +172,16 @@ public class RuneDraw : MonoBehaviour
             playerLine.positionCount++;
             playerLine.SetPosition(playerLine.positionCount - 1, currentCursorPosition);
             previousCursorPosition = currentCursorPosition;
+            if (currentcount < 10)
+            {
+                currentcount++;
+            }
+            else
+            {
+                AudioManager.PlaySound(AudioManager.SoundType.RUNEDRAW, 0.1f);
+                currentcount = 0;
+            }
+               
 
         }
     }
