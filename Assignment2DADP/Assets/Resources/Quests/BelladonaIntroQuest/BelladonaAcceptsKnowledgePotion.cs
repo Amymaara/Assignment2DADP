@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 /*
@@ -23,7 +24,9 @@ public class BelladonaAcceptsKnowledgePotion : QuestSteps
     private bool waitingForDialogue;
 
     public CatTeleport catTeleport;
+    public CandleManager candleManager;
 
+   
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag(playerTag)) return;
@@ -79,7 +82,16 @@ public class BelladonaAcceptsKnowledgePotion : QuestSteps
     {
         GameEventsManager.instance.dialogueEvents.onDialogueFinished -= DialogueFinished;
         Object.FindFirstObjectByType<CatTeleport>()?.SpawnCatTable();
-        FinishQuestStep();       
+        FinishQuestStep();
+
+        if (candleManager == null)
+        {
+            var mgrRoot = GameObject.Find("Managers");
+            if (mgrRoot != null)
+                candleManager = mgrRoot.GetComponentInChildren<CandleManager>(true);
+        }
+
+        candleManager.TurnOnExploreCandles();
 
     }
 }

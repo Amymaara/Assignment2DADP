@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class QuestTest : QuestSteps
 {
-    [Header("Settings")]
+    /*[Header("Settings")]
     public float autoCompleteDelay = 5f;
     [SerializeField] private CandleManager candleManager;
 
@@ -29,4 +29,5 @@ public class QuestTest : QuestSteps
         Debug.Log("[QuestTest] Completing step now!");
         FinishQuestStep();  
     }
+    */
 }

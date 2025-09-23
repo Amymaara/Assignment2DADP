@@ -4,9 +4,11 @@ public class PotionStep1 : QuestSteps
 {
     [SerializeField] private TarotManager tarotManager;
     [SerializeField] private CatTeleport catTeleport;
+    [SerializeField] private CandleManager candleManager;
     private bool waitingForDialogue;
     //chat helped
 
+   
     public void CompleteFromTarot()
     {
 
@@ -27,6 +29,16 @@ public class PotionStep1 : QuestSteps
         Object.FindFirstObjectByType<CatTeleport>()?.SpawnCatPotion();
 
         FinishQuestStep();
+
+        if (candleManager == null)
+        {
+            var mgrRoot = GameObject.Find("Managers");
+            if (mgrRoot != null)
+                candleManager = mgrRoot.GetComponentInChildren<CandleManager>(true);
+        }
+
+        candleManager.TurnOnPotionCandles();
+
     }
 
 }

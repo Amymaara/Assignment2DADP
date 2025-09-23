@@ -2,6 +2,12 @@ using UnityEngine;
 using System;
 using Ink.Runtime;
 
+// dialogue system 
+// Title: How to create a Dialogue System in Unity | RPG Style | Unity + Ink
+// Author: Shaped by Rain Studios
+// Date Accessed: 23 September 2025
+// Accesibility: https://www.youtube.com/watch?v=l8yI_97vjZs&t=1227s
+
 public class DialogueManager : MonoBehaviour 
 {
     [Header("Ink Story")]
@@ -15,16 +21,20 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
+        //create new story from ink file
         story = new Story(inkJson.text);
         inkExternalFunctions = new InkExternalFunctions();
         inkExternalFunctions.Bind(story);
         inkDialogueVariables = new InkDialogueVariables(story);
     }
 
+    // unbind external functions
     private void OnDestroy()
     {
         inkExternalFunctions.Unbind(story); 
     }
+
+    // links events
     private void OnEnable()
     {
         GameEventsManager.instance.dialogueEvents.onEnterDialogue += EnterDialogue;
@@ -34,6 +44,7 @@ public class DialogueManager : MonoBehaviour
         GameEventsManager.instance.questEvents.onQuestStateChange += QuestStateChange;
     }
 
+    //unlinks events
     private void OnDisable()
     {
         GameEventsManager.instance.dialogueEvents.onEnterDialogue -= EnterDialogue;
@@ -43,6 +54,7 @@ public class DialogueManager : MonoBehaviour
         GameEventsManager.instance.questEvents.onQuestStateChange -= QuestStateChange;
     }
 
+    // change quest state and help ink get correct dialogue state
     private void QuestStateChange(Quest quest)
     {
         GameEventsManager.instance.dialogueEvents.UpdateInkDialogueVariable(quest.info.id + "State",
@@ -51,16 +63,19 @@ public class DialogueManager : MonoBehaviour
 
     }
 
+    // forwards variables to ink
     private void UpdateInkDialogueVariable(string name, Ink.Runtime.Object value)
     {
         inkDialogueVariables.UpdateVaraibleState(name, value);
     }
 
+    //choices - not used this assignment
     private void UpdateChoiceIndex(int choiceIndex)
     {
         this.currentChoiceIndex = choiceIndex;
     }
 
+    // link to FPController but also contexts on what happens when E pressed
     private void InteractPressed(InputEventsContext inputEventsContext)
     {
         if (!inputEventsContext.Equals(InputEventsContext.DIALOGUE))
@@ -71,6 +86,7 @@ public class DialogueManager : MonoBehaviour
         ContinueOrExitStory();
     }
 
+    //begin specific dialogue
     private void EnterDialogue(string knotName)
     {
        if (dialoguePlaying)
@@ -101,6 +117,7 @@ public class DialogueManager : MonoBehaviour
 
     }
 
+    //advances story
     private void ContinueOrExitStory()
     {
         if (story.currentChoices.Count > 0 && currentChoiceIndex != -1)
@@ -136,6 +153,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    //stops dialogue and puts input context to default (use interact for actions)
     private void ExitDialogue()
     { 
 
@@ -152,6 +170,7 @@ public class DialogueManager : MonoBehaviour
         story.ResetState();
     }
 
+    // skips blank lines
     private bool IsLineBlank(string dialogueLine)
     {
         return dialogueLine.Trim().Equals("") || dialogueLine.Trim().Equals("\n");

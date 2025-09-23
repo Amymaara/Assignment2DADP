@@ -5,7 +5,6 @@ using UnityEngine.Rendering;
 using UnityEditorInternal;
 using UnityEngine.InputSystem;
 
-// reference chat
 public class FindBelladona : MonoBehaviour
 {
     [Header("Components")]
@@ -13,6 +12,7 @@ public class FindBelladona : MonoBehaviour
     [SerializeField] private GameObject contentParent;
     [SerializeField] private TextAsset inkJson;
     [SerializeField] private InputActionReference advanceDialogue;
+    //[SerializeField] private CandleManager candleManager;
 
     private Story story;
     private bool hasStarted;
@@ -90,6 +90,17 @@ public class FindBelladona : MonoBehaviour
         story = null;
         if (dialogueText) dialogueText.text = "";
         this.gameObject.SetActive(false);
+
+       
+      /*  if (candleManager == null)
+        {
+            var mgrRoot = GameObject.Find("Managers");
+            if (mgrRoot != null)
+                candleManager = mgrRoot.GetComponentInChildren<CandleManager>(true);
+        }
+
+        candleManager.TurnOnCatCandles();
+      */
     }
 
 

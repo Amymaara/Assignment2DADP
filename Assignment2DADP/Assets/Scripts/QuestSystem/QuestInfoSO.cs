@@ -1,6 +1,11 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+// customer spawning help from this video
+// Title: Unity- RPG Hero Diner - Customer Spawning
+// Author: Design and Deploy
+// Date Accessed: 23 September 2025
+// Accesibility: https://www.youtube.com/watch?v=vI7VLNuyhpU&t=661s
 
 [CreateAssetMenu(fileName = "QuestInfoSO", menuName = "Scriptable Objects/QuestInfoSO", order = 1)]
 public class QuestInfoSO : ScriptableObject

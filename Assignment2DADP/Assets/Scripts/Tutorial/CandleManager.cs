@@ -8,7 +8,10 @@ public class CandleManager : MonoBehaviour
 
     public void TurnOnPotionCandles()
     {
-
+        candles[4].TurnOn();
+        candles[5].TurnOn();
+        candles[6].TurnOn();
+        candles[7].TurnOn();
     }
 
     public void TurnOnRuneCandles()
@@ -18,14 +21,17 @@ public class CandleManager : MonoBehaviour
 
     public void TurnOnCatCandles()
     {
-
-    }
-
-    public void TurnOnTestCandles()
-    {
         candles[0].TurnOn();
         candles[1].TurnOn();
         candles[2].TurnOn();
         candles[3].TurnOn();
+    }
+
+    public void TurnOnExploreCandles()
+    {
+        candles[8].TurnOn();
+        candles[9].TurnOn();
+        candles[10].TurnOn();
+        candles[11].TurnOn();
     }
 }
