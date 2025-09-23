@@ -48,6 +48,7 @@ public class FindBelladona : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("entering");
         if (hasStarted) return;
         
         if (other.CompareTag("Player"))
@@ -71,6 +72,7 @@ public class FindBelladona : MonoBehaviour
 
     private void ContinueStory()
     {
+        Debug.Log("continue story");
         if (story.canContinue)
         {
             dialogueText.text = story.Continue();
@@ -85,22 +87,24 @@ public class FindBelladona : MonoBehaviour
 
     private void ExitDialogueMode()
     {
+        Debug.Log("exiting dialogue");
         hasStarted = false;
         contentParent.SetActive(false);
         story = null;
         if (dialogueText) dialogueText.text = "";
         this.gameObject.SetActive(false);
 
-       
-      /*  if (candleManager == null)
-        {
-            var mgrRoot = GameObject.Find("Managers");
-            if (mgrRoot != null)
-                candleManager = mgrRoot.GetComponentInChildren<CandleManager>(true);
-        }
 
-        candleManager.TurnOnCatCandles();
-      */
+
+        /*  if (candleManager == null)
+          {
+              var mgrRoot = GameObject.Find("Managers");
+              if (mgrRoot != null)
+                  candleManager = mgrRoot.GetComponentInChildren<CandleManager>(true);
+          }
+
+          candleManager.TurnOnCatCandles();
+        */
     }
 
 
