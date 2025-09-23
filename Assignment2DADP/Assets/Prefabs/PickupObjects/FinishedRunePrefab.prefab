@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1c9b46c789342a0409949f6d14312092, type: 2}
+  - {fileID: 2100000, guid: 313f0c044ff2be848afd025edf9779ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishedProduct: 0
   station: 0
-  material: 2
+  material: 1
   stamp: 3
   skillAcurracy: 0.925
   Materials:
