@@ -29,15 +29,15 @@ public class RuneBehaviour : MonoBehaviour
     public Material bone;
     public Material stone;
 
-    
-   
+
+
 
     //public Material Star;
     //public Material Trifecta;
     //public Material Moon;
     //public GameObject ScribbleRune;
 
-    
+
 
 
     public void OnRuneTableInteract(RuneInteractables input)
@@ -115,29 +115,30 @@ public class RuneBehaviour : MonoBehaviour
 
     public void Outcome(float accuracy)
     {
-        FinishedRuneObject finishedRune = outPutProduct.GetComponent<FinishedRuneObject>();
-        finishedRune.skillAcurracy = accuracy;
-        Destroy(controller.heldObject.gameObject);
-        Instantiate(outPutProduct);
+        if (controller.heldObject != null)
+        {
+            Destroy(controller.heldObject.gameObject);
+        }
+
+        FinishedRuneObject spawnedRune = Instantiate(outPutProduct).GetComponent<FinishedRuneObject>();
+
 
         if (accuracy < 0.77f)
         {
-            // play fail effects / sounds once minigame closes?
             AudioManager.PlaySound(SoundType.MINIGAMEFAIL, 1);
             workstation.FailParticles.Play();
-            finishedRune.SetMaterial(RuneInteractables.Stamp.Scribbles, workstation.playerRune.material);
-
+            spawnedRune.SetMaterial(RuneInteractables.Stamp.Scribbles, workstation.playerRune.material);
         }
         else
         {
-            // fail sounds?
             AudioManager.PlaySound(SoundType.MINIGAMESUCCESS, 1);
             workstation.SuccessParticles.Play();
-                finishedRune.SetMaterial(workstation.playerRune.stamp, workstation.playerRune.material);
-            
+            spawnedRune.SetMaterial(workstation.playerRune.stamp, workstation.playerRune.material);
         }
 
-        controller.SpawnFullBottleInHand(outPutProduct);
+   
+        controller.ForcePickUp(spawnedRune.gameObject);
+
     }
 
 }
