@@ -1,12 +1,14 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ObjectiveUI : MonoBehaviour
 {
     public GameObject objectiveCardUI;
     public TMP_Text orderText;
     public TMP_Text itemText;
-    public TMP_Text recipeText;
+    //public TMP_Text recipeText;
+    public Image recipeImage;
 
     void Start()
     {
@@ -23,11 +25,12 @@ public class ObjectiveUI : MonoBehaviour
             Debug.LogWarning("Order Text is not assigned in the inspector.");
     }
 
-    public void SetRecipe(string recipe)
+    public void SetRecipe(Sprite recipeSprite)
     {
-        if(recipe != null)
-            recipeText.text = recipe;
+        if (recipeImage != null)
+            recipeImage.sprite = recipeSprite;
     }
+
     public void ShowObjectiveCard()
     {
         objectiveCardUI.SetActive(true);

@@ -68,6 +68,31 @@ public class TarotManager : MonoBehaviour
         AudioManager.PlaySound(SoundType.BUTTON, 1);
     }
 
+
+    // can set a new tarot spread using this
+    public void SetSpread(TarotCards causeOfDeath, TarotCards item, TarotCards reasonWhy)
+    {
+        spread[0] = causeOfDeath;
+        spread[1] = item;
+        spread[2] = reasonWhy;
+
+        // reset card visuals
+        for (int i = 0; i < 3; i++)
+        {
+            revealed[i] = false;
+            cardImages[i].sprite = backOfCardSprite;
+            cardDescriptions[i].text = "";
+
+            int buttonIndex = i;
+            cardButtons[i].onClick.RemoveAllListeners();
+            cardButtons[i].onClick.AddListener(() => RevealCardAnimated(buttonIndex));
+        }
+
+        continueButton.gameObject.SetActive(false);
+    }
+
+
+
     // Private Methods
 
     // Ensures card spread has chosen reading
@@ -168,7 +193,8 @@ public class TarotManager : MonoBehaviour
         {
             itemToMake = spread[index].itemID;
             objectiveUI.SetObjective(itemToMake);
-            objectiveUI.SetRecipe(spread[index].recipe);
+            //objectiveUI.SetRecipe(spread[index].recipe);
+            objectiveUI.SetRecipe(spread[index].recipeSprite);
         }
 
         // show continue button if all cards flipped
