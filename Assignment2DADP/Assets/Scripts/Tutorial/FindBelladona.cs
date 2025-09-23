@@ -12,7 +12,7 @@ public class FindBelladona : MonoBehaviour
     [SerializeField] private GameObject contentParent;
     [SerializeField] private TextAsset inkJson;
     [SerializeField] private InputActionReference advanceDialogue;
-    //[SerializeField] private CandleManager candleManager;
+    [SerializeField] private CandleManager candleManager;
 
     private Story story;
     private bool hasStarted;
@@ -96,7 +96,7 @@ public class FindBelladona : MonoBehaviour
 
 
 
-        /*  if (candleManager == null)
+        if (candleManager == null)
           {
               var mgrRoot = GameObject.Find("Managers");
               if (mgrRoot != null)
@@ -104,7 +104,7 @@ public class FindBelladona : MonoBehaviour
           }
 
           candleManager.TurnOnCatCandles();
-        */
+        
     }
 
 
