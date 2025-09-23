@@ -9,6 +9,7 @@ public class PotionStep1 : QuestSteps
     {
         
         Debug.Log("[PotionStep1] Tarot spread opened — completing step.");
+
         FinishQuestStep();
     }
 

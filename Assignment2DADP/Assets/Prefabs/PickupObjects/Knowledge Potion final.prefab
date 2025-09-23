@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7813111034715368039}
   - component: {fileID: 6934383360379771564}
   - component: {fileID: 2505211708754246955}
+  - component: {fileID: 2492929946628799016}
   m_Layer: 8
   m_Name: Knowledge Potion final
   m_TagString: canPickUp
@@ -164,3 +165,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipe: 1
   state: 1
+--- !u!114 &2492929946628799016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6033237273748574987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6715ebf44558f8c46a373f081aaf7ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 607467a8fe0fb8a4b9910e1243b984f6, type: 2}
