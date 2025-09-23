@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
@@ -75,6 +76,7 @@ public class QuestManager : MonoBehaviour
     private void StartQuest(string id)
     {
         Quest quest = GetQuestById(id);
+        Debug.Log("Quest start {id}");
         quest.InstantiateCurrentQuestStep(this.transform);
         ChangeQuestState(quest.info.id, QuestState.IN_PROGRESS);
     }

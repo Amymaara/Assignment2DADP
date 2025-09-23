@@ -33,6 +33,7 @@ public class Quest
             QuestSteps questSteps = Object.Instantiate<GameObject>(questStepPrefab, parentTransform)
                 .GetComponent<QuestSteps>();
             questSteps.IntiatialiseQuestStep(info.id);
+            Debug.Log("Spawned step");
         }
     }
 

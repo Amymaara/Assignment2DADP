@@ -7,7 +7,7 @@ public class BelladonaAcceptsKnowledgePotion : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        var served = other.GetComponent<ServeableItem>();
+        var served = other.GetComponentInChildren<ServeableItem>();
         if (served && served.item == knowledgePotion)
         {
           Accept(served);

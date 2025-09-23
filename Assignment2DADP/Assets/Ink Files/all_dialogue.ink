@@ -4,6 +4,10 @@ EXTERNAL FinishQuest(questId)
 
 VAR QuestTestId = "QuestTest"
 VAR QuestTestState = "REQUIREMENTS_NOT_MET"
+VAR TarotQuestId = "TarotQuest"
+VAR TarotQuestState = "CAN_START"
+VAR PotionQuestId = "PotionQuest"
+VAR PotionQuestState = "CAN_START"
 
 -> test_knot.requirementsNotMet
 === test_knot ===
@@ -47,8 +51,14 @@ Yay!
  -> END
  
 === PotionStep1 ===
+{TarotQuestState :
+   - "CAN_START" : -> canStart
+   - "IN_PROGRESS": -> inProgress
+   - "CAN_FINISH": -> canFinish
+   - else: -> END
+   }
 
-
+= canStart
 
 #Belladona 
 "Alright, now normally a soul would appear and stare at you with those devoid eyes expecting you to know everything."
@@ -63,7 +73,7 @@ Yay!
 "Uhm, so you see that deck on the counter? DONT TOUCH IT YET."
 
 #Belladona 
-"Uhm, let me explain first - that's how we 'talk' to them."
+"Let me explain first - that's how we 'talk' to them."
 
 #Belladona 
 "The souls can't actually speak - some messy drama behind why they had to remove that ability from them."
@@ -73,11 +83,43 @@ Yay!
 
 #Belladona
 "Go on and give it a try."
+~StartQuest("TarotQuest")
 
 -> END
 
-=== PotionQuest ===
+= inProgress
+#Belladona
+"Just use the deck on the counter to get a reading."
+-> END
 
-meow meow please work
+= canFinish
+#Belladona
+"Meet me at the potions next"
+-> END
+
+=== PotionQuest ===
+{PotionQuestState :
+   - "CAN_START" : -> canStart
+   - "IN_PROGRESS": -> inProgress
+   - "CAN_FINISH": -> canFinish
+   - else: -> END
+   }
+ 
+ = canStart
+ #Belladona
+ "Make a knowledge potion, just follow the recipe you see."
+ ~StartQuest("PotionQuest")
+  -> END
+ 
+ = inProgress
+ #Belladone
+ "Serve me a KNOWLEDGE potion."
+  -> END
+ 
+ =canFinish
+ #Belladona
+ "I guess this passes..."
+ -> END
+ 
 
 -> END
