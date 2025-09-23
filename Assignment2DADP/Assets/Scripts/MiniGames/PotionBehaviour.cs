@@ -35,19 +35,19 @@ public class PotionBehaviour : MonoBehaviour
         if (recipe == Recipe.Love) 
         {
             GameObject potion = Instantiate(LovePotion);
-            controller.SpawnFullBottleInHand(LovePotion);
+            controller.ForcePickUp(potion);
         }
 
         if (recipe == Recipe.Knowledge) 
         {
            GameObject potion = Instantiate(KnowledgePotion);
-            controller.SpawnFullBottleInHand(KnowledgePotion);
+            controller.ForcePickUp(potion);
         }
 
         if (recipe == Recipe.None) 
         {
             GameObject potion = Instantiate(NoRecipePotion);
-            controller.SpawnFullBottleInHand(NoRecipePotion);
+            controller.ForcePickUp(potion);
         }
 
         currentState = CauldronState.Filling;

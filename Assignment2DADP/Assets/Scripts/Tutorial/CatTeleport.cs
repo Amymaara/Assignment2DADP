@@ -10,6 +10,8 @@ public class CatTeleport : MonoBehaviour
     public ParticleSystem PotionParticles;
     public ParticleSystem TableParticles;
 
+    public GameObject TarotUI;
+
     public void Start()
     {
         SpawnCatCounter();
@@ -19,7 +21,7 @@ public class CatTeleport : MonoBehaviour
     {
         CounterParticles.Play();
         Cat.SetActive(true);
-       // CatPotion.SetActive(false);
+       CatPotion.SetActive(false);
         CatTable.SetActive(false);
     }
 
@@ -36,6 +38,7 @@ public class CatTeleport : MonoBehaviour
 
     public void SpawnCatTable()
     {
+        TarotUI.SetActive(false);
         PotionParticles.Play();
         CatPotion.SetActive(false);
         CatTable.SetActive(true);
