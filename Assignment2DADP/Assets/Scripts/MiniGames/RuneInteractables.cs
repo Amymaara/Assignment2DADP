@@ -12,11 +12,12 @@ public class RuneInteractables : IngredientObject
 
     public enum Stamp
     {
-        None,
+        
+        Scribbles,
         Star,
-        Moon,
+        Moon, 
         Trifecta,
-        Scribbles
+        None
     }
 
     public RuneMaterial material;

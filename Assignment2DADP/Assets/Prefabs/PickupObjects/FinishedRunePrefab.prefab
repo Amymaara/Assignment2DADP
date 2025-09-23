@@ -67,8 +67,7 @@ MeshRenderer:
   m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 313f0c044ff2be848afd025edf9779ee, type: 2}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -150,24 +149,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe8f5191d210d74bad0f5712e5ff8b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finishedProduct: 0
+  finishedProduct: 1
   station: 0
-  material: 1
-  stamp: 3
-  skillAcurracy: 0.925
+  material: 0
+  stamp: 0
+  skillAcurracy: 0.034408603
   Materials:
   - {fileID: 2100000, guid: c3e681985fd83cd438a1efda2caa5417, type: 2}
-  - {fileID: 2100000, guid: 9f94468b7e830b64e806a7002c67f1b3, type: 2}
   - {fileID: 2100000, guid: cf87e7160bdc3fc4da571c3d192eddba, type: 2}
+  - {fileID: 2100000, guid: 9f94468b7e830b64e806a7002c67f1b3, type: 2}
   - {fileID: 2100000, guid: 54876c43a35c8c04a8dc7df25829ee2d, type: 2}
-  - {fileID: 2100000, guid: cb0fd306321efdb43b538f1b07fdf694, type: 2}
   - {fileID: 2100000, guid: 63441529cfd51874f884266d32bd40fe, type: 2}
+  - {fileID: 2100000, guid: cb0fd306321efdb43b538f1b07fdf694, type: 2}
   - {fileID: 2100000, guid: 9849aa4dfee785945a129d99d1ba6e39, type: 2}
-  - {fileID: 2100000, guid: 17a4ec940365a2842827ed0d7ba57c8f, type: 2}
   - {fileID: 2100000, guid: 1762e5cbe39368846bbb288ca987f1a9, type: 2}
+  - {fileID: 2100000, guid: 17a4ec940365a2842827ed0d7ba57c8f, type: 2}
   - {fileID: 2100000, guid: d87ed59ad446345488343c9fdb2b6e7d, type: 2}
-  - {fileID: 2100000, guid: 313f0c044ff2be848afd025edf9779ee, type: 2}
   - {fileID: 2100000, guid: 1c9b46c789342a0409949f6d14312092, type: 2}
+  - {fileID: 2100000, guid: 313f0c044ff2be848afd025edf9779ee, type: 2}
   ThisRune: {fileID: 969360869803992008}
 --- !u!114 &1504652038467827817
 MonoBehaviour:

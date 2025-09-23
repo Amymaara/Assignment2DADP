@@ -19,7 +19,7 @@ public class CatTeleport : MonoBehaviour
     {
         CounterParticles.Play();
         Cat.SetActive(true);
-        CatPotion.SetActive(false);
+       // CatPotion.SetActive(false);
         CatTable.SetActive(false);
     }
 

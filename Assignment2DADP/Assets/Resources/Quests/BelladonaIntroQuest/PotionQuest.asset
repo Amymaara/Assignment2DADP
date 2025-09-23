@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <id>k__BackingField: PotionQuest
   displayName: 
-  questPrerequisite:
-  - {fileID: 11400000, guid: 1b7c4b792b4594f439c3f649b9a39395, type: 2}
+  questPrerequisite: []
   questStepPrefabs:
-  - {fileID: 7579974949819034246, guid: 72ee4ec876155a846a1f942bdd1fc8a3, type: 3}
+  - {fileID: 7151171139033538134, guid: 7579d17d29f11864fb881a681df1467a, type: 3}
