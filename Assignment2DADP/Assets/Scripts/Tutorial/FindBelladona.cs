@@ -89,6 +89,7 @@ public class FindBelladona : MonoBehaviour
         contentParent.SetActive(false);
         story = null;
         if (dialogueText) dialogueText.text = "";
+        this.gameObject.SetActive(false);
     }
 
 
