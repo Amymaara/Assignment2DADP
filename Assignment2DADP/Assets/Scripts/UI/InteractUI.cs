@@ -23,6 +23,7 @@ public class InteractUI : MonoBehaviour
         {
             string objName = hit.collider.gameObject.name.Replace("(Clone)", "").Trim(); 
             string Key = pickupAction.action.GetBindingDisplayString();
+            Debug.Log("Looking at item");
 
             promptText.gameObject.SetActive(true);
             promptText.text = $"{Key} to interact with {objName}";
