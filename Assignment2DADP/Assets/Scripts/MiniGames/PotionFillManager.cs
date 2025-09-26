@@ -1,4 +1,4 @@
-using UnityEditor.SpeedTree.Importer;
+
 using UnityEngine;
 using UnityEngine.UI;
 
