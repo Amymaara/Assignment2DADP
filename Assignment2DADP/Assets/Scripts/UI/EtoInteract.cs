@@ -9,6 +9,12 @@ public class EtoInteract : MonoBehaviour
     [SerializeField] float range = 3f;
     [SerializeField] private LayerMask layer;
     [SerializeField] private InputActionReference interactAction;
+    [SerializeField] private Canvas promptCanvas;
+
+    private void Start()
+    {
+        promptText.gameObject.SetActive(true);
+    }
 
 
 

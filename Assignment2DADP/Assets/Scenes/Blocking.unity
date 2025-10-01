@@ -89662,7 +89662,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8cc5225717aa5e54b9a5d540efec014b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7589b85bf9f87c748af55a05f9199789, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -205625,6 +205625,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   pickupAction: {fileID: -7700915222098505197, guid: 33a333d860636624f9428c3dc93f22ee, type: 3}
+  promptCanvas: {fileID: 1367996720}
 --- !u!114 &1117391005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205656,6 +205657,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16
   interactAction: {fileID: -4566024930950316069, guid: 33a333d860636624f9428c3dc93f22ee, type: 3}
+  promptCanvas: {fileID: 1367996720}
 --- !u!1 &1121652373
 GameObject:
   m_ObjectHideFlags: 0
@@ -221800,7 +221802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1367996718
 MonoBehaviour:
   m_ObjectHideFlags: 0

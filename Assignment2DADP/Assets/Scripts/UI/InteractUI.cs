@@ -9,7 +9,14 @@ public class InteractUI : MonoBehaviour
     [SerializeField] float range = 3f;
     [SerializeField] private LayerMask layer;
     [SerializeField] private InputActionReference pickupAction;
-  
+    [SerializeField] private Canvas promptCanvas;
+
+    private void Start()
+    {
+        promptText.gameObject.SetActive(true);
+    }
+
+
 
 
 
