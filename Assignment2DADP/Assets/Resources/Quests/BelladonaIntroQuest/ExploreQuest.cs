@@ -18,4 +18,9 @@ public class ExploreQuest : QuestSteps
         Debug.Log("[QuestTest] Completing step now!");
         FinishQuestStep();
     }
+
+    protected override void SetQuestStepState(string state)
+    {
+        throw new System.NotImplementedException();
+    }
 }

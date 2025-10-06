@@ -30,4 +30,8 @@ public class QuestTest : QuestSteps
         FinishQuestStep();  
     }
     */
+    protected override void SetQuestStepState(string state)
+    {
+        throw new System.NotImplementedException();
+    }
 }

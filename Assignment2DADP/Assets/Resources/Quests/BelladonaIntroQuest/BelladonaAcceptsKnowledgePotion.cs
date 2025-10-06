@@ -94,4 +94,9 @@ public class BelladonaAcceptsKnowledgePotion : QuestSteps
         candleManager.TurnOnExploreCandles();
 
     }
+
+    protected override void SetQuestStepState(string state)
+    {
+        throw new System.NotImplementedException();
+    }
 }

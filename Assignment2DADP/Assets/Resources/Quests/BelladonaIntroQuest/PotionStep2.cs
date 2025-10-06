@@ -11,4 +11,9 @@ public class PotionStep2 : QuestSteps
         FinishQuestStep();
         
     }
+
+    protected override void SetQuestStepState(string state)
+    {
+        throw new System.NotImplementedException();
+    }
 }

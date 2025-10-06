@@ -21,6 +21,11 @@ public class PotionStep1 : QuestSteps
 
     }
 
+    protected override void SetQuestStepState(string state)
+    {
+        throw new System.NotImplementedException();
+    }
+
     private void DialogueFinished()
     {
         GameEventsManager.instance.dialogueEvents.onDialogueFinished -= DialogueFinished;
