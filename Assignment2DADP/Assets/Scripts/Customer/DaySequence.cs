@@ -13,8 +13,11 @@ public class DaySequence : ScriptableObject
     public struct Entry
     {
         public Customer customerPrefab;
-        public bool orderFromTarot;
         public ItemSO fixedOrder;
+
+        public Sprite tarotCard1; // how they died
+        public Sprite tarotCard2; // what they want
+        public Sprite tarotCard3; // why they need it
     }
 
     public string dayName = "Day X";
