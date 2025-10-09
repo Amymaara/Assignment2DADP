@@ -16,6 +16,10 @@ public class FindBelladona : MonoBehaviour
     private Story story;
     private bool hasStarted;
 
+    private void Start()
+    {
+        AudioManager.PlaySound(AudioManager.SoundType.AMBIENCE, 0.5f, true);
+    }
     private void Awake()
     {
         contentParent.SetActive(false);
@@ -103,6 +107,7 @@ public class FindBelladona : MonoBehaviour
           }
 
           candleManager.TurnOnCatCandles();
+          AudioManager.StopSound();
         
     }
 

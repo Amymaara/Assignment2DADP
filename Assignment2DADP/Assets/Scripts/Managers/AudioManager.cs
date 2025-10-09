@@ -1,12 +1,24 @@
 using UnityEngine;
 using System;
+using UnityEngine.Rendering.Universal;
+
+// audio manager system
+// Title: PLEASE use a Unity SOUND MANAGER! — Full Tutorial
+// Author: Brackeys 2.0
+// Date Accessed: 9 October 2025
+// Accessibility: https://www.youtube.com/watch?v=g5WT91Sn3hg&t=337s
 
 [RequireComponent (typeof(AudioSource)), ExecuteInEditMode]
+
 public class AudioManager : MonoBehaviour
 {
+   
     [SerializeField] private AudioClip[] soundList;
-    private static AudioManager instance;
+    [SerializeField] private bool debugLogs = false;
+
+    public static AudioManager instance { get; private set; }
     private AudioSource audioSource;
+    
 
     public enum SoundType
     {
@@ -22,7 +34,7 @@ public class AudioManager : MonoBehaviour
         PICKUP,
         AMBIENCE
     }
-
+    
     private void Awake()
     {
         instance = this;
@@ -33,11 +45,51 @@ public class AudioManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public static void PlaySound(SoundType sound, float volume = 1)
+    /* Little guide on how audio works:
+     use AudioManager.PlaySound(AudioManager.SoundType.(name); => one shot
+     use AudioManager.PlaySound(AudioManager.SoundType.(name),(volume), true); => loop
+     use AudioManager.StopSound(); => stop looping sounds
+    */
+    public static void PlaySound(SoundType sound, float volume = 1f, bool loop = false)
     {
-        
-        instance.audioSource.PlayOneShot(instance.soundList[(int)sound], volume);
+
+        //instance.audioSource.PlayOneShot(instance.soundList[(int)sound], volume);
+
+        if (instance == null || instance.soundList == null)
+        {
+            Debug.LogWarning("Audiomanager not initialised or soundlist missing");
+            return;
+        }
+
+        AudioClip clip = instance.soundList[(int)sound];
+        if (clip == null)
+        {
+            Debug.LogWarning($"sound clip missing for {sound}");
+            return;
+        }
+
+        if (loop)
+        {
+            instance.audioSource.clip = clip;
+            instance.audioSource.volume = volume;
+            instance.audioSource.loop = true;
+            instance.audioSource.Play();
+        }
+
+        else
+        {
+            instance.audioSource.PlayOneShot(clip, volume);
+        }
     }
 
-    
+    public static void StopSound()
+    {
+        if (instance == null || instance.audioSource == null) return;
+        instance.audioSource.Stop();
+    }
+
+    public void AudioVolume(float volume)
+    {
+        audioSource.volume = volume;
+    }
 }
