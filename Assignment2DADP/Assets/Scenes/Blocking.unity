@@ -43745,7 +43745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishedProduct: 0
   station: 3
-  material: 2
+  material: 1
 --- !u!23 &279826168
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -72320,7 +72320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishedProduct: 0
   station: 3
-  material: 2
+  material: 0
 --- !u!23 &407845805
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -141963,7 +141963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishedProduct: 0
   station: 3
-  material: 2
+  material: 1
 --- !u!23 &834438895
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -189737,6 +189737,7 @@ GameObject:
   - component: {fileID: 1218569811}
   - component: {fileID: 1218569810}
   - component: {fileID: 1218569809}
+  - component: {fileID: 1218569812}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -189836,6 +189837,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218569807}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1218569812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218569807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ae8fdd3a95cad43b0a141d2fa9af5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heldObject: {fileID: 691331905}
+  pillarCrystal: {fileID: 566333025}
+  amethyst: {fileID: 2100000, guid: 278e81fd2e7fb0f43bc6d5d39b9924b6, type: 2}
+  rose: {fileID: 2100000, guid: ed247873fdf0b084c816a40f41a12ec9, type: 2}
+  lapis: {fileID: 2100000, guid: 10480d168ab659041af1044405233153, type: 2}
+  StationFilled: 0
 --- !u!1 &1219029298
 GameObject:
   m_ObjectHideFlags: 0
@@ -195393,6 +195412,7 @@ GameObject:
   - component: {fileID: 1304596871}
   - component: {fileID: 1304596870}
   - component: {fileID: 1304596869}
+  - component: {fileID: 1304596872}
   m_Layer: 0
   m_Name: Cylinder (3)
   m_TagString: Untagged
@@ -195492,6 +195512,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304596867}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1304596872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304596867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ae8fdd3a95cad43b0a141d2fa9af5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heldObject: {fileID: 691331905}
+  pillarCrystal: {fileID: 509219714}
+  amethyst: {fileID: 2100000, guid: 278e81fd2e7fb0f43bc6d5d39b9924b6, type: 2}
+  rose: {fileID: 2100000, guid: ed247873fdf0b084c816a40f41a12ec9, type: 2}
+  lapis: {fileID: 2100000, guid: 10480d168ab659041af1044405233153, type: 2}
+  StationFilled: 0
 --- !u!4 &1314976905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7118750338152756535, guid: 5540f0ef5606438479e12b48a8716ce3, type: 3}
@@ -195514,6 +195552,7 @@ GameObject:
   - component: {fileID: 1320547409}
   - component: {fileID: 1320547408}
   - component: {fileID: 1320547407}
+  - component: {fileID: 1320547410}
   m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Untagged
@@ -195613,6 +195652,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320547405}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1320547410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320547405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ae8fdd3a95cad43b0a141d2fa9af5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heldObject: {fileID: 691331905}
+  pillarCrystal: {fileID: 1266964430}
+  amethyst: {fileID: 2100000, guid: 278e81fd2e7fb0f43bc6d5d39b9924b6, type: 2}
+  rose: {fileID: 2100000, guid: ed247873fdf0b084c816a40f41a12ec9, type: 2}
+  lapis: {fileID: 2100000, guid: 10480d168ab659041af1044405233153, type: 2}
+  StationFilled: 0
 --- !u!1 &1323454066
 GameObject:
   m_ObjectHideFlags: 0
@@ -249964,7 +250021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishedProduct: 0
   station: 3
-  material: 2
+  material: 0
 --- !u!23 &1701751372
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -339464,7 +339521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1954892782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346577,6 +346634,7 @@ GameObject:
   - component: {fileID: 2104955694}
   - component: {fileID: 2104955693}
   - component: {fileID: 2104955692}
+  - component: {fileID: 2104955695}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -346676,6 +346734,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104955690}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2104955695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104955690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ae8fdd3a95cad43b0a141d2fa9af5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heldObject: {fileID: 691331905}
+  pillarCrystal: {fileID: 1529410174}
+  amethyst: {fileID: 2100000, guid: 278e81fd2e7fb0f43bc6d5d39b9924b6, type: 2}
+  rose: {fileID: 2100000, guid: ed247873fdf0b084c816a40f41a12ec9, type: 2}
+  lapis: {fileID: 2100000, guid: 10480d168ab659041af1044405233153, type: 2}
+  StationFilled: 0
 --- !u!1 &2105205700 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7867358311732356487, guid: 9e2804f7d8762b84da56b30808a67dd7, type: 3}

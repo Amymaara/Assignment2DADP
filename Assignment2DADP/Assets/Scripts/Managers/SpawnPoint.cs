@@ -7,7 +7,7 @@ public class SpawnPoint : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("canPickUp"))
+        if (!other.CompareTag("Player"))
         {
             manager.OnObjectLeftShelf(ingredientName);
         }
