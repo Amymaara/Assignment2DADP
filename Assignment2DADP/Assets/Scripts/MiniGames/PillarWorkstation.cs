@@ -10,7 +10,7 @@ public class PillarWorkstation : MonoBehaviour, IInteractable
 
     // set that current station to crystal full 
 
-    // still gotta delete helpd item after
+    // still gotta delete held item after
 
     public GameObject heldObject;
     public GameObject pillarCrystal;
@@ -20,6 +20,17 @@ public class PillarWorkstation : MonoBehaviour, IInteractable
     public Material lapis;
 
     public bool StationFilled = false;
+
+    public CrystalBehaviours behaviours;
+
+    public enum CrystalMaterial
+    {
+        rose,
+        lapis,
+        amethyst
+    }
+    
+    public CrystalMaterial Crystalmaterial;
 
 
     public void Interact()
@@ -43,17 +54,22 @@ public class PillarWorkstation : MonoBehaviour, IInteractable
                 if (crystal.material == PillarCrystalInteractable.Material.Rose)
                 {
                     pillarCrystal.gameObject.GetComponent<Renderer>().material = rose;
+                    Crystalmaterial = CrystalMaterial.rose;
                 }
                 else if (crystal.material == PillarCrystalInteractable.Material.Amethyst)
                 {
                     pillarCrystal.gameObject.GetComponent<Renderer>().material = amethyst;
+                    Crystalmaterial = CrystalMaterial.amethyst;
                 }
                 else if (crystal.material == PillarCrystalInteractable.Material.Lapis)
                 {
                     pillarCrystal.gameObject.GetComponent<Renderer>().material = lapis;
+                    Crystalmaterial = CrystalMaterial.lapis;
                 }
 
                 StationFilled = true;
+
+                behaviours.CheckFilledStations();
 
             }
             return;
