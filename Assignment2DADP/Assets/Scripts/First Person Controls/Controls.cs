@@ -760,6 +760,78 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Crystals"",
+            ""id"": ""3a42ec3a-f829-45af-aa65-e4b9f1b29077"",
+            ""actions"": [
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""b8b25c9d-5424-4e34-b177-25504434427e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ed4f913f-d1ce-40bf-8be4-51f4e0c91cd8"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bffa9d58-82dd-4d24-8e26-61f2030de2b6"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0cde9c7e-c461-4c02-a7ec-690fbfe616b5"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74cce80b-8f3f-4145-adf9-4c50994d3dc4"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Controller"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a662ec9-dd88-4ef3-8b1c-560ec24b3fe8"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -815,6 +887,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         // Tarot
         m_Tarot = asset.FindActionMap("Tarot", throwIfNotFound: true);
         m_Tarot_Interact = m_Tarot.FindAction("Interact", throwIfNotFound: true);
+        // Crystals
+        m_Crystals = asset.FindActionMap("Crystals", throwIfNotFound: true);
+        m_Crystals_Click = m_Crystals.FindAction("Click", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -824,6 +899,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_Potions.enabled, "This will cause a leak and performance issues, Controls.Potions.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, Controls.UI.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Tarot.enabled, "This will cause a leak and performance issues, Controls.Tarot.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Crystals.enabled, "This will cause a leak and performance issues, Controls.Crystals.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1463,6 +1539,102 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="TarotActions" /> instance referencing this action map.
     /// </summary>
     public TarotActions @Tarot => new TarotActions(this);
+
+    // Crystals
+    private readonly InputActionMap m_Crystals;
+    private List<ICrystalsActions> m_CrystalsActionsCallbackInterfaces = new List<ICrystalsActions>();
+    private readonly InputAction m_Crystals_Click;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Crystals".
+    /// </summary>
+    public struct CrystalsActions
+    {
+        private @Controls m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public CrystalsActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Crystals/Click".
+        /// </summary>
+        public InputAction @Click => m_Wrapper.m_Crystals_Click;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Crystals; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="CrystalsActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(CrystalsActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="CrystalsActions" />
+        public void AddCallbacks(ICrystalsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CrystalsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CrystalsActionsCallbackInterfaces.Add(instance);
+            @Click.started += instance.OnClick;
+            @Click.performed += instance.OnClick;
+            @Click.canceled += instance.OnClick;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="CrystalsActions" />
+        private void UnregisterCallbacks(ICrystalsActions instance)
+        {
+            @Click.started -= instance.OnClick;
+            @Click.performed -= instance.OnClick;
+            @Click.canceled -= instance.OnClick;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="CrystalsActions.UnregisterCallbacks(ICrystalsActions)" />.
+        /// </summary>
+        /// <seealso cref="CrystalsActions.UnregisterCallbacks(ICrystalsActions)" />
+        public void RemoveCallbacks(ICrystalsActions instance)
+        {
+            if (m_Wrapper.m_CrystalsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="CrystalsActions.AddCallbacks(ICrystalsActions)" />
+        /// <seealso cref="CrystalsActions.RemoveCallbacks(ICrystalsActions)" />
+        /// <seealso cref="CrystalsActions.UnregisterCallbacks(ICrystalsActions)" />
+        public void SetCallbacks(ICrystalsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CrystalsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CrystalsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="CrystalsActions" /> instance referencing this action map.
+    /// </summary>
+    public CrystalsActions @Crystals => new CrystalsActions(this);
     private int m_KeyboardSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1619,5 +1791,20 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Crystals" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="CrystalsActions.AddCallbacks(ICrystalsActions)" />
+    /// <seealso cref="CrystalsActions.RemoveCallbacks(ICrystalsActions)" />
+    public interface ICrystalsActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Click" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnClick(InputAction.CallbackContext context);
     }
 }

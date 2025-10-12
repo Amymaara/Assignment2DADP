@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
     public GameObject RuneMinigame;
     public GameObject pauseMenu;
     public GameObject tarot;
+    public GameObject crystals;
     //public GameObject ToolTipsCanvas;
     //public GameObject DialogueCanvas;
     public GameObject PotionWorldSpaceCanvas;
@@ -27,6 +28,7 @@ public class InputManager : MonoBehaviour
     {
         RuneMinigame.SetActive(false);
         potionMix.SetActive(false);
+        crystals.SetActive(false);
         cursor.SetActive(false);
         pauseMenu.SetActive(false);
         player.SetActive(true);
@@ -61,6 +63,13 @@ public class InputManager : MonoBehaviour
 
     }
 
+    public void SwitchToCrystal()
+    {
+        crystals.SetActive(true);
+        manager.SwitchToCrystalCam();
+        player.GetComponent<Renderer>().enabled = false;
+        player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Crystals");
+    }
 
     public void OnMenuExit(InputAction.CallbackContext context)
     {

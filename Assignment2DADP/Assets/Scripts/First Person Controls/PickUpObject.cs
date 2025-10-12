@@ -32,6 +32,19 @@ public class PickUpObject : MonoBehaviour
         isHeld = true;
 
         rb.isKinematic = true;
+       
+
+       
+      
+
+
+        var shelf = GetComponentInParent<SpawnPoint>();
+        if (shelf != null)
+        {
+            Debug.Log("telling object left shelf");
+            shelf.manager.OnObjectLeftShelf(shelf.ingredientName);
+        }
+
         transform.SetParent(holdPos, true);
         gameObject.layer = holdLayer;
 

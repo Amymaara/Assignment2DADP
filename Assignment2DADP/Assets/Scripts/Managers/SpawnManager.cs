@@ -42,7 +42,7 @@ public class SpawnManager : MonoBehaviour
     {
         foreach (var slot in slots)
         {
-            Instantiate(slot.prefab, slot.spawnPoint.position, slot.spawnPoint.rotation);
+            Spawn(slot);
         }
     }
 
@@ -59,18 +59,25 @@ public class SpawnManager : MonoBehaviour
     {
         slot.isRespawning = true;
         yield return new WaitForSeconds(slot.respawnDelay);
-        Spawn(slot);
+        if (slot.spawnPoint.childCount == 0) 
+        {
+            Spawn(slot);
+        }
+       
         slot.isRespawning = false;
     }
 
     private void Spawn(IngredientSlot slot)
     {
+       
         GameObject obj = Instantiate(slot.prefab, slot.spawnPoint.position, slot.spawnPoint.rotation);
 
-        
+        obj.transform.localScale = slot.prefab.transform.localScale;
+
+        obj.transform.SetParent(slot.spawnPoint, true);
+
         slot.spawnedObjects.Add(obj);
 
-     
         if (slot.spawnedObjects.Count > slot.maxSpawnedObjects)
         {
             Destroy(slot.spawnedObjects[0]);

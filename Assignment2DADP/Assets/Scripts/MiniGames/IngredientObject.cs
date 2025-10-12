@@ -9,7 +9,8 @@ public class IngredientObject : MonoBehaviour
     {
         Runes,
         Potions,
-        Cat
+        Cat,
+        Crystals
     }
 
 
