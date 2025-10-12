@@ -12,6 +12,8 @@ public class CrystalWorkstation : MonoBehaviour, IInteractable
 
     public CrystalBehaviours behaviours;
 
+    public FPController controller;
+
     public void Interact()
     {
 
@@ -36,7 +38,8 @@ public class CrystalWorkstation : MonoBehaviour, IInteractable
                     behaviours.CheckFilledStations();
 
                 }
-            
+
+                Destroy(controller.heldObject.gameObject);
 
             }
             return;

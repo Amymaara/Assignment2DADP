@@ -7,7 +7,9 @@ public class CrystalInteractable : IngredientObject
         None,
         Peace,
         Happiness,
-        Cleansing
+        Cleansing,
+        Fail
+
     }
 
     public Material material;

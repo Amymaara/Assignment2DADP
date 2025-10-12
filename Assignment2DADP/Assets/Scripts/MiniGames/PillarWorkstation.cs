@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class PillarWorkstation : MonoBehaviour, IInteractable
 {
@@ -22,6 +23,8 @@ public class PillarWorkstation : MonoBehaviour, IInteractable
     public bool StationFilled = false;
 
     public CrystalBehaviours behaviours;
+
+    public FPController controller;
 
     public enum CrystalMaterial
     {
@@ -70,6 +73,8 @@ public class PillarWorkstation : MonoBehaviour, IInteractable
                 StationFilled = true;
 
                 behaviours.CheckFilledStations();
+
+                Destroy(controller.heldObject.gameObject);
 
             }
             return;

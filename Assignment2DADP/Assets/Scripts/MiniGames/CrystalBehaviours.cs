@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
+using static PotionBehaviour;
 
 public class CrystalBehaviours : MonoBehaviour
 {
@@ -9,21 +11,99 @@ public class CrystalBehaviours : MonoBehaviour
 
     public CrystalWorkstation Table;
 
+    public InputManager inputManager;
+
+    public FPController controller;
+
+    public GameObject PeaceCrystal;
+    public GameObject HappinessCrystal;
+    public GameObject CleansingCrystal;
+    public GameObject NoCrystal;
+
+    public enum Recipe
+    {
+        None,
+        Peace,
+        Happiness,
+        Cleansing
+    }
+
+    public Recipe CrystalRecipe;
+
     
 
     public void CheckFilledStations()
     {
-        if (NorthPillar.StationFilled && SouthPillar.StationFilled && EastPillar.StationFilled && WestPillar.StationFilled) 
+        if (NorthPillar.StationFilled && SouthPillar.StationFilled && EastPillar.StationFilled && WestPillar.StationFilled && Table.StationFilled) 
         {
-            //start minigame
+            
             GetRecipe();
+            //start minigame
+            inputManager.SwitchToCrystal();
             Debug.Log("Start Minigame");
         }
     }
     
     public void GetRecipe()
     {
-        if (NorthPillar.)
+        if (NorthPillar.Crystalmaterial == PillarWorkstation.CrystalMaterial.amethyst && SouthPillar.Crystalmaterial == PillarWorkstation.CrystalMaterial.rose
+            && EastPillar.Crystalmaterial == PillarWorkstation.CrystalMaterial.amethyst && WestPillar.Crystalmaterial == PillarWorkstation.CrystalMaterial.lapis)
+        {
+            // cleasing recipe
+            CrystalRecipe = Recipe.Cleansing;
+        }
+        else if (NorthPillar.Crystalmaterial == PillarWorkstation.CrystalMaterial.rose && SouthPillar.Crystalmaterial == PillarWorkstation.CrystalMaterial.rose
+            && EastPillar.Crystalmaterial == PillarWorkstation.CrystalMaterial.lapis && WestPillar.Crystalmaterial == PillarWorkstation.CrystalMaterial.lapis)
+        {
+            // happiness recipe
+            CrystalRecipe = Recipe.Happiness;
+        }
+        else if (NorthPillar.Crystalmaterial == PillarWorkstation.CrystalMaterial.lapis && SouthPillar.Crystalmaterial == PillarWorkstation.CrystalMaterial.amethyst
+            && EastPillar.Crystalmaterial == PillarWorkstation.CrystalMaterial.amethyst && WestPillar.Crystalmaterial == PillarWorkstation.CrystalMaterial.rose)
+        {
+            // peace recipe
+            CrystalRecipe = Recipe.Peace;
+        }
+        else
+        {
+            // no recipe
+            CrystalRecipe = Recipe.None;
+        }
     }
 
+    public void ResetWorkstations()
+    {
+        NorthPillar.pillarCrystal.SetActive(false);
+        SouthPillar.pillarCrystal.SetActive(false);
+        EastPillar.pillarCrystal.SetActive(false);
+        WestPillar.pillarCrystal.SetActive(false);
+        Table.tableCrystal.SetActive(false);
+    }
+
+    public void GetCrystal()
+    {
+        
+
+        if (CrystalRecipe == Recipe.Peace)
+        {
+            GameObject crystal = Instantiate(PeaceCrystal);
+            controller.ForcePickUp(crystal);
+        }
+        else if (CrystalRecipe == Recipe.Happiness)
+        {
+            GameObject crystal = Instantiate(HappinessCrystal);
+            controller.ForcePickUp(crystal);
+        }
+        else if (CrystalRecipe == Recipe.Cleansing)
+        {
+            GameObject crystal = Instantiate(CleansingCrystal);
+            controller.ForcePickUp(crystal);
+        }
+        else
+        {
+            GameObject crystal = Instantiate(NoCrystal);
+            controller.ForcePickUp(crystal);
+        }
+
+    }
 }

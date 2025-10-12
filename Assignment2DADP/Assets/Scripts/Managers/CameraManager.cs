@@ -13,6 +13,7 @@ public class CameraManager : MonoBehaviour
     public Camera playerCamera;
     public Camera runeCamera;
     public Camera potionCamera;
+    public Camera crystalCamera;
 
     private Camera activeCamera;
 
@@ -42,5 +43,10 @@ public class CameraManager : MonoBehaviour
     public void SwitchToPotionCam()
     {
         SetActiveCamera(potionCamera);
+    }
+
+    public void SwitchToCrystalCam()
+    {
+        SetActiveCamera(crystalCamera);
     }
 }
