@@ -18,6 +18,8 @@ public class Customer : MonoBehaviour
 
     public bool TryServe(ServeableItem served)
     {
+        Debug.Log($"[TryServe] CALLED. served={(served ? served.name : "NULL")}");
+
         if (served && served.item == requiredItem)
         {
             Debug.Log("Correct item give");

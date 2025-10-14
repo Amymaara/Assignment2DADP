@@ -26,4 +26,9 @@ public class FlipCards : MonoBehaviour
 
     }
 
+    public void ResetState()
+    {
+        flipped = false;
+    }
+
 }

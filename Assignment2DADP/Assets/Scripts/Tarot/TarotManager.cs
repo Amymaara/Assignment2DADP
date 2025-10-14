@@ -7,200 +7,58 @@ using static AudioManager;
 
 public class TarotManager : MonoBehaviour
 {
-    [Header("UI References")]
-    public GameObject tarotCanvas;
+    [Header("UI")]
+    public DisplayTarotReading displayTarotReading;
     public ObjectiveUI objectiveUI;
-    public Button[] cardButtons;
-    public Image[] cardImages;
-    public TMP_Text[] cardDescriptions;
-    public Button continueButton;
-    public Sprite backOfCardSprite;
 
-    [Header("Player Input")]
+
+    [Header("switch inputs")]
     public PlayerInput playerInput;
+    public string playerActionMapName = "Player";
+    public string uiActionMapName = "UI";
 
-    [Header("Tarot Data")]
-    public TarotReadings[] tarotReadings;   //possible tarot readings
-    public TarotCards[] causeOfDeathCards;
-    public TarotCards[] itemCards;
-    public TarotCards[] reasonWhyCards;
+    private DaySequence.Entry currentEntry;
 
-    [Header("Tarot Animation")]
-    public float flipDuration = 0.5f;
-
-    private TarotCards[] spread = new TarotCards[3];
-    private bool[] revealed = new bool[3];
-    private string itemToMake;  // item the player must make
-    private bool isSpreadActive = false;    // prevent multiple readings at same time
-    private bool orderInProgress = false;
-    private TarotReadings currentReading;
-
-    // Public Methods
-
-    // Starts Tarot reading as chosen by customer system
-    public void OpenTarotSpread(TarotReadings chosenReading)
+    void Awake()
     {
-        Debug.Log("Invoking Complete from Tarot ");
-        FindFirstObjectByType<PotionStep1>()?.CompleteFromTarot();
+       
+        if (displayTarotReading && displayTarotReading.continueButton)
+        {
+            displayTarotReading.continueButton.onClick.RemoveAllListeners();
+            displayTarotReading.continueButton.onClick.AddListener(Close);
+        }
+    }
 
-        if (isSpreadActive || orderInProgress) return;
-        isSpreadActive = true;
-        tarotCanvas.SetActive(true);
+    public void OpenWithEntry(DaySequence.Entry entry)
+    {
+        currentEntry = entry;
 
-        // unlock cursor to interact on screen
+        if (displayTarotReading)
+        {
+            displayTarotReading.gameObject.SetActive(true);
+            displayTarotReading.ShowEntry(entry, resetCardsToBack: true);
+        }
+
+        if (playerInput) playerInput.SwitchCurrentActionMap(uiActionMapName);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
-        playerInput.SwitchCurrentActionMap("UI");  // switch to UI controls
-        StartSpread(chosenReading); // Setup spread 
-
-        
-    }
-    public void CompleteOrder() // called on order completion
-    {
-        orderInProgress = false;
-        objectiveUI.HideObjectiveCard();    // hides orderUI if there is no active order
     }
 
-    public void OnContinueButton()  // closes tarotUI once all cards are flipped
+    public void Close()
     {
-        CloseSpread();
-        AudioManager.PlaySound(SoundType.BUTTON, 1);
-    }
+       if (displayTarotReading) displayTarotReading.gameObject.SetActive(false);
 
-
-    // can set a new tarot spread using this
-    public void SetSpread(TarotCards causeOfDeath, TarotCards item, TarotCards reasonWhy)
-    {
-        spread[0] = causeOfDeath;
-        spread[1] = item;
-        spread[2] = reasonWhy;
-
-        // reset card visuals
-        for (int i = 0; i < 3; i++)
-        {
-            revealed[i] = false;
-            cardImages[i].sprite = backOfCardSprite;
-            cardDescriptions[i].text = "";
-
-            int buttonIndex = i;
-            cardButtons[i].onClick.RemoveAllListeners();
-            cardButtons[i].onClick.AddListener(() => RevealCardAnimated(buttonIndex));
-        }
-
-        continueButton.gameObject.SetActive(false);
-    }
-
-
-
-    // Private Methods
-
-    // Ensures card spread has chosen reading
-    // Assigns sprites, descriptions etc. to cards
-    public void StartSpread(TarotReadings chosenReading)
-    {
-        //Debug.Log("StartSpread called");
-
-        itemToMake = "";
-        currentReading = chosenReading; // store currently selected reading
-
-        // assign cards to spread
-        spread[0] = currentReading.causeOfDeathCards;
-        spread[1] = currentReading.itemCards;
-        spread[2] = currentReading.reasonWhyCards;
-
-        continueButton.gameObject.SetActive(false);
-        continueButton.interactable = true;
-        continueButton.onClick.RemoveAllListeners();
-        continueButton.onClick.AddListener(OnContinueButton);
-
-        // initialize cards
-        for (int i = 0; i < 3; i++)
-        {
-            revealed[i] = false;
-            cardImages[i].sprite = backOfCardSprite;
-            cardDescriptions[i].text = "";
-
-            int buttonIndex = i;
-            cardButtons[i].onClick.RemoveAllListeners();
-            cardButtons[i].onClick.AddListener(() => RevealCardAnimated(buttonIndex));
-        }
-    }
-
-    // Closes TarotUI
-    public void CloseSpread()
-    {
-        tarotCanvas.SetActive(false);
-
-        // hides cursor
+       if (playerInput) playerInput.SwitchCurrentActionMap(playerActionMapName);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        playerInput.SwitchCurrentActionMap("Player");  // switch back to Player controls
-
-        // update orderUI
-        objectiveUI.SetObjective(itemToMake);
-        objectiveUI.ShowObjectiveCard();
-
-        orderInProgress = true;
-        isSpreadActive = false;
-    }
-
-    // Card flip animation
-    private void RevealCardAnimated(int index)
-    {
-        if (revealed[index]) return;
-        revealed[index] = true;
-        AudioManager.PlaySound(SoundType.FLIPCARD, 1);
-        StartCoroutine(FlipCard(index));
-    }
-
-    // Coroutine that animates card
-    private IEnumerator FlipCard(int index)
-    {
-        float elapsedTime = 0f;
-        float halfDuration = flipDuration / 2f;
-
-        // rotate 0 -> 90 degrees (first half of flip)
-        while (elapsedTime < halfDuration)
+        if (objectiveUI && currentEntry.fixedOrder)
         {
-            elapsedTime += Time.deltaTime;
-            float yRotation = Mathf.Lerp(0f, 90f, elapsedTime / halfDuration);
-            cardImages[index].rectTransform.localRotation = Quaternion.Euler(0f, yRotation, 0f);
-            yield return null;
+            objectiveUI.SetObjective(currentEntry.fixedOrder.displayName);
+            objectiveUI.ShowObjectiveCard();
         }
 
-        // change sprite to front of card & show descriptions
-        cardImages[index].sprite = spread[index].cardFront;
-        cardDescriptions[index].text = spread[index].heading + "\n\n" + spread[index].description;
-
-        elapsedTime = 0f;
-
-        // rotate 90 -> 0 degrees (second half of flip)
-        while (elapsedTime < halfDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            float yRotation = Mathf.Lerp(90f, 0f, elapsedTime / halfDuration);
-            cardImages[index].rectTransform.localRotation = Quaternion.Euler(0f, yRotation, 0f);
-            yield return null;
-        }
-
-        // resets rotation to default
-        cardImages[index].rectTransform.localRotation = Quaternion.identity;
-
-        // store item for orderUI if card is item card
-        if (spread[index].cardType == TarotCardType.Item)
-        {
-            itemToMake = spread[index].itemID;
-            objectiveUI.SetObjective(itemToMake);
-            //objectiveUI.SetRecipe(spread[index].recipe);
-            objectiveUI.SetRecipe(spread[index].recipeSprite);
-        }
-
-        // show continue button if all cards flipped
-        if (revealed[0] && revealed[1] && revealed[2])
-        {
-            continueButton.gameObject.SetActive(true);
-        }
+        var spawner = FindFirstObjectByType<CustomerSpawner>();
+        spawner?.MarkOrderRevealed();
     }
 }

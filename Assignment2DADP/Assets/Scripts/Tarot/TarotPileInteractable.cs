@@ -4,11 +4,19 @@ using UnityEngine.InputSystem;
 
 public class TarotPileInteractable : MonoBehaviour, IInteractable
 {
+    public CustomerSpawner spawner;
     public TarotManager tarotManager;
-    public TarotReadings testReading;
 
     public void Interact()
     {
-        tarotManager.OpenTarotSpread(testReading);
+        Debug.Log("[TarotPile] Interact called");
+
+        if (!spawner) { Debug.LogError("[TarotPile] Missing spawner"); return; }
+        if (!tarotManager) { Debug.LogError("[TarotPile] Missing TarotUIController"); return; }
+
+        if (!spawner.HasActiveCustomer) { Debug.Log("[TarotPile] No active customer"); return; }
+        if (spawner.OrderRevealed) { Debug.Log("[TarotPile] Already revealed for this customer"); return; }
+
+        tarotManager.OpenWithEntry(spawner.CurrentEntry);
     }
 }

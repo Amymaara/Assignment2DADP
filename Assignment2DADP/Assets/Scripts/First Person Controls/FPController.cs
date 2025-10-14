@@ -227,7 +227,18 @@ public class FPController : MonoBehaviour
             Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
             if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
             {
-                var customer = hit.collider.GetComponent<PotionCatInteract>();
+                var catcustomer = hit.collider.GetComponent<PotionCatInteract>();
+                if (catcustomer)
+                {
+                    var held = holdPoint.GetComponentInChildren<ServeableItem>();
+                    if (held)
+                    {
+                        bool ok = catcustomer.TryServe(held);
+                        if (ok) Destroy(held.gameObject);
+                    }
+                }
+
+                var customer = hit.collider.GetComponentInParent<Customer>();
                 if (customer)
                 {
                     var held = holdPoint.GetComponentInChildren<ServeableItem>();

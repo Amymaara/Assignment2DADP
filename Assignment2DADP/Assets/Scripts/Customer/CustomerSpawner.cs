@@ -11,31 +11,52 @@ public class CustomerSpawner : MonoBehaviour
     public DaySequence daySequence; //hold array of customers and what they want 
     public Transform spawnPoint; // sets spawn position for customers
     public float spawnDelay = 0.5f; // time before customer spawns in
+    public bool autoSpawnOnStart = true;
 
+
+    [Header("Tarot")]
 
     private Customer currentCustomer;
     private int index = -1; // where you are in the queue, set to -1 so when SpawnNext() called goes to 0 
+    private DaySequence.Entry currentEntry;
+    private bool orderRevealed = false;
 
     private void Start()
     {
-        SpawnNext(); //immediately spawns customer for now (might change later)
+        //SpawnNext(); //immediately spawns customer for now (might change later)
+
+        Debug.Log("[Spawner] Start()");
+        if (autoSpawnOnStart) SpawnNext();
     }
+
+    public bool HasActiveCustomer => currentCustomer != null;
+    public bool OrderRevealed => orderRevealed;
+
+    public DaySequence.Entry CurrentEntry => currentEntry;
 
     void SpawnNext()
     {
         index++; //move next slot if queue
+        Debug.Log($"[Spawner] SpawnNext index={index}");
+
         if (daySequence == null || index >= daySequence.queue.Length)
         {
             Debug.Log("day finished");
             return;
         }
 
-        StartCoroutine(CustomerSpawnRoutine(daySequence.queue[index]));
+        currentEntry = daySequence.queue[index];
+        orderRevealed = false;
+
+        StartCoroutine(CustomerSpawnRoutine(currentEntry));
+      
     }
     IEnumerator CustomerSpawnRoutine(DaySequence.Entry entry) //spawns the next customer
     {
+        Debug.Log("[Spawner] Spawn coroutine start");
         yield return new WaitForSeconds(spawnDelay);
         currentCustomer = Instantiate(entry.customerPrefab, spawnPoint.position, Quaternion.identity);
+        Debug.Log($"[Spawner] Spawned: {currentCustomer.name} at {spawnPoint.position}");
 
         {
             currentCustomer.SetOrder(entry.fixedOrder); // manually set order (turorial usage)
@@ -51,6 +72,11 @@ public class CustomerSpawner : MonoBehaviour
 
         currentCustomer = null;
         SpawnNext();
+    }
+
+    public void MarkOrderRevealed()
+    {
+        orderRevealed = true;
     }
     public void DestroyCustomer() //destroys customer 
     {
