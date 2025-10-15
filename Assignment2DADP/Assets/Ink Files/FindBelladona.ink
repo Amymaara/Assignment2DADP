@@ -1,6 +1,15 @@
 
+EXTERNAL LockLook()
+EXTERNAL LockMove()
+EXTERNAL UnlockLook()
+EXTERNAL UnlockMove()
+
+
 -> introduction
 === introduction ===
+
+~ LockLook()
+~ LockMove()
 
 #???
 "Well, well, look who finally decided to wake up."
@@ -17,7 +26,41 @@
 #???
 "Apparently, you're 'useful' and that's why you're here - don't get cocky."
 
+
 #???
-"Well, come on then - come find me."
+"Now listen up, this place doesn't work like your old world."
+
+#???
+"For starters you have to 'will' everything you do."
+
+#???
+ "Let's start with something a bit easier, try and 'will' yourself to see."
+
+~ UnlockLook()
+#???
+"I'm asking you to look around you, how hard is that to get?"
+
+#???
+"I'm impressed, you actually managed to do it. How about something a bit more challenging, let's try and moving without your fancy little legs."
+
+~ UnlockMove()
+
+#???
+"Well go on try it."
+
+// insert smth like use wasd to move (pop up)
+
+
+//insert smth like use blah blah to look around (pop up)
+
+#???
+"Wonderful you can see my cozy little space surrounded by the vast nothingness I get to enjoy everyday."
+
+#???
+"Listen carefully, your willpower is all you got around here. Don't forget it."
+
+#???
+"Now why don't you come over here so we can get to work, I ain't wasting one of my lives waiting for you to gawk at everything."
+
 
 -> END

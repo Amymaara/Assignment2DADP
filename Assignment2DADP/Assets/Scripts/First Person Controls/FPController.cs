@@ -14,18 +14,20 @@ public class FPController : MonoBehaviour
     public float moveSpeed = 5f;
     public float gravity = -9.81f;
     public float jumpHeight = 2f;
+    private bool canMove = true;
 
     [Header("Look Settings")]
     public Transform cameraTransform;
     public float lookSensitivity = 2f;
     public float verticalLookLimit = 80f;
+    private bool canLook = true;
 
     [Header("Pickup Settings")]
     public float pickupRange = 5f;
     public PickUpObject heldObject;
     public Transform holdPoint;
     public IngredientObject holdObject;
-  
+
 
     [Header("UI Elements")]
     public TextMeshProUGUI pickupText;
@@ -52,15 +54,30 @@ public class FPController : MonoBehaviour
     private Vector3 velocity;
     private float verticalRotation = 0f;
 
-   
 
-    [SerializeField] private float footstepInterval = 0.3f; 
+
+    [SerializeField] private float footstepInterval = 0.3f;
     private float footstepTimer = 0f;
 
+    private void OnEnable()
+    {
+        GameEventsManager.instance.playerEvents.onEnablePlayerLook += EnableLook;
+        GameEventsManager.instance.playerEvents.onDisablePlayerLook += DisableLook;
+        GameEventsManager.instance.playerEvents.onDisablePlayerMovement += DisableMove;
+        GameEventsManager.instance.playerEvents.onEnablePlayerMovement += EnableMove;
+    }
+
+    private void OnDisable()
+    {
+        GameEventsManager.instance.playerEvents.onEnablePlayerLook -= EnableLook;
+        GameEventsManager.instance.playerEvents.onDisablePlayerLook -= DisableLook;
+        GameEventsManager.instance.playerEvents.onDisablePlayerMovement -= DisableMove;
+        GameEventsManager.instance.playerEvents.onEnablePlayerMovement -= EnableMove;
+    }
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
-        
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -71,10 +88,10 @@ public class FPController : MonoBehaviour
         {
             cauldronFill.Fill();
 
-           
 
-           
-        } 
+
+
+        }
 
         HandleMovement();
         HandleLook();
@@ -90,7 +107,7 @@ public class FPController : MonoBehaviour
         }
         else
         {
-            footstepTimer = 0f; 
+            footstepTimer = 0f;
         }
 
     }
@@ -112,7 +129,7 @@ public class FPController : MonoBehaviour
     {
         lookInput = context.ReadValue<Vector2>();
     }
-    
+
     public void OnPickup(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
@@ -133,8 +150,8 @@ public class FPController : MonoBehaviour
         {
             ForceDrop();
         }
-    
-    
+
+
         /*
        // This is the old pickup/pickupcontroller stuff
         
@@ -170,7 +187,7 @@ public class FPController : MonoBehaviour
     {
         ForceDrop();
 
-        
+
         PickUpObject pickUp = obj.GetComponent<PickUpObject>();
         if (pickUp != null)
         {
@@ -188,7 +205,7 @@ public class FPController : MonoBehaviour
     {
         if (heldObject != null)
         {
-            
+
             heldObject.Drop();
             heldObject = null;
             holdObject = null;
@@ -214,7 +231,7 @@ public class FPController : MonoBehaviour
 
         if (ctx.phase == InputActionPhase.Started)
         {
-          
+
 
             /*
             if (dialogueController && dialogueController.gameObject.activeInHierarchy)
@@ -279,7 +296,7 @@ public class FPController : MonoBehaviour
 
         if (ctx.performed)
         {
-            
+
             var mgr = GameEventsManager.instance;
             if (mgr?.inputEvents != null)
             {
@@ -290,27 +307,45 @@ public class FPController : MonoBehaviour
 
     public void HandleMovement()
     {
-        Vector3 move = (transform.right * moveInput.x + transform.forward * moveInput.y).normalized; // normalize movement vector
-       
-        controller.Move(move * moveSpeed * Time.deltaTime);
-        //Debug.Log(move);
+        /* Vector3 move = (transform.right * moveInput.x + transform.forward * moveInput.y).normalized; // normalize movement vector
 
-        if (moveInput != Vector2.zero)
+         controller.Move(move * moveSpeed * Time.deltaTime);
+         //Debug.Log(move);
+
+         if (moveInput != Vector2.zero)
+         {
+             // Debug.Log("Moving");
+             //audioManager.HandleFootsteps();
+
+         }
+         if (controller.isGrounded && velocity.y < 0)
+         {
+             velocity.y = -2f;
+         }
+
+         velocity.y += gravity * Time.deltaTime;
+         controller.Move(velocity * Time.deltaTime);
+        */
+
+        Vector3 move = Vector3.zero;
+        if (canMove)
         {
-           // Debug.Log("Moving");
-            //audioManager.HandleFootsteps();
+            move = (transform.right * moveInput.x + transform.forward * moveInput.y).normalized;
 
-        }
-        if (controller.isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
+            controller.Move(move * moveSpeed * Time.deltaTime);
+            if (controller.isGrounded && velocity.y < 0)
+            {
+                velocity.y = -2f;
+            }
 
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+        }
     }
     public void HandleLook()
     {
+        if (!canLook) return;
+
         float mouseX = lookInput.x * lookSensitivity;
         float mouseY = lookInput.y * lookSensitivity;
 
@@ -319,5 +354,25 @@ public class FPController : MonoBehaviour
 
         cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
+    }
+
+    private void EnableMove()
+    {
+        canMove = true;
+    }
+
+    private void DisableMove()
+    {
+        canMove = false;
+    }
+
+    private void EnableLook()
+    {
+        canLook = true;
+    }
+
+    private void DisableLook()
+    {
+        canLook = false;
     }
 }

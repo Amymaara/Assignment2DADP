@@ -8,7 +8,9 @@ using UnityEngine;
 // Accesibility: https://www.youtube.com/watch?v=l8yI_97vjZs&t=1227s
 public class PlayerEvents
 {
+    // movement 
     public event Action onDisablePlayerMovement;
+    public event Action onEnablePlayerMovement;
 
     public void DisablePlayerMovement()
     {
@@ -17,13 +19,33 @@ public class PlayerEvents
             onDisablePlayerMovement();
         }
     }
-
-    public event Action onEnablePlayerMovement;
+    
     public void EnablePlayerMovement()
     {
         if (onEnablePlayerMovement != null)
         {
             onEnablePlayerMovement();
+        }
+    }
+
+    // look/camera
+
+    public event Action onDisablePlayerLook;
+    public event Action onEnablePlayerLook;
+
+    public void DisablePlayerLook()
+    {
+        if (onDisablePlayerLook != null)
+        {
+            onDisablePlayerLook();
+        }
+    }
+
+    public void EnablePlayerLook()
+    {
+        if (onEnablePlayerLook != null)
+        {
+            onEnablePlayerLook();
         }
     }
 }

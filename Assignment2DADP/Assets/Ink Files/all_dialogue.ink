@@ -2,6 +2,9 @@ EXTERNAL StartQuest(questId)
 EXTERNAL AdvanceQuest(questId)
 EXTERNAL FinishQuest(questId)
 
+
+INCLUDE FindBelladona.ink
+
 VAR QuestTestId = "QuestTest"
 VAR QuestTestState = "REQUIREMENTS_NOT_MET"
 VAR TarotQuestId = "TarotQuest"

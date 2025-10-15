@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using Ink.Runtime;
+using UnityEngine.SceneManagement;
 
 // dialogue system 
 // Title: How to create a Dialogue System in Unity | RPG Style | Unity + Ink
@@ -14,10 +15,23 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextAsset inkJson;
     private Story story;
     private int currentChoiceIndex = -1;
-   
+
+    [Header("AutoStart")]
+    [SerializeField] private bool startOnSceneLoad = true;
+    [SerializeField] private string startKnot = "FindBelladona";
+    [SerializeField] private string autoStartSceneName = "Blocking";
+
+
     private bool dialoguePlaying = false;
     private InkExternalFunctions inkExternalFunctions;
     private InkDialogueVariables inkDialogueVariables;
+
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().name == autoStartSceneName)
+            GameEventsManager.instance.dialogueEvents.EnterDialogue(startKnot);
+    }
+
 
     private void Awake()
     {
@@ -97,8 +111,8 @@ public class DialogueManager : MonoBehaviour
         dialoguePlaying = true;
 
         GameEventsManager.instance.dialogueEvents.DialogueStarted();
-
         GameEventsManager.instance.playerEvents.DisablePlayerMovement();
+        GameEventsManager.instance.playerEvents.DisablePlayerLook();
 
         GameEventsManager.instance.inputEvents.ChangeInputEventsContext(InputEventsContext.DIALOGUE);
 

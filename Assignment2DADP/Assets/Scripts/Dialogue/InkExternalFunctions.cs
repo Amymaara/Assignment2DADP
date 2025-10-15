@@ -1,5 +1,6 @@
 using UnityEngine;
 using Ink.Runtime;
+using Unity.VisualScripting;
 
 // dialogue system 
 // Title: How to create a Dialogue System in Unity | RPG Style | Unity + Ink
@@ -13,6 +14,12 @@ public class InkExternalFunctions
         story.BindExternalFunction("StartQuest", (string questId) => StartQuest(questId));
         story.BindExternalFunction("AdvanceQuest", (string questId) => AdvanceQuest(questId));
         story.BindExternalFunction("FinishQuest", (string questId) => FinishQuest(questId));
+
+        // movement binds
+        story.BindExternalFunction("LockMove", () => LockMove());
+        story.BindExternalFunction("UnlockMove", () => UnlockMove());
+        story.BindExternalFunction("LockLook", () => LockLook());
+        story.BindExternalFunction("UnlockLook", () => UnlockLook());
     }
 
     public void Unbind(Story story)
@@ -20,6 +27,11 @@ public class InkExternalFunctions
         story.UnbindExternalFunction("StartQuest");
         story.UnbindExternalFunction("AdvanceQuest");
         story.UnbindExternalFunction("FinishQuest");
+
+        story.UnbindExternalFunction("LockMove");
+        story.UnbindExternalFunction("UnlockMove");
+        story.UnbindExternalFunction("LockLook");
+        story.UnbindExternalFunction("UnlockLook");
     }
     private void StartQuest(string questId)
     {
@@ -34,5 +46,24 @@ public class InkExternalFunctions
     private void FinishQuest(string questId)
     {
         GameEventsManager.instance.questEvents.FinishQuest(questId);
+    }
+
+    private void LockMove()
+    {
+        GameEventsManager.instance.playerEvents.DisablePlayerMovement();
+    }
+    private void UnlockMove()
+    {
+        GameEventsManager.instance.playerEvents.EnablePlayerMovement();
+    }
+
+    private void LockLook()
+    {
+        GameEventsManager.instance.playerEvents.DisablePlayerLook();
+    }
+
+    private void UnlockLook()
+    {
+        GameEventsManager.instance.playerEvents.EnablePlayerLook();
     }
 }
