@@ -36,6 +36,8 @@ EXTERNAL UnlockMove()
 #???
  "Let's start with something a bit easier, try and 'will' yourself to see."
 
+// insert smth like use wasd to move (pop up)
+
 ~ UnlockLook()
 #???
 "I'm asking you to look around you, how hard is that to get?"
@@ -47,9 +49,6 @@ EXTERNAL UnlockMove()
 
 #???
 "Well go on try it."
-
-// insert smth like use wasd to move (pop up)
-
 
 //insert smth like use blah blah to look around (pop up)
 
