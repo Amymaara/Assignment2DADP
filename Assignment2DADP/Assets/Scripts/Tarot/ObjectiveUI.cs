@@ -5,9 +5,10 @@ using UnityEngine.UI;
 public class ObjectiveUI : MonoBehaviour
 {
     public GameObject objectiveCardUI;
-    public TMP_Text orderText;
+   /* public TMP_Text orderText;
     public TMP_Text itemText;
     //public TMP_Text recipeText;
+   */
     public Image recipeImage;
 
     void Start()
@@ -16,19 +17,16 @@ public class ObjectiveUI : MonoBehaviour
     }
 
     // adds item name to orderUI
-    public void SetObjective(string itemID)
+  /*  public void SetObjective(string itemID)
     {
-        if (itemText != null)
-            itemText.text = itemID;
-
-        else
-            Debug.LogWarning("Order Text is not assigned in the inspector.");
+        if (itemText) itemText.text = itemID;
+        else Debug.LogWarning("item text not assigned");
     }
+  */
 
     public void SetRecipe(Sprite recipeSprite)
     {
-        if (recipeImage != null)
-            recipeImage.sprite = recipeSprite;
+        if (recipeImage) recipeImage.sprite = recipeSprite;
     }
 
     public void ShowObjectiveCard()

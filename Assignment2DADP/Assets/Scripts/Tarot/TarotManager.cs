@@ -54,7 +54,8 @@ public class TarotManager : MonoBehaviour
 
         if (objectiveUI && currentEntry.fixedOrder)
         {
-            objectiveUI.SetObjective(currentEntry.fixedOrder.displayName);
+          //  objectiveUI.SetObjective(currentEntry.fixedOrder.displayName);
+            objectiveUI.SetRecipe(currentEntry.recipeSprite);
             objectiveUI.ShowObjectiveCard();
         }
 

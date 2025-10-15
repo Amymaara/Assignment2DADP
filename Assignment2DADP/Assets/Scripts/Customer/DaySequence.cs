@@ -18,6 +18,8 @@ public class DaySequence : ScriptableObject
         public Sprite tarotCard1; // how they died
         public Sprite tarotCard2; // what they want
         public Sprite tarotCard3; // why they need it
+
+        public Sprite recipeSprite;
     }
 
     public string dayName = "Day X";

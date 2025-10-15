@@ -135217,6 +135217,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 967588781}
   spawnDelay: 0.5
   autoSpawnOnStart: 1
+  objectiveUI: {fileID: 2032710415}
 --- !u!4 &768827637
 Transform:
   m_ObjectHideFlags: 0
@@ -195150,6 +195151,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   spawnDelay: 0.5
   autoSpawnOnStart: 1
+  objectiveUI: {fileID: 0}
 --- !u!1001 &1280432776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -341759,7 +341761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2032710411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -341856,8 +341858,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectiveCardUI: {fileID: 1383100304}
-  orderText: {fileID: 666394043}
-  itemText: {fileID: 1112194751}
   recipeImage: {fileID: 1038447005}
 --- !u!43 &2040381094
 Mesh:

@@ -20,6 +20,7 @@ public class CustomerSpawner : MonoBehaviour
     private int index = -1; // where you are in the queue, set to -1 so when SpawnNext() called goes to 0 
     private DaySequence.Entry currentEntry;
     private bool orderRevealed = false;
+    public ObjectiveUI objectiveUI;
 
     private void Start()
     {
@@ -69,6 +70,8 @@ public class CustomerSpawner : MonoBehaviour
     {
         if (currentCustomer != null)
             currentCustomer.OnServedCorrectly -= HandleCustomerServed;
+
+        objectiveUI?.HideObjectiveCard();
 
         currentCustomer = null;
         SpawnNext();
