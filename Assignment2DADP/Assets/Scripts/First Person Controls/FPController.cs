@@ -327,12 +327,18 @@ public class FPController : MonoBehaviour
          controller.Move(velocity * Time.deltaTime);
         */
 
-        Vector3 move = Vector3.zero;
+        Vector3 move = Vector3.zero; // starts the player at zero / origin
         if (canMove)
         {
             move = (transform.right * moveInput.x + transform.forward * moveInput.y).normalized;
 
             controller.Move(move * moveSpeed * Time.deltaTime);
+            if (moveInput != Vector2.zero)
+            {
+                // Debug.Log("Moving");
+                //audioManager.HandleFootsteps();
+
+            }
             if (controller.isGrounded && velocity.y < 0)
             {
                 velocity.y = -2f;

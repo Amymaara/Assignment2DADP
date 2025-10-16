@@ -118137,6 +118137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkJson: {fileID: 4900000, guid: 622b214ca76fedf4992fc3054baeb063, type: 3}
+  startOnSceneLoad: 1
+  startKnot: introduction
+  autoStartSceneName: Blocking
 --- !u!1 &603205288
 GameObject:
   m_ObjectHideFlags: 0
@@ -340483,11 +340486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8fd613d99bb7884fba5649a45652416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueText: {fileID: 495840159}
-  contentParent: {fileID: 1325915990}
-  inkJson: {fileID: 4900000, guid: 7e97b4c90d0ae0d4f8b108cb9aa7654a, type: 3}
-  advanceDialogue: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  candleManager: {fileID: 907656176}
 --- !u!135 &1954892783
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("AutoStart")]
     [SerializeField] private bool startOnSceneLoad = true;
-    [SerializeField] private string startKnot = "FindBelladona";
+    [SerializeField] private string startKnot = "tutorial";
     [SerializeField] private string autoStartSceneName = "Blocking";
 
 
