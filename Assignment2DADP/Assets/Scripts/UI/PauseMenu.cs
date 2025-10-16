@@ -11,6 +11,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject ControlsButton;
     public GameObject RunesButton;
     public GameObject PotionsButton;
+    public GameObject VolumeSlider;
+    public UINavigationManager navigationManager;
+
+    public GameObject Settings;
+    
 
     [Header("Tooltips")]
     public GameObject ControlsToolTip;
@@ -27,13 +32,17 @@ public class PauseMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        EventSystem.current.SetSelectedGameObject(firstButton);
+        //EventSystem.current.SetSelectedGameObject(firstButton);
+        navigationManager.firstSelected = firstButton;
         ControlsToolTip.SetActive(false);
         RunesToolTip.SetActive(false);
         PotionsToolTip.SetActive(false);
+        Settings.SetActive(false);
 
     }
 
+
+    /*
     private void Update()
     {
         if (EventSystem.current.currentSelectedGameObject == null)
@@ -57,36 +66,58 @@ public class PauseMenu : MonoBehaviour
                 
         }
     }
+    */
 
     public void OnResume()
     {
-        AudioManager.PlaySound(SoundType.BUTTON, 1);
+        AudioManager.PlaySound(SoundType.BUTTON, 0.5f);
         inputManager.SwitchToGameplay();
     }
 
-    public void OnSettings()
+    public void OnControls()
     {
-        AudioManager.PlaySound(SoundType.BUTTON, 1);
-        EventSystem.current.SetSelectedGameObject(ControlsButton);
+        AudioManager.PlaySound(SoundType.BUTTON, 0.5f);
+        //EventSystem.current.SetSelectedGameObject(ControlsButton);
+        navigationManager.firstSelected = ControlsButton;
         ControlsToolTip.SetActive(true);
         ShowTooltip(0);
     }
 
+    public void OnSettings()
+    {
+        AudioManager.PlaySound(SoundType.BUTTON, 0.5f);
+        //EventSystem.current.SetSelectedGameObject(ControlsButton);
+        navigationManager.firstSelected = VolumeSlider;
+        Settings.SetActive(true);
+        
+    }
+    
     public void OnSettingsExit()
     {
-        AudioManager.PlaySound(SoundType.BUTTON, 1);
+        AudioManager.PlaySound(SoundType.BUTTON, 0.5f);
+     
+        navigationManager.firstSelected = firstButton;
+        Settings.SetActive(false);
+    }
+
+    
+
+    public void OnControlsExit()
+    {
+        AudioManager.PlaySound(SoundType.BUTTON, 0.5f);
 
         foreach (var t in tooltips)
         {
             if (t != null) t.SetActive(false);
         }
 
-        EventSystem.current.SetSelectedGameObject(firstButton);
+        //EventSystem.current.SetSelectedGameObject(firstButton);
+        navigationManager.firstSelected = firstButton;
     }
 
     public void OnToolTipNext()
     {
-        AudioManager.PlaySound(SoundType.BUTTON, 1);
+        AudioManager.PlaySound(SoundType.BUTTON, 0.5f);
         int nextIndex = (currentTooltipIndex + 1) % tooltips.Length;
         ShowTooltip(nextIndex);
     }
@@ -107,15 +138,15 @@ public class PauseMenu : MonoBehaviour
 
         switch (index)
         {
-            case 0: EventSystem.current.SetSelectedGameObject(ControlsButton); break;
-            case 1: EventSystem.current.SetSelectedGameObject(RunesButton); break;
-            case 2: EventSystem.current.SetSelectedGameObject(PotionsButton); break;
+            case 0: navigationManager.firstSelected = ControlsButton; break;
+            case 1: navigationManager.firstSelected = RunesButton; break;
+            case 2: navigationManager.firstSelected = PotionsButton; break;
         }
     }
 
     public void OnExitGame()
     {
-        AudioManager.PlaySound(SoundType.BUTTON, 1);
+        AudioManager.PlaySound(SoundType.BUTTON, 0.5f);
         Application.Quit();
     }
 }

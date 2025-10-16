@@ -12,6 +12,7 @@ public class RuneBehaviour : MonoBehaviour
     public GameObject trifecta;
     public GameObject canvas;
     public GameObject firstButton;
+    public UINavigationManager navigationManager;
 
     [Header("Player Movement")]
     public FPController controller;
@@ -51,7 +52,8 @@ public class RuneBehaviour : MonoBehaviour
 
         drawing.canDraw = false;
         inputManager.SwitchToRuneDrawing();
-        EventSystem.current.SetSelectedGameObject(firstButton);
+        //EventSystem.current.SetSelectedGameObject(firstButton);
+        navigationManager.firstSelected = firstButton;
         canvas.SetActive(true);
         cursor.SetActive(false);
     }
@@ -75,6 +77,8 @@ public class RuneBehaviour : MonoBehaviour
 
     public void OnStarButton()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         AudioManager.PlaySound(SoundType.BUTTON, 1);
         star.SetActive(true);
         cursor.SetActive(true);
@@ -89,6 +93,8 @@ public class RuneBehaviour : MonoBehaviour
 
     public void OnMoonButton()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         AudioManager.PlaySound(SoundType.BUTTON, 1);
         moon.SetActive(true);
         cursor.SetActive(true);
@@ -102,7 +108,9 @@ public class RuneBehaviour : MonoBehaviour
 
     public void OnTrifectaButton()
     {
-        AudioManager.PlaySound(SoundType.BUTTON, 1);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
         trifecta.SetActive(true);
         cursor.SetActive(true);
         playerLine.SetActive(true);
@@ -123,7 +131,7 @@ public class RuneBehaviour : MonoBehaviour
         FinishedRuneObject spawnedRune = Instantiate(outPutProduct).GetComponent<FinishedRuneObject>();
 
 
-        if (accuracy < 0.77f)
+        if (accuracy < 0.7f)
         {
             AudioManager.PlaySound(SoundType.MINIGAMEFAIL, 1);
             workstation.FailParticles.Play();

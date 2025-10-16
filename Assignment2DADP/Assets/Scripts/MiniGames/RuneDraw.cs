@@ -22,6 +22,7 @@ public class RuneDraw : MonoBehaviour
     //public RuneBehaviour runeBehaviour;
     //public Belladona cat;
     public GameObject firstButton;
+    public UINavigationManager navigationManager;
 
 
 
@@ -44,7 +45,7 @@ public class RuneDraw : MonoBehaviour
 
 
 
-    private void Start()
+    private void OnEnable()
     {
         previousCursorPosition = transform.position;
         playerLine.positionCount = 0;
@@ -147,7 +148,8 @@ public class RuneDraw : MonoBehaviour
 
         if (!canDraw)
         {
-            EventSystem.current.SetSelectedGameObject(firstButton);
+            //EventSystem.current.SetSelectedGameObject(firstButton);
+            navigationManager.firstSelected = firstButton;
             return;
         }
         if (context.started)

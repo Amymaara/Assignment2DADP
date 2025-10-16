@@ -26,6 +26,8 @@ public class InputManager : MonoBehaviour
 
     public void SwitchToGameplay()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         RuneMinigame.SetActive(false);
         potionMix.SetActive(false);
         crystals.SetActive(false);
@@ -39,6 +41,8 @@ public class InputManager : MonoBehaviour
 
     public void SwitchToUI()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         player.SetActive(true);
         pauseMenu.SetActive(true);
         player.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
@@ -47,6 +51,8 @@ public class InputManager : MonoBehaviour
 
     public void SwitchToRuneDrawing()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         PotionWorldSpaceCanvas.SetActive(false);
         RuneMinigame.SetActive(true);
         player.SetActive(false);

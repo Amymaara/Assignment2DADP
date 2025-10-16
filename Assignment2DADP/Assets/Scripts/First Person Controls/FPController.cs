@@ -112,6 +112,11 @@ public class FPController : MonoBehaviour
 
     }
 
+    public void LookSensitivity(float x)
+    {
+        lookSensitivity = x;
+    }
+
     public void OnPause(InputAction.CallbackContext context)
     {
         inputManager.SwitchToUI();
