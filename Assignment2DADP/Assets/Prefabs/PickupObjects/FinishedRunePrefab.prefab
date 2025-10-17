@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1627762740242000779}
   - component: {fileID: 4117827285710372404}
   - component: {fileID: 1504652038467827817}
+  - component: {fileID: 1512412852470138785}
   m_Layer: 8
   m_Name: FinishedRunePrefab
   m_TagString: canPickUp
@@ -168,6 +169,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 1c9b46c789342a0409949f6d14312092, type: 2}
   - {fileID: 2100000, guid: 313f0c044ff2be848afd025edf9779ee, type: 2}
   ThisRune: {fileID: 969360869803992008}
+  servicableItem: {fileID: 1512412852470138785}
+  Healing: {fileID: 11400000, guid: 2ce84cf403b788944903fc0af5c0a068, type: 2}
+  Communication: {fileID: 11400000, guid: ff57906c599b0c241bfd7ba559ba3cae, type: 2}
+  Protection: {fileID: 11400000, guid: bc098639034943d469cd7a4b7a44f399, type: 2}
 --- !u!114 &1504652038467827817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,3 +185,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3397af439110d041bd7e888399ab915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1512412852470138785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969360869803992008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6715ebf44558f8c46a373f081aaf7ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
