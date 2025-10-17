@@ -894,7 +894,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""name"": ""Navigate"",
                     ""type"": ""Value"",
                     ""id"": ""5b07387f-87bb-497f-8623-934cd78f82e0"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true

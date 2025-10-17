@@ -72591,6 +72591,7 @@ MonoBehaviour:
   crystals: {fileID: 1277944329}
   PotionWorldSpaceCanvas: {fileID: 1187221171}
   potionMix: {fileID: 1065668041}
+  runeAudio: {fileID: 517030105}
 --- !u!114 &408812789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88220,7 +88221,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 517030102}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &517030106
 Camera:
   m_ObjectHideFlags: 0
@@ -88583,7 +88584,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 1436503606}
-  firstSelected: {fileID: 1110732779}
 --- !u!4 &534427828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2298613126740470947, guid: 0552e32036b102a47b5422d435f8e634, type: 3}
@@ -120181,7 +120181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 1436503606}
-  firstSelected: {fileID: 265802801}
 --- !u!1 &654234590
 GameObject:
   m_ObjectHideFlags: 0
@@ -136126,11 +136125,11 @@ MonoBehaviour:
   workstation: {fileID: 1557713462}
   firstButton: {fileID: 620664320}
   navigationManager: {fileID: 1218016250}
-  controllerSpeed: 0.02
+  controllerSpeed: 0.08
   pointSpacing: 0.01
-  accuracyThreshold: 0.025
+  accuracyThreshold: 0.028
   deadzone: 0.5
-  maxMovePerFrame: 0.001
+  maxMovePerFrame: 0.003
   fixedWorldY: 0.116
   smoothSpeed: 7
   runeRadius: 0.25
@@ -136149,7 +136148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 33a333d860636624f9428c3dc93f22ee, type: 3}
   m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 1436503605}
+  m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -190958,7 +190957,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 1436503606}
-  firstSelected: {fileID: 620664320}
 --- !u!1 &1218569807
 GameObject:
   m_ObjectHideFlags: 0

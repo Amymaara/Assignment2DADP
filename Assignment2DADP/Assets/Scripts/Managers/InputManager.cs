@@ -14,6 +14,7 @@ public class InputManager : MonoBehaviour
     //public GameObject DialogueCanvas;
     public GameObject PotionWorldSpaceCanvas;
     public GameObject potionMix;
+    public AudioListener runeAudio;
 
     private void Start()
     {
@@ -51,13 +52,26 @@ public class InputManager : MonoBehaviour
 
     public void SwitchToRuneDrawing()
     {
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        runeAudio.enabled = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         PotionWorldSpaceCanvas.SetActive(false);
         RuneMinigame.SetActive(true);
-        player.SetActive(false);
-        cursor.SetActive(true);
+        //player.SetActive(false);
         manager.SwitchToRuneCam();
+        player.GetComponent<Renderer>().enabled = false;
+        player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Runes");
+        cursor.SetActive(true);
+        
+    }
+
+    public void SwitchToRuneMenu()
+    {
+        runeAudio.enabled = true;
+        player.SetActive(false);
+
     }
 
     public void SwitchToPotionMix()

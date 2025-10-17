@@ -7,13 +7,15 @@ public class UINavigationManager : MonoBehaviour
 {
 
     public EventSystem eventSystem;
-    public GameObject firstSelected;
+    //public GameObject firstSelected;
 
     private PlayerInput playerInput;
     private InputAction navigateAction;
     private InputAction pointAction;
 
-    
+   
+
+
 
     void OnEnable()
     {
@@ -74,5 +76,31 @@ public class UINavigationManager : MonoBehaviour
     {
         if (eventSystem != null && eventSystem.currentSelectedGameObject == null && firstSelected != null)
             eventSystem.SetSelectedGameObject(firstSelected);
+    }
+
+    private GameObject _firstSelected;
+    public GameObject firstSelected
+    {
+        get => _firstSelected;
+        set
+        {
+            _firstSelected = value;
+            SelectFirstButton(); 
+        }
+    }
+
+    private void SelectFirstButton()
+    {
+        if (_firstSelected != null && eventSystem != null)
+        {
+            StartCoroutine(SelectNextFrame(_firstSelected));
+        }
+    }
+
+    private IEnumerator SelectNextFrame(GameObject button)
+    {
+        yield return null; 
+        eventSystem.SetSelectedGameObject(null);
+        eventSystem.SetSelectedGameObject(button);
     }
 }

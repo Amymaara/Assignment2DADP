@@ -47,6 +47,7 @@ public class RuneDraw : MonoBehaviour
 
     private void OnEnable()
     {
+        inputManager.SwitchToRuneMenu();
         previousCursorPosition = transform.position;
         playerLine.positionCount = 0;
         fixedWorldY = runeCenter.position.y;
