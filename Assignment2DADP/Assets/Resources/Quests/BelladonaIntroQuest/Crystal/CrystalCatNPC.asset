@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d837bd8a297e2984daae830c03db763d, type: 3}
   m_Name: CrystalCatNPC
   m_EditorClassIdentifier: 
-  <id>k__BackingField: 
+  <id>k__BackingField: CrystalCatNPC
   displayName: 
   questPrerequisite: []
-  questStepPrefabs: []
+  questStepPrefabs:
+  - {fileID: 7877786852788083175, guid: ce2d7b7583b48eb42a3a14b709c2e4b5, type: 3}
