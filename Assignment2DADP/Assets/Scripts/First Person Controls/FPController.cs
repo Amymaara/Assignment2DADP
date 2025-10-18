@@ -270,6 +270,17 @@ public class FPController : MonoBehaviour
                     }
                 }
 
+                var catcrystalcustomer = hit.collider.GetComponent<CrystalCatInteract>();
+                if (catcrystalcustomer)
+                {
+                    var held = holdPoint.GetComponentInChildren<ServeableItem>();
+                    if (held)
+                    {
+                        bool ok = catcrystalcustomer.TryServe(held);
+                        if (ok) Destroy(held.gameObject);
+                    }
+                }
+
                 var customer = hit.collider.GetComponentInParent<Customer>();
                 if (customer)
                 {
@@ -280,6 +291,8 @@ public class FPController : MonoBehaviour
                         if (ok) Destroy(held.gameObject);
                     }
                 }
+
+
 
                 // try and fill in the cauldron bar thing
                 if (hit.collider.TryGetComponent<IFillable>(out var fillable) && potionBehaviour.currentState == PotionBehaviour.CauldronState.Filling)
