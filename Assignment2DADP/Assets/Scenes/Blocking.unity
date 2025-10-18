@@ -23966,7 +23966,7 @@ PrefabInstance:
     - target: {fileID: 1512412852470138785, guid: 9841b428efa902f4197f969c220f41a2, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: 607467a8fe0fb8a4b9910e1243b984f6, type: 2}
+      objectReference: {fileID: 11400000, guid: bc098639034943d469cd7a4b7a44f399, type: 2}
     - target: {fileID: 4238496890551196596, guid: 9841b428efa902f4197f969c220f41a2, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -177122,7 +177122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3228478f7ca5c584c9d525ff902f5331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItem: {fileID: 11400000, guid: 607467a8fe0fb8a4b9910e1243b984f6, type: 2}
+  requiredItem: {fileID: 11400000, guid: bc098639034943d469cd7a4b7a44f399, type: 2}
   acceptQuest: {fileID: 0}
 --- !u!65 &1048300533
 BoxCollider:

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CatAcceptsProtectionRUne : QuestSteps
 {
-    [SerializeField] private ItemSO knowledgePotion;
+    [SerializeField] private ItemSO ProtectionRune;
     [SerializeField] private string playerTag = "Player";
 
     private bool playerNear = false;

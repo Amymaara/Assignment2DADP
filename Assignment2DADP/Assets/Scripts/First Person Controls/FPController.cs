@@ -259,6 +259,16 @@ public class FPController : MonoBehaviour
                         if (ok) Destroy(held.gameObject);
                     }
                 }
+                var catrunecustomer = hit.collider.GetComponent<RuneCatInteract>();
+                if (catrunecustomer)
+                {
+                    var held = holdPoint.GetComponentInChildren<ServeableItem>();
+                    if (held)
+                    {
+                        bool ok = catrunecustomer.TryServe(held);
+                        if (ok) Destroy(held.gameObject);
+                    }
+                }
 
                 var customer = hit.collider.GetComponentInParent<Customer>();
                 if (customer)
