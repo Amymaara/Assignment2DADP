@@ -12,7 +12,7 @@ using UnityEngine.ProBuilder.MeshOperations;
 public class QuestManager : MonoBehaviour
 {
     [Header("Config")]
-    [SerializeField] private bool loadQuestState = true;
+    [SerializeField] private bool loadQuestState = false;
 
     private Dictionary<string, Quest> questMap;
 
@@ -21,6 +21,7 @@ public class QuestManager : MonoBehaviour
         questMap = CreateQuestMap();
 
         Quest quest = GetQuestById("QuestTest");
+        PlayerPrefs.DeleteAll();
     }
 
     private void OnEnable()

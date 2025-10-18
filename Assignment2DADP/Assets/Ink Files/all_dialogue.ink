@@ -4,6 +4,7 @@ EXTERNAL FinishQuest(questId)
 
 
 INCLUDE FindBelladona.ink
+INCLUDE RuneCatNPC.ink
 
 VAR QuestTestId = "QuestTest"
 VAR QuestTestState = "REQUIREMENTS_NOT_MET"
@@ -13,6 +14,8 @@ VAR PotionQuestId = "PotionQuest"
 VAR PotionQuestState = "CAN_START"
 VAR ExploreQuestId = "ExporeQuest"
 VAR ExploreQuestState = "CAN_START"
+VAR RuneCatNPCId = "RuneCatNPC"
+VAR RuneCatNPCState = "CAN_START"
 
 -> test_knot.requirementsNotMet
 === test_knot ===

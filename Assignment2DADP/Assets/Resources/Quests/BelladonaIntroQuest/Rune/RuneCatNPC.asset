@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c90a2079a8b368048bd6dc795815beb7, type: 3}
-  m_Name: Tutorial
+  m_Script: {fileID: 11500000, guid: d837bd8a297e2984daae830c03db763d, type: 3}
+  m_Name: RuneCatNPC
   m_EditorClassIdentifier: 
-  dayName: Day X
-  queue:
-  - customerPrefab: {fileID: 0}
-    orderFromTarot: 0
-    fixedOrder: {fileID: 0}
+  <id>k__BackingField: RuneCatNPC
+  displayName: 
+  questPrerequisite: []
+  questStepPrefabs:
+  - {fileID: 6518571643023176123, guid: aa1bf5f0e5975e0409ef52490906dcd3, type: 3}

@@ -1,20 +1,6 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
-/*
-public class BelladonaAcceptsKnowledgePotion : QuestSteps
-{
-    public void PotionHandedIn()
-    {
-        FinishQuestStep();
-    }
-}
-
-
-*/
-
-
-public class BelladonaAcceptsKnowledgePotion : QuestSteps
+public class CatAcceptsProtectionRUne : QuestSteps
 {
     [SerializeField] private ItemSO knowledgePotion;
     [SerializeField] private string playerTag = "Player";
@@ -26,7 +12,7 @@ public class BelladonaAcceptsKnowledgePotion : QuestSteps
     public CatTeleport catTeleport;
     public CandleManager candleManager;
 
-   
+
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag(playerTag)) return;
@@ -43,48 +29,22 @@ public class BelladonaAcceptsKnowledgePotion : QuestSteps
         playerTf = null;
     }
 
-    // This should be wired to your Interact input event
-    public void TryHandInPotion()
+    public void TryHandInRune()
     {
         if (waitingForDialogue) return;
         waitingForDialogue = true;
 
         GameEventsManager.instance.dialogueEvents.onDialogueFinished += DialogueFinished;
 
-        /*
-        if (!playerNear || playerTf == null) return;
-
-        var held = playerTf.GetComponentInChildren<ServeableItem>(true);
-        if (held == null)
-        {
-            Debug.Log("You're not holding anything.");
-            return;
-        }
-
-        if (held.item == knowledgePotion)
-        {
-            Debug.Log("Belladona accepts the potion!");
-            Destroy(held.gameObject); // consume it
-            
-            if (waitingForDialogue) return;
-            waitingForDialogue = true;
-
-            GameEventsManager.instance.dialogueEvents.onDialogueFinished += DialogueFinished;
-        }
-        else
-        {
-            Debug.Log("This is not the correct potion.");
-        }
-        */
     }
 
     private void DialogueFinished()
     {
         GameEventsManager.instance.dialogueEvents.onDialogueFinished -= DialogueFinished;
-        Object.FindFirstObjectByType<CatTeleport>()?.SpawnCatTable();
+        Object.FindFirstObjectByType<CatTeleport>()?.SpawnCatPotion();
         FinishQuestStep();
 
-        if (candleManager == null)
+       if (candleManager == null)
         {
             var mgrRoot = GameObject.Find("Managers");
             if (mgrRoot != null)

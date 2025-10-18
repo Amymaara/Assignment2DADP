@@ -176,6 +176,7 @@ public class DialogueManager : MonoBehaviour
         GameEventsManager.instance.dialogueEvents.DialogueFinished();
 
         GameEventsManager.instance.playerEvents.EnablePlayerMovement();
+        GameEventsManager.instance.playerEvents.EnablePlayerLook();
 
         GameEventsManager.instance.inputEvents.ChangeInputEventsContext(InputEventsContext.DEFAULT);
 
