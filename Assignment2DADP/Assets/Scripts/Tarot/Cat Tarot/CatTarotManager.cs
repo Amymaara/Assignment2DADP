@@ -8,8 +8,9 @@ using static AudioManager;
 public class CatTarotManager : MonoBehaviour
 {
     [Header("UI")]
-    public DisplayTarotReading displayTarotReading;
-    public ObjectiveUI objectiveUI; // cat objective UI
+    public GameObject tarotCanvas;                          
+    public Button continueButton;
+    public GameObject objectiveCanvas;
 
 
     [Header("switch inputs")]
@@ -17,49 +18,78 @@ public class CatTarotManager : MonoBehaviour
     public string playerActionMapName = "Player";
     public string uiActionMapName = "UI";
 
-    private DaySequence.Entry currentEntry;
+    private bool isOpen;
 
     void Awake()
     {
 
-        if (displayTarotReading && displayTarotReading.continueButton)
+        if (tarotCanvas) tarotCanvas.SetActive(false);
+        if (objectiveCanvas) objectiveCanvas.SetActive(false);
+
+        if (!continueButton && tarotCanvas) 
+            continueButton = tarotCanvas.GetComponentInChildren<Button>(true);
+
+        if (continueButton)
         {
-            displayTarotReading.continueButton.onClick.RemoveAllListeners();
-            displayTarotReading.continueButton.onClick.AddListener(Close);
+            continueButton.onClick.RemoveAllListeners();
+            continueButton.onClick.AddListener(CloseTarotAndShowObjective);
         }
     }
 
-    public void OpenWithEntry(DaySequence.Entry entry)
+    public void Interact()
     {
-        currentEntry = entry;
+        if (!isOpen) OpenTarot();
+    }
 
-        if (displayTarotReading)
+    public void OpenTarot()
+    {
+        if (!tarotCanvas)
         {
-            displayTarotReading.gameObject.SetActive(true);
-            displayTarotReading.ShowEntry(entry, resetCardsToBack: true);
+            Debug.Log("tarot canvas not assigned");
+            return;
         }
+
+        var t = tarotCanvas.transform;
+        while (t)
+        {
+            if (!t.gameObject.activeSelf)
+            {
+                t.gameObject.SetActive(true);
+                t = t.parent;
+            }
+        }
+
+        tarotCanvas.SetActive(true);
 
         if (playerInput) playerInput.SwitchCurrentActionMap(uiActionMapName);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        isOpen = true; 
     }
 
-    public void Close()
+    public void CloseTarotAndShowObjective()
     {
-        if (displayTarotReading) displayTarotReading.gameObject.SetActive(false);
+        if (tarotCanvas) tarotCanvas.SetActive(false);
+
+        if (objectiveCanvas)
+        {
+            var t = objectiveCanvas.transform;
+            while (t)
+            {
+                if (!t.gameObject.activeSelf)
+                {
+                    t.gameObject.SetActive(true);
+                }
+            }
+            objectiveCanvas.SetActive(true);
+        }
 
         if (playerInput) playerInput.SwitchCurrentActionMap(playerActionMapName);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        if (objectiveUI && currentEntry.fixedOrder)
-        {
-            //  objectiveUI.SetObjective(currentEntry.fixedOrder.displayName);
-            objectiveUI.SetRecipe(currentEntry.recipeSprite);
-            objectiveUI.ShowObjectiveCard();
-        }
-
-        var spawner = FindFirstObjectByType<CustomerSpawner>();
-        spawner?.MarkOrderRevealed();
+        isOpen = false;
     }
+
 }
