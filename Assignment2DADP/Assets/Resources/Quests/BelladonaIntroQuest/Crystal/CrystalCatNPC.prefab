@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7877786852788083175
+--- !u!1 &2501437943035153103
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8964406436443022029}
-  - component: {fileID: 7160922805870717680}
+  - component: {fileID: 1762106025351274008}
+  - component: {fileID: 334491462600582495}
   m_Layer: 0
-  m_Name: CatCrystalNPC
+  m_Name: CrystalCatNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8964406436443022029
+--- !u!4 &1762106025351274008
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7877786852788083175}
+  m_GameObject: {fileID: 2501437943035153103}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.1888843, y: 5.3379908, z: 4.309879}
+  m_LocalPosition: {x: 6.440824, y: 9.276319, z: 4.1603193}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7160922805870717680
+--- !u!114 &334491462600582495
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7877786852788083175}
+  m_GameObject: {fileID: 2501437943035153103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc03ec457b32762469185de5d8e2e760, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e9afc6caf9c4384bbb39d528aa87d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CleansingCrystal: {fileID: 0}
+  CleansingCrystal: {fileID: 11400000, guid: 8c602cd3c6077984ca62c36e0cc3f1e2, type: 2}
   playerTag: Player
   catTeleport: {fileID: 0}
   candleManager: {fileID: 0}

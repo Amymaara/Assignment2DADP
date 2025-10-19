@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d837bd8a297e2984daae830c03db763d, type: 3}
-  m_Name: CrystalCatNPC
+  m_Script: {fileID: 11500000, guid: 2d1933d1ff160324b925c36ef7a605ad, type: 3}
+  m_Name: CleansingCrystal
   m_EditorClassIdentifier: 
-  <id>k__BackingField: CrystalCatNPC
-  displayName: 
-  questPrerequisite: []
-  questStepPrefabs:
-  - {fileID: 2501437943035153103, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}
+  displayName: CleansingCrystal

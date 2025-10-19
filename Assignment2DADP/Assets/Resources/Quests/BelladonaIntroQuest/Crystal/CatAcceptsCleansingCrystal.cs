@@ -29,7 +29,6 @@ public class CatAcceptsCleansingCrystal : QuestSteps
         playerTf = null;
     }
 
-
     public void TryHandInCrystal()
     {
         if (waitingForDialogue) return;
