@@ -14954,7 +14954,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 68e125805212d314eb32c130b6078c42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17a758f86a71d6f49a8b1fa3bd6c62b8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -25445,7 +25445,7 @@ MonoBehaviour:
   front3: {fileID: 91459630}
   continueButton: {fileID: 1829096445}
   tarotCanvas: {fileID: 174587016}
-  card1: {fileID: 0}
+  card1: {fileID: 1409608803}
   card2: {fileID: 1156462953}
   card3: {fileID: 733432043}
 --- !u!114 &174587013
@@ -38973,8 +38973,6 @@ GameObject:
   - component: {fileID: 250711943}
   - component: {fileID: 250711942}
   - component: {fileID: 250711941}
-  - component: {fileID: 250711940}
-  - component: {fileID: 250711939}
   - component: {fileID: 250711938}
   m_Layer: 0
   m_Name: TarotCanvas
@@ -38982,7 +38980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &250711937
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39016,43 +39014,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 1436503606}
---- !u!114 &250711939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 250711936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3332e46145460d48a359428436331d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  front1: {fileID: 1609869559}
-  front2: {fileID: 1156441672}
-  front3: {fileID: 1154938232}
-  continueButton: {fileID: 1021182468}
-  tarotCanvas: {fileID: 250711943}
-  card1: {fileID: 1568532071}
-  card2: {fileID: 774957965}
-  card3: {fileID: 141507421}
---- !u!114 &250711940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 250711936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd7de78d9aedfe24bbf93a129e981a7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayTarotReading: {fileID: 250711939}
-  objectiveUI: {fileID: 745383046}
-  playerInput: {fileID: 1117391001}
-  playerActionMapName: Player
-  uiActionMapName: UI
 --- !u!114 &250711941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39114,7 +39075,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1000
   m_TargetDisplay: 0
 --- !u!1 &260856745
 GameObject:
@@ -61023,7 +60984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &343150111
 Transform:
   m_ObjectHideFlags: 0
@@ -72517,7 +72478,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 68e125805212d314eb32c130b6078c42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3afc3818268caf7448bd029427c53f81, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -77693,7 +77654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &440133809
 Transform:
   m_ObjectHideFlags: 0
@@ -109661,7 +109622,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 68e125805212d314eb32c130b6078c42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17a758f86a71d6f49a8b1fa3bd6c62b8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -111383,7 +111344,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 68e125805212d314eb32c130b6078c42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 959c184e1f588f44a8d7335c20ad8bfd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -126375,7 +126336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &724294822
 Transform:
   m_ObjectHideFlags: 0
@@ -126571,7 +126532,6 @@ GameObject:
   - component: {fileID: 745383049}
   - component: {fileID: 745383048}
   - component: {fileID: 745383047}
-  - component: {fileID: 745383046}
   m_Layer: 0
   m_Name: ObjectiveCanvas
   m_TagString: Untagged
@@ -126579,20 +126539,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &745383046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 745383045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbb52d3863e7755418c021c7b368e7c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectiveCardUI: {fileID: 611492074}
-  recipeImage: {fileID: 2144614568}
 --- !u!114 &745383047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173184,19 +173130,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1021182469}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1093284022}
-        m_TargetAssemblyTypeName: CatTarotManager, Assembly-CSharp
-        m_MethodName: CloseTarotAndShowObjective
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1021182469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179569,12 +179503,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7bde571b05816418cfe6d70a50c7b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tarotCanvas: {fileID: 250711936}
+  tarotCanvasRoot: {fileID: 250711936}
+  objectiveCanvasRoot: {fileID: 745383045}
   continueButton: {fileID: 1021182468}
-  objectiveCanvas: {fileID: 745383045}
-  playerInput: {fileID: 1117391001}
-  playerActionMapName: Player
-  uiActionMapName: UI
 --- !u!43 &1094329419
 Mesh:
   m_ObjectHideFlags: 0
@@ -179797,7 +179728,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 68e125805212d314eb32c130b6078c42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d22ecd084511a84d8dde26c20f1e473, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -183733,12 +183664,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7bde571b05816418cfe6d70a50c7b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tarotCanvas: {fileID: 910825005}
+  tarotCanvasRoot: {fileID: 0}
+  objectiveCanvasRoot: {fileID: 0}
   continueButton: {fileID: 223847991}
-  objectiveCanvas: {fileID: 1772595437}
-  playerInput: {fileID: 1117391001}
-  playerActionMapName: Player
-  uiActionMapName: UI
 --- !u!1 &1204320404
 GameObject:
   m_ObjectHideFlags: 0
@@ -195431,12 +195359,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7bde571b05816418cfe6d70a50c7b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tarotCanvas: {fileID: 1939054966}
+  tarotCanvasRoot: {fileID: 0}
+  objectiveCanvasRoot: {fileID: 0}
   continueButton: {fileID: 9908962}
-  objectiveCanvas: {fileID: 1089539671}
-  playerInput: {fileID: 1117391001}
-  playerActionMapName: Player
-  uiActionMapName: UI
 --- !u!1 &1448382614
 GameObject:
   m_ObjectHideFlags: 0
@@ -311642,7 +311567,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 68e125805212d314eb32c130b6078c42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9bb73d262ef6ef94aa14ca11d55e65dd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -325880,12 +325805,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7bde571b05816418cfe6d70a50c7b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tarotCanvas: {fileID: 174587009}
+  tarotCanvasRoot: {fileID: 0}
+  objectiveCanvasRoot: {fileID: 0}
   continueButton: {fileID: 1829096445}
-  objectiveCanvas: {fileID: 0}
-  playerInput: {fileID: 1117391001}
-  playerActionMapName: Player
-  uiActionMapName: UI
 --- !u!1 &125984483109978213
 GameObject:
   m_ObjectHideFlags: 0

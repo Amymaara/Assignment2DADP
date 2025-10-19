@@ -8,92 +8,83 @@ using static AudioManager;
 
 public class CatTarotManager : MonoBehaviour, IInteractable
 {
-    [Header("UI")]
-    public GameObject tarotCanvas;                          
+    [Header("GameObjects)")]
+    public GameObject tarotCanvasRoot;      
+    public GameObject objectiveCanvasRoot;  
+
+    [Header("Continue button")]
     public Button continueButton;
-    public GameObject objectiveCanvas;
 
-
-    [Header("switch inputs")]
-    public PlayerInput playerInput;
-    public string playerActionMapName = "Player";
-    public string uiActionMapName = "UI";
-
-    private bool isOpen;
+   
+    private static CatTarotManager s_openDeck;
+    private bool _open;
 
     void Awake()
     {
+  
+        if (!tarotCanvasRoot) Debug.LogError($"[{name}] Tarot canvas root not assigned.");
+        if (!objectiveCanvasRoot) Debug.LogWarning($"[{name}] Objective canvas root not assigned (ok if none).");
 
-        if (tarotCanvas) tarotCanvas.SetActive(false);
-        if (objectiveCanvas) objectiveCanvas.SetActive(false);
+        // Ensure both roots exist & start hidden
+        if (tarotCanvasRoot) tarotCanvasRoot.SetActive(false);
+        if (objectiveCanvasRoot) objectiveCanvasRoot.SetActive(false);
 
-        if (!continueButton && tarotCanvas) 
-            continueButton = tarotCanvas.GetComponentInChildren<Button>(true);
-
+     
         if (continueButton)
         {
             continueButton.onClick.RemoveAllListeners();
-            continueButton.onClick.AddListener(CloseTarotAndShowObjective);
+            continueButton.onClick.AddListener(ShowObjective);
         }
-
         else
         {
-            Debug.Log("continue button missing");
+            Debug.LogWarning($"[{name}] Continue button not assigned.");
         }
     }
 
+   
+
+
+  
     public void Interact()
     {
-        if (!isOpen) OpenTarot();
+        if (_open) return;
+
+        // Close any other deck 
+        if (s_openDeck && s_openDeck != this)
+            s_openDeck.ForceClose();
+
+        ShowTarot();
+        s_openDeck = this;
+        _open = true;
     }
 
-    public void OpenTarot()
+    public void ShowTarot()
     {
-        if (!tarotCanvas)
-        {
-            Debug.Log("tarot canvas not assigned");
-            return;
-        }
+        if (objectiveCanvasRoot) objectiveCanvasRoot.SetActive(false);
+        if (tarotCanvasRoot) tarotCanvasRoot.SetActive(true);
+        foreach (var f in tarotCanvasRoot.GetComponentsInChildren<FlipCards>(true))
+            f.ResetState();
 
-       ActivateParents(tarotCanvas);
-
-        if (objectiveCanvas) objectiveCanvas.SetActive(false);
-
-        tarotCanvas.SetActive(true);
-
-        if (playerInput) playerInput.SwitchCurrentActionMap(uiActionMapName);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
-        isOpen = true; 
+        Cursor.lockState = CursorLockMode.None; Cursor.visible = true;
     }
 
-    public void CloseTarotAndShowObjective()
+    public void ShowObjective()
     {
-        if (tarotCanvas) tarotCanvas.SetActive(false);
+        if (tarotCanvasRoot) tarotCanvasRoot.SetActive(false);
+        if (objectiveCanvasRoot) objectiveCanvasRoot.SetActive(true);
 
-        if (objectiveCanvas)
-        {
-            ActivateParents(objectiveCanvas);
-            objectiveCanvas.SetActive(true);
-        }
+        _open = false;
+        if (s_openDeck == this) s_openDeck = null;
 
-
-        if (playerInput) playerInput.SwitchCurrentActionMap(playerActionMapName);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        isOpen = false;
+      
+         Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;
     }
 
-    private void ActivateParents(GameObject go)
+    private void ForceClose()
     {
-        var t = go ? go.transform : null;
-        while (t != null)
-        {
-            if (!t.gameObject.activeSelf)
-                t.gameObject.SetActive(true);
-            t = t.parent;
-        }
+        if (tarotCanvasRoot) tarotCanvasRoot.SetActive(false);
+        if (objectiveCanvasRoot) objectiveCanvasRoot.SetActive(false);
+        _open = false;
+        if (s_openDeck == this) s_openDeck = null;
     }
 }

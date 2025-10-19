@@ -7,28 +7,51 @@ public class FlipCards : MonoBehaviour
 {
     private bool flipped = false;
     public FPController controller;
+    private Tween tween;
     public InputActionReference clickAction;
 
-  
-    private void Update()
+
+    void OnEnable()
     {
-        if (clickAction.action.triggered)
+        if (clickAction != null)
         {
-            Flip();
+            clickAction.action.Enable();
+            clickAction.action.performed += OnPressStarted;
         }
     }
+
+    private void OnDisable()
+    {
+        if (clickAction != null)
+        {
+            clickAction.action.performed -= OnPressStarted;
+            clickAction.action.Disable();
+        }
+    }
+
 
     private void Flip()
     {
         flipped = !flipped;
-        transform.DORotate(new(0, flipped  ? 0f: 180f, 0), 0.25f);
-        clickAction.action.Disable();
+        transform.DORotate(new(0, flipped ? 0f : 180f, 0), 0.25f);
 
     }
 
     public void ResetState()
     {
         flipped = false;
+        transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+
+        if (clickAction != null)
+        {
+            clickAction.action.Enable();
+        }
+    }
+
+
+    private void OnPressStarted(InputAction.CallbackContext ctx)
+    {
+        Flip();
     }
 
 }
