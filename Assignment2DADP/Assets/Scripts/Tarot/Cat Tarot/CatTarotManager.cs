@@ -1,11 +1,12 @@
 using System.Collections;
+using System.ComponentModel.Design.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using static AudioManager;
 
-public class CatTarotManager : MonoBehaviour
+public class CatTarotManager : MonoBehaviour, IInteractable
 {
     [Header("UI")]
     public GameObject tarotCanvas;                          
@@ -34,6 +35,11 @@ public class CatTarotManager : MonoBehaviour
             continueButton.onClick.RemoveAllListeners();
             continueButton.onClick.AddListener(CloseTarotAndShowObjective);
         }
+
+        else
+        {
+            Debug.Log("continue button missing");
+        }
     }
 
     public void Interact()
@@ -49,15 +55,9 @@ public class CatTarotManager : MonoBehaviour
             return;
         }
 
-        var t = tarotCanvas.transform;
-        while (t)
-        {
-            if (!t.gameObject.activeSelf)
-            {
-                t.gameObject.SetActive(true);
-                t = t.parent;
-            }
-        }
+       ActivateParents(tarotCanvas);
+
+        if (objectiveCanvas) objectiveCanvas.SetActive(false);
 
         tarotCanvas.SetActive(true);
 
@@ -74,16 +74,10 @@ public class CatTarotManager : MonoBehaviour
 
         if (objectiveCanvas)
         {
-            var t = objectiveCanvas.transform;
-            while (t)
-            {
-                if (!t.gameObject.activeSelf)
-                {
-                    t.gameObject.SetActive(true);
-                }
-            }
+            ActivateParents(objectiveCanvas);
             objectiveCanvas.SetActive(true);
         }
+
 
         if (playerInput) playerInput.SwitchCurrentActionMap(playerActionMapName);
         Cursor.lockState = CursorLockMode.Locked;
@@ -92,4 +86,14 @@ public class CatTarotManager : MonoBehaviour
         isOpen = false;
     }
 
+    private void ActivateParents(GameObject go)
+    {
+        var t = go ? go.transform : null;
+        while (t != null)
+        {
+            if (!t.gameObject.activeSelf)
+                t.gameObject.SetActive(true);
+            t = t.parent;
+        }
+    }
 }
