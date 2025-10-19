@@ -16,6 +16,8 @@ public class InputManager : MonoBehaviour
     public GameObject potionMix;
     public AudioListener runeAudio;
 
+
+
     private void Start()
     {
         //SwitchToUI();
@@ -85,6 +87,7 @@ public class InputManager : MonoBehaviour
 
     public void SwitchToCrystal()
     {
+       
         crystals.SetActive(true);
         manager.SwitchToCrystalCam();
         player.GetComponent<Renderer>().enabled = false;

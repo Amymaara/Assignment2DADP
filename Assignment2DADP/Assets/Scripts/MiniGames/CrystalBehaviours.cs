@@ -73,11 +73,19 @@ public class CrystalBehaviours : MonoBehaviour
 
     public void ResetWorkstations()
     {
+        NorthPillar.StationFilled = false;
+        SouthPillar.StationFilled = false;
+        EastPillar.StationFilled = false;
+        WestPillar.StationFilled=false;
+        Table.StationFilled = false;
+
         NorthPillar.pillarCrystal.SetActive(false);
         SouthPillar.pillarCrystal.SetActive(false);
         EastPillar.pillarCrystal.SetActive(false);
         WestPillar.pillarCrystal.SetActive(false);
         Table.tableCrystal.SetActive(false);
+
+        
     }
 
     public void GetCrystal()

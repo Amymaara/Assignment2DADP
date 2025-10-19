@@ -176,9 +176,9 @@ public class PotionFillManager : MonoBehaviour
         Debug.Log("Blood = " + bloodPercent);
         Debug.Log("Moon = " + moonPercent);
 
-        if (480f < tearsPercent && tearsPercent < 520f
-            && sagePercent < 270f && sagePercent > 230f
-            && moonPercent < 270f && moonPercent > 230f)
+        if (475f < tearsPercent && tearsPercent < 525f
+            && sagePercent < 2705f && sagePercent > 225f
+            && moonPercent < 275f && moonPercent > 225f)
         {
             potionBehaviour.recipe = PotionBehaviour.Recipe.Love;
             Debug.Log("Made a Love Potion");
@@ -186,8 +186,8 @@ public class PotionFillManager : MonoBehaviour
 
         }
 
-        else if (sagePercent < 270f && sagePercent > 230f
-            && bloodPercent < 770 && bloodPercent > 730)
+        else if (sagePercent < 275f && sagePercent > 225f
+            && bloodPercent < 775 && bloodPercent > 725)
         {
             potionBehaviour.recipe = PotionBehaviour.Recipe.Knowledge;
             Debug.Log("Made a Knowledge Potion");

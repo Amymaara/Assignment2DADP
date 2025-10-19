@@ -21,9 +21,9 @@ public class CrystalMinigame : MonoBehaviour
 
     public InputManager inputManager;
 
-    int CorrectPillars;
+    public int CorrectPillars;
 
-    [SerializeField] Image ProgressBar;
+    public Image ProgressBar;
     [SerializeField] float speed;
     float currentValue;
 
@@ -37,6 +37,7 @@ public class CrystalMinigame : MonoBehaviour
     private void OnEnable()
     {
         ProgressBar.fillAmount = 0;
+        currentValue = 0;
         CorrectPillars = 0;
         North.gameObject.SetActive(false);
         East.gameObject.SetActive(false);
@@ -44,6 +45,18 @@ public class CrystalMinigame : MonoBehaviour
         South.gameObject.SetActive(false);
         buttonsPressed = 0;
         
+    }
+
+    private void OnDisable()
+    {
+        ProgressBar.fillAmount = 0;
+        currentValue = 0;
+        CorrectPillars = 0;
+        North.gameObject.SetActive(false);
+        East.gameObject.SetActive(false);
+        West.gameObject.SetActive(false);
+        South.gameObject.SetActive(false);
+        buttonsPressed = 0;
     }
 
     private void Update()
@@ -105,7 +118,7 @@ public class CrystalMinigame : MonoBehaviour
 
     void CheckButton1()
     {
-        if(currentValue > 0.14 && currentValue < 0.2)
+        if(currentValue > 0.13 && currentValue < 0.21)
         {
             CorrectPillars++;
             East.gameObject.SetActive(true);
@@ -120,7 +133,7 @@ public class CrystalMinigame : MonoBehaviour
 
     void CheckButton2()
     {
-        if (currentValue > 0.38 && currentValue < 0.45)
+        if (currentValue > 0.36 && currentValue < 0.46)
         {
             CorrectPillars++;
             South.gameObject.SetActive(true);
@@ -135,7 +148,7 @@ public class CrystalMinigame : MonoBehaviour
 
     void CheckButton3()
     {
-        if (currentValue > 0.64 && currentValue < 0.7)
+        if (currentValue > 0.63 && currentValue < 0.71)
         {
             CorrectPillars++;
             West.gameObject.SetActive(true);
@@ -150,7 +163,7 @@ public class CrystalMinigame : MonoBehaviour
 
     void CheckButton4()
     {
-        if (currentValue > 0.88 && currentValue < 0.95)
+        if (currentValue > 0.86 && currentValue < 0.96)
         {
             CorrectPillars++;
             North.gameObject.SetActive(true);
