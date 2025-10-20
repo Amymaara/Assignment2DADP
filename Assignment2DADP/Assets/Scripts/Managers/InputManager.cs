@@ -51,6 +51,15 @@ public class InputManager : MonoBehaviour
         player.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
     }
 
+    public void SwitchToToolTip(GameObject tooltip)
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        player.SetActive(true);
+        tooltip.SetActive(true);
+        player.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
+    }
+
 
     public void SwitchToRuneDrawing()
     {

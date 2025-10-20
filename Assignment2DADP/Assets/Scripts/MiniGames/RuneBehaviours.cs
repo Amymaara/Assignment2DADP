@@ -73,6 +73,8 @@ public class RuneBehaviour : MonoBehaviour
         {
             runeOnTable.gameObject.GetComponent<Renderer>().material = bone;
         }
+
+        inputProduct.GetComponent<Renderer>().enabled = false;
     }
 
     public void OnStarButton()
