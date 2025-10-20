@@ -39,7 +39,7 @@ public class PillarWorkstation : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-
+        behaviours.FirstInteractCheck();
         Debug.Log("trying to interact");
 
         if (heldObject == null)
@@ -77,6 +77,7 @@ public class PillarWorkstation : MonoBehaviour, IInteractable
                 behaviours.CheckFilledStations();
 
                 Destroy(controller.heldObject.gameObject);
+
 
             }
             return;

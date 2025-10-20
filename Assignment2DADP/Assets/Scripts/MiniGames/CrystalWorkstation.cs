@@ -17,7 +17,7 @@ public class CrystalWorkstation : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-
+        behaviours.FirstInteractCheck();
         Debug.Log("trying to interact");
 
         if (heldObject == null)

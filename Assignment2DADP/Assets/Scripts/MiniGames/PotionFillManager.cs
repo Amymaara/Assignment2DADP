@@ -35,10 +35,26 @@ public class PotionFillManager : MonoBehaviour
     public GameObject PotionLiquid;
     public Material[] materials;
 
-  
+    int interactCount = 0;
+    int fullCount = 0;
+
+    public TutorialPopups tutorialPopups;
+
+    private void Start()
+    {
+        interactCount = 0;
+        fullCount = 0;
+    }
+
 
     public void StartSection()
     {
+        if (interactCount == 0)
+        {
+            tutorialPopups.PotionsPopup1();
+            interactCount++;
+        }
+
         if (potionBehaviour.currentState == PotionBehaviour.CauldronState.Filling)
         {
             if (PotionBarCanvas.activeInHierarchy == false)
@@ -104,7 +120,7 @@ public class PotionFillManager : MonoBehaviour
         fillTimer -= Time.deltaTime;
         if (fillTimer <= 0f)
         {
-            AudioManager.PlaySound(AudioManager.SoundType.POTIONFILL, 0.001f);
+            AudioManager.PlaySound(AudioManager.SoundType.POTIONFILL, 0.01f);
             fillTimer = fillInterval;
         }
 
@@ -161,12 +177,19 @@ public class PotionFillManager : MonoBehaviour
 
     public void OnFullMeter()
     {
-
-        CheckRecipe();
-        inputManager.SwitchToPotionMix();
-        potionBehaviour.currentState = PotionBehaviour.CauldronState.Bottling;
-        ResetMeter();
-
+        if (fullCount == 0)
+        {
+            tutorialPopups.PotionsPopup2();
+            fullCount++;
+        }
+        else
+        {
+            CheckRecipe();
+            inputManager.SwitchToPotionMix();
+            potionBehaviour.currentState = PotionBehaviour.CauldronState.Bottling;
+            ResetMeter();
+        }
+    
     }
 
     public void CheckRecipe()

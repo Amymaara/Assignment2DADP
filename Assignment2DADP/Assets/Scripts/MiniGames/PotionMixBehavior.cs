@@ -21,7 +21,13 @@ public class PotionMixBehaviour : MonoBehaviour
     private bool GameEnded;
     public PotionWorkstation cauldron;
     public Material badPotion;
+    public TutorialPopups popups;
+    int minigameCount = 0;
 
+    public void Start()
+    {
+        minigameCount = 0;
+    }
 
     public void OnEnable()
     {
@@ -124,7 +130,20 @@ public class PotionMixBehaviour : MonoBehaviour
         }
 
         potionBehaviour.currentState = PotionBehaviour.CauldronState.Bottling;
-        inputManager.SwitchToGameplay();
+
+        if (minigameCount == 0)
+        {
+            popups.PotionsPopup3();
+            minigameCount++;
+        }
+        
+            inputManager.SwitchToGameplay();
+        
+           
+
+       
+
+
     }
 
     

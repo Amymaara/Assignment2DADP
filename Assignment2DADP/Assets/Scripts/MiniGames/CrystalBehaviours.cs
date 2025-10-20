@@ -20,6 +20,16 @@ public class CrystalBehaviours : MonoBehaviour
     public GameObject CleansingCrystal;
     public GameObject NoCrystal;
 
+    public TutorialPopups popups;
+
+    int interactionCount = 0;
+    int minigameCount = 0;
+    private void Start()
+    {
+        minigameCount = 0;
+        interactionCount = 0;
+    }
+
     public enum Recipe
     {
         None,
@@ -31,16 +41,32 @@ public class CrystalBehaviours : MonoBehaviour
     public Recipe CrystalRecipe;
 
     
+    public void FirstInteractCheck()
+    {
+        if (interactionCount == 0)
+        {
+            popups.CrystalPopup1();
+            interactionCount++;
+        }
+    }
 
     public void CheckFilledStations()
     {
+      
         if (NorthPillar.StationFilled && SouthPillar.StationFilled && EastPillar.StationFilled && WestPillar.StationFilled && Table.StationFilled) 
         {
-            
-            GetRecipe();
-            //start minigame
-            inputManager.SwitchToCrystal();
-            Debug.Log("Start Minigame");
+            if (minigameCount == 0)
+            {
+                popups.CrystalPopup2();
+                minigameCount++;
+            }
+            else
+            {
+                GetRecipe();
+                //start minigame
+                inputManager.SwitchToCrystal();
+                Debug.Log("Start Minigame");
+            }
         }
     }
     
