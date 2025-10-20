@@ -1,4 +1,5 @@
 using UnityEngine;
+using static AudioManager;
 
 public class CrystalWorkstation : MonoBehaviour, IInteractable
 {
@@ -32,6 +33,7 @@ public class CrystalWorkstation : MonoBehaviour, IInteractable
             {
                 if (crystal.material == CrystalInteractable.Material.None)
                 {
+                    AudioManager.PlaySound(SoundType.PICKUP, 0.1f);
                     tableCrystal.SetActive(true);
 
                     StationFilled = true;

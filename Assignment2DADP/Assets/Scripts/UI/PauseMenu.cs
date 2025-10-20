@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject ControlsButton;
     public GameObject RunesButton;
     public GameObject PotionsButton;
+    public GameObject CrystalButton;
     public GameObject VolumeSlider;
     public UINavigationManager navigationManager;
 
@@ -19,6 +20,7 @@ public class PauseMenu : MonoBehaviour
 
     [Header("Tooltips")]
     public GameObject ControlsToolTip;
+    public GameObject CrystalsToolTip;
     public GameObject RunesToolTip;
     public GameObject PotionsToolTip;
 
@@ -27,7 +29,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
-        tooltips = new GameObject[] { ControlsToolTip, RunesToolTip, PotionsToolTip };
+        tooltips = new GameObject[] { ControlsToolTip, CrystalsToolTip, RunesToolTip, PotionsToolTip };
     }
 
     private void OnEnable()
@@ -37,6 +39,7 @@ public class PauseMenu : MonoBehaviour
         ControlsToolTip.SetActive(false);
         RunesToolTip.SetActive(false);
         PotionsToolTip.SetActive(false);
+        CrystalsToolTip.SetActive(false);
         Settings.SetActive(false);
 
     }
@@ -70,13 +73,13 @@ public class PauseMenu : MonoBehaviour
 
     public void OnResume()
     {
-        AudioManager.PlaySound(SoundType.BUTTON, 0.5f);
+        AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
         inputManager.SwitchToGameplay();
     }
 
     public void OnControls()
     {
-        AudioManager.PlaySound(SoundType.BUTTON, 0.5f);
+        AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
         //EventSystem.current.SetSelectedGameObject(ControlsButton);
         navigationManager.firstSelected = ControlsButton;
         ControlsToolTip.SetActive(true);
@@ -85,7 +88,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OnSettings()
     {
-        AudioManager.PlaySound(SoundType.BUTTON, 0.5f);
+        AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
         //EventSystem.current.SetSelectedGameObject(ControlsButton);
         navigationManager.firstSelected = VolumeSlider;
         Settings.SetActive(true);
@@ -94,7 +97,7 @@ public class PauseMenu : MonoBehaviour
     
     public void OnSettingsExit()
     {
-        AudioManager.PlaySound(SoundType.BUTTON, 0.5f);
+        AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
      
         navigationManager.firstSelected = firstButton;
         Settings.SetActive(false);
@@ -104,7 +107,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OnControlsExit()
     {
-        AudioManager.PlaySound(SoundType.BUTTON, 0.5f);
+        AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
 
         foreach (var t in tooltips)
         {
@@ -117,7 +120,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OnToolTipNext()
     {
-        AudioManager.PlaySound(SoundType.BUTTON, 0.5f);
+        AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
         int nextIndex = (currentTooltipIndex + 1) % tooltips.Length;
         ShowTooltip(nextIndex);
     }
@@ -139,14 +142,15 @@ public class PauseMenu : MonoBehaviour
         switch (index)
         {
             case 0: navigationManager.firstSelected = ControlsButton; break;
-            case 1: navigationManager.firstSelected = RunesButton; break;
-            case 2: navigationManager.firstSelected = PotionsButton; break;
+            case 1: navigationManager.firstSelected = CrystalButton; break;
+            case 2: navigationManager.firstSelected = RunesButton; break;
+            case 3: navigationManager.firstSelected = PotionsButton; break;
         }
     }
 
     public void OnExitGame()
     {
-        AudioManager.PlaySound(SoundType.BUTTON, 0.5f);
+        AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
         Application.Quit();
     }
 }

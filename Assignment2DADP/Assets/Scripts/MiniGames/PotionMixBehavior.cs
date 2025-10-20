@@ -27,7 +27,7 @@ public class PotionMixBehaviour : MonoBehaviour
     {
         MiniGameSetUp();
         GameEnded = false;
-        AudioManager.PlaySound(SoundType.POTIONBUBBLES, 0.2f);
+        AudioManager.PlaySound(SoundType.POTIONBUBBLES, 0.1f);
 
     }
 
@@ -98,7 +98,7 @@ public class PotionMixBehaviour : MonoBehaviour
 
     public void EditArrow()
     {
-        AudioManager.PlaySound(SoundType.BUTTON, 1);
+        AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
         GameObject temp = RandomArrows[currentIndex];
         Image img = temp.GetComponent<Image>();
         img.color = Color.grey;
@@ -112,7 +112,7 @@ public class PotionMixBehaviour : MonoBehaviour
         {
             potionBehaviour.recipe = PotionBehaviour.Recipe.None;
             cauldron.ParticleFail.Play();
-            AudioManager.PlaySound(SoundType.MINIGAMEFAIL, 1);
+            AudioManager.PlaySound(SoundType.MINIGAMEFAIL, 0.1f);
             potionBehaviour.LiquidCauldron.GetComponent<Renderer>().material = badPotion;
         }
 
@@ -120,7 +120,7 @@ public class PotionMixBehaviour : MonoBehaviour
         {
             // play particles/ success sound
             cauldron.ParticleSuccess.Play();
-            AudioManager.PlaySound(SoundType.MINIGAMESUCCESS,1);
+            AudioManager.PlaySound(SoundType.MINIGAMESUCCESS,0.1f);
         }
 
         potionBehaviour.currentState = PotionBehaviour.CauldronState.Bottling;

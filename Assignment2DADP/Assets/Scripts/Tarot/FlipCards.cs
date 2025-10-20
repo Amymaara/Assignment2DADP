@@ -51,6 +51,7 @@ public class FlipCards : MonoBehaviour
 
     private void OnPressStarted(InputAction.CallbackContext ctx)
     {
+        if (!ctx.ReadValueAsButton()) return; 
         Flip();
     }
 

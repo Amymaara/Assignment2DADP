@@ -181,7 +181,7 @@ public class RuneDraw : MonoBehaviour
             }
             else
             {
-                AudioManager.PlaySound(AudioManager.SoundType.RUNEDRAW, 0.01f);
+                AudioManager.PlaySound(AudioManager.SoundType.RUNEDRAW, 0.001f);
                 currentcount = 0;
             }
                

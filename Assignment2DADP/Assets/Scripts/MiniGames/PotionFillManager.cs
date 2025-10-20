@@ -104,7 +104,7 @@ public class PotionFillManager : MonoBehaviour
         fillTimer -= Time.deltaTime;
         if (fillTimer <= 0f)
         {
-            AudioManager.PlaySound(AudioManager.SoundType.POTIONFILL, 0.05f);
+            AudioManager.PlaySound(AudioManager.SoundType.POTIONFILL, 0.001f);
             fillTimer = fillInterval;
         }
 

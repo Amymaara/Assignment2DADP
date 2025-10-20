@@ -72,12 +72,12 @@ public class CrystalMinigame : MonoBehaviour
             if (CorrectPillars == 4)
             {
                 successParticles.Play();
-                AudioManager.PlaySound(SoundType.MINIGAMESUCCESS, 1);
+                AudioManager.PlaySound(SoundType.MINIGAMESUCCESS, 0.1f);
             }
             else
             {
                 failureParticles.Play();
-                AudioManager.PlaySound(SoundType.MINIGAMEFAIL, 1);
+                AudioManager.PlaySound(SoundType.MINIGAMEFAIL, 0.1f);
                 behaviours.CrystalRecipe = CrystalBehaviours.Recipe.None;
             }
             
@@ -94,7 +94,7 @@ public class CrystalMinigame : MonoBehaviour
         if (context.performed)
         {
             buttonsPressed++;
-            AudioManager.PlaySound(SoundType.BUTTON, 1);
+            AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
 
             if (buttonsPressed == 1)
             {

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
+using static AudioManager;
 
 public class PillarWorkstation : MonoBehaviour, IInteractable
 {
@@ -70,6 +71,7 @@ public class PillarWorkstation : MonoBehaviour, IInteractable
                     Crystalmaterial = CrystalMaterial.lapis;
                 }
 
+                AudioManager.PlaySound(SoundType.PICKUP, 0.1f);
                 StationFilled = true;
 
                 behaviours.CheckFilledStations();

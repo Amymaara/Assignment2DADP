@@ -79,7 +79,7 @@ public class RuneBehaviour : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        AudioManager.PlaySound(SoundType.BUTTON, 1);
+        AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
         star.SetActive(true);
         cursor.SetActive(true);
         playerLine.SetActive(true);
@@ -95,7 +95,7 @@ public class RuneBehaviour : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        AudioManager.PlaySound(SoundType.BUTTON, 1);
+        AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
         moon.SetActive(true);
         cursor.SetActive(true);
         playerLine.SetActive(true);
@@ -133,13 +133,13 @@ public class RuneBehaviour : MonoBehaviour
 
         if (accuracy < 0.7f)
         {
-            AudioManager.PlaySound(SoundType.MINIGAMEFAIL, 1);
+            AudioManager.PlaySound(SoundType.MINIGAMEFAIL, 0.1f);
             workstation.FailParticles.Play();
             spawnedRune.SetMaterial(RuneInteractables.Stamp.Scribbles, workstation.playerRune.material);
         }
         else
         {
-            AudioManager.PlaySound(SoundType.MINIGAMESUCCESS, 1);
+            AudioManager.PlaySound(SoundType.MINIGAMESUCCESS, 0.1f);
             workstation.SuccessParticles.Play();
             spawnedRune.SetMaterial(workstation.playerRune.stamp, workstation.playerRune.material);
         }
