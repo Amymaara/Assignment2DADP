@@ -83468,7 +83468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &462300254
 Transform:
   m_ObjectHideFlags: 0
@@ -127574,7 +127574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &724294822
 Transform:
   m_ObjectHideFlags: 0
@@ -328924,71 +328924,6 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4560428232704545637, guid: 93f7332d28b4d874d9b8e8af539dbd80, type: 3}
   m_PrefabInstance: {fileID: 215099611218750632}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4192459746077616479
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 334491462600582495, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}
-      propertyPath: catTeleport
-      value: 
-      objectReference: {fileID: 1280277402}
-    - target: {fileID: 334491462600582495, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}
-      propertyPath: candleManager
-      value: 
-      objectReference: {fileID: 907656176}
-    - target: {fileID: 1762106025351274008, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.440824
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762106025351274008, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 9.276319
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762106025351274008, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.1603193
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762106025351274008, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762106025351274008, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762106025351274008, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762106025351274008, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762106025351274008, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762106025351274008, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762106025351274008, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2501437943035153103, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}
-      propertyPath: m_Name
-      value: CrystalCatNPC
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}
 --- !u!1001 &4678467645272505245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -329405,4 +329340,3 @@ SceneRoots:
   - {fileID: 1242247207}
   - {fileID: 1697869808}
   - {fileID: 144359758}
-  - {fileID: 4192459746077616479}

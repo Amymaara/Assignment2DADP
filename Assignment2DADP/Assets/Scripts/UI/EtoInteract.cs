@@ -27,7 +27,7 @@ public class EtoInteract : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, range, layer))
         {
-            string objName = hit.collider.gameObject.name;
+            string objName = hit.collider.gameObject.name.Replace("(Clone)", "").Trim();
             string interactKey = interactAction.action.GetBindingDisplayString();
 
             promptText.gameObject.SetActive(true);
