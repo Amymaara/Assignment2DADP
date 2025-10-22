@@ -39,11 +39,14 @@ public class PotionFillManager : MonoBehaviour
     int fullCount = 0;
 
     public TutorialPopups tutorialPopups;
+    public GameObject Arrows;
 
     private void Start()
     {
         interactCount = 0;
         fullCount = 0;
+        Arrows.SetActive(true);
+
     }
 
 
@@ -52,6 +55,7 @@ public class PotionFillManager : MonoBehaviour
         if (interactCount == 0)
         {
             tutorialPopups.PotionsPopup1();
+            Arrows.SetActive(false);
             interactCount++;
         }
 

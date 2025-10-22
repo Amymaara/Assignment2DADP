@@ -27,6 +27,8 @@ public class Billboard : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (Camera.main == null) return;
+
         switch (billboardType)
         {
             case BillboardType.LookAtCamera:

@@ -24,6 +24,8 @@ public class PotionMixBehaviour : MonoBehaviour
     public TutorialPopups popups;
     int minigameCount = 0;
 
+    public ParticleSystem bubbles;
+
     public void Start()
     {
         minigameCount = 0;
@@ -79,6 +81,8 @@ public class PotionMixBehaviour : MonoBehaviour
             RandomArrows.Add(arrow.gameObject);
         }
 
+        bubbles.GetComponent<Renderer>().material = potionBehaviour.LiquidCauldron.GetComponent<Renderer>().material;
+        bubbles.gameObject.SetActive(false);
         GameObject temp = RandomArrows[currentIndex];
         currentButton = temp.GetComponent<MixButtons>();
     }
@@ -113,6 +117,7 @@ public class PotionMixBehaviour : MonoBehaviour
     public void OnMinigameComplete()
     {
         // send the success or fail bool to wherever it needs to go like particle effect player?, maybe sound and stuff should only play after player leaves minigame?
+        bubbles.gameObject.SetActive(true);
 
         if (!MinigameSuccess)
         {
@@ -120,6 +125,7 @@ public class PotionMixBehaviour : MonoBehaviour
             cauldron.ParticleFail.Play();
             AudioManager.PlaySound(SoundType.MINIGAMEFAIL, 0.1f);
             potionBehaviour.LiquidCauldron.GetComponent<Renderer>().material = badPotion;
+            bubbles.GetComponent<Renderer>().material = badPotion;
         }
 
         if (MinigameSuccess)

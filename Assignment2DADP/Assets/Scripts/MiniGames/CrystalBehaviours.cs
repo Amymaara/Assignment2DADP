@@ -21,6 +21,7 @@ public class CrystalBehaviours : MonoBehaviour
     public GameObject NoCrystal;
 
     public TutorialPopups popups;
+    public GameObject arrow;
 
     int interactionCount = 0;
     int minigameCount = 0;
@@ -28,6 +29,7 @@ public class CrystalBehaviours : MonoBehaviour
     {
         minigameCount = 0;
         interactionCount = 0;
+        arrow.SetActive(true);
     }
 
     public enum Recipe
@@ -47,6 +49,7 @@ public class CrystalBehaviours : MonoBehaviour
         {
             popups.CrystalPopup1();
             interactionCount++;
+            arrow.SetActive(false);
         }
     }
 

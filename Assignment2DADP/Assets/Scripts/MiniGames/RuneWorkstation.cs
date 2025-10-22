@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class RuneWorkstation : MonoBehaviour, IInteractable
 {
@@ -10,24 +11,28 @@ public class RuneWorkstation : MonoBehaviour, IInteractable
 
     public ParticleSystem SuccessParticles;
     public ParticleSystem FailParticles;
+    public GameObject Arrow;
 
     int interactionCount;
     void Start()
     {
         interactionCount = 0;
+        Arrow.SetActive(true);
     }
 
     public void Interact()
     {
-        
+        Arrow.SetActive(false);
 
         Debug.Log("trying to interact");
         if (heldObject == null)
         {
             if (interactionCount == 0)
             {
+                Arrow.SetActive(false);
                 tutorialPopups.RunePopup1();
                 interactionCount++;
+              
             }
             Debug.Log("held object is null");
             return;
@@ -49,6 +54,7 @@ public class RuneWorkstation : MonoBehaviour, IInteractable
                         playerRune = rune;
                         runeBehavior.OnRuneTableInteract(playerRune);
                         Debug.Log("Interacting with Ruin Table");
+
                     }
 
                 }
@@ -59,8 +65,10 @@ public class RuneWorkstation : MonoBehaviour, IInteractable
         {
             if (interactionCount == 0)
             {
+                Arrow.SetActive(false);
                 tutorialPopups.RunePopup1();
                 interactionCount++;
+               
             }
             return;
         }
