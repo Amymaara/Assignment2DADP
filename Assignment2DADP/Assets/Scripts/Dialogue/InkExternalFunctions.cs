@@ -9,6 +9,8 @@ using Unity.VisualScripting;
 // Accesibility: https://www.youtube.com/watch?v=l8yI_97vjZs&t=1227s
 public class InkExternalFunctions
 {
+    private PopupManager popupManager;
+
     public void Bind(Story story)
     {
         story.BindExternalFunction("StartQuest", (string questId) => StartQuest(questId));
@@ -20,6 +22,8 @@ public class InkExternalFunctions
         story.BindExternalFunction("UnlockMove", () => UnlockMove());
         story.BindExternalFunction("LockLook", () => LockLook());
         story.BindExternalFunction("UnlockLook", () => UnlockLook());
+        story.BindExternalFunction("ShowPopup", (string type)  => ShowPopup(type));
+        story.BindExternalFunction("ClosePopup", (string type) => ClosePopup(type));
     }
 
     public void Unbind(Story story)
@@ -32,6 +36,8 @@ public class InkExternalFunctions
         story.UnbindExternalFunction("UnlockMove");
         story.UnbindExternalFunction("LockLook");
         story.UnbindExternalFunction("UnlockLook");
+        story.UnbindExternalFunction("ShowPopup");
+        story.UnbindExternalFunction("ClosePopup");
     }
     private void StartQuest(string questId)
     {
@@ -65,5 +71,14 @@ public class InkExternalFunctions
     private void UnlockLook()
     {
         GameEventsManager.instance.playerEvents.EnablePlayerLook();
+    }
+    private void ShowPopup(string type)
+    {
+        PopupManager.Instance.ShowPopup(type);
+    }
+
+    private void ClosePopup(string type)
+    {
+        PopupManager.Instance.ClosePopup(type);
     }
 }

@@ -3,6 +3,8 @@ EXTERNAL LockLook()
 EXTERNAL LockMove()
 EXTERNAL UnlockLook()
 EXTERNAL UnlockMove()
+EXTERNAL ShowPopup(type)
+EXTERNAL ClosePopup(type)
 
 === introduction ===
 
@@ -33,22 +35,21 @@ EXTERNAL UnlockMove()
 
 #???
  "Let's start with something a bit easier, try and 'will' yourself to see."
-
-// insert smth like use wasd to move (pop up)
-
+~ ShowPopup("look")
 ~ UnlockLook()
 #???
 "I'm asking you to look around you, how hard is that to get?"
+~ ClosePopup("look")
 
 #???
 "I'm impressed, you actually managed to do it. How about something a bit more challenging, let's try and moving without your fancy little legs."
-
+~ ShowPopup("movement")
 ~ UnlockMove()
 
 #???
 "Well go on try it."
 
-//insert smth like use blah blah to look around (pop up)
+~ ClosePopup("movement")
 
 #???
 "Wonderful you can see my cozy little space surrounded by the vast nothingness I get to enjoy everyday."
