@@ -193384,7 +193384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Placeholder text here
+  m_text: Belladona
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1af13efa047a5d94483207a6ec6febd9, type: 2}
   m_sharedMaterial: {fileID: 1370320006114646384, guid: 1af13efa047a5d94483207a6ec6febd9, type: 2}
