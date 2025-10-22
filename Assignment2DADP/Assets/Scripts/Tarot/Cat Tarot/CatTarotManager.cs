@@ -15,9 +15,13 @@ public class CatTarotManager : MonoBehaviour, IInteractable
     [Header("Continue button")]
     public Button continueButton;
 
-   
+    
+
     private static CatTarotManager s_openDeck;
     private bool _open;
+    public static CatTarotManager Current => s_openDeck;
+
+ 
 
     void Awake()
     {
@@ -35,10 +39,8 @@ public class CatTarotManager : MonoBehaviour, IInteractable
             continueButton.onClick.RemoveAllListeners();
             continueButton.onClick.AddListener(ShowObjective);
         }
-        else
-        {
-            Debug.LogWarning($"[{name}] Continue button not assigned.");
-        }
+        
+     
     }
 
    
@@ -62,9 +64,15 @@ public class CatTarotManager : MonoBehaviour, IInteractable
     {
         if (objectiveCanvasRoot) objectiveCanvasRoot.SetActive(false);
         if (tarotCanvasRoot) tarotCanvasRoot.SetActive(true);
+
+        if (continueButton) continueButton.interactable = false;
+
         foreach (var f in tarotCanvasRoot.GetComponentsInChildren<FlipCards>(true))
             f.ResetState();
 
+
+
+        s_openDeck = this;
         Cursor.lockState = CursorLockMode.None; Cursor.visible = true;
     }
 
