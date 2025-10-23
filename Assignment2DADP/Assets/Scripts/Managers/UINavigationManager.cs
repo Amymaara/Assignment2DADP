@@ -40,6 +40,7 @@ public class UINavigationManager : MonoBehaviour
         if (playerInput != null)
         {
             navigateAction = playerInput.currentActionMap.FindAction("Navigate", true);
+            Debug.Log("found action in action map");
             pointAction = playerInput.currentActionMap.FindAction("Point", true);
         }
 
