@@ -57,6 +57,12 @@ public class PotionFillManager : MonoBehaviour
             tutorialPopups.PotionsPopup1();
             Arrows.SetActive(false);
             interactCount++;
+            return;
+        }
+
+        if (tutorialPopups.PotionsPopUp1.activeInHierarchy)
+        {
+            return;
         }
 
         if (potionBehaviour.currentState == PotionBehaviour.CauldronState.Filling)
@@ -203,9 +209,9 @@ public class PotionFillManager : MonoBehaviour
         Debug.Log("Blood = " + bloodPercent);
         Debug.Log("Moon = " + moonPercent);
 
-        if (475f < tearsPercent && tearsPercent < 525f
-            && sagePercent < 2705f && sagePercent > 225f
-            && moonPercent < 275f && moonPercent > 225f)
+        if (470f < tearsPercent && tearsPercent < 530f
+            && sagePercent < 280f && sagePercent > 220f
+            && moonPercent < 280f && moonPercent > 220f)
         {
             potionBehaviour.recipe = PotionBehaviour.Recipe.Love;
             Debug.Log("Made a Love Potion");
@@ -213,8 +219,8 @@ public class PotionFillManager : MonoBehaviour
 
         }
 
-        else if (sagePercent < 275f && sagePercent > 225f
-            && bloodPercent < 775 && bloodPercent > 725)
+        else if (sagePercent < 280f && sagePercent > 220f
+            && bloodPercent < 780 && bloodPercent > 720)
         {
             potionBehaviour.recipe = PotionBehaviour.Recipe.Knowledge;
             Debug.Log("Made a Knowledge Potion");

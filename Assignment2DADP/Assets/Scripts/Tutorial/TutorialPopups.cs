@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static AudioManager;
 
 public class TutorialPopups : MonoBehaviour
@@ -31,6 +32,10 @@ public class TutorialPopups : MonoBehaviour
     public GameObject PotionsButton3;
 
 
+    private InputAction closePopupAction;
+    public PlayerInput playerInput;
+
+
 
     void Start()
     {
@@ -46,6 +51,7 @@ public class TutorialPopups : MonoBehaviour
 
     public void PotionsPopup1()
     {
+      
         PotionsPopUp1.SetActive(true);
         navigationManager.firstSelected = PotionsButton1;
         inputManager.SwitchToToolTip(PotionsButton1);
@@ -170,4 +176,27 @@ public class TutorialPopups : MonoBehaviour
        
     }
 
+    void OnEnable()
+    {
+        closePopupAction = playerInput.actions["ClosePopup"];
+        closePopupAction.performed += OnClosePopup;
+        closePopupAction.Enable();
+    }
+
+    void OnDisable()
+    {
+        closePopupAction.performed -= OnClosePopup;
+        closePopupAction.Disable();
+    }
+
+    private void OnClosePopup(InputAction.CallbackContext context)
+    {
+        // Check each popup — close the first one found active
+        if (PotionsPopUp3.activeSelf) PotionsPopup3Close();
+        else if (PotionsPopUp2.activeSelf) PotionsPopup2Close();
+        else if (PotionsPopUp1.activeSelf) PotionsPopup1Close();
+        else if (CrystalsPopUp2.activeSelf) CrystalPopup2Close();
+        else if (CrystalsPopUp1.activeSelf) CrystalPopup1Close();
+        else if (RunesPopUp.activeSelf) RunePopup1Close();
+    }
 }

@@ -11,19 +11,31 @@ public class ObjectiveUI : MonoBehaviour
    */
     public Image recipeImage;
 
+    private CanvasGroup canvasgroup;
+
     void Start()
     {
-        objectiveCardUI.SetActive(false);
+        if(objectiveCardUI) objectiveCardUI.SetActive(false);
+        SetRaycastBlocking(false);
+
+        
     }
 
     // adds item name to orderUI
-  /*  public void SetObjective(string itemID)
+    /*  public void SetObjective(string itemID)
+      {
+          if (itemText) itemText.text = itemID;
+          else Debug.LogWarning("item text not assigned");
+      }
+    */
+    private void Awake()
     {
-        if (itemText) itemText.text = itemID;
-        else Debug.LogWarning("item text not assigned");
+        if (objectiveCardUI)
+        {
+            canvasgroup = objectiveCardUI.GetComponent<CanvasGroup>();
+            if (!canvasgroup) canvasgroup = objectiveCardUI.AddComponent<CanvasGroup>();    
+        }
     }
-  */
-
     public void SetRecipe(Sprite recipeSprite)
     {
         if (recipeImage) recipeImage.sprite = recipeSprite;
@@ -39,4 +51,12 @@ public class ObjectiveUI : MonoBehaviour
         objectiveCardUI.SetActive(false);
     }
 
+    public void SetRaycastBlocking(bool on)
+    {
+        if (canvasgroup)
+        {
+            canvasgroup.blocksRaycasts = on;
+            canvasgroup.interactable = on;
+        }
+    }
 }
