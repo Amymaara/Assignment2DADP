@@ -3,8 +3,7 @@ EXTERNAL LockLook()
 EXTERNAL LockMove()
 EXTERNAL UnlockLook()
 EXTERNAL UnlockMove()
-EXTERNAL ShowPopup(type)
-EXTERNAL ClosePopup(type)
+
 
 === introduction ===
 

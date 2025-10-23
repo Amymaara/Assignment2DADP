@@ -8,6 +8,11 @@ public class CatTeleport : MonoBehaviour
     public GameObject CatCrystal;
     public GameObject CatTable;
 
+    public GameObject tarotCat;
+    public GameObject potionCat;
+    public GameObject runeCat;
+    public GameObject crystalCat;
+
     public ParticleSystem TarotParticles;
     public ParticleSystem PotionParticles;
     public ParticleSystem RuneParticles;
@@ -31,6 +36,11 @@ public class CatTeleport : MonoBehaviour
         CatRune.SetActive(false);
         CatCrystal.SetActive(false);
 
+       // tarotCat.SetActive(true);
+        crystalCat.SetActive(false);
+        runeCat.SetActive(false);
+        potionCat.SetActive(false);
+
     }
 
 
@@ -43,6 +53,11 @@ public class CatTeleport : MonoBehaviour
         CatTable.SetActive(false);
         CatRune.SetActive(false);
         CatCrystal.SetActive(false);
+
+        tarotCat.SetActive(false);
+        crystalCat.SetActive(false);
+        runeCat.SetActive(false);
+        potionCat.SetActive(true);
 
         PotionParticles.Play();
     }
@@ -57,6 +72,11 @@ public class CatTeleport : MonoBehaviour
         CatRune.SetActive(true);
         CatCrystal.SetActive(false);
 
+        tarotCat.SetActive(false);
+        crystalCat.SetActive(false);
+        runeCat.SetActive(true);
+        potionCat.SetActive(false);
+
         RuneParticles.Play();
     }
 
@@ -70,6 +90,11 @@ public class CatTeleport : MonoBehaviour
         CatRune.SetActive(false);
         CatCrystal.SetActive(true);
 
+        tarotCat.SetActive(false);
+        crystalCat.SetActive(true);
+        runeCat.SetActive(false);
+        potionCat.SetActive(false);
+
         CrystalParticles.Play();
     }
     public void SpawnCatTable()
@@ -82,6 +107,11 @@ public class CatTeleport : MonoBehaviour
         CatTable.SetActive(true);
         CatRune.SetActive(false);
         CatCrystal.SetActive(false);
+
+        tarotCat.SetActive(false);
+        crystalCat.SetActive(false);
+        runeCat.SetActive(false);
+        potionCat.SetActive(false);
 
         TableParticles.Play();
     }

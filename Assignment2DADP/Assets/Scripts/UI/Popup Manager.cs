@@ -10,6 +10,7 @@ public class PopupManager : MonoBehaviour
     public GameObject tarotPanel;
     public GameObject movementPanel;
     public GameObject lookPanel;
+    public GameObject orderPanel;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class PopupManager : MonoBehaviour
         if (tarotPanel) tarotPanel.SetActive(false);
         if (movementPanel) movementPanel.SetActive(false);
         if (lookPanel) lookPanel.SetActive(false);
+        if (orderPanel) orderPanel.SetActive(false);
     }
     
     public void ShowPopup(string type)
@@ -34,6 +36,9 @@ public class PopupManager : MonoBehaviour
 
             case "look":
                 lookPanel.SetActive(true);
+                break;
+            case "order":
+                orderPanel.SetActive(true);
                 break;
 
 
@@ -56,8 +61,11 @@ public class PopupManager : MonoBehaviour
             case "look":
                 lookPanel.SetActive(false);
                 break;
+            case "order":
+                orderPanel.SetActive(false);
+                break;
 
 
-            }
+        }
         }
 }

@@ -68,7 +68,7 @@ public class QuestManager : MonoBehaviour
 
         foreach (QuestInfoSO prerequisiteQuestInfo in quest.info.questPrerequisite)
         {
-            if (GetQuestById(prerequisiteQuestInfo.id).state != QuestState.FINSIHED)
+            if (GetQuestById(prerequisiteQuestInfo.id).state != QuestState.FINISHED)
             {
                 meetsRequirements = false;
                 break;
@@ -115,7 +115,7 @@ public class QuestManager : MonoBehaviour
     private void FinishQuest(string id)
     {
         Quest quest = GetQuestById(id);
-        ChangeQuestState(quest.info.id, QuestState.FINSIHED);
+        ChangeQuestState(quest.info.id, QuestState.FINISHED);
     }
 
     private void QuestStepStateChange(string id, int stepIndex, QuestStepState questStepState)

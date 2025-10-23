@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d837bd8a297e2984daae830c03db763d, type: 3}
-  m_Name: PotionQuest
+  m_Name: PotionCatNPC
   m_EditorClassIdentifier: 
-  <id>k__BackingField: PotionQuest
+  <id>k__BackingField: PotionCatNPC
   displayName: 
   questPrerequisite: []
   questStepPrefabs:
-  - {fileID: 7151171139033538134, guid: 7579d17d29f11864fb881a681df1467a, type: 3}
+  - {fileID: 2307247160297790476, guid: becd2126733a8ea49a9bf50afa0a626d, type: 3}

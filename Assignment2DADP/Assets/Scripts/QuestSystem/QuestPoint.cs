@@ -20,6 +20,8 @@ public class QuestPoint : MonoBehaviour
     [SerializeField] private bool startPoint = true;
     [SerializeField] private bool endPoint = true;
 
+  
+
     private bool playerIsNear = false;
     private string questId;
     private QuestState currentQuestState;
@@ -48,32 +50,33 @@ public class QuestPoint : MonoBehaviour
 
     private void InteractPressed(InputEventsContext inputEventsContext)
     {
+       
+
         if (!playerIsNear || !inputEventsContext.Equals(InputEventsContext.DEFAULT))
-        {
-            return;
-        }
+         {
+             return;
+         }
 
-        if (!dialogueKnotName.Equals(""))
-        {
-            GameEventsManager.instance.dialogueEvents.EnterDialogue(dialogueKnotName);
-        }
+         if (!dialogueKnotName.Equals(""))
+         {
+             GameEventsManager.instance.dialogueEvents.EnterDialogue(dialogueKnotName);
+         }
 
-        else
-        {
-            if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)
-            {
-                GameEventsManager.instance.questEvents.StartQuest(questId);
-            }
+         else
+         {
+             if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)
+             {
+                 GameEventsManager.instance.questEvents.StartQuest(questId);
+             }
 
-            else if (currentQuestState.Equals(QuestState.CAN_FINISH) && endPoint)
-            {
-                GameEventsManager.instance.questEvents.FinishQuest(questId);
-            }
+             else if (currentQuestState.Equals(QuestState.CAN_FINISH) && endPoint)
+             {
+                 GameEventsManager.instance.questEvents.FinishQuest(questId);
+             }
 
-        }
-
-
+         }
         
+
     }
     private void QuestStateChange(Quest quest)
     {

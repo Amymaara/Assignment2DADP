@@ -45,7 +45,6 @@ public class BelladonaAcceptsKnowledgePotion : QuestSteps
     private void DialogueFinished()
     {
         GameEventsManager.instance.dialogueEvents.onDialogueFinished -= DialogueFinished;
-        Object.FindFirstObjectByType<CatTeleport>()?.SpawnCatRune();
         FinishQuestStep();
 
         if (candleManager == null)

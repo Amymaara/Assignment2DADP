@@ -58,6 +58,7 @@ public class CatTarotManager : MonoBehaviour, IInteractable
         ShowTarot();
         s_openDeck = this;
         _open = true;
+        DeckSignal.DeckOpened();
     }
 
     public void ShowTarot()

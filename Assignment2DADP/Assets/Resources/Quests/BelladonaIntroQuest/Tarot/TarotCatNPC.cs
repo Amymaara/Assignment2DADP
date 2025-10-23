@@ -3,13 +3,33 @@ using UnityEngine;
 public class TarotCatNPC : QuestSteps
 
 {
-    protected override void SetQuestStepState(string state)
+   
+    private bool done;
+
+    private void OnEnable()
     {
-        throw new System.NotImplementedException();
+        DeckSignal.OnDeckOpen += HandleDeckOpened;
+      
     }
 
-    private void Start()
+    private void OnDisable()
     {
-        
+        DeckSignal.OnDeckOpen -= HandleDeckOpened;
+      
     }
+    protected override void SetQuestStepState(string state)
+    {
+        done = state == "FINISH";
+        if (done) FinishQuestStep();
+    }
+
+    private void HandleDeckOpened()
+    {
+        if (done) return;
+        done = true;
+
+        FinishQuestStep();
+    }
+
+    
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using Ink.Runtime;
 using Unity.VisualScripting;
+using Object = UnityEngine.Object;
 
 // dialogue system 
 // Title: How to create a Dialogue System in Unity | RPG Style | Unity + Ink
@@ -10,6 +11,7 @@ using Unity.VisualScripting;
 public class InkExternalFunctions
 {
     private PopupManager popupManager;
+    private CatTeleport catTeleport;
 
     public void Bind(Story story)
     {
@@ -22,9 +24,12 @@ public class InkExternalFunctions
         story.BindExternalFunction("UnlockMove", () => UnlockMove());
         story.BindExternalFunction("LockLook", () => LockLook());
         story.BindExternalFunction("UnlockLook", () => UnlockLook());
-        story.BindExternalFunction("ShowPopup", (string type)  => ShowPopup(type));
+        story.BindExternalFunction("ShowPopup", (string type) => ShowPopup(type));
         story.BindExternalFunction("ClosePopup", (string type) => ClosePopup(type));
+        story.BindExternalFunction("TeleportCat", (string target) => TeleportCat(target));
+
     }
+
 
     public void Unbind(Story story)
     {
@@ -81,4 +86,33 @@ public class InkExternalFunctions
     {
         PopupManager.Instance.ClosePopup(type);
     }
+
+    private void TeleportCat(string target)
+    {
+        var tp = UnityEngine.Object.FindFirstObjectByType<CatTeleport>();
+        if (tp != null)
+        {
+            switch (target)
+            {
+                case "Rune":
+                    tp.SpawnCatRune();
+                    break;
+                case "Potion":
+                    tp.SpawnCatPotion();
+                    break;
+                case "Crystal":
+                    tp.SpawnCatCrystal();
+                    break;
+                case "Table":
+                    tp.SpawnCatTable();
+                    break;
+                default:
+                    Debug.LogWarning("[Ink] TeleportCat unknown target: " + target);
+                    break;
+            }
+        }
+
+    }
+
 }
+   

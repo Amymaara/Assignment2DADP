@@ -41,7 +41,6 @@ public class CatAcceptsProtectionRUne : QuestSteps
     private void DialogueFinished()
     {
         GameEventsManager.instance.dialogueEvents.onDialogueFinished -= DialogueFinished;
-        Object.FindFirstObjectByType<CatTeleport>()?.SpawnCatCrystal();
         FinishQuestStep();
 
        if (candleManager == null)
