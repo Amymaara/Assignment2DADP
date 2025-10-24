@@ -59,16 +59,16 @@
 
 #Belladona 
 "The souls can't actually speak - some messy drama behind why they had to remove that ability from them."
-
+~ ShowPopup("tarot")
 #Belladona
 "You’ll pull three cards. Each tells part of a story - who they were, what they want, and how they ended up here."
-
+~ClosePopup("tarot")
 #Belladona
 "And no, it’s not fortune telling -  we prefer the term spiritual customer service."
-
+~ShowPopup("order")
 #Belladona
 "Once you’ve done your little reading, you'll get a recipe for what you need to make.
-
+~ClosePopup("order")
 #Belladona
 "It's quite easy, follow the recipe and hand it in to the customer."
 
