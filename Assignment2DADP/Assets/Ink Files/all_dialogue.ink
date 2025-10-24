@@ -27,7 +27,7 @@ VAR CrystalCatNPCState = "CAN_START"
 VAR TarotCatNPCId = "TarotCatNPC"
 VAR TarotCatNPCState = "CAN_START"
 VAR PotionCatNPCId = "PotionCatNPC"
-VAR PotionCatNPCState = "CAN_START"
+VAR PotionCatNPCState = "REQUIREMENTS_NOT_MET"
 
 -> test_knot.requirementsNotMet
 === test_knot ===

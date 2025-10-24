@@ -25758,15 +25758,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 804892325956003164, guid: fc94291077d734f4a8a17789949937fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.06106729
+      value: -0.15
       objectReference: {fileID: 0}
     - target: {fileID: 804892325956003164, guid: fc94291077d734f4a8a17789949937fe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4252853
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 804892325956003164, guid: fc94291077d734f4a8a17789949937fe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.25199774
+      value: 0.89
       objectReference: {fileID: 0}
     - target: {fileID: 804892325956003164, guid: fc94291077d734f4a8a17789949937fe, type: 3}
       propertyPath: m_LocalRotation.w
@@ -25812,6 +25812,18 @@ PrefabInstance:
       propertyPath: questInfoForPoint
       value: 
       objectReference: {fileID: 11400000, guid: eb976dd841375cc4892a01713c7a4584, type: 2}
+    - target: {fileID: 5055501961989774179, guid: fc94291077d734f4a8a17789949937fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055501961989774179, guid: fc94291077d734f4a8a17789949937fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055501961989774179, guid: fc94291077d734f4a8a17789949937fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.95
+      objectReference: {fileID: 0}
     - target: {fileID: 5354196705685601623, guid: fc94291077d734f4a8a17789949937fe, type: 3}
       propertyPath: m_Name
       value: QuestPoint Potion
@@ -134351,18 +134363,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 627858120}
     m_Modifications:
     - target: {fileID: 804892325956003164, guid: fc94291077d734f4a8a17789949937fe, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.8110352
-      objectReference: {fileID: 0}
-    - target: {fileID: 804892325956003164, guid: fc94291077d734f4a8a17789949937fe, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.8110365
-      objectReference: {fileID: 0}
-    - target: {fileID: 804892325956003164, guid: fc94291077d734f4a8a17789949937fe, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.8110352
-      objectReference: {fileID: 0}
-    - target: {fileID: 804892325956003164, guid: fc94291077d734f4a8a17789949937fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.74082124
       objectReference: {fileID: 0}
@@ -134402,25 +134402,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4439387189250665610, guid: fc94291077d734f4a8a17789949937fe, type: 3}
-      propertyPath: dialogueKnotName
-      value: TarotCatNPC
+    - target: {fileID: 5055501961989774179, guid: fc94291077d734f4a8a17789949937fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.13
       objectReference: {fileID: 0}
-    - target: {fileID: 4439387189250665610, guid: fc94291077d734f4a8a17789949937fe, type: 3}
-      propertyPath: questInfoForPoint
-      value: 
-      objectReference: {fileID: 11400000, guid: 8488e64d3ececbb4b933e85677036d82, type: 2}
+    - target: {fileID: 5055501961989774179, guid: fc94291077d734f4a8a17789949937fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055501961989774179, guid: fc94291077d734f4a8a17789949937fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.182
+      objectReference: {fileID: 0}
     - target: {fileID: 5354196705685601623, guid: fc94291077d734f4a8a17789949937fe, type: 3}
       propertyPath: m_Name
       value: QuestPoint tarot
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201710887470779438, guid: fc94291077d734f4a8a17789949937fe, type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201710887470779438, guid: fc94291077d734f4a8a17789949937fe, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

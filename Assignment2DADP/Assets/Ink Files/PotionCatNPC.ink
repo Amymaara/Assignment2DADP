@@ -47,8 +47,8 @@
 
 #Belladona
 "Use the tarot deck next to me to get the recipe ... just don't be nosy about my readings."
-~ StartQuest("PotionCatNPC")
 
+~ StartQuest("PotionCatNPC")
   -> END
  
  = inProgress
