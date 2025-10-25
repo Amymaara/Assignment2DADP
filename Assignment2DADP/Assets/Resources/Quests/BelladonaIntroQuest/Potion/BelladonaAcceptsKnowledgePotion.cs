@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BelladonaAcceptsKnowledgePotion : QuestSteps
 {
-    [SerializeField] private ItemSO knowledgePotion;
+    [SerializeField] private ItemSO KnowledgePotion;
     [SerializeField] private string playerTag = "Player";
 
     private bool playerNear = false;
@@ -38,25 +38,10 @@ public class BelladonaAcceptsKnowledgePotion : QuestSteps
         if (waitingForDialogue) return;
         waitingForDialogue = true;
 
-        GameEventsManager.instance.dialogueEvents.onDialogueFinished += DialogueFinished;
-
+         FinishQuestStep();
     }
 
-    private void DialogueFinished()
-    {
-        GameEventsManager.instance.dialogueEvents.onDialogueFinished -= DialogueFinished;
-        FinishQuestStep();
-
-        if (candleManager == null)
-        {
-            var mgrRoot = GameObject.Find("Managers");
-            if (mgrRoot != null)
-                candleManager = mgrRoot.GetComponentInChildren<CandleManager>(true);
-        }
-
-        candleManager.TurnOnExploreCandles();
-
-    }
+   
 
     protected override void SetQuestStepState(string state)
     {

@@ -21,9 +21,9 @@ VAR ExploreQuestState = "CAN_START"
 
 // tutorial quests
 VAR RuneCatNPCId = "RuneCatNPC"
-VAR RuneCatNPCState = "CAN_START"
+VAR RuneCatNPCState = "REQUIREMENTS_NOT_MET"
 VAR CrystalCatNPCId = "CrystalCatNPC"
-VAR CrystalCatNPCState = "CAN_START"
+VAR CrystalCatNPCState = "REQUIREMENTS_NOT_MET"
 VAR TarotCatNPCId = "TarotCatNPC"
 VAR TarotCatNPCState = "CAN_START"
 VAR PotionCatNPCId = "PotionCatNPC"
@@ -109,7 +109,7 @@ Yay!
 "Don't stand there idly - find something to do."
 
 #Belladona
-"We have other stations if you want to figure them out on your own."
+"We have other recipes if you want to figure them out on your own."
 
 #Belladona
 "Help you? Sweetheart this isn't magic school anymore - learn it for yourself."

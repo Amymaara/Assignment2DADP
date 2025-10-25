@@ -19,8 +19,8 @@ public class PotionCatInteract : MonoBehaviour
         {
             Debug.Log("Correct item give");
             OnServedCorrectly?.Invoke();
-            UnityEngine.Object.FindFirstObjectByType<BelladonaAcceptsKnowledgePotion>()?.TryHandInPotion();
-            //acceptQuest.TryHandInPotion();
+            UnityEngine.GameObject.FindFirstObjectByType<BelladonaAcceptsKnowledgePotion>()?.TryHandInPotion();
+           // acceptQuest.TryHandInPotion();
             //Destroy(gameObject, 0.25f);
             return true;
         }

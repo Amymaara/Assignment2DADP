@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <id>k__BackingField: RuneCatNPC
   displayName: 
-  questPrerequisite: []
+  questPrerequisite:
+  - {fileID: 11400000, guid: eb976dd841375cc4892a01713c7a4584, type: 2}
   questStepPrefabs:
   - {fileID: 6518571643023176123, guid: aa1bf5f0e5975e0409ef52490906dcd3, type: 3}

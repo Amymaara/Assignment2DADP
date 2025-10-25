@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64425f542f847564ba47b7a1f6498b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knowledgePotion: {fileID: 0}
+  knowledgePotion: {fileID: 11400000, guid: 607467a8fe0fb8a4b9910e1243b984f6, type: 2}
   playerTag: Player
   catTeleport: {fileID: 0}
   candleManager: {fileID: 0}

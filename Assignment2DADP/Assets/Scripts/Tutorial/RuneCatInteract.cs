@@ -19,7 +19,7 @@ public class RuneCatInteract : MonoBehaviour
         {
             Debug.Log("Correct item give");
             OnServedCorrectly?.Invoke();
-            UnityEngine.Object.FindFirstObjectByType<CatAcceptsProtectionRUne>()?.TryHandInRune();
+            UnityEngine.GameObject.FindFirstObjectByType<CatAcceptsProtectionRUne>()?.TryHandInRune();
             //acceptQuest.TryHandInPotion();
             //Destroy(gameObject, 0.25f);
             return true;

@@ -34,25 +34,10 @@ public class CatAcceptsProtectionRUne : QuestSteps
         if (waitingForDialogue) return;
         waitingForDialogue = true;
 
-        GameEventsManager.instance.dialogueEvents.onDialogueFinished += DialogueFinished;
-
-    }
-
-    private void DialogueFinished()
-    {
-        GameEventsManager.instance.dialogueEvents.onDialogueFinished -= DialogueFinished;
         FinishQuestStep();
-
-       if (candleManager == null)
-        {
-            var mgrRoot = GameObject.Find("Managers");
-            if (mgrRoot != null)
-                candleManager = mgrRoot.GetComponentInChildren<CandleManager>(true);
-        }
-
-        candleManager.TurnOnExploreCandles();
-
     }
+
+    
 
     protected override void SetQuestStepState(string state)
     {

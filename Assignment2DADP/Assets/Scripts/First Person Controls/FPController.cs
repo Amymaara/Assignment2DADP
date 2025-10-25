@@ -249,17 +249,40 @@ public class FPController : MonoBehaviour
             Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
             if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
             {
-                var catcustomer = hit.collider.GetComponent<PotionCatInteract>();
-                if (catcustomer)
+                Debug.Log("I hit " + hit.collider.name);
+                /* var catcustomer = hit.collider.GetComponentInChildren<PotionCatInteract>();
+                 if (catcustomer)
+                 {
+                     var held = holdPoint.GetComponentInChildren<ServeableItem>();
+                     if (held)
+                     {
+                         bool ok = catcustomer.TryServe(held);
+                         if (ok) Destroy(held.gameObject);
+                     }
+                 }
+                */
+
+                var catcustomer = hit.collider.GetComponentInParent<PotionCatInteract>();
+                if (catcustomer == null)
+                {
+                    Debug.Log("No PotionCatInteract found on what I hit");
+                }
+                else
                 {
                     var held = holdPoint.GetComponentInChildren<ServeableItem>();
-                    if (held)
+                    if (held == null)
                     {
+                        Debug.Log("Player is not holding a ServeableItem under holdPoint");
+                    }
+                    else
+                    {
+                        Debug.Log("About to call TryServe on cat with " + held.name);
                         bool ok = catcustomer.TryServe(held);
                         if (ok) Destroy(held.gameObject);
                     }
                 }
-                var catrunecustomer = hit.collider.GetComponent<RuneCatInteract>();
+            
+                var catrunecustomer = hit.collider.GetComponentInParent<RuneCatInteract>();
                 if (catrunecustomer)
                 {
                     var held = holdPoint.GetComponentInChildren<ServeableItem>();
@@ -270,7 +293,7 @@ public class FPController : MonoBehaviour
                     }
                 }
 
-                var catcrystalcustomer = hit.collider.GetComponent<CrystalCatInteract>();
+                var catcrystalcustomer = hit.collider.GetComponentInParent<CrystalCatInteract>();
                 if (catcrystalcustomer)
                 {
                     var held = holdPoint.GetComponentInChildren<ServeableItem>();
@@ -309,6 +332,11 @@ public class FPController : MonoBehaviour
                 {
                     interactable.Interact();
                 }
+            }
+
+            else
+            {
+                Debug.Log("Raycast didn't hit anything interactable");
             }
         }
         else if (ctx.phase == InputActionPhase.Canceled)

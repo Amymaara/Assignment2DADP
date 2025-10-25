@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <id>k__BackingField: ExploreQuest
   displayName: 
-  questPrerequisite: []
+  questPrerequisite:
+  - {fileID: 11400000, guid: 62e429df1aabf344c9ae3c1a5d10e034, type: 2}
   questStepPrefabs:
   - {fileID: 6729440385501013597, guid: ea749731b5efbee43891decdb5e5f936, type: 3}

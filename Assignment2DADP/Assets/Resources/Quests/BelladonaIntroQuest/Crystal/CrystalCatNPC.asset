@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <id>k__BackingField: CrystalCatNPC
   displayName: 
-  questPrerequisite: []
+  questPrerequisite:
+  - {fileID: 11400000, guid: 24c87e25773ddf54d9990fd7d79ee4d7, type: 2}
   questStepPrefabs:
   - {fileID: 2501437943035153103, guid: a4dce3e4a6b900245b18e4ed56d30275, type: 3}

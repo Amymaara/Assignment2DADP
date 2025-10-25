@@ -5,7 +5,7 @@ public class CrystalCatInteract : MonoBehaviour
 {
     public ItemSO requiredItem;
     public event Action OnServedCorrectly;
-    public BelladonaAcceptsKnowledgePotion acceptQuest;
+    public CatAcceptsCleansingCrystal acceptQuest;
 
 
     public void SetOrder(ItemSO item)
@@ -19,7 +19,7 @@ public class CrystalCatInteract : MonoBehaviour
         {
             Debug.Log("Correct item give");
             OnServedCorrectly?.Invoke();
-            UnityEngine.Object.FindFirstObjectByType<CatAcceptsCleansingCrystal>()?.TryHandInCrystal();
+            UnityEngine.GameObject.FindFirstObjectByType<CatAcceptsCleansingCrystal>()?.TryHandInCrystal();
             //acceptQuest.TryHandInPotion();
             //Destroy(gameObject, 0.25f);
             return true;
