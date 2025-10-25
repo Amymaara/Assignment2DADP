@@ -32,7 +32,10 @@ public class AudioManager : MonoBehaviour
         FLIPCARD,
         BUTTON,
         PICKUP,
-        AMBIENCE
+        AMBIENCE,
+        DOOROPEN,
+        DOORCLOSE,
+        QUESTSUCCESS
     }
     
     private void Awake()
