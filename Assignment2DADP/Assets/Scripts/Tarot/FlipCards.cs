@@ -37,6 +37,7 @@ public class FlipCards : MonoBehaviour
     private void Flip()
     {
         flipped = !flipped;
+        AudioManager.PlaySound(AudioManager.SoundType.FLIPCARD, 0.25f);
         transform.DORotate(new(0, flipped ? 0f : 180f, 0), 0.25f);
 
         if (!flipped) return;
