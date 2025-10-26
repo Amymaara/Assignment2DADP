@@ -4,7 +4,11 @@ using UnityEngine.InputSystem;
 using System;
 using UnityEngine.EventSystems;
 
-// https://www.youtube.com/watch?v=15Bh5QiScbY
+// card flip / DOTween animation
+// Title: EASILY Flip Cards in Unity in UNDER 3 MINUTES
+// Author: The Code Otter
+// Date Accessed: 26 October 2025
+// Accessibility: https://www.youtube.com/watch?v=15Bh5QiScbY
 public class FlipCards : MonoBehaviour
 {
     private bool flipped = false;

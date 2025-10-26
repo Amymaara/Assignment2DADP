@@ -6,6 +6,11 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using static AudioManager;
 
+// Script: CatTarotManager.cs
+// Purpose: Manages the Tarot deck interaction and transitions between the tarot and objective canvases.
+// Author: Ammaarah Cassim
+// Collaboration: Debugged and refined with the assistance of ChatGPT (OpenAI)
+// Date: 26 October 2025
 public class CatTarotManager : MonoBehaviour, IInteractable
 {
     [Header("GameObjects)")]

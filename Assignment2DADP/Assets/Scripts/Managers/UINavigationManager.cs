@@ -20,6 +20,8 @@ public class UINavigationManager : MonoBehaviour
     private InputAction navigateAction;
     private InputAction pointAction;
     private InputActionMap lastMap;
+    private PointerEventData pointerData;
+    private GameObject currentDragTarget;
 
     private GameObject _firstSelected;
     public GameObject firstSelected
@@ -68,35 +70,55 @@ public class UINavigationManager : MonoBehaviour
         UnsubscribeCurrentMap();
     }
 
-    private void Update()
+   
+
+    void Update()
     {
         if (playerInput == null) return;
 
+       
         if (playerInput.currentActionMap != lastMap)
         {
             SubscribeToMap(playerInput.currentActionMap);
         }
 
+       
+        if (pointerData == null)
+            pointerData = new PointerEventData(EventSystem.current);
+
+        pointerData.position = Mouse.current.position.ReadValue();
+
+        
+        var results = new System.Collections.Generic.List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, results);
+
+      
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            PointerEventData pointer = new PointerEventData(EventSystem.current)
-            {
-                position = Mouse.current.position.ReadValue()
-            };
-
-            var results = new System.Collections.Generic.List<RaycastResult>();
-            EventSystem.current.RaycastAll(pointer, results);
-
             if (results.Count > 0)
             {
                 var go = results[0].gameObject;
-                ExecuteEvents.Execute(go, pointer, ExecuteEvents.pointerClickHandler);
+                currentDragTarget = go;
+
+                
+                ExecuteEvents.ExecuteHierarchy(go, pointerData, ExecuteEvents.pointerDownHandler);
             }
         }
 
-        if (playerInput != null && playerInput.currentActionMap != lastMap)
+        if (Mouse.current.leftButton.isPressed && currentDragTarget != null)
         {
-            SubscribeToMap(playerInput.currentActionMap);
+            ExecuteEvents.ExecuteHierarchy(currentDragTarget, pointerData, ExecuteEvents.dragHandler);
+        }
+
+       
+        if (Mouse.current.leftButton.wasReleasedThisFrame)
+        {
+            if (currentDragTarget != null)
+            {
+                ExecuteEvents.ExecuteHierarchy(currentDragTarget, pointerData, ExecuteEvents.pointerUpHandler);
+                ExecuteEvents.ExecuteHierarchy(currentDragTarget, pointerData, ExecuteEvents.pointerClickHandler);
+                currentDragTarget = null;
+            }
         }
     }
 
