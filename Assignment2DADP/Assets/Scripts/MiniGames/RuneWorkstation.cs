@@ -12,6 +12,8 @@ public class RuneWorkstation : MonoBehaviour, IInteractable
     public ParticleSystem SuccessParticles;
     public ParticleSystem FailParticles;
     public GameObject Arrow;
+    public GameObject OrderUI;
+    public bool OrderUIACtive;
 
     int interactionCount;
     void Start()
@@ -23,6 +25,8 @@ public class RuneWorkstation : MonoBehaviour, IInteractable
     public void Interact()
     {
         Arrow.SetActive(false);
+        
+        OrderUI.SetActive(false);
 
         Debug.Log("trying to interact");
         if (heldObject == null)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.InputSystem.XR;
 
 
@@ -23,6 +24,9 @@ public class RuneDraw : MonoBehaviour
     //public Belladona cat;
     public GameObject firstButton;
     public UINavigationManager navigationManager;
+
+    public GameObject UIOrder;
+    public bool UIOrderActive;
 
 
 
@@ -45,19 +49,27 @@ public class RuneDraw : MonoBehaviour
 
 
 
+
+
     private void OnEnable()
     {
+       
         inputManager.SwitchToRuneMenu();
         previousCursorPosition = transform.position;
         playerLine.positionCount = 0;
         fixedWorldY = runeCenter.position.y;
         Cursor.visible = false;
-        playerLineGameObject.transform.position = new Vector3(
-                playerLineGameObject.transform.position.x,
-                fixedWorldY,
-                playerLineGameObject.transform.position.z);
 
+        if (UIOrder.activeInHierarchy) 
+        { 
+            UIOrderActive = true;
+        }
+        else { UIOrderActive = false; }
+
+        UIOrder.SetActive(false);
     }
+
+    
 
     public void ChooseTargetPath(int index)
     {
@@ -80,6 +92,13 @@ public class RuneDraw : MonoBehaviour
             DrawingStart();
 
         }
+
+       
+            if (Gamepad.current != null && Gamepad.current.aButton.wasPressedThisFrame)
+                Debug.Log("A pressed in RuneDraw!");
+
+           
+       
     }
 
 
@@ -203,6 +222,8 @@ public class RuneDraw : MonoBehaviour
         workstation.playerRune.finishedProduct = true;
         playerLineGameObject.SetActive(false); // the object this script is on
         inputManager.SwitchToGameplay();
+
+        UIOrder.SetActive(UIOrderActive);
     }
 
     

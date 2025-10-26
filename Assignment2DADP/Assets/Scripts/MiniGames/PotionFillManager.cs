@@ -129,7 +129,7 @@ public class PotionFillManager : MonoBehaviour
         }
 
         // check if bar is max height
-        if (currentHeight + newHeight >= maxFillHeight)
+        if (currentHeight + newHeight >= maxFillHeight - 0.1)
         {
             StopSection();
             Debug.Log("Max Fill");

@@ -112745,7 +112745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -195114,7 +195114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -195865,6 +195865,8 @@ MonoBehaviour:
   workstation: {fileID: 1557713462}
   firstButton: {fileID: 620664320}
   navigationManager: {fileID: 1218016250}
+  UIOrder: {fileID: 1089539671}
+  UIOrderActive: 0
   controllerSpeed: 0.08
   pointSpacing: 0.01
   accuracyThreshold: 0.028
@@ -196003,6 +196005,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b8b25c9d-5424-4e34-b177-25504434427e
     m_ActionName: 'Crystals/Click[/Keyboard/e,/Keyboard/enter,/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a2ffbaf8-3a78-4d0f-b736-225bc961261b
+    m_ActionName: 'Player/Navigate[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/leftStick/right]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 46d2b351-1ffe-4edd-ad76-3530c3c4028e
+    m_ActionName: 'Player/Point[/Mouse/delta,/DualShock4GamepadHID/rightStick]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 297423d8-c8fe-4100-8101-2ea550d980ba
+    m_ActionName: 'UI/Click[/Mouse/leftButton,/DualShock4GamepadHID/buttonWest]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 52f3ce91-4f57-4ff0-84cd-7d12e47cc9dc
+    m_ActionName: 'UI/Submit[/Mouse/leftButton,/DualShock4GamepadHID/buttonSouth]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Runes
@@ -239772,7 +239790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -277175,7 +277193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -295171,6 +295189,8 @@ GameObject:
   - component: {fileID: 1089539675}
   - component: {fileID: 1089539674}
   - component: {fileID: 1089539673}
+  - component: {fileID: 1089539678}
+  - component: {fileID: 1089539677}
   m_Layer: 0
   m_Name: HUDCanvas
   m_TagString: Untagged
@@ -295207,10 +295227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 2
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -295228,7 +295248,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 2073058843}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -295261,6 +295281,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &1089539677
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089539671}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1089539678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089539671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e7e953c72921b4081b149f3dc6d8a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderUICanvasGroup: {fileID: 1089539677}
 --- !u!1 &1102627936
 GameObject:
   m_ObjectHideFlags: 0
@@ -300098,7 +300143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -307905,7 +307950,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 218497546}
   m_Direction: 0
   m_MinValue: 0.01
-  m_MaxValue: 0.4
+  m_MaxValue: 0.6
   m_WholeNumbers: 0
   m_Value: 0.2
   m_OnValueChanged:
@@ -343036,6 +343081,8 @@ MonoBehaviour:
   SuccessParticles: {fileID: 1046563919}
   FailParticles: {fileID: 1763898438}
   Arrow: {fileID: 631550789}
+  OrderUI: {fileID: 0}
+  OrderUIACtive: 0
 --- !u!43 &1565293765
 Mesh:
   m_ObjectHideFlags: 0
