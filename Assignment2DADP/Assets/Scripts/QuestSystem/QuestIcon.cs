@@ -24,7 +24,7 @@ public class QuestIcon : MonoBehaviour
                 if (endPoint) { canFinishIcon.SetActive(true); canStartIcon.SetActive(false); }
                 break;
             case QuestState.FINISHED:
-                if (endPoint) { finishedIcon.SetActive(true); canStartIcon.SetActive(false); AudioManager.PlaySound(AudioManager.SoundType.QUESTSUCCESS, 0.5f); }
+                if (endPoint) { finishedIcon.SetActive(true); canStartIcon.SetActive(false); AudioManager.PlaySound(AudioManager.SoundType.QUESTSUCCESS, 0.1f); }
                 break;
             case QuestState.IN_PROGRESS:
                 if (endPoint) { requirementsNotMetToFinishIcon.SetActive(true); canStartIcon.SetActive(false); }

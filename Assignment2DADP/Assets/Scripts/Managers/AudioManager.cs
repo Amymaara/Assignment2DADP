@@ -34,7 +34,8 @@ public class AudioManager : MonoBehaviour
         PICKUP,
         DOOROPEN,
         DOORCLOSE,
-        QUESTSUCCESS
+        QUESTSUCCESS,
+        MEOW
     }
     
     private void Awake()
@@ -52,7 +53,7 @@ public class AudioManager : MonoBehaviour
      use AudioManager.PlaySound(AudioManager.SoundType.(name),(volume), true); => loop
      use AudioManager.StopSound(); => stop looping sounds
     */
-    public static void PlaySound(SoundType sound, float volume = 1f, bool loop = false)
+    public static void PlaySound(SoundType sound, float volume = 0.1f, bool loop = false)
     {
 
         //instance.audioSource.PlayOneShot(instance.soundList[(int)sound], volume);
