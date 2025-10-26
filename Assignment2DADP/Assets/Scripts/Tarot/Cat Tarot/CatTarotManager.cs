@@ -75,6 +75,8 @@ public class CatTarotManager : MonoBehaviour, IInteractable
 
         s_openDeck = this;
         Cursor.lockState = CursorLockMode.None; Cursor.visible = true;
+
+        GameEventsManager.instance.inputEvents.ChangeInputEventsContext(InputEventsContext.TAROT);
     }
 
     public void ShowObjective()
@@ -87,6 +89,8 @@ public class CatTarotManager : MonoBehaviour, IInteractable
 
       
          Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;
+
+        GameEventsManager.instance.inputEvents.ChangeInputEventsContext(InputEventsContext.DEFAULT);
     }
 
     private void ForceClose()
