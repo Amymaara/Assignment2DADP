@@ -50,7 +50,8 @@ public class CatTeleport : MonoBehaviour
         crystalCat.SetActive(false);
         runeCat.SetActive(false);
         potionCat.SetActive(false);
-        
+        AudioManager.PlaySound(AudioManager.SoundType.MEOW, 0.1f);
+
     }
 
 
@@ -67,6 +68,7 @@ public class CatTeleport : MonoBehaviour
         tarotCat.SetActive(false);
         crystalCat.SetActive(false);
         runeCat.SetActive(false);
+        AudioManager.PlaySound(AudioManager.SoundType.MEOW, 0.1f);
         potionCat.SetActive(true);
 
         PotionParticles.Play();
@@ -76,7 +78,7 @@ public class CatTeleport : MonoBehaviour
         PotionDoor.SetActive(false);
         RuneDoor.SetActive(true);
         CrystalDoor.SetActive(true);
-        AudioManager.PlaySound(AudioManager.SoundType.DOOROPEN);
+        AudioManager.PlaySound(AudioManager.SoundType.DOOROPEN, 0.1f);
     }
 
     public void SpawnCatRune()
@@ -93,6 +95,7 @@ public class CatTeleport : MonoBehaviour
         crystalCat.SetActive(false);
         runeCat.SetActive(true);
         potionCat.SetActive(false);
+        AudioManager.PlaySound(AudioManager.SoundType.MEOW, 0.1f);
 
         RuneParticles.Play();
 
@@ -101,7 +104,7 @@ public class CatTeleport : MonoBehaviour
         PotionDoor.SetActive(false);
         RuneDoor.SetActive(false);
         CrystalDoor.SetActive(true);
-        AudioManager.PlaySound(AudioManager.SoundType.DOOROPEN);
+        AudioManager.PlaySound(AudioManager.SoundType.DOOROPEN, 0.1f);
     }
 
     public void SpawnCatCrystal()
@@ -118,6 +121,7 @@ public class CatTeleport : MonoBehaviour
         crystalCat.SetActive(true);
         runeCat.SetActive(false);
         potionCat.SetActive(false);
+        AudioManager.PlaySound(AudioManager.SoundType.MEOW, 0.1f);
 
         CrystalParticles.Play();
 
@@ -125,7 +129,7 @@ public class CatTeleport : MonoBehaviour
         PotionDoor.SetActive(false);
         RuneDoor.SetActive(false);
         CrystalDoor.SetActive(false);
-        AudioManager.PlaySound(AudioManager.SoundType.DOOROPEN);
+        AudioManager.PlaySound(AudioManager.SoundType.DOOROPEN, 0.1f);
     }
     public void SpawnCatTable()
     {
@@ -137,11 +141,13 @@ public class CatTeleport : MonoBehaviour
         CatTable.SetActive(true);
         CatRune.SetActive(false);
         CatCrystal.SetActive(false);
+        
 
         tarotCat.SetActive(false);
         crystalCat.SetActive(false);
         runeCat.SetActive(false);
         potionCat.SetActive(false);
+        AudioManager.PlaySound(AudioManager.SoundType.MEOW, 0.1f);
 
         TableParticles.Play();
     }
