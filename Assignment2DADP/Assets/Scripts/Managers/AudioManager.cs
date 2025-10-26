@@ -32,7 +32,6 @@ public class AudioManager : MonoBehaviour
         FLIPCARD,
         BUTTON,
         PICKUP,
-        AMBIENCE,
         DOOROPEN,
         DOORCLOSE,
         QUESTSUCCESS

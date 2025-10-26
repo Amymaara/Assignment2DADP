@@ -11,6 +11,7 @@ public class PopupManager : MonoBehaviour
     public GameObject movementPanel;
     public GameObject lookPanel;
     public GameObject orderPanel;
+    public GameObject questIconPanel;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class PopupManager : MonoBehaviour
         if (movementPanel) movementPanel.SetActive(false);
         if (lookPanel) lookPanel.SetActive(false);
         if (orderPanel) orderPanel.SetActive(false);
+        if (questIconPanel) questIconPanel.SetActive(false);
     }
     
     public void ShowPopup(string type)
@@ -39,6 +41,9 @@ public class PopupManager : MonoBehaviour
                 break;
             case "order":
                 orderPanel.SetActive(true);
+                break;
+            case "quest":
+                questIconPanel.SetActive(true);
                 break;
 
 
@@ -63,6 +68,9 @@ public class PopupManager : MonoBehaviour
                 break;
             case "order":
                 orderPanel.SetActive(false);
+                break;
+            case "quest":
+                questIconPanel.SetActive(false);
                 break;
 
 

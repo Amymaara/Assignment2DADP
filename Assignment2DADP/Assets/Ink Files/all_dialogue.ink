@@ -77,6 +77,7 @@ Yay!
    - "CAN_START" : -> canStart
    - "IN_PROGRESS": -> inProgress
    - "CAN_FINISH": -> canFinish
+   - "FINISHED": -> finished
    - else: -> END
    }
 
@@ -123,5 +124,11 @@ Yay!
 
 #Belladona
 "Explore around now, come on."
+~ FinishQuest("ExploreQuest")
+-> END
+= finished
+
+#Belladona
+"We'll start out first real day tomorrow, be prepared."
 
 -> END

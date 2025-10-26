@@ -59,5 +59,16 @@ EXTERNAL UnlockMove()
 #???
 "Now why don't you come over here so we can get to work, I ain't wasting one of my lives waiting for you to gawk at everything."
 
+#???
+
+"Oh you don't know what I look like?"
+
+~ ShowPopup("quest")
+#???
+"Sigh, just follow these signals and you should be able to find me."
+~ ClosePopup("quest")
+
+#???
+"Well what's your excuse now? Come on then."
 
 -> END

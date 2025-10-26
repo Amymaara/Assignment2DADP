@@ -3,7 +3,7 @@ using UnityEngine;
 public class ExploreQuest : QuestSteps
 {
     [Header("Settings")]
-    public float autoCompleteDelay = 5f;
+    public float autoCompleteDelay = 1f;
     [SerializeField] private CandleManager candleManager;
 
 
