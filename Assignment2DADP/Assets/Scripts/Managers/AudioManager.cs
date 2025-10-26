@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private bool debugLogs = false;
 
     public static AudioManager instance { get; private set; }
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     
 
     public enum SoundType
@@ -45,7 +45,12 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) 
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
+        //audioSource = GetComponent<AudioSource>();
     }
 
     /* Little guide on how audio works:

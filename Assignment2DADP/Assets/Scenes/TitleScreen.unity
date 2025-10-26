@@ -1514,6 +1514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstButton: {fileID: 1804865168}
   navigationManager: {fileID: 1333073625}
+  buttonSound: {fileID: 8300000, guid: c638d90bbefdd10459e7bbc2896b9e7e, type: 3}
 --- !u!1001 &1510562263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1730,7 +1731,6 @@ GameObject:
   - component: {fileID: 1562165115}
   - component: {fileID: 1562165114}
   - component: {fileID: 1562165113}
-  - component: {fileID: 1562165112}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1738,29 +1738,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1562165112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562165111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f371e85ece3d244ea869414b52085b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundList:
-  - {fileID: 8300000, guid: e489f9883afc14c4d94519afe00a0fb7, type: 3}
-  - {fileID: 8300000, guid: e489f9883afc14c4d94519afe00a0fb7, type: 3}
-  - {fileID: 8300000, guid: e489f9883afc14c4d94519afe00a0fb7, type: 3}
-  - {fileID: 8300000, guid: e489f9883afc14c4d94519afe00a0fb7, type: 3}
-  - {fileID: 8300000, guid: e489f9883afc14c4d94519afe00a0fb7, type: 3}
-  - {fileID: 8300000, guid: e489f9883afc14c4d94519afe00a0fb7, type: 3}
-  - {fileID: 8300000, guid: e489f9883afc14c4d94519afe00a0fb7, type: 3}
-  - {fileID: 8300000, guid: e489f9883afc14c4d94519afe00a0fb7, type: 3}
-  - {fileID: 8300000, guid: e489f9883afc14c4d94519afe00a0fb7, type: 3}
-  debugLogs: 0
 --- !u!114 &1562165113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1774,6 +1751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: c4347b3020345604f90285cc418df243, type: 3}
+  audioSource: {fileID: 1562165114}
 --- !u!82 &1562165114
 AudioSource:
   m_ObjectHideFlags: 0
