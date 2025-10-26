@@ -6,6 +6,11 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using static AudioManager;
 
+// Script: CatTarotManager.cs
+// Purpose: Manages the Tarot deck interaction and transitions between the tarot and objective canvases.
+// Author: Ammaarah Cassim
+// Collaboration: Debugged and refined with the assistance of ChatGPT (OpenAI)
+// Date: 26 October 2025
 public class CatTarotManager : MonoBehaviour, IInteractable
 {
     [Header("GameObjects)")]
@@ -75,6 +80,8 @@ public class CatTarotManager : MonoBehaviour, IInteractable
 
         s_openDeck = this;
         Cursor.lockState = CursorLockMode.None; Cursor.visible = true;
+
+        GameEventsManager.instance.inputEvents.ChangeInputEventsContext(InputEventsContext.TAROT);
     }
 
     public void ShowObjective()
@@ -87,6 +94,8 @@ public class CatTarotManager : MonoBehaviour, IInteractable
 
       
          Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;
+
+        GameEventsManager.instance.inputEvents.ChangeInputEventsContext(InputEventsContext.DEFAULT);
     }
 
     private void ForceClose()

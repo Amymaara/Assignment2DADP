@@ -129,6 +129,6 @@ Yay!
 = finished
 
 #Belladona
-"We'll start out first real day tomorrow, be prepared."
+"We'll start our first real day tomorrow, be prepared."
 
 -> END

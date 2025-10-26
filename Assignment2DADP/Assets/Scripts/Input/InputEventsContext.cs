@@ -4,5 +4,7 @@ public enum InputEventsContext
 {
     DEFAULT,
 
-    DIALOGUE
+    DIALOGUE,
+
+    TAROT
 }
