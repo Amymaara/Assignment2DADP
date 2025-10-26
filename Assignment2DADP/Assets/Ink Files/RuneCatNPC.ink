@@ -34,7 +34,7 @@
 "Step 3: carve it."
 
 #Belladona
-"It take some precision but isn't anything too difficult."
+"It takes some precision but isn't anything too difficult."
 
 #Belladona
 "Well go on, do a reading and bring me a rune."
