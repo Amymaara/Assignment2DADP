@@ -25,6 +25,9 @@ public class CustomerSpawner : MonoBehaviour
     private void Start()
     {
         //SpawnNext(); //immediately spawns customer for now (might change later)
+        var timerBar = FindObjectOfType<TimerBar>();
+        if (timerBar != null)
+            timerBar.SetTotalCustomers(daySequence.queue.Length);
 
         Debug.Log("[Spawner] Start()");
         if (autoSpawnOnStart) SpawnNext();
@@ -72,6 +75,7 @@ public class CustomerSpawner : MonoBehaviour
             currentCustomer.OnServedCorrectly -= HandleCustomerServed;
 
         objectiveUI?.HideObjectiveCard();
+        FindObjectOfType<TimerBar>()?.CustomerServed();
 
         currentCustomer = null;
         SpawnNext();

@@ -61,5 +61,7 @@ public class TarotManager : MonoBehaviour
 
         var spawner = FindFirstObjectByType<CustomerSpawner>();
         spawner?.MarkOrderRevealed();
+        FindObjectOfType<TimerBar>()?.StartTimer();
+
     }
 }
