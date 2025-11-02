@@ -7,6 +7,8 @@ public class CatTeleport : MonoBehaviour
     public GameObject CatRune;
     public GameObject CatCrystal;
     public GameObject CatTable;
+    public GameObject CatStart;
+    public GameObject CatEnd;
 
     public GameObject BedroomDoor;
     public GameObject PotionDoor;
@@ -23,12 +25,15 @@ public class CatTeleport : MonoBehaviour
     public ParticleSystem RuneParticles;
     public ParticleSystem CrystalParticles;
     public ParticleSystem TableParticles;
+    public ParticleSystem StartParticles;
+    public ParticleSystem EndParticles;
 
     public GameObject TarotUI;
 
     public void Start()
     {
         SpawnCatTarot();
+        SpawnCatStart();
     }
 
     public void SpawnCatTarot()
@@ -151,5 +156,29 @@ public class CatTeleport : MonoBehaviour
 
         TableParticles.Play();
     }
+
+    public void SpawnCatStart()
+    {
+        StartParticles.Play();
+
+        CatStart.SetActive(true);
+        CatEnd.SetActive(false);
+        AudioManager.PlaySound(AudioManager.SoundType.MEOW, 0.1f);
+    }
+
+    public void SpawnCatEnd()
+    {
+
+        StartParticles.Play();
+
+        CatStart.SetActive(false);
+        CatEnd.SetActive(true);
+        AudioManager.PlaySound(AudioManager.SoundType.MEOW, 0.1f);
+
+        EndParticles.Play();
+
+    }
+
+
 
 }

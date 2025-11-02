@@ -11,6 +11,8 @@ INCLUDE RuneCatNPC.ink
 INCLUDE CrystalCatNPC.ink
 INCLUDE TarotCatNPC.ink
 INCLUDE PotionCatNPC.ink
+INCLUDE CatStartDay1.ink
+INCLUDE CatEndDay1.ink
 
 
 VAR QuestTestId = "QuestTest"
@@ -28,6 +30,12 @@ VAR TarotCatNPCId = "TarotCatNPC"
 VAR TarotCatNPCState = "CAN_START"
 VAR PotionCatNPCId = "PotionCatNPC"
 VAR PotionCatNPCState = "REQUIREMENTS_NOT_MET"
+
+// day 1 quests
+VAR CatStartDay1State = "CAN_START"
+VAR CatStartDay1Id = "CatStartDay1"
+VAR CatEndDay1State = "REQUIREMENTS_NOT_MET"
+VAR CatEndDay1Id = "CatEndDay1"
 
 -> test_knot.requirementsNotMet
 === test_knot ===
