@@ -304,7 +304,7 @@ public class FPController : MonoBehaviour
                     }
                 }
 
-                var customer = hit.collider.GetComponentInParent<Customer>();
+                var customer = hit.collider.GetComponentInChildren<Customer>();
                 if (customer)
                 {
                     var held = holdPoint.GetComponentInChildren<ServeableItem>();

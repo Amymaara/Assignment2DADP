@@ -14,15 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayName: Day X
   queue:
-  - customerPrefab: {fileID: 5630513489350555442, guid: c47f01664d82c9e438335f8760155e4e, type: 3}
+  - customerPrefab: {fileID: 8972994919400316050, guid: 37c47200a38f69849845557178a67dc3, type: 3}
     fixedOrder: {fileID: 11400000, guid: 607467a8fe0fb8a4b9910e1243b984f6, type: 2}
     tarotCard1: {fileID: 21300000, guid: d4a04a9dadc8c7247b9667904928f348, type: 3}
     tarotCard2: {fileID: 21300000, guid: 0a113d4cf61cf4f45a28b59ae7c49e01, type: 3}
     tarotCard3: {fileID: 21300000, guid: b9f6af566dffe6c44a742a9571fda1ae, type: 3}
     recipeSprite: {fileID: 7482667652216324306, guid: 19dc7039ec51db2469f7832ccb9d581e, type: 3}
-  - customerPrefab: {fileID: 5630513489350555442, guid: c47f01664d82c9e438335f8760155e4e, type: 3}
+  - customerPrefab: {fileID: 8972994919400316050, guid: 37c47200a38f69849845557178a67dc3, type: 3}
     fixedOrder: {fileID: 11400000, guid: 607467a8fe0fb8a4b9910e1243b984f6, type: 2}
     tarotCard1: {fileID: 21300000, guid: 5a27747d814db8d42a8e74077836884e, type: 3}
     tarotCard2: {fileID: 21300000, guid: 4ac8c6aabf7522942b389f258b8087c5, type: 3}
     tarotCard3: {fileID: 21300000, guid: 947e4ff1e88ad62408d2747b552343d5, type: 3}
     recipeSprite: {fileID: 7482667652216324306, guid: 78d798eaea8596f4d98152bb25940d61, type: 3}
+  - customerPrefab: {fileID: 8972994919400316050, guid: 37c47200a38f69849845557178a67dc3, type: 3}
+    fixedOrder: {fileID: 11400000, guid: 607467a8fe0fb8a4b9910e1243b984f6, type: 2}
+    tarotCard1: {fileID: 21300000, guid: 5a27747d814db8d42a8e74077836884e, type: 3}
+    tarotCard2: {fileID: 21300000, guid: 4ac8c6aabf7522942b389f258b8087c5, type: 3}
+    tarotCard3: {fileID: 21300000, guid: 947e4ff1e88ad62408d2747b552343d5, type: 3}
+    recipeSprite: {fileID: 21300000, guid: 2482a708cbfc4dc44828edafaac5601a, type: 3}
