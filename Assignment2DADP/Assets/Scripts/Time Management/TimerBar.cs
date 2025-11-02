@@ -1,7 +1,8 @@
+using Ink.Runtime;
 using System;
 using System.Collections;
-using Ink.Runtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TimerBar : MonoBehaviour
@@ -81,6 +82,8 @@ public class TimerBar : MonoBehaviour
         else
         {
             Debug.Log("customers still waiting - fail");
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(sceneIndex);
         }
     }
 }
