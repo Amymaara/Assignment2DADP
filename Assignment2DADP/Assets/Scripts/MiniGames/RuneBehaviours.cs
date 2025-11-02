@@ -80,6 +80,7 @@ public class RuneBehaviour : MonoBehaviour
 
     public void OnStarButton()
     {
+        navigationManager.firstSelected = null;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
@@ -97,12 +98,14 @@ public class RuneBehaviour : MonoBehaviour
 
     public void OnMoonButton()
     {
+        navigationManager.firstSelected = null;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
         moon.SetActive(true);
         cursor.SetActive(true);
         playerLine.SetActive(true);
+
         canvas.SetActive(false);
         workstation.playerRune.stamp = RuneInteractables.Stamp.Moon;
         //workstation.playerRune.secondMesh.SetActive(true);
@@ -113,12 +116,14 @@ public class RuneBehaviour : MonoBehaviour
 
     public void OnTrifectaButton()
     {
+        navigationManager.firstSelected = null;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
         trifecta.SetActive(true);
         cursor.SetActive(true);
         playerLine.SetActive(true);
+
         canvas.SetActive(false);
         workstation.playerRune.stamp = RuneInteractables.Stamp.Trifecta;
         //workstation.playerRune.secondMesh.SetActive(true);

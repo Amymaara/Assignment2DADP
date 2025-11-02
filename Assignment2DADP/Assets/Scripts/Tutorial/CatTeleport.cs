@@ -25,6 +25,7 @@ public class CatTeleport : MonoBehaviour
     public ParticleSystem TableParticles;
 
     public GameObject TarotUI;
+    public BedTrigger bed;
 
     public void Start()
     {
@@ -150,6 +151,7 @@ public class CatTeleport : MonoBehaviour
         AudioManager.PlaySound(AudioManager.SoundType.MEOW, 0.1f);
 
         TableParticles.Play();
+        bed.canInteract = true; 
     }
 
 }
