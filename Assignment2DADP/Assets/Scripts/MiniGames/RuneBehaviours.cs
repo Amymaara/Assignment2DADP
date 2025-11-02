@@ -75,6 +75,7 @@ public class RuneBehaviour : MonoBehaviour
         }
 
         inputProduct.GetComponent<Renderer>().enabled = false;
+
     }
 
     public void OnStarButton()
@@ -90,6 +91,7 @@ public class RuneBehaviour : MonoBehaviour
         //workstation.playerRune.secondMesh.SetActive(true);
         //workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Star;
         drawing.canDraw = true;
+        navigationManager.firstSelected = null;
 
     }
 
@@ -106,6 +108,7 @@ public class RuneBehaviour : MonoBehaviour
         //workstation.playerRune.secondMesh.SetActive(true);
         //workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Moon;
         drawing.canDraw = true;
+        navigationManager.firstSelected = null;
     }
 
     public void OnTrifectaButton()
@@ -121,6 +124,7 @@ public class RuneBehaviour : MonoBehaviour
         //workstation.playerRune.secondMesh.SetActive(true);
         //workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Trifecta;
         drawing.canDraw = true;
+        navigationManager.firstSelected = null;
     }
 
     public void Outcome(float accuracy)

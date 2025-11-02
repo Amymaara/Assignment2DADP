@@ -33,7 +33,7 @@ public class TitleScreen : MonoBehaviour
 
     public void PlayGame()
     {
-        PlaySoundAndLoad("Blocking");
+        PlaySoundAndLoad("Tutorial Day");
     }
 
     private void PlaySoundAndQuit()

@@ -343266,7 +343266,7 @@ MonoBehaviour:
   SuccessParticles: {fileID: 1046563919}
   FailParticles: {fileID: 1763898438}
   Arrow: {fileID: 631550789}
-  OrderUI: {fileID: 0}
+  OrderUI: {fileID: 1089539671}
   OrderUIACtive: 0
 --- !u!43 &1565293765
 Mesh:
