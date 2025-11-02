@@ -75,10 +75,12 @@ public class RuneBehaviour : MonoBehaviour
         }
 
         inputProduct.GetComponent<Renderer>().enabled = false;
+
     }
 
     public void OnStarButton()
     {
+        navigationManager.firstSelected = null;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
@@ -90,37 +92,44 @@ public class RuneBehaviour : MonoBehaviour
         //workstation.playerRune.secondMesh.SetActive(true);
         //workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Star;
         drawing.canDraw = true;
+        navigationManager.firstSelected = null;
 
     }
 
     public void OnMoonButton()
     {
+        navigationManager.firstSelected = null;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
         moon.SetActive(true);
         cursor.SetActive(true);
         playerLine.SetActive(true);
+
         canvas.SetActive(false);
         workstation.playerRune.stamp = RuneInteractables.Stamp.Moon;
         //workstation.playerRune.secondMesh.SetActive(true);
         //workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Moon;
         drawing.canDraw = true;
+        navigationManager.firstSelected = null;
     }
 
     public void OnTrifectaButton()
     {
+        navigationManager.firstSelected = null;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
         trifecta.SetActive(true);
         cursor.SetActive(true);
         playerLine.SetActive(true);
+
         canvas.SetActive(false);
         workstation.playerRune.stamp = RuneInteractables.Stamp.Trifecta;
         //workstation.playerRune.secondMesh.SetActive(true);
         //workstation.playerRune.secondMesh.GetComponent<Renderer>().material = Trifecta;
         drawing.canDraw = true;
+        navigationManager.firstSelected = null;
     }
 
     public void Outcome(float accuracy)

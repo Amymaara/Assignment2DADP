@@ -26,6 +26,8 @@ public class TimerBar : MonoBehaviour
     private bool timerRunning;
     private bool timerStarted;
 
+    [Header("Bed")]
+    public BedTrigger bed;
 
     public void StartTimer()
     {
@@ -74,6 +76,7 @@ public class TimerBar : MonoBehaviour
         if (success)
         {
             Debug.Log("all customer served - success");
+            bed.canInteract = true;
         }
         else
         {

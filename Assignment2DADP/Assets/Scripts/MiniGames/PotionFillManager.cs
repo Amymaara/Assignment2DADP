@@ -96,11 +96,13 @@ public class PotionFillManager : MonoBehaviour
 
             filling = true;
 
+            /*
             if (fpcontroller.heldObject.gameObject != null)
             {
                 Destroy(fpcontroller.holdObject.gameObject);
 
             }
+            */
         }
         else return;
     }
