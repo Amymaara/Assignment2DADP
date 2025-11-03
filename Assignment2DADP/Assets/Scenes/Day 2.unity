@@ -193042,7 +193042,11 @@ MonoBehaviour:
   workstation: {fileID: 1557713462}
   firstButton: {fileID: 620664320}
   navigationManager: {fileID: 408812796}
-  controllerSpeed: 0.08
+  uiInputModule: {fileID: 1436503605}
+  controllerSpeed: 2
+  mouseSpeed: 0.08
+  baseSensitivity: 0.08
+  controllerMultiplier: 4
   pointSpacing: 0.01
   accuracyThreshold: 0.028
   deadzone: 0.5
@@ -294310,6 +294314,7 @@ MonoBehaviour:
   jumpHeight: 2
   cameraTransform: {fileID: 2073058840}
   lookSensitivity: 0.2
+  controllerLookMultiplier: 10
   verticalLookLimit: 80
   pickupRange: 12
   heldObject: {fileID: 0}

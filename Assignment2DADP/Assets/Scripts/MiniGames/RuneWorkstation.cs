@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,7 +22,11 @@ public class RuneWorkstation : MonoBehaviour, IInteractable
     void Start()
     {
         interactionCount = 0;
-        Arrow.SetActive(true);
+        if (sceneIndex == 1)
+        {
+            Arrow.SetActive(true);
+        }
+        else Arrow.SetActive(false);
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 

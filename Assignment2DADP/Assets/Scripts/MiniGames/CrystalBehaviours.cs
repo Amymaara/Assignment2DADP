@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.SceneManagement;
@@ -32,8 +33,12 @@ public class CrystalBehaviours : MonoBehaviour
     {
         minigameCount = 0;
         interactionCount = 0;
-        arrow.SetActive(true);
-       sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (sceneIndex == 1)
+        {
+            arrow.SetActive(true);
+        }
+        else arrow.SetActive(false);
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     public enum Recipe

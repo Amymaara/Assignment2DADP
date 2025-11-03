@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.InputSystem.XR;
 
@@ -27,12 +28,15 @@ public class RuneDraw : MonoBehaviour
 
     //public GameObject UIOrder;
     //public bool UIOrderActive;
-
+    public InputSystemUIInputModule uiInputModule;
 
 
 
     [Header("Settings")]
-    public float controllerSpeed = 4f;
+    public float controllerSpeed = 0.08f;   // units per second for controller
+    public float mouseSpeed = 0.08f;
+    public float baseSensitivity = 0.08f;
+    public float controllerMultiplier = 4f;
     public float pointSpacing = 0.05f;
     public float accuracyThreshold = 0.2f;
     public float deadzone = 0.05f;
@@ -53,7 +57,11 @@ public class RuneDraw : MonoBehaviour
 
     private void OnEnable()
     {
-       
+        controllerSpeed = 25f;
+        mouseSpeed = 0.05f;
+
+        EventSystem.current?.SetSelectedGameObject(null);
+
         inputManager.SwitchToRuneMenu();
         previousCursorPosition = transform.position;
         playerLine.positionCount = 0;
@@ -67,6 +75,8 @@ public class RuneDraw : MonoBehaviour
         //else { UIOrderActive = false; }
 
         //UIOrder.SetActive(false);
+        if (uiInputModule != null)
+            uiInputModule.enabled = false;
     }
 
     
@@ -103,7 +113,7 @@ public class RuneDraw : MonoBehaviour
 
 
 
-    public void OnPoint(InputAction.CallbackContext context)
+    public void OnDrawPath(InputAction.CallbackContext context)
     {
         cursorMove = context.ReadValue<Vector2>();
     }
@@ -124,47 +134,53 @@ public class RuneDraw : MonoBehaviour
     //Availability: https://chatgpt.com/c/689cde06-8b18-832c-bd0d-f75bdde15edd
     public void HandlePoint()
     {
+        Vector3 move = Vector3.zero;
+
+        // Detect if input is coming from mouse or controller
+        bool usingMouse = Mouse.current != null && Mouse.current.delta.ReadValue() != Vector2.zero;
+        bool usingController = Gamepad.current != null && !usingMouse;
+
+        // Apply deadzone for controller
         Vector2 filteredInput = cursorMove;
-        if (filteredInput.magnitude < deadzone)
+        if (usingController && filteredInput.magnitude < deadzone)
             filteredInput = Vector2.zero;
 
-        Vector3 move = new Vector3(filteredInput.x, 0f, filteredInput.y) * controllerSpeed * Time.deltaTime;
+        if (usingMouse)
+        {
+            // Mouse uses delta directly (pixel-based)
+            Vector2 delta = Mouse.current.delta.ReadValue();
+            move = new Vector3(delta.x, 0f, delta.y) * mouseSpeed * 0.01f; // scaled down
+        }
+        else if (usingController)
+        {
+            // Controller uses stick input (normalized)
+            move = new Vector3(filteredInput.x, 0f, filteredInput.y) * controllerSpeed * Time.deltaTime ;
+        }
 
-        //Smooth the movement vector
+        // Smooth + clamp
         smoothedMove = Vector3.Lerp(smoothedMove, move, Time.deltaTime * smoothSpeed);
         smoothedMove = Vector3.ClampMagnitude(smoothedMove, maxMovePerFrame);
 
         cursor.transform.position += smoothedMove;
 
-        // Calculate the direction vector from the center to the cursor
+        // Constrain within rune circle
         Vector3 direction = cursor.transform.position - runeCenter.position;
         float distance = direction.magnitude;
 
-        // Check if the object is outside the circle
         if (distance > runeRadius)
-        {
-            // Normalize the direction vector
-            Vector3 normalizedDirection = direction.normalized;
+            cursor.transform.position = runeCenter.position + direction.normalized * runeRadius;
 
-            // Calculate the new position on the circle's edge
-            Vector3 newPosition = runeCenter.position + normalizedDirection * runeRadius;
-
-            // Set the object's position to the new position
-            cursor.transform.position = newPosition;
-
-        }
-
-
-
-        // Lock Y position
+        // Lock Y
         Vector3 pos = cursor.transform.position;
         pos.y = fixedWorldY;
         cursor.transform.position = pos;
     }
 
 
+
     public void OnDrawRune(InputAction.CallbackContext context)
     {
+        Debug.Log("trying to draw");
 
         if (!canDraw)
         {
@@ -220,8 +236,11 @@ public class RuneDraw : MonoBehaviour
         cursor.SetActive(false);
         targetLineGameObject.SetActive(false);
         workstation.playerRune.finishedProduct = true;
-        playerLineGameObject.SetActive(false); // the object this script is on
+        if (uiInputModule != null)
+            uiInputModule.enabled = true;
         inputManager.SwitchToGameplay();
+        playerLineGameObject.SetActive(false); // the object this script is on
+        //inputManager.SwitchToGameplay();
 
         //UIOrder.SetActive(UIOrderActive);
     }

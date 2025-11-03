@@ -196013,10 +196013,12 @@ MonoBehaviour:
   inputManager: {fileID: 408812788}
   workstation: {fileID: 1557713462}
   firstButton: {fileID: 620664320}
-  navigationManager: {fileID: 0}
-  UIOrder: {fileID: 1089539671}
-  UIOrderActive: 0
-  controllerSpeed: 0.08
+  navigationManager: {fileID: 408812796}
+  uiInputModule: {fileID: 1436503605}
+  controllerSpeed: 2
+  mouseSpeed: 0.08
+  baseSensitivity: 0.08
+  controllerMultiplier: 4
   pointSpacing: 0.01
   accuracyThreshold: 0.028
   deadzone: 0.5
@@ -196066,7 +196068,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 775160653}
         m_TargetAssemblyTypeName: RuneDraw, Assembly-CSharp
-        m_MethodName: OnPoint
+        m_MethodName: OnDrawPath
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -299389,6 +299391,7 @@ MonoBehaviour:
   jumpHeight: 2
   cameraTransform: {fileID: 2073058840}
   lookSensitivity: 0.2
+  controllerLookMultiplier: 100
   verticalLookLimit: 80
   pickupRange: 12
   heldObject: {fileID: 0}
@@ -343102,8 +343105,6 @@ MonoBehaviour:
   SuccessParticles: {fileID: 1046563919}
   FailParticles: {fileID: 1763898438}
   Arrow: {fileID: 631550789}
-  OrderUI: {fileID: 1089539671}
-  OrderUIACtive: 0
 --- !u!43 &1565293765
 Mesh:
   m_ObjectHideFlags: 0

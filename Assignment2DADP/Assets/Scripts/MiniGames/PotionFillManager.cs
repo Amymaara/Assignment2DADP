@@ -48,7 +48,11 @@ public class PotionFillManager : MonoBehaviour
     {
         interactCount = 0;
         fullCount = 0;
-        Arrows.SetActive(true);
+        if (sceneIndex == 1)
+        {
+            Arrows.SetActive(true);
+        }
+        else Arrows.SetActive(false);
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
     }
