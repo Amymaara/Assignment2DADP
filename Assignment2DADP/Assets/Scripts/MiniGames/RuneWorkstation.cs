@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.Rendering.DebugUI.Table;
 
 public class RuneWorkstation : MonoBehaviour, IInteractable
@@ -12,26 +13,28 @@ public class RuneWorkstation : MonoBehaviour, IInteractable
     public ParticleSystem SuccessParticles;
     public ParticleSystem FailParticles;
     public GameObject Arrow;
-    public GameObject OrderUI;
-    public bool OrderUIACtive;
+    //public GameObject OrderUI;
+   // public bool OrderUIACtive;
 
     int interactionCount;
+    int sceneIndex;
     void Start()
     {
         interactionCount = 0;
         Arrow.SetActive(true);
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     public void Interact()
     {
         Arrow.SetActive(false);
         
-        OrderUI.SetActive(false);
+        //OrderUI.SetActive(false);
 
         Debug.Log("trying to interact");
         if (heldObject == null)
         {
-            if (interactionCount == 0)
+            if (interactionCount == 0 && sceneIndex ==1)
             {
                 Arrow.SetActive(false);
                 tutorialPopups.RunePopup1();

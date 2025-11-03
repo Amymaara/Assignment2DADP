@@ -25,8 +25,8 @@ public class RuneDraw : MonoBehaviour
     public GameObject firstButton;
     public UINavigationManager navigationManager;
 
-    public GameObject UIOrder;
-    public bool UIOrderActive;
+    //public GameObject UIOrder;
+    //public bool UIOrderActive;
 
 
 
@@ -60,13 +60,13 @@ public class RuneDraw : MonoBehaviour
         fixedWorldY = runeCenter.position.y;
         Cursor.visible = false;
 
-        if (UIOrder.activeInHierarchy) 
-        { 
-            UIOrderActive = true;
-        }
-        else { UIOrderActive = false; }
+        //if (UIOrder.activeInHierarchy) 
+        //{ 
+        //    UIOrderActive = true;
+        //}
+        //else { UIOrderActive = false; }
 
-        UIOrder.SetActive(false);
+        //UIOrder.SetActive(false);
     }
 
     
@@ -223,7 +223,7 @@ public class RuneDraw : MonoBehaviour
         playerLineGameObject.SetActive(false); // the object this script is on
         inputManager.SwitchToGameplay();
 
-        UIOrder.SetActive(UIOrderActive);
+        //UIOrder.SetActive(UIOrderActive);
     }
 
     

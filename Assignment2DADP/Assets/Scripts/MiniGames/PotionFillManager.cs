@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PotionFillManager : MonoBehaviour
@@ -41,19 +42,21 @@ public class PotionFillManager : MonoBehaviour
 
     public TutorialPopups tutorialPopups;
     public GameObject Arrows;
+    int sceneIndex;
 
     private void Start()
     {
         interactCount = 0;
         fullCount = 0;
         Arrows.SetActive(true);
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
     }
 
 
     public void StartSection()
     {
-        if (interactCount == 0)
+        if (interactCount == 0 && sceneIndex == 1)
         {
             tutorialPopups.PotionsPopup1();
             Arrows.SetActive(false);
@@ -187,7 +190,7 @@ public class PotionFillManager : MonoBehaviour
 
     public void OnFullMeter()
     {
-        if (fullCount == 0)
+        if (fullCount == 0 && sceneIndex==1)
         {
             tutorialPopups.PotionsPopup2();
             fullCount++;

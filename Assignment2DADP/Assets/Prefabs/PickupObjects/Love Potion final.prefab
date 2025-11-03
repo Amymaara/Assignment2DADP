@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6648013385540844692}
   - component: {fileID: 229458982739525175}
   - component: {fileID: 7736176692997012181}
+  - component: {fileID: -7575075339334977455}
   m_Layer: 8
   m_Name: Love Potion final
   m_TagString: canPickUp
@@ -164,5 +165,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e085267044448848aead7ced078d837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipe: 2
+  recipe: 4
   state: 1
+--- !u!114 &-7575075339334977455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139907809898271064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6715ebf44558f8c46a373f081aaf7ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: fad0c94b91ea0a74d979026d71bc4444, type: 2}

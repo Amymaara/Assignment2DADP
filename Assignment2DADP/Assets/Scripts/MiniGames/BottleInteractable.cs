@@ -12,6 +12,8 @@ public class BottleInteractable : MonoBehaviour
     {
         None,
         Knowledge,
+        Luck,
+        Strength,
         Love
     }
 

@@ -123959,6 +123959,8 @@ MonoBehaviour:
   materials:
   - {fileID: 2100000, guid: 1d5855e18f337af4ab286ae48af90899, type: 2}
   - {fileID: 2100000, guid: bbc049f64450dbd499e20d97fa0587b2, type: 2}
+  - {fileID: 2100000, guid: 1e20a168a3f61084783507091c882977, type: 2}
+  - {fileID: 2100000, guid: e4d81787fe3501148bc8a51cdc309258, type: 2}
   - {fileID: 2100000, guid: 2619da66382316e4c8e3b803e4a6d087, type: 2}
   tutorialPopups: {fileID: 1999559359}
   Arrows: {fileID: 2033888101}
@@ -124045,6 +124047,8 @@ MonoBehaviour:
   LovePotion: {fileID: 4139907809898271064, guid: c3d33966556876645aae5da237aa6357, type: 3}
   KnowledgePotion: {fileID: 6033237273748574987, guid: a3b74d758da18cc48a0a5b254beee1d1, type: 3}
   NoRecipePotion: {fileID: 291173265414511606, guid: 253ba1f3e241cca41af4acdaf1821aa4, type: 3}
+  LuckPotion: {fileID: 6033237273748574987, guid: 1d0b5887396367d47937631d57d7d19f, type: 3}
+  StrengthPotion: {fileID: 6033237273748574987, guid: 732ae9f9edbf0494598f5e0f13cf3b28, type: 3}
   LiquidCauldron: {fileID: 1879188052}
   currentState: 0
   recipe: 0

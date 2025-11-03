@@ -14,12 +14,16 @@ public class PotionBehaviour : MonoBehaviour
     {
         None,
         Love,
+        Luck,
+        Strength,
         Knowledge
     }
 
     public GameObject LovePotion;
     public GameObject KnowledgePotion;
     public GameObject NoRecipePotion;
+    public GameObject LuckPotion;
+    public GameObject StrengthPotion;
 
     public GameObject LiquidCauldron;
 
@@ -41,6 +45,18 @@ public class PotionBehaviour : MonoBehaviour
         if (recipe == Recipe.Knowledge) 
         {
            GameObject potion = Instantiate(KnowledgePotion);
+            controller.ForcePickUp(potion);
+        }
+
+        if (recipe == Recipe.Luck)
+        {
+            GameObject potion = Instantiate(LuckPotion);
+            controller.ForcePickUp(potion);
+        }
+
+        if (recipe == Recipe.Strength)
+        {
+            GameObject potion = Instantiate(StrengthPotion);
             controller.ForcePickUp(potion);
         }
 

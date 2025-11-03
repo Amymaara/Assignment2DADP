@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e085267044448848aead7ced078d837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipe: 1
+  recipe: 2
   state: 1
 --- !u!114 &2492929946628799016
 MonoBehaviour:
@@ -179,4 +179,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6715ebf44558f8c46a373f081aaf7ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 607467a8fe0fb8a4b9910e1243b984f6, type: 2}
+  item: {fileID: 11400000, guid: 9dcca095519f7bc489d4981c0e868a79, type: 2}

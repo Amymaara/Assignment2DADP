@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.SceneManagement;
 using static PotionBehaviour;
 
 public class CrystalBehaviours : MonoBehaviour
@@ -25,11 +26,14 @@ public class CrystalBehaviours : MonoBehaviour
 
     int interactionCount = 0;
     int minigameCount = 0;
+    int sceneIndex;
+
     private void Start()
     {
         minigameCount = 0;
         interactionCount = 0;
         arrow.SetActive(true);
+       sceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     public enum Recipe
@@ -45,7 +49,7 @@ public class CrystalBehaviours : MonoBehaviour
     
     public void FirstInteractCheck()
     {
-        if (interactionCount == 0)
+        if (interactionCount == 0 && sceneIndex ==1)
         {
             popups.CrystalPopup1();
             interactionCount++;
@@ -58,7 +62,7 @@ public class CrystalBehaviours : MonoBehaviour
       
         if (NorthPillar.StationFilled && SouthPillar.StationFilled && EastPillar.StationFilled && WestPillar.StationFilled && Table.StationFilled) 
         {
-            if (minigameCount == 0)
+            if (minigameCount == 0 && sceneIndex == 1)
             {
                 popups.CrystalPopup2();
                 minigameCount++;

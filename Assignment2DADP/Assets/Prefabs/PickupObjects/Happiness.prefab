@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5809168666791247389}
   - component: {fileID: 8354199473800388304}
   - component: {fileID: 1160871194985017659}
+  - component: {fileID: -637551525523897442}
   m_Layer: 8
   m_Name: Happiness
   m_TagString: canPickUp
@@ -165,3 +166,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-637551525523897442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120731904020264432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6715ebf44558f8c46a373f081aaf7ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: a3c34dc83ee7df34fb2501b5529828c5, type: 2}

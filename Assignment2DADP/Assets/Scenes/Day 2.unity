@@ -122242,6 +122242,7 @@ GameObject:
   - component: {fileID: 408812793}
   - component: {fileID: 408812794}
   - component: {fileID: 408812795}
+  - component: {fileID: 408812796}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -122295,6 +122296,8 @@ MonoBehaviour:
   materials:
   - {fileID: 2100000, guid: 1d5855e18f337af4ab286ae48af90899, type: 2}
   - {fileID: 2100000, guid: bbc049f64450dbd499e20d97fa0587b2, type: 2}
+  - {fileID: 2100000, guid: 1e20a168a3f61084783507091c882977, type: 2}
+  - {fileID: 2100000, guid: e4d81787fe3501148bc8a51cdc309258, type: 2}
   - {fileID: 2100000, guid: 2619da66382316e4c8e3b803e4a6d087, type: 2}
   tutorialPopups: {fileID: 1999559359}
   Arrows: {fileID: 2033888101}
@@ -122315,7 +122318,7 @@ MonoBehaviour:
   trifecta: {fileID: 296593336}
   canvas: {fileID: 1218016245}
   firstButton: {fileID: 620664320}
-  navigationManager: {fileID: 1218016250}
+  navigationManager: {fileID: 408812796}
   controller: {fileID: 1117391003}
   cursor: {fileID: 1496536976}
   playerLine: {fileID: 775160650}
@@ -122381,6 +122384,8 @@ MonoBehaviour:
   LovePotion: {fileID: 4139907809898271064, guid: c3d33966556876645aae5da237aa6357, type: 3}
   KnowledgePotion: {fileID: 6033237273748574987, guid: a3b74d758da18cc48a0a5b254beee1d1, type: 3}
   NoRecipePotion: {fileID: 291173265414511606, guid: 253ba1f3e241cca41af4acdaf1821aa4, type: 3}
+  LuckPotion: {fileID: 6033237273748574987, guid: 1d0b5887396367d47937631d57d7d19f, type: 3}
+  StrengthPotion: {fileID: 6033237273748574987, guid: 732ae9f9edbf0494598f5e0f13cf3b28, type: 3}
   LiquidCauldron: {fileID: 1879188052}
   currentState: 0
   recipe: 0
@@ -122678,6 +122683,19 @@ MonoBehaviour:
   lookPanel: {fileID: 596460213}
   orderPanel: {fileID: 758805659}
   questIconPanel: {fileID: 672634680}
+--- !u!114 &408812796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408812783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afca5d5682271c4c80759afddee4871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 1436503606}
 --- !u!1 &414337272
 GameObject:
   m_ObjectHideFlags: 0
@@ -126880,6 +126898,7 @@ MonoBehaviour:
   timerBar: {fileID: 751444718}
   timerDuration: 180
   totalCustomers: 3
+  bed: {fileID: 0}
 --- !u!1001 &448503053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193022,9 +193041,7 @@ MonoBehaviour:
   inputManager: {fileID: 408812788}
   workstation: {fileID: 1557713462}
   firstButton: {fileID: 620664320}
-  navigationManager: {fileID: 1218016250}
-  UIOrder: {fileID: 0}
-  UIOrderActive: 0
+  navigationManager: {fileID: 408812796}
   controllerSpeed: 0.08
   pointSpacing: 0.01
   accuracyThreshold: 0.028
@@ -296569,7 +296586,6 @@ GameObject:
   - component: {fileID: 1218016249}
   - component: {fileID: 1218016248}
   - component: {fileID: 1218016247}
-  - component: {fileID: 1218016250}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -296660,19 +296676,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1218016250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1218016245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0afca5d5682271c4c80759afddee4871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventSystem: {fileID: 1436503606}
 --- !u!1 &1218569807
 GameObject:
   m_ObjectHideFlags: 0
@@ -299159,6 +299162,8 @@ MonoBehaviour:
   CatRune: {fileID: 0}
   CatCrystal: {fileID: 0}
   CatTable: {fileID: 0}
+  CatStart: {fileID: 0}
+  CatEnd: {fileID: 0}
   BedroomDoor: {fileID: 1901619946}
   PotionDoor: {fileID: 1600225562}
   RuneDoor: {fileID: 1428811330}
@@ -299172,7 +299177,10 @@ MonoBehaviour:
   RuneParticles: {fileID: 0}
   CrystalParticles: {fileID: 0}
   TableParticles: {fileID: 0}
+  StartParticles: {fileID: 0}
+  EndParticles: {fileID: 0}
   TarotUI: {fileID: 2032710410}
+  bed: {fileID: 0}
 --- !u!4 &1280277403
 Transform:
   m_ObjectHideFlags: 0
@@ -311646,7 +311654,7 @@ MonoBehaviour:
   m_ScrollWheelAction: {fileID: 6240969308177333660, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
@@ -336618,8 +336626,6 @@ MonoBehaviour:
   SuccessParticles: {fileID: 1046563919}
   FailParticles: {fileID: 1763898438}
   Arrow: {fileID: 631550789}
-  OrderUI: {fileID: 0}
-  OrderUIACtive: 0
 --- !u!43 &1565293765
 Mesh:
   m_ObjectHideFlags: 0

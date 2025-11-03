@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static AudioManager;
 
@@ -25,10 +26,12 @@ public class PotionMixBehaviour : MonoBehaviour
     int minigameCount = 0;
 
     public ParticleSystem bubbles;
+    int sceneIndex;
 
     public void Start()
     {
         minigameCount = 0;
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     public void OnEnable()
@@ -137,7 +140,7 @@ public class PotionMixBehaviour : MonoBehaviour
 
         potionBehaviour.currentState = PotionBehaviour.CauldronState.Bottling;
 
-        if (minigameCount == 0)
+        if (minigameCount == 0 && sceneIndex == 1)
         {
             popups.PotionsPopup3();
             minigameCount++;
