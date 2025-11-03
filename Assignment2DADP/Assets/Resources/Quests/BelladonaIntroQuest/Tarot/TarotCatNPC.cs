@@ -6,6 +6,7 @@ public class TarotCatNPC : QuestSteps
    
     private bool done;
 
+
     private void OnEnable()
     {
         DeckSignal.OnDeckOpen += HandleDeckOpened;

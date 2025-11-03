@@ -30,15 +30,19 @@ public class CatTeleport : MonoBehaviour
 
     public GameObject TarotUI;
     public BedTrigger bed;
+    public CandleManager candleManager;
 
     public void Start()
     {
         SpawnCatTarot();
         SpawnCatStart();
+        
     }
 
     public void SpawnCatTarot()
     {
+        candleManager.TurnOnFrontCandles();
+
         TarotParticles.Play();
 
         CatTarot.SetActive(true);
@@ -63,6 +67,9 @@ public class CatTeleport : MonoBehaviour
 
     public void SpawnCatPotion()
     {
+        candleManager.TurnOffFrontCandles();
+        candleManager.TurnOnPotionCandles();
+
         TarotParticles.Play();
 
         CatTarot.SetActive(false);
@@ -89,6 +96,9 @@ public class CatTeleport : MonoBehaviour
 
     public void SpawnCatRune()
     {
+        candleManager.TurnOffPotionCandles();
+        candleManager.TurnOnRuneCandles();
+
         PotionParticles.Play();
 
         CatTarot.SetActive(false);
@@ -115,6 +125,9 @@ public class CatTeleport : MonoBehaviour
 
     public void SpawnCatCrystal()
     {
+        candleManager.TurnOffRuneCandles();
+        candleManager.TurnOnCrystalCandles();
+        
         RuneParticles.Play();
         
         CatTarot.SetActive(false);
@@ -139,6 +152,9 @@ public class CatTeleport : MonoBehaviour
     }
     public void SpawnCatTable()
     {
+        candleManager.TurnOffCrystalCandles();
+        candleManager.TurnOnFrontCandles();
+
        CrystalParticles.Play();
 
         TarotUI.SetActive(false);
