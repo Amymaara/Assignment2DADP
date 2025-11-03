@@ -10,8 +10,9 @@ public class CustomerSpawner : MonoBehaviour
     [Header("Customer")]
     public DaySequence daySequence; //hold array of customers and what they want 
     public Transform spawnPoint; // sets spawn position for customers
-    public float spawnDelay = 0.5f; // time before customer spawns in
+    public float spawnDelay = 5f; // time before customer spawns in
     public bool autoSpawnOnStart = true;
+    public ParticleSystem spawnParticle;
 
 
     [Header("Tarot")]
@@ -71,6 +72,7 @@ public class CustomerSpawner : MonoBehaviour
 
     void HandleCustomerServed() //when customer served correctly goes to next customer and their event (order)
     {
+        spawnParticle.Play();
         if (currentCustomer != null)
             currentCustomer.OnServedCorrectly -= HandleCustomerServed;
 
@@ -89,8 +91,9 @@ public class CustomerSpawner : MonoBehaviour
     {
         if (currentCustomer != null)
         {
-            Destroy(currentCustomer.gameObject, 1f);
+            Destroy(currentCustomer.gameObject, 2f);
             currentCustomer = null;
+            
         }
     }
 
