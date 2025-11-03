@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EmptyMaterial
+  m_Name: Luck
   m_Shader: {fileID: -6465566751694194690, guid: 1a3f5b2989dbb86478899f7cc0d37ace, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -122,14 +122,14 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _BaseColor: {r: 0.18039212, g: 0.02745098, b: 0.2745098, a: 0.46666667}
-    - _Color: {r: 0.18039206, g: 0.02745098, b: 0.27450973, a: 1}
+    - _BaseColor: {r: 0.51184934, g: 0.7584905, b: 0.33631182, a: 0.5058824}
+    - _Color: {r: 0.51184934, g: 0.7584905, b: 0.33631176, a: 0.5058824}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Glow_Colour: {r: 0.7138363, g: 0.1415093, b: 1, a: 1}
+    - _Glow_Colour: {r: 8.81207, g: 16.94838, b: 3.0379148, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &3094675374381206555
+--- !u!114 &2869718158148874648
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

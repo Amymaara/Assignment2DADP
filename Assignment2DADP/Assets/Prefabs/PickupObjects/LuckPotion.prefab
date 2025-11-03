@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2505211708754246955}
   - component: {fileID: 2492929946628799016}
   m_Layer: 8
-  m_Name: Knowledge Potion final
+  m_Name: LuckPotion
   m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2081877936681636887, guid: 7dc3b1b0cae8fac44b68cb843f7febcc, type: 3}
   - {fileID: 2100000, guid: ad4857cd4cf177744a6ee7561fe9e5de, type: 2}
-  - {fileID: 2100000, guid: bbc049f64450dbd499e20d97fa0587b2, type: 2}
+  - {fileID: 4117857896574822917, guid: 7dc3b1b0cae8fac44b68cb843f7febcc, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

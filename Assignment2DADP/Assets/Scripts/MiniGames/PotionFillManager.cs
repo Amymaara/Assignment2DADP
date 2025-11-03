@@ -25,6 +25,7 @@ public class PotionFillManager : MonoBehaviour
     private float tearsPercent = 0f;
     private float bloodPercent = 0f;
     private float moonPercent = 0f;
+    private float mandrakePercent = 0f;
 
 
     private float currentHeight = 0f;
@@ -177,6 +178,9 @@ public class PotionFillManager : MonoBehaviour
             case PotionInteractables.PotionMaterial.moonWater:
                 moonPercent += bar;
                 break;
+            case PotionInteractables.PotionMaterial.mandrake:
+                mandrakePercent += bar;
+                break;
 
         }
     }
@@ -204,6 +208,7 @@ public class PotionFillManager : MonoBehaviour
         Debug.Log("Sage = " + sagePercent);
         Debug.Log("Blood = " + bloodPercent);
         Debug.Log("Moon = " + moonPercent);
+        Debug.Log("Mandrake = " + mandrakePercent);
 
         if (475f < tearsPercent && tearsPercent < 525f
             && sagePercent < 2705f && sagePercent > 225f
@@ -223,11 +228,29 @@ public class PotionFillManager : MonoBehaviour
             PotionLiquid.GetComponent<Renderer>().material = materials[1];
         }
 
+        if (475f < tearsPercent && tearsPercent < 525f
+            && 475f < mandrakePercent && mandrakePercent < 525f)
+        {
+            potionBehaviour.recipe = PotionBehaviour.Recipe.Luck;
+            Debug.Log("Made a Luck Potion");
+            PotionLiquid.GetComponent<Renderer>().material = materials[2];
+
+        }
+
+        else if (475f < bloodPercent && bloodPercent < 525f
+            && mandrakePercent < 2705f && mandrakePercent > 225f
+            && moonPercent < 275f && moonPercent > 225f)
+        {
+            potionBehaviour.recipe = PotionBehaviour.Recipe.Strength;
+            Debug.Log("Made a Strength Potion");
+            PotionLiquid.GetComponent<Renderer>().material = materials[3];
+        }
+
         else
         {
             potionBehaviour.recipe = PotionBehaviour.Recipe.None;
             Debug.Log("No Potion Made");
-            PotionLiquid.GetComponent<Renderer>().material = materials[2];
+            PotionLiquid.GetComponent<Renderer>().material = materials[4];
 
         }
 

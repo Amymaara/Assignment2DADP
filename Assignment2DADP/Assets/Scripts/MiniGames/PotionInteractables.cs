@@ -8,13 +8,16 @@ public class PotionInteractables : IngredientObject
         cupidsTears,
         sage,
         moonWater,
-        dragonsBlood
+        dragonsBlood,
+        mandrake
     }
 
     public enum Recipe
     {
         None,
         Knowledge,
+        Luck,
+        Strength,
         Love
     }
 
