@@ -502,7 +502,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""id"": ""919046e1-d734-4ca0-93e9-2668d86ab532"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Clamp(min=-1E-05,max=0.0001)"",
                     ""groups"": "";Controller"",
                     ""action"": ""Look"",
                     ""isComposite"": false,

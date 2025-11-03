@@ -19,7 +19,7 @@ public class FPController : MonoBehaviour
     [Header("Look Settings")]
     public Transform cameraTransform;
     public float lookSensitivity = 2f;
-    public float controllerLookMultiplier = 100f;
+    public float controllerLookMultiplier = 10f;
     public float verticalLookLimit = 80f;
     private bool canLook = true;
 
@@ -409,8 +409,28 @@ public class FPController : MonoBehaviour
     {
         if (!canLook) return;
 
-        float mouseX = lookInput.x * lookSensitivity;
-        float mouseY = lookInput.y * lookSensitivity;
+        float mouseX;
+        float mouseY;
+
+        var lastDevice = Mouse.current?.delta.ReadValue() != Vector2.zero ? "Mouse" :
+                         (Gamepad.current != null && Gamepad.current.rightStick.ReadValue() != Vector2.zero ? "Controller" : "None");
+
+        if (lastDevice == "Mouse")
+        {
+            
+            mouseX = lookInput.x * lookSensitivity;
+            mouseY = lookInput.y * lookSensitivity;
+        }
+        else if (lastDevice == "Controller")
+        {
+            Vector2 stick = lookInput;
+            mouseX = stick.x * controllerLookMultiplier  * Time.deltaTime;
+            mouseY = stick.y * controllerLookMultiplier  * Time.deltaTime;
+        }
+        else
+        {
+            return; 
+        }
 
         verticalRotation -= mouseY;
         verticalRotation = Mathf.Clamp(verticalRotation, -verticalLookLimit, verticalLookLimit);
