@@ -18,8 +18,8 @@ public class DialogueManager : MonoBehaviour
 
     [Header("AutoStart")]
     [SerializeField] private bool startOnSceneLoad = true;
-    [SerializeField] private string startKnot = "tutorial";
-    [SerializeField] private string autoStartSceneName = "Tutorial Day";
+    [SerializeField] private string startKnot = "introduction";
+    [SerializeField] private string autoStartSceneName = "TutorialDay";
 
 
     private bool dialoguePlaying = false;
