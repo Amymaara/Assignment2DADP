@@ -123,9 +123,9 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _BaseColor: {r: 0.51184934, g: 0.7584905, b: 0.33631182, a: 0.5058824}
-    - _Color: {r: 0.3372549, g: 0.39425302, b: 0.75686276, a: 0.5058824}
+    - _Color: {r: 0.26226407, g: 0.95498765, b: 1, a: 0.5058824}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Glow_Colour: {r: 4.3377233, g: 3.105724, b: 16.94838, a: 1}
+    - _Glow_Colour: {r: 3.0640852, g: 17.845774, b: 15.886856, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -218,7 +218,7 @@ public class PotionFillManager : MonoBehaviour
         Debug.Log("Mandrake = " + mandrakePercent);
 
         if (475f < tearsPercent && tearsPercent < 525f
-            && sagePercent < 2705f && sagePercent > 225f
+            && sagePercent < 275f && sagePercent > 225f
             && moonPercent < 275f && moonPercent > 225f)
         {
             potionBehaviour.recipe = PotionBehaviour.Recipe.Love;
@@ -235,7 +235,7 @@ public class PotionFillManager : MonoBehaviour
             PotionLiquid.GetComponent<Renderer>().material = materials[1];
         }
 
-        if (475f < tearsPercent && tearsPercent < 525f
+        else if (475f < tearsPercent && tearsPercent < 525f
             && 475f < mandrakePercent && mandrakePercent < 525f)
         {
             potionBehaviour.recipe = PotionBehaviour.Recipe.Luck;
@@ -245,7 +245,7 @@ public class PotionFillManager : MonoBehaviour
         }
 
         else if (475f < bloodPercent && bloodPercent < 525f
-            && mandrakePercent < 2705f && mandrakePercent > 225f
+            && mandrakePercent < 275f && mandrakePercent > 225f
             && moonPercent < 275f && moonPercent > 225f)
         {
             potionBehaviour.recipe = PotionBehaviour.Recipe.Strength;
