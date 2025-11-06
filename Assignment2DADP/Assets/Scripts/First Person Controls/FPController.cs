@@ -18,8 +18,8 @@ public class FPController : MonoBehaviour
 
     [Header("Look Settings")]
     public Transform cameraTransform;
-    public float lookSensitivity = 2f;
-    public float controllerLookMultiplier = 10f;
+    public float lookSensitivity = 2f;         
+    [Range(0.01f, 2f)] public float controllerSpeed = 120f; 
     public float verticalLookLimit = 80f;
     private bool canLook = true;
 
@@ -405,32 +405,30 @@ public class FPController : MonoBehaviour
             controller.Move(velocity * Time.deltaTime);
         }
     }
-    public void HandleLook()
+    private void HandleLook()
     {
         if (!canLook) return;
 
-        float mouseX;
-        float mouseY;
+        float mouseX = 0f;
+        float mouseY = 0f;
 
-        var lastDevice = Mouse.current?.delta.ReadValue() != Vector2.zero ? "Mouse" :
-                         (Gamepad.current != null && Gamepad.current.rightStick.ReadValue() != Vector2.zero ? "Controller" : "None");
+        bool usingMouse = Mouse.current != null && Mouse.current.delta.ReadValue() != Vector2.zero;
+        bool usingController = Gamepad.current != null && Gamepad.current.rightStick.ReadValue() != Vector2.zero;
 
-        if (lastDevice == "Mouse")
+        if (usingMouse)
         {
-            
+            // Mouse delta per frame, multiply by sensitivity
             mouseX = lookInput.x * lookSensitivity;
             mouseY = lookInput.y * lookSensitivity;
         }
-        else if (lastDevice == "Controller")
+        else if (usingController)
         {
+            // Controller stick is -1..1, multiply by desired degrees per second and deltaTime
             Vector2 stick = lookInput;
-            mouseX = stick.x * controllerLookMultiplier  * Time.deltaTime;
-            mouseY = stick.y * controllerLookMultiplier  * Time.deltaTime;
+            mouseX = stick.x * controllerSpeed * Time.deltaTime;
+            mouseY = stick.y * controllerSpeed * Time.deltaTime;
         }
-        else
-        {
-            return; 
-        }
+        else return;
 
         verticalRotation -= mouseY;
         verticalRotation = Mathf.Clamp(verticalRotation, -verticalLookLimit, verticalLookLimit);
@@ -438,7 +436,6 @@ public class FPController : MonoBehaviour
         cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
     }
-
     private void EnableMove()
     {
         canMove = true;
