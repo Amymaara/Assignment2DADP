@@ -1,5 +1,6 @@
-using UnityEngine;
 using System;
+using UnityEngine;
+using static AudioManager;
 
 // customer spawning help from this video
 // Title: Unity- RPG Hero Diner - Customer Spawning
@@ -23,12 +24,14 @@ public class Customer : MonoBehaviour
         if (served && served.item == requiredItem)
         {
             Debug.Log("Correct item give");
+            AudioManager.PlaySound(SoundType.QUESTSUCCESS, 0.1f);
             OnServedCorrectly?.Invoke();
             Destroy(gameObject, 0.25f);
             return true;
         }
         else
         {
+            AudioManager.PlaySound(SoundType.MINIGAMEFAIL, 0.1f);
             Debug.Log("Wrong item");
             return false;
         }

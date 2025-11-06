@@ -13,6 +13,7 @@ public class CustomerSpawner : MonoBehaviour
     public float spawnDelay = 5f; // time before customer spawns in
     public bool autoSpawnOnStart = true;
     public ParticleSystem spawnParticle;
+  
 
 
     [Header("Tarot")]
