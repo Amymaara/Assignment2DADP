@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90a2079a8b368048bd6dc795815beb7, type: 3}
+  m_Name: Day1
+  m_EditorClassIdentifier: 
+  dayName: Day X
+  queue:
+  - customerPrefab: {fileID: 549437346483191523, guid: 37c47200a38f69849845557178a67dc3, type: 3}
+    fixedOrder: {fileID: 11400000, guid: 093ba1444f1eb584da17d70069f154eb, type: 2}
+    tarotCard1: {fileID: 21300000, guid: 0a113d4cf61cf4f45a28b59ae7c49e01, type: 3}
+    tarotCard2: {fileID: 21300000, guid: 0a113d4cf61cf4f45a28b59ae7c49e01, type: 3}
+    tarotCard3: {fileID: 21300000, guid: 0a113d4cf61cf4f45a28b59ae7c49e01, type: 3}
+    recipeSprite: {fileID: 21300000, guid: 0a113d4cf61cf4f45a28b59ae7c49e01, type: 3}
+  - customerPrefab: {fileID: 549437346483191523, guid: 37c47200a38f69849845557178a67dc3, type: 3}
+    fixedOrder: {fileID: 11400000, guid: ff57906c599b0c241bfd7ba559ba3cae, type: 2}
+    tarotCard1: {fileID: 21300000, guid: 947e4ff1e88ad62408d2747b552343d5, type: 3}
+    tarotCard2: {fileID: 21300000, guid: 947e4ff1e88ad62408d2747b552343d5, type: 3}
+    tarotCard3: {fileID: 21300000, guid: 947e4ff1e88ad62408d2747b552343d5, type: 3}
+    recipeSprite: {fileID: 21300000, guid: 947e4ff1e88ad62408d2747b552343d5, type: 3}
+  - customerPrefab: {fileID: 549437346483191523, guid: 37c47200a38f69849845557178a67dc3, type: 3}
+    fixedOrder: {fileID: 11400000, guid: fad0c94b91ea0a74d979026d71bc4444, type: 2}
+    tarotCard1: {fileID: 21300000, guid: b9f6af566dffe6c44a742a9571fda1ae, type: 3}
+    tarotCard2: {fileID: 21300000, guid: b9f6af566dffe6c44a742a9571fda1ae, type: 3}
+    tarotCard3: {fileID: 21300000, guid: b9f6af566dffe6c44a742a9571fda1ae, type: 3}
+    recipeSprite: {fileID: 21300000, guid: b9f6af566dffe6c44a742a9571fda1ae, type: 3}

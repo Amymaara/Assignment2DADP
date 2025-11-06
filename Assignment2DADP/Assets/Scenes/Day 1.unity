@@ -126860,7 +126860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerBar: {fileID: 751444718}
-  timerDuration: 180
+  timerDuration: 300
   totalCustomers: 3
   bed: {fileID: 0}
 --- !u!1001 &448503053
@@ -192866,7 +192866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787cde17e25a30341b8feaa91850ca1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  daySequence: {fileID: 11400000, guid: c34283de29fcd2a468b866f02b8b4ae9, type: 2}
+  daySequence: {fileID: 11400000, guid: c340b1771e4615c47bab846b3dba7fc9, type: 2}
   spawnPoint: {fileID: 967588781}
   spawnDelay: 1.5
   autoSpawnOnStart: 1

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90a2079a8b368048bd6dc795815beb7, type: 3}
+  m_Name: Day2
+  m_EditorClassIdentifier: 
+  dayName: Day X
+  queue:
+  - customerPrefab: {fileID: 549437346483191523, guid: 37c47200a38f69849845557178a67dc3, type: 3}
+    fixedOrder: {fileID: 11400000, guid: a3c34dc83ee7df34fb2501b5529828c5, type: 2}
+    tarotCard1: {fileID: 21300000, guid: 5a27747d814db8d42a8e74077836884e, type: 3}
+    tarotCard2: {fileID: 21300000, guid: 5a27747d814db8d42a8e74077836884e, type: 3}
+    tarotCard3: {fileID: 21300000, guid: 5a27747d814db8d42a8e74077836884e, type: 3}
+    recipeSprite: {fileID: 21300000, guid: 5a27747d814db8d42a8e74077836884e, type: 3}
+  - customerPrefab: {fileID: 549437346483191523, guid: 37c47200a38f69849845557178a67dc3, type: 3}
+    fixedOrder: {fileID: 11400000, guid: 9dcca095519f7bc489d4981c0e868a79, type: 2}
+    tarotCard1: {fileID: 21300000, guid: 0a113d4cf61cf4f45a28b59ae7c49e01, type: 3}
+    tarotCard2: {fileID: 21300000, guid: 0a113d4cf61cf4f45a28b59ae7c49e01, type: 3}
+    tarotCard3: {fileID: 21300000, guid: 0a113d4cf61cf4f45a28b59ae7c49e01, type: 3}
+    recipeSprite: {fileID: 21300000, guid: 0a113d4cf61cf4f45a28b59ae7c49e01, type: 3}
+  - customerPrefab: {fileID: 549437346483191523, guid: 37c47200a38f69849845557178a67dc3, type: 3}
+    fixedOrder: {fileID: 11400000, guid: 2ce84cf403b788944903fc0af5c0a068, type: 2}
+    tarotCard1: {fileID: 21300000, guid: 4ac8c6aabf7522942b389f258b8087c5, type: 3}
+    tarotCard2: {fileID: 21300000, guid: 4ac8c6aabf7522942b389f258b8087c5, type: 3}
+    tarotCard3: {fileID: 21300000, guid: 4ac8c6aabf7522942b389f258b8087c5, type: 3}
+    recipeSprite: {fileID: 21300000, guid: 4ac8c6aabf7522942b389f258b8087c5, type: 3}
+  - customerPrefab: {fileID: 549437346483191523, guid: 37c47200a38f69849845557178a67dc3, type: 3}
+    fixedOrder: {fileID: 11400000, guid: 64781c0c02404f649883f27bbd19e79d, type: 2}
+    tarotCard1: {fileID: 21300000, guid: d4a04a9dadc8c7247b9667904928f348, type: 3}
+    tarotCard2: {fileID: 21300000, guid: d4a04a9dadc8c7247b9667904928f348, type: 3}
+    tarotCard3: {fileID: 21300000, guid: d4a04a9dadc8c7247b9667904928f348, type: 3}
+    recipeSprite: {fileID: 21300000, guid: d4a04a9dadc8c7247b9667904928f348, type: 3}
