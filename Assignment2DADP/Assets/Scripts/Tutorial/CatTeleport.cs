@@ -28,7 +28,7 @@ public class CatTeleport : MonoBehaviour
     public GameObject RuneDeck;
     public GameObject CrystalDeck;
 
-    public GameObject TarotUI;
+    //public GameObject TarotUI;
     public BedTrigger bed;
     public CandleManager candleManager;
 
@@ -163,7 +163,7 @@ public class CatTeleport : MonoBehaviour
 
        CrystalParticles.Play();
 
-        TarotUI.SetActive(false);
+        //TarotUI.SetActive(false);
         CatTarot.SetActive(false);
         CatPotion.SetActive(false);
         CatTable.SetActive(true);

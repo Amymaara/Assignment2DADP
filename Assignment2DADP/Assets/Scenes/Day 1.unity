@@ -299204,7 +299204,6 @@ MonoBehaviour:
   PotionDeck: {fileID: 0}
   RuneDeck: {fileID: 0}
   CrystalDeck: {fileID: 0}
-  TarotUI: {fileID: 2032710410}
   bed: {fileID: 0}
   candleManager: {fileID: 0}
 --- !u!4 &1280277403
