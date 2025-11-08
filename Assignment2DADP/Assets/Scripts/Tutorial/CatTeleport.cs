@@ -2,31 +2,31 @@ using UnityEngine;
 
 public class CatTeleport : MonoBehaviour
 {
+    [Header("NPC")]
     public GameObject CatTarot;
     public GameObject CatPotion;
     public GameObject CatRune;
     public GameObject CatCrystal;
     public GameObject CatTable;
-    public GameObject CatStart;
-    public GameObject CatEnd;
 
+    [Header("Doors")]
     public GameObject BedroomDoor;
     public GameObject PotionDoor;
     public GameObject RuneDoor;
     public GameObject CrystalDoor;
 
-    public GameObject tarotCat;
-    public GameObject potionCat;
-    public GameObject runeCat;
-    public GameObject crystalCat;
-
+    [Header("Particles")]
     public ParticleSystem TarotParticles;
     public ParticleSystem PotionParticles;
     public ParticleSystem RuneParticles;
     public ParticleSystem CrystalParticles;
     public ParticleSystem TableParticles;
-    public ParticleSystem StartParticles;
-    public ParticleSystem EndParticles;
+
+    [Header("Tarot")]
+    public GameObject tarotDeck;
+    public GameObject PotionDeck;
+    public GameObject RuneDeck;
+    public GameObject CrystalDeck;
 
     public GameObject TarotUI;
     public BedTrigger bed;
@@ -35,7 +35,6 @@ public class CatTeleport : MonoBehaviour
     public void Start()
     {
         SpawnCatTarot();
-        SpawnCatStart();
         
     }
 
@@ -45,21 +44,25 @@ public class CatTeleport : MonoBehaviour
 
         TarotParticles.Play();
 
+        // npc
         CatTarot.SetActive(true);
         CatPotion.SetActive(false);
         CatTable.SetActive(false);
         CatRune.SetActive(false);
         CatCrystal.SetActive(false);
 
+        // doors
         BedroomDoor.SetActive(false);
         PotionDoor.SetActive(true);
         RuneDoor.SetActive(true);
         CrystalDoor.SetActive(true);
 
-       // tarotCat.SetActive(true);
-        crystalCat.SetActive(false);
-        runeCat.SetActive(false);
-        potionCat.SetActive(false);
+        // tarot
+        tarotDeck.SetActive(true);
+        PotionDeck.SetActive(false);
+        RuneDeck.SetActive(false);
+        CrystalDeck.SetActive(false);
+
         AudioManager.PlaySound(AudioManager.SoundType.MEOW, 0.1f);
 
     }
@@ -78,15 +81,16 @@ public class CatTeleport : MonoBehaviour
         CatRune.SetActive(false);
         CatCrystal.SetActive(false);
 
-        tarotCat.SetActive(false);
-        crystalCat.SetActive(false);
-        runeCat.SetActive(false);
         AudioManager.PlaySound(AudioManager.SoundType.MEOW, 0.1f);
-        potionCat.SetActive(true);
 
         PotionParticles.Play();
 
-       
+        // tarot
+        tarotDeck.SetActive(false);
+        PotionDeck.SetActive(true);
+        RuneDeck.SetActive(false);
+        CrystalDeck.SetActive(false);
+
         BedroomDoor.SetActive(false);
         PotionDoor.SetActive(false);
         RuneDoor.SetActive(true);
@@ -107,15 +111,16 @@ public class CatTeleport : MonoBehaviour
         CatRune.SetActive(true);
         CatCrystal.SetActive(false);
 
-        tarotCat.SetActive(false);
-        crystalCat.SetActive(false);
-        runeCat.SetActive(true);
-        potionCat.SetActive(false);
         AudioManager.PlaySound(AudioManager.SoundType.MEOW, 0.1f);
 
         RuneParticles.Play();
 
-        
+        // tarot
+        tarotDeck.SetActive(false);
+        PotionDeck.SetActive(false);
+        RuneDeck.SetActive(true);
+        CrystalDeck.SetActive(false);
+
         BedroomDoor.SetActive(false);
         PotionDoor.SetActive(false);
         RuneDoor.SetActive(false);
@@ -135,14 +140,15 @@ public class CatTeleport : MonoBehaviour
         CatTable.SetActive(false);
         CatRune.SetActive(false);
         CatCrystal.SetActive(true);
-
-        tarotCat.SetActive(false);
-        crystalCat.SetActive(true);
-        runeCat.SetActive(false);
-        potionCat.SetActive(false);
         AudioManager.PlaySound(AudioManager.SoundType.MEOW, 0.1f);
 
         CrystalParticles.Play();
+
+        // tarot
+        tarotDeck.SetActive(false);
+        PotionDeck.SetActive(false);
+        RuneDeck.SetActive(false);
+        CrystalDeck.SetActive(true);
 
         BedroomDoor.SetActive(false);
         PotionDoor.SetActive(false);
@@ -163,40 +169,16 @@ public class CatTeleport : MonoBehaviour
         CatTable.SetActive(true);
         CatRune.SetActive(false);
         CatCrystal.SetActive(false);
-        
 
-        tarotCat.SetActive(false);
-        crystalCat.SetActive(false);
-        runeCat.SetActive(false);
-        potionCat.SetActive(false);
+        // tarot
+        tarotDeck.SetActive(false);
+        PotionDeck.SetActive(false);
+        RuneDeck.SetActive(false);
+        CrystalDeck.SetActive(false);
+
         AudioManager.PlaySound(AudioManager.SoundType.MEOW, 0.1f);
 
         TableParticles.Play();
         bed.canInteract = true; 
     }
-
-    public void SpawnCatStart()
-    {
-        StartParticles.Play();
-
-        CatStart.SetActive(true);
-        CatEnd.SetActive(false);
-        AudioManager.PlaySound(AudioManager.SoundType.MEOW, 0.1f);
-    }
-
-    public void SpawnCatEnd()
-    {
-
-        StartParticles.Play();
-
-        CatStart.SetActive(false);
-        CatEnd.SetActive(true);
-        AudioManager.PlaySound(AudioManager.SoundType.MEOW, 0.1f);
-
-        EndParticles.Play();
-
-    }
-
-
-
 }
