@@ -15,6 +15,7 @@ public class FPController : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 2f;
     private bool canMove = true;
+    private Animator animator;
 
     [Header("Look Settings")]
     public Transform cameraTransform;
@@ -28,6 +29,7 @@ public class FPController : MonoBehaviour
     public PickUpObject heldObject;
     public Transform holdPoint;
     public IngredientObject holdObject;
+    public ParticleSystem PickupParticles;
 
 
     [Header("UI Elements")]
@@ -78,6 +80,7 @@ public class FPController : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        animator = GetComponentInChildren<Animator>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -205,12 +208,21 @@ public class FPController : MonoBehaviour
             if (intObj != null)
                 holdObject = intObj;
         }
+
+        if (PickupParticles != null)
+        {
+            PickupParticles.Play();
+        }
     }
 
     public void ForceDrop()
     {
         if (heldObject != null)
         {
+            if (PickupParticles != null)
+            {
+                PickupParticles.Stop();
+            }
 
             heldObject.Drop();
             heldObject = null;
@@ -403,6 +415,13 @@ public class FPController : MonoBehaviour
 
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
+
+            Vector3 horizontalMove = new Vector3(moveInput.x, 0, moveInput.y).normalized * moveSpeed;
+            float currentSpeed = horizontalMove.magnitude; 
+            animator.SetFloat("Speed", currentSpeed, 0.1f, Time.deltaTime);
+            animator.SetBool("Holding", heldObject != null);
+
+            
         }
     }
     private void HandleLook()
