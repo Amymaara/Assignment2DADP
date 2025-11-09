@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static AudioManager;
 
 public class TimerBar : MonoBehaviour
 
@@ -66,8 +67,14 @@ public class TimerBar : MonoBehaviour
         {
             timerBar.fillAmount = Mathf.InverseLerp(0, timerDuration, remainingDuration);
             remainingDuration--;
+            if (remainingDuration == 10f)
+            {
+                
+                    AudioManager.PlaySound(SoundType.TIMERRUNNINGOUT, 0.1f);
+            }
             yield return new WaitForSeconds(1f);
         }
+        AudioManager.PlaySound(SoundType.TIMEFINISHED, 0.1f);
         if (timerRunning) OnEnd(false);
     }
 

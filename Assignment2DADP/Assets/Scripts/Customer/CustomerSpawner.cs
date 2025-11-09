@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
+using static AudioManager;
 // quest system 
 // Title: How create a Quest System in Unity | RPG Style | Including Data Persistence
 // Author: Shaped by Rain Studios
@@ -69,6 +70,7 @@ public class CustomerSpawner : MonoBehaviour
         yield return new WaitForSeconds(spawnDelay);
         currentCustomer = Instantiate(entry.customerPrefab, spawnPoint.position, Quaternion.identity);
         Debug.Log($"[Spawner] Spawned: {currentCustomer.name} at {spawnPoint.position}");
+        AudioManager.PlaySound(SoundType.BELL, 0.1f);
 
         {
             currentCustomer.SetOrder(entry.fixedOrder); // manually set order (turorial usage)
