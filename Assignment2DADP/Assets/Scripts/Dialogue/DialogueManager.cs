@@ -20,6 +20,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private bool startOnSceneLoad = true;
     [SerializeField] private string startKnot = "introduction";
     [SerializeField] private string autoStartSceneName = "TutorialDay";
+    [SerializeField] private string autoStartSceneName1 = "Day1";
+    [SerializeField] private string startKnot1 = "Introduction2";
+    [SerializeField] private string autoStartSceneName2 = "Day2";
+    [SerializeField] private string startKnot2 = "Introduction3";
 
 
     private bool dialoguePlaying = false;
@@ -30,6 +34,17 @@ public class DialogueManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == autoStartSceneName)
             GameEventsManager.instance.dialogueEvents.EnterDialogue(startKnot);
+
+        if (SceneManager.GetActiveScene().name == autoStartSceneName1)
+        {
+            GameEventsManager.instance.dialogueEvents.EnterDialogue(startKnot1);
+        }
+
+        
+        if (SceneManager.GetActiveScene().name == autoStartSceneName2)
+        {
+            GameEventsManager.instance.dialogueEvents.EnterDialogue(startKnot2);
+        }
     }
 
 

@@ -2,6 +2,7 @@ using UnityEngine;
 using Ink.Runtime;
 using Unity.VisualScripting;
 using Object = UnityEngine.Object;
+using System;
 
 // dialogue system 
 // Title: How to create a Dialogue System in Unity | RPG Style | Unity + Ink
@@ -12,6 +13,8 @@ public class InkExternalFunctions
 {
     private PopupManager popupManager;
     private CatTeleport catTeleport;
+    private CatTeleport2 catTeleport2;
+    private CustomerSpawner customerSpawner;
 
     public void Bind(Story story)
     {
@@ -24,10 +27,17 @@ public class InkExternalFunctions
         story.BindExternalFunction("UnlockMove", () => UnlockMove());
         story.BindExternalFunction("LockLook", () => LockLook());
         story.BindExternalFunction("UnlockLook", () => UnlockLook());
+
+        //popup
         story.BindExternalFunction("ShowPopup", (string type) => ShowPopup(type));
         story.BindExternalFunction("ClosePopup", (string type) => ClosePopup(type));
-        story.BindExternalFunction("TeleportCat", (string target) => TeleportCat(target));
 
+        //cat teleport
+        story.BindExternalFunction("TeleportCat", (string target) => TeleportCat(target));
+        story.BindExternalFunction("TeleportCat2", (string target) => TeleportCat2(target));
+
+        //customer
+        story.BindExternalFunction("StartDay", () => StartDay());
     }
 
 
@@ -114,5 +124,37 @@ public class InkExternalFunctions
 
     }
 
+    private void TeleportCat2(string target)
+    {
+        var tp = UnityEngine.Object.FindFirstObjectByType<CatTeleport2>();
+        if (tp != null)
+        {
+            switch (target)
+            {
+                case "Start":
+                    tp.SpawnCatStart();
+                    break;
+                case "End":
+                    tp.SpawnCatEnd();
+                    break;
+                default:
+                    Debug.LogWarning("[Ink] TeleportCat2 unknown target: " + target);
+                    break;
+
+            }
+        }
+    }
+
+    private void StartDay()
+    {
+
+        var cs = UnityEngine.Object.FindFirstObjectByType<CustomerSpawner>();
+        if (cs != null)
+        {
+
+           cs.StartDay();
+        }
+    }
+   
 }
    

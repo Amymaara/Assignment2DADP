@@ -4,6 +4,8 @@ EXTERNAL FinishQuest(questId)
 EXTERNAL ShowPopup(type)
 EXTERNAL ClosePopup(type)
 EXTERNAL TeleportCat(target)
+EXTERNAL TeleportCat2(target)
+EXTERNAL StartDay()
 
 
 INCLUDE FindBelladona.ink
@@ -13,6 +15,10 @@ INCLUDE TarotCatNPC.ink
 INCLUDE PotionCatNPC.ink
 INCLUDE CatStartDay1.ink
 INCLUDE CatEndDay1.ink
+INCLUDE Day1Wakeup.ink
+INCLUDE Day2Wakeup.ink
+INCLUDE CatStartDay2.ink
+INCLUDE CatEndDay2.ink
 
 
 VAR QuestTestId = "QuestTest"
@@ -34,8 +40,12 @@ VAR PotionCatNPCState = "REQUIREMENTS_NOT_MET"
 // day 1 quests
 VAR CatStartDay1State = "CAN_START"
 VAR CatStartDay1Id = "CatStartDay1"
-VAR CatEndDay1State = "REQUIREMENTS_NOT_MET"
+VAR CatEndDay1State = "CAN_START"
 VAR CatEndDay1Id = "CatEndDay1"
+VAR CatStartDay2State = "CAN_START"
+VAR CatStartDay2Id = "CatStartDay2"
+VAR CatEndDay2State = "CAN_START"
+VAR CatEndDay2Id = "CatEndDay2"
 
 -> test_knot.requirementsNotMet
 === test_knot ===

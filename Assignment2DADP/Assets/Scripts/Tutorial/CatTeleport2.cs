@@ -9,11 +9,7 @@ public class CatTeleport2 : MonoBehaviour
 
     public GameObject TarotUI;
     public BedTrigger bed;
-
-    public void Start()
-    {
-        SpawnCatStart();
-    }
+    public GameObject BedroomDoor;
 
     public void SpawnCatStart()
     {
@@ -27,6 +23,7 @@ public class CatTeleport2 : MonoBehaviour
     public void SpawnCatEnd()
     {
 
+        BedroomDoor.SetActive(true);
         StartParticles.Play();
 
         CatStart.SetActive(false);

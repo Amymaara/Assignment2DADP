@@ -3,7 +3,6 @@
 === CatEndDay1 ===
 
 {CatEndDay1State :
-   - "REQUIREMENTS_NOT_MET" : -> requirementsNotMet
    - "CAN_START" : -> canStart
    - "IN_PROGRESS": -> inProgress
    - "CAN_FINISH": -> canFinish
@@ -11,21 +10,20 @@
    - else: -> END
    }
    
-  = requirementsNotMet
-   
-   -> END
   = canStart
-  
+  #Belladona
+  can start
   -> END
   
   = inProgress
-  
+  in progress
   -> END
   
   = canFinish
+  can finish 
   
   -> END
   
   = finished
-  
+  finished
   -> END
