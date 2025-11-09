@@ -122365,8 +122365,8 @@ MonoBehaviour:
     maxSpawnedObjects: 2
     isRespawning: 0
     spawnedObjects: []
-  - ingredientName: Sage2
-    prefab: {fileID: 1904926671564533688, guid: 0de42ebed7566434ab623aab7382fe7a, type: 3}
+  - ingredientName: Mandrake
+    prefab: {fileID: 1904926671564533688, guid: 9ed7d651718879745bd6aacfc0f7d071, type: 3}
     spawnPoint: {fileID: 1604509568}
     respawnDelay: 2
     maxSpawnedObjects: 2
@@ -342263,7 +342263,7 @@ GameObject:
   - component: {fileID: 1604509570}
   - component: {fileID: 1604509569}
   m_Layer: 6
-  m_Name: SageSpawn 2
+  m_Name: Mandrake
   m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342317,7 +342317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ec900418189e04ca7ccf9287fc47cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientName: Sage2
+  ingredientName: Mandrake
   manager: {fileID: 408812790}
 --- !u!1 &1617756345
 GameObject:
