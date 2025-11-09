@@ -27,6 +27,8 @@ public class TimerBar : MonoBehaviour
     private bool timerRunning;
     private bool timerStarted;
 
+    public event System.Action<bool> OnDayFinished;
+
     [Header("Bed")]
     public BedTrigger bed;
 
@@ -78,10 +80,12 @@ public class TimerBar : MonoBehaviour
         {
             Debug.Log("all customer served - success");
             bed.canInteract = true;
+            OnDayFinished?.Invoke(true);
         }
         else
         {
             Debug.Log("customers still waiting - fail");
+            OnDayFinished?.Invoke(false);
             int sceneIndex = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(sceneIndex);
         }

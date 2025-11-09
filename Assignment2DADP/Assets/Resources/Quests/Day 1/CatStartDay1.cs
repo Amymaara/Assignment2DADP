@@ -2,30 +2,38 @@ using UnityEngine;
 
 public class CatStartDay1 : QuestSteps
 {
+    [SerializeField] private TimerBar timer;
+
+    private void Awake()
+    {
+        timer = FindFirstObjectByType<TimerBar>(FindObjectsInactive.Include);
+    }
     protected override void SetQuestStepState(string state)
     {
-        done = state == "FINISHED";
-        if (done) FinishQuestStep();
+        if (state == "FINISHED")
+            FinishQuestStep();
     }
-
-    private bool done;
 
     private void OnEnable()
     {
-        GameEventsManager.instance.dialogueEvents.onDialogueFinished += OnDialogueFinished;
+        if (timer == null)
+        {
+            timer = FindFirstObjectByType<TimerBar>(FindObjectsInactive.Include);
+        }
+        if (timer != null)
+            timer.OnDayFinished += HandleDayFinished;
     }
 
     private void OnDisable()
     {
-        GameEventsManager.instance.dialogueEvents.onDialogueFinished -= OnDialogueFinished;
+        if (timer != null)
+            timer.OnDayFinished -= HandleDayFinished;
     }
 
-    private void OnDialogueFinished()
+    private void HandleDayFinished(bool success)
     {
-        if (done) return;
-        done = true;
+        if (!success) return;
         ChangeState("FINISHED");
         FinishQuestStep();
-
     }
 }
