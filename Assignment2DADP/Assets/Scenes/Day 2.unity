@@ -122627,6 +122627,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 20e795b656aeb3f419f9ccb8d66b5988, type: 3}
   - {fileID: 8300000, guid: d0ea7cca3d4f79e42a2549a3ac5afe52, type: 3}
   - {fileID: 8300000, guid: c874967ce08aded478daa970609a54f0, type: 3}
+  - {fileID: 8300000, guid: 69f43f6c09286484fbef860dd1f2cb35, type: 3}
+  - {fileID: 8300000, guid: a326304caac934646886170000ea84a9, type: 3}
+  - {fileID: 8300000, guid: 8fa359aef4533b245af3dd2deb991ec5, type: 3}
+  - {fileID: 8300000, guid: 8307f6e09d6aa6c44be90325ea86ab11, type: 3}
   debugLogs: 0
   audioSource: {fileID: 408812792}
 --- !u!82 &408812792
@@ -412812,7 +412816,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5b93ea94d5a37fd43b6ab90d2f995dc7, type: 2}
+  - {fileID: 2100000, guid: 033bfa5edb7379348a3cc6b7daccb7c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

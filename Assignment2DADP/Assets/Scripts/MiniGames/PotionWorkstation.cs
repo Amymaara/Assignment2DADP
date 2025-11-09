@@ -1,4 +1,5 @@
 using UnityEngine;
+using static AudioManager;
 
 public class PotionWorkstation : MonoBehaviour, IFillable, IInteractable
 {
@@ -51,6 +52,7 @@ public class PotionWorkstation : MonoBehaviour, IFillable, IInteractable
         else 
         {
             potionBehaviour.bottle();
+            AudioManager.PlaySound(SoundType.BOTTLE, 0.1f);
         }
 
     }
