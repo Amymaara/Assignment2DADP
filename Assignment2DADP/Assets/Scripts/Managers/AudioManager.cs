@@ -35,7 +35,11 @@ public class AudioManager : MonoBehaviour
         DOOROPEN,
         DOORCLOSE,
         QUESTSUCCESS,
-        MEOW
+        MEOW,
+        BELL,
+        TIMERRUNNINGOUT,
+        TIMEFINISHED,
+        BOTTLE
     }
     
     private void Awake()
