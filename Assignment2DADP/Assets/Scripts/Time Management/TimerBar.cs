@@ -28,6 +28,7 @@ public class TimerBar : MonoBehaviour
     private bool timerStarted;
 
     public event System.Action<bool> OnDayFinished;
+    public GameObject BedroomDoor;
 
     [Header("Bed")]
     public BedTrigger bed;
@@ -81,6 +82,7 @@ public class TimerBar : MonoBehaviour
             Debug.Log("all customer served - success");
             bed.canInteract = true;
             OnDayFinished?.Invoke(true);
+            BedroomDoor.SetActive(false);
         }
         else
         {

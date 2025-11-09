@@ -126915,6 +126915,7 @@ MonoBehaviour:
   timerBar: {fileID: 751444718}
   timerDuration: 300
   totalCustomers: 3
+  BedroomDoor: {fileID: 1901619946}
   bed: {fileID: 0}
 --- !u!1001 &448503053
 PrefabInstance:
@@ -173613,6 +173614,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 4439387189250665610, guid: fc94291077d734f4a8a17789949937fe, type: 3}
+      propertyPath: dialogueKnotName
+      value: CatEndDay1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439387189250665610, guid: fc94291077d734f4a8a17789949937fe, type: 3}
+      propertyPath: questInfoForPoint
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e0cf31f604aca245afdd483c4ac8f9c, type: 2}
     - target: {fileID: 5055501961989774179, guid: fc94291077d734f4a8a17789949937fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.13
@@ -300014,6 +300023,7 @@ MonoBehaviour:
   EndParticles: {fileID: 577187942}
   TarotUI: {fileID: 650495172}
   bed: {fileID: 0}
+  BedroomDoor: {fileID: 1901619946}
 --- !u!1 &1281718449
 GameObject:
   m_ObjectHideFlags: 0

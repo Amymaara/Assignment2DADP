@@ -1,8 +1,6 @@
+=== CatEndDay2 ===
 
-
-=== CatEndDay1 ===
-
-{CatEndDay1State :
+{CatEndDay2State :
    - "CAN_START" : -> canStart
    - "IN_PROGRESS": -> inProgress
    - "CAN_FINISH": -> canFinish
