@@ -11,6 +11,13 @@
    
   = canStart
   
+  #Belladona
+  "I'll take it as you're ready for your first shift."
+  
+  #Belladona
+  "Places, apprentice. They're about to arrive."
+  
+  ~ StartDay()
   -> END
   
   = inProgress

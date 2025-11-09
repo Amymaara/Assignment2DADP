@@ -4,6 +4,8 @@ EXTERNAL FinishQuest(questId)
 EXTERNAL ShowPopup(type)
 EXTERNAL ClosePopup(type)
 EXTERNAL TeleportCat(target)
+EXTERNAL TeleportCat2(target)
+EXTERNAL StartDay()
 
 
 INCLUDE FindBelladona.ink
@@ -13,6 +15,7 @@ INCLUDE TarotCatNPC.ink
 INCLUDE PotionCatNPC.ink
 INCLUDE CatStartDay1.ink
 INCLUDE CatEndDay1.ink
+INCLUDE Day1Wakeup.ink
 
 
 VAR QuestTestId = "QuestTest"

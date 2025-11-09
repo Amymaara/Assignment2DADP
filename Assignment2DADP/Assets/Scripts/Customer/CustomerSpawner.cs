@@ -11,7 +11,7 @@ public class CustomerSpawner : MonoBehaviour
     public DaySequence daySequence; //hold array of customers and what they want 
     public Transform spawnPoint; // sets spawn position for customers
     public float spawnDelay = 5f; // time before customer spawns in
-    public bool autoSpawnOnStart = true;
+    public bool autoSpawnOnStart = false;
     public ParticleSystem spawnParticle;
   
 
@@ -39,6 +39,12 @@ public class CustomerSpawner : MonoBehaviour
     public bool OrderRevealed => orderRevealed;
 
     public DaySequence.Entry CurrentEntry => currentEntry;
+
+    public void StartDay()
+    {
+        index = -1;
+        SpawnNext();
+    }
 
     void SpawnNext()
     {

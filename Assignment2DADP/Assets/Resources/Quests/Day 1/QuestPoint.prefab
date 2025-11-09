@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc7d091c2cfbff7409e3a9e1ba7fb574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueKnotName: TarotCatNPC
-  questInfoForPoint: {fileID: 11400000, guid: 8488e64d3ececbb4b933e85677036d82, type: 2}
+  dialogueKnotName: CatStartDay1
+  questInfoForPoint: {fileID: 11400000, guid: fb255f287c4a94f4789472015f1a6e3b, type: 2}
   startPoint: 1
   endPoint: 1
 --- !u!135 &9201710887470779438
