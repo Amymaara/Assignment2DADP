@@ -41,6 +41,8 @@ public class PauseMenu : MonoBehaviour
         PotionsToolTip.SetActive(false);
         CrystalsToolTip.SetActive(false);
         Settings.SetActive(false);
+        FindFirstObjectByType<TimerBar>()?.PauseTimer();
+        Time.timeScale = 0f;
 
     }
 
@@ -73,6 +75,8 @@ public class PauseMenu : MonoBehaviour
 
     public void OnResume()
     {
+        FindFirstObjectByType<TimerBar>()?.ResumeTimer();
+        Time.timeScale = 1f;
         AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
         inputManager.SwitchToGameplay();
     }
@@ -153,4 +157,6 @@ public class PauseMenu : MonoBehaviour
         AudioManager.PlaySound(SoundType.BUTTON, 0.1f);
         Application.Quit();
     }
+
+    
 }

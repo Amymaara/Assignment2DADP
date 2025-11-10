@@ -149,4 +149,7 @@ Yay!
 #Belladona
 "We'll start our first real day tomorrow, be prepared."
 
+#Belladona
+"Get to bed, once you've gotten use to the place."
+
 -> END

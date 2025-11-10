@@ -126639,7 +126639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerBar: {fileID: 921359503}
-  timerDuration: 300
+  timerDuration: 120
   totalCustomers: 3
   BedroomDoor: {fileID: 1901619946}
   bed: {fileID: 867738189}
@@ -138596,6 +138596,63 @@ Transform:
   - {fileID: 337561683}
   m_Father: {fileID: 264129380}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &549496339
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2785540296392917896, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_Name
+      value: 'Bed[Edited]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.5339003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1833
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.3297
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
 --- !u!1 &550714495
 GameObject:
   m_ObjectHideFlags: 0
@@ -220950,7 +221007,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &926521045
 Transform:
   m_ObjectHideFlags: 0
@@ -276613,7 +276670,7 @@ MonoBehaviour:
   pillarCrystal: {fileID: 509219714}
   amethyst: {fileID: 2100000, guid: 6c50bc80046f9624cb9f98e567151e11, type: 2}
   rose: {fileID: 2100000, guid: 50e5ed1577b58c842aa5ba6147965c52, type: 2}
-  lapis: {fileID: 2100000, guid: 50e5ed1577b58c842aa5ba6147965c52, type: 2}
+  lapis: {fileID: 2100000, guid: 530d6ad2b2f1daf4886b417f9b1307be, type: 2}
   StationFilled: 0
   behaviours: {fileID: 408812794}
   controller: {fileID: 1117391003}
@@ -360657,7 +360714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1869722632
 Transform:
   m_ObjectHideFlags: 0
@@ -388251,3 +388308,4 @@ SceneRoots:
   - {fileID: 104124365}
   - {fileID: 278948207}
   - {fileID: 1241545601}
+  - {fileID: 549496339}

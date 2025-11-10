@@ -14,27 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayName: Day X
   queue:
-  - customerPrefab: {fileID: 5630513489350555442, guid: c47f01664d82c9e438335f8760155e4e, type: 3}
-    fixedOrder: {fileID: 11400000, guid: 607467a8fe0fb8a4b9910e1243b984f6, type: 2}
-    tarotCard1: {fileID: 21300000, guid: 5a27747d814db8d42a8e74077836884e, type: 3}
-    tarotCard2: {fileID: 21300000, guid: 5a27747d814db8d42a8e74077836884e, type: 3}
-    tarotCard3: {fileID: 21300000, guid: 5a27747d814db8d42a8e74077836884e, type: 3}
+  - customerPrefab: {fileID: 1775444949632584478, guid: b58fe311fcadb6a4e8f26b5cb09e370e, type: 3}
+    fixedOrder: {fileID: 11400000, guid: a3c34dc83ee7df34fb2501b5529828c5, type: 2}
+    tarotCard1: {fileID: 21300000, guid: 5aedf3367f51e054a979fbb18e0aebf2, type: 3}
+    tarotCard2: {fileID: 21300000, guid: 8de3f913483163842aba0591c5b10504, type: 3}
+    tarotCard3: {fileID: 21300000, guid: 5889187124a24024cb256cb489cbe4e8, type: 3}
     recipeSprite: {fileID: 21300000, guid: 27eb34dee302c2649907396ac6af3b11, type: 3}
-  - customerPrefab: {fileID: 5630513489350555442, guid: c47f01664d82c9e438335f8760155e4e, type: 3}
+  - customerPrefab: {fileID: 1775444949632584478, guid: b58fe311fcadb6a4e8f26b5cb09e370e, type: 3}
     fixedOrder: {fileID: 11400000, guid: 9dcca095519f7bc489d4981c0e868a79, type: 2}
-    tarotCard1: {fileID: 21300000, guid: 0a113d4cf61cf4f45a28b59ae7c49e01, type: 3}
-    tarotCard2: {fileID: 21300000, guid: 0a113d4cf61cf4f45a28b59ae7c49e01, type: 3}
-    tarotCard3: {fileID: 21300000, guid: 0a113d4cf61cf4f45a28b59ae7c49e01, type: 3}
+    tarotCard1: {fileID: 21300000, guid: 8c6f8b25bf0b6e140ba276163b2af46f, type: 3}
+    tarotCard2: {fileID: 21300000, guid: 0e31aab65a1d49945ac68b5e756704f6, type: 3}
+    tarotCard3: {fileID: 21300000, guid: 5e5f4a4ecde419c42999dbfb6de472aa, type: 3}
     recipeSprite: {fileID: 21300000, guid: d231c718ac46779409d6ed116dc6a2d9, type: 3}
-  - customerPrefab: {fileID: 5630513489350555442, guid: c47f01664d82c9e438335f8760155e4e, type: 3}
+  - customerPrefab: {fileID: 1775444949632584478, guid: b58fe311fcadb6a4e8f26b5cb09e370e, type: 3}
     fixedOrder: {fileID: 11400000, guid: 2ce84cf403b788944903fc0af5c0a068, type: 2}
-    tarotCard1: {fileID: 21300000, guid: 4ac8c6aabf7522942b389f258b8087c5, type: 3}
-    tarotCard2: {fileID: 21300000, guid: 4ac8c6aabf7522942b389f258b8087c5, type: 3}
-    tarotCard3: {fileID: 21300000, guid: 4ac8c6aabf7522942b389f258b8087c5, type: 3}
+    tarotCard1: {fileID: 21300000, guid: 9705af6e56a108b4481f5278c71d268c, type: 3}
+    tarotCard2: {fileID: 21300000, guid: 9705af6e56a108b4481f5278c71d268c, type: 3}
+    tarotCard3: {fileID: 21300000, guid: e482055605d70894992f53492d050718, type: 3}
     recipeSprite: {fileID: 21300000, guid: a900d2fbb9bb0b8489d7ca5abda73451, type: 3}
-  - customerPrefab: {fileID: 5630513489350555442, guid: c47f01664d82c9e438335f8760155e4e, type: 3}
+  - customerPrefab: {fileID: 1775444949632584478, guid: b58fe311fcadb6a4e8f26b5cb09e370e, type: 3}
     fixedOrder: {fileID: 11400000, guid: 64781c0c02404f649883f27bbd19e79d, type: 2}
-    tarotCard1: {fileID: 21300000, guid: d4a04a9dadc8c7247b9667904928f348, type: 3}
-    tarotCard2: {fileID: 21300000, guid: d4a04a9dadc8c7247b9667904928f348, type: 3}
-    tarotCard3: {fileID: 21300000, guid: d4a04a9dadc8c7247b9667904928f348, type: 3}
+    tarotCard1: {fileID: 21300000, guid: 2b216201f8a70b547b2c1b81f87e9053, type: 3}
+    tarotCard2: {fileID: 21300000, guid: a9ebc9eca05bc374eb4d83f348b08b5f, type: 3}
+    tarotCard3: {fileID: 21300000, guid: 1ff77b6ccaa3a9c49aab6db6b133bb08, type: 3}
     recipeSprite: {fileID: 21300000, guid: 5d8e900d6e1b52c4389434bde4f15f3c, type: 3}

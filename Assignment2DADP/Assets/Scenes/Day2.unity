@@ -232195,7 +232195,7 @@ Transform:
   m_GameObject: {fileID: 967588780}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.54, y: 0.87, z: 0.37}
+  m_LocalPosition: {x: 4.13, y: 0.87, z: 4.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -276289,7 +276289,7 @@ MonoBehaviour:
   pillarCrystal: {fileID: 509219714}
   amethyst: {fileID: 2100000, guid: 6c50bc80046f9624cb9f98e567151e11, type: 2}
   rose: {fileID: 2100000, guid: 50e5ed1577b58c842aa5ba6147965c52, type: 2}
-  lapis: {fileID: 2100000, guid: 50e5ed1577b58c842aa5ba6147965c52, type: 2}
+  lapis: {fileID: 2100000, guid: 530d6ad2b2f1daf4886b417f9b1307be, type: 2}
   StationFilled: 0
   behaviours: {fileID: 408812794}
   controller: {fileID: 1117391003}
@@ -311094,6 +311094,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: Mandrake
   manager: {fileID: 408812790}
+--- !u!1001 &1605775079
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2785540296392917896, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_Name
+      value: 'Bed[Edited]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.5339003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1833
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.3297
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
 --- !u!1 &1617756345
 GameObject:
   m_ObjectHideFlags: 0
@@ -388398,3 +388455,4 @@ SceneRoots:
   - {fileID: 7129013332071099219}
   - {fileID: 1389687167}
   - {fileID: 1722947708}
+  - {fileID: 1605775079}

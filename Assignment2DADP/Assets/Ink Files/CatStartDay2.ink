@@ -62,6 +62,9 @@
   #Belladona
 "Let's see if you've got what it takes to survive eternity in my service."
 
+#Belladona
+"Well go on, you look like a living corpse. Get some rest."
+
    ~ TeleportCat2("End")
    ~ StartDay()
   -> END

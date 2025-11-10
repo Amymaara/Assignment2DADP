@@ -55,8 +55,7 @@
   
   #Belladona
   "Anyway, enough sentimentality. I've gone soft - purely your fault by the way."
-  
- 
+ ~ AdvanceQuest("CatEndDay1")
   -> END
   
   = canFinish

@@ -96,7 +96,20 @@ public class TimerBar : MonoBehaviour
             Debug.Log("customers still waiting - fail");
             OnDayFinished?.Invoke(false);
             int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(sceneIndex);
+            SceneManager.LoadScene(sceneIndex -1);
+        }
+    }
+
+    public void PauseTimer()
+    {
+        timerRunning = false;
+    }
+
+    public void ResumeTimer()
+    {
+        if (timerStarted && remainingDuration > 0 || customersServed > totalCustomers)
+        {
+            timerRunning = true;
         }
     }
 }
