@@ -33,7 +33,8 @@ public class TitleScreen : MonoBehaviour
 
     public void PlayGame()
     {
-        PlaySoundAndLoad("Tutorial Day");
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        PlaySoundAndLoad(sceneIndex);
     }
 
     private void PlaySoundAndQuit()
@@ -41,9 +42,9 @@ public class TitleScreen : MonoBehaviour
         StartCoroutine(PlayThenDo(() => Application.Quit()));
     }
 
-    private void PlaySoundAndLoad(string sceneName)
+    private void PlaySoundAndLoad(int sceneName)
     {
-        StartCoroutine(PlayThenDo(() => SceneManager.LoadScene(sceneName)));
+        StartCoroutine(PlayThenDo(() => SceneManager.LoadScene(sceneName + 1)));
     }
 
     private IEnumerator PlayThenDo(System.Action action)

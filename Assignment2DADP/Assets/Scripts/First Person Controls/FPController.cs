@@ -292,6 +292,10 @@ public class FPController : MonoBehaviour
                     {
                         Debug.Log("About to call TryServe on cat with " + held.name);
                         bool ok = catcustomer.TryServe(held);
+                        if (PickupParticles != null)
+                        {
+                            PickupParticles.Stop();
+                        }
                         if (ok) Destroy(held.gameObject);
                     }
                 }
@@ -303,6 +307,10 @@ public class FPController : MonoBehaviour
                     if (held)
                     {
                         bool ok = catrunecustomer.TryServe(held);
+                        if (PickupParticles != null)
+                        {
+                            PickupParticles.Stop();
+                        }
                         if (ok) Destroy(held.gameObject);
                     }
                 }
@@ -314,6 +322,10 @@ public class FPController : MonoBehaviour
                     if (held)
                     {
                         bool ok = catcrystalcustomer.TryServe(held);
+                        if (PickupParticles != null)
+                        {
+                            PickupParticles.Stop();
+                        }
                         if (ok) Destroy(held.gameObject);
                     }
                 }
@@ -329,6 +341,10 @@ public class FPController : MonoBehaviour
                     if (held)
                     {
                         bool ok = customer.TryServe(held);
+                        if (PickupParticles != null)
+                        {
+                            PickupParticles.Stop();
+                        }
                         if (ok) Destroy(held.gameObject);
                     }
 
@@ -348,6 +364,10 @@ public class FPController : MonoBehaviour
                     cauldronFill.OnFillStart();
                     filling = true;
                     Debug.Log("Started filling");
+                    if (PickupParticles != null)
+                    {
+                        PickupParticles.Stop();
+                    }
                     return;
                 }
 
