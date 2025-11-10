@@ -126610,7 +126610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerBar: {fileID: 921359503}
-  timerDuration: 120
+  timerDuration: 150
   totalCustomers: 3
   BedroomDoor: {fileID: 1901619946}
   bed: {fileID: 0}
