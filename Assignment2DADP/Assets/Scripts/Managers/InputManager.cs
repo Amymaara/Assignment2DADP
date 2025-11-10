@@ -23,6 +23,7 @@ public class InputManager : MonoBehaviour
         //SwitchToUI();
         //ToolTipsCanvas.SetActive(true);
         SwitchToGameplay();
+        player.GetComponent<Renderer>().enabled = false;
         PotionWorldSpaceCanvas.SetActive(false);
 
     }
@@ -37,7 +38,7 @@ public class InputManager : MonoBehaviour
         cursor.SetActive(false);
         pauseMenu.SetActive(false);
         player.SetActive(true);
-        player.GetComponent<Renderer>().enabled = true;
+        //player.GetComponent<Renderer>().enabled = true;
         player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
         manager.SwitchToPlayerCam();
     }
@@ -72,7 +73,7 @@ public class InputManager : MonoBehaviour
         RuneMinigame.SetActive(true);
         //player.SetActive(false);
         manager.SwitchToRuneCam();
-        player.GetComponent<Renderer>().enabled = false;
+        //player.GetComponent<Renderer>().enabled = false;
         player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Runes");
         cursor.SetActive(true);
         
@@ -89,7 +90,7 @@ public class InputManager : MonoBehaviour
     {
         potionMix.SetActive(true);
         manager.SwitchToPotionCam();
-        player.GetComponent<Renderer>().enabled = false;
+       // player.GetComponent<Renderer>().enabled = false;
         player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Potions"); //make a potion control map
 
     }
@@ -99,7 +100,7 @@ public class InputManager : MonoBehaviour
        
         crystals.SetActive(true);
         manager.SwitchToCrystalCam();
-        player.GetComponent<Renderer>().enabled = false;
+        //GetComponent<Renderer>().enabled = false;
         player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Crystals");
     }
 
