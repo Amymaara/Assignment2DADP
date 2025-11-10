@@ -19,7 +19,7 @@
   "I'll have to admit, I wasn't sure you'd last this long."
   
   #Belladona
-  "Most indiviudals crumble or turn to insanity with on their first brush with eternity."
+  "Most individuals crumble or turn to insanity on their first brush with eternity."
   
   #Belladona
   "But, not you."

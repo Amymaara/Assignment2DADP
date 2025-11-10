@@ -16,7 +16,7 @@
 "It's a two day evaluation, today is the decider."
 
 #Belladona
-"Surprisnly, yesterday you managed...somewhat clumsily but I can forgive that."
+"Surprisingly, yesterday you managed...somewhat clumsily but I can forgive that."
 
 #Belladona
 "Today it's the same, as every other day going forward. Tarot, potions, runes, crystals."

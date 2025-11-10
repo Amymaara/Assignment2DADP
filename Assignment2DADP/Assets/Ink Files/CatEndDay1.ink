@@ -21,7 +21,7 @@
   "I might have to call and cancel the spectral attorney."
   
   #Belladona
-  "You're made it through your first full day in Limbo."
+  "You've made it through your first full day in Limbo."
   
   #Belladona
   "How did you do?"
@@ -30,7 +30,7 @@
   "I guess I could say i'm a bit proud."
   
   #Belladona
-  "But don't let it get to your head
+  "But don't let it get to your head."
   
   #Belladona
   "There was a few mistakes you need to correct."
@@ -42,7 +42,7 @@
   = inProgress
   
   #Belladona
-  "You knowm seeing you blunder your way through this reminds me of when I first started out."
+  "You know seeing you blunder your way through this reminds me of when I first started out."
   
   #Belladona
   "I wasn't born like this, you know. I had hands - elegant, powerful and moisturised hands."
@@ -51,7 +51,7 @@
   "You really need to take better care of your skin. You don't need to live up to the stigma's and depictions of witches..."
   
   #Belladona
-  "But yeah, I got a little too good at what I was doing. Competitiors tend to get...jealous."
+  "But yeah, I got a little too good at what I was doing. Competitors tend to get...jealous."
   
   #Belladona
   "Anyway, enough sentimentality. I've gone soft - purely your fault by the way."
@@ -63,7 +63,7 @@
  "Hm, I suppose you've earned the right to see it to day two."
  
  #Belladona
- "You can practise and explore around if you want."
+ "You can practice and explore around if you want."
  
  #Belladona
  "But there's not much to do here."

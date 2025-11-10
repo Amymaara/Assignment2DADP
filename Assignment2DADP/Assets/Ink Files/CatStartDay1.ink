@@ -17,10 +17,10 @@
   "You managed to survive orientation, so i'm at least a little bit hopeful you'll do better than your predecessor."
   
   #Belladona
-  "But don't get too cocky, Today is the real work."
+  "But don't get too cocky, today's real work."
   
   #Belladona
-  "Remember if you mess up, don't bother asking me for help. I like watching my underlings learn the harrd way."
+  "Remember if you mess up, don't bother asking me for help. I like watching my underlings learn the hard way."
   
   #Belladona
   
