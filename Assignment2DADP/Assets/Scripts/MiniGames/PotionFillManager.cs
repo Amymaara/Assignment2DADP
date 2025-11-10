@@ -75,7 +75,10 @@ public class PotionFillManager : MonoBehaviour
             }
 
             holding = fpcontroller.holdObject;
-            if (holding == null) return;
+            if (holding == null)
+            {
+                return;
+            }
 
             else
             {
@@ -85,7 +88,11 @@ public class PotionFillManager : MonoBehaviour
                     ingredient = temp;
                 }
             }
-            if (ingredient == null) return;
+            if (ingredient == null)
+            {
+                Debug.Log("Not an Ingredient");
+                return;
+            }
 
             if (currentHeight >= maxFillHeight)
             {
@@ -276,6 +283,7 @@ public class PotionFillManager : MonoBehaviour
         moonPercent = 0f;
         tearsPercent = 0f;
         bloodPercent = 0f;
+        mandrakePercent = 0f;
 
         PotionBarCanvas.SetActive(false);
 

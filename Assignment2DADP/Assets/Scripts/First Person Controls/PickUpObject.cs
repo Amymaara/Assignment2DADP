@@ -48,6 +48,9 @@ public class PickUpObject : MonoBehaviour
         transform.SetParent(holdPos, true);
         gameObject.layer = holdLayer;
 
+        
+
+
         if (player != null)
         {
             Collider playerCol = player.GetComponent<Collider>();
@@ -56,12 +59,15 @@ public class PickUpObject : MonoBehaviour
                 Physics.IgnoreCollision(objCollider, playerCol, true);
             }
         }
+
+        objCollider.enabled = false;
     }
 
     public void Drop()
     {
         if (!isHeld) return;
 
+        objCollider.enabled = true;
         if (player != null)
         {
             Collider playerCol = player.GetComponent<Collider>();
@@ -78,6 +84,8 @@ public class PickUpObject : MonoBehaviour
         isHeld = false;
         holdPos = null;
         player = null;
+
+        
     }
 
     private void MoveObject()
