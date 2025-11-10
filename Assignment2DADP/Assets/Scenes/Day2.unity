@@ -121907,7 +121907,6 @@ GameObject:
   - component: {fileID: 408812794}
   - component: {fileID: 408812795}
   - component: {fileID: 408812796}
-  - component: {fileID: 408812797}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -122366,20 +122365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 1436503606}
---- !u!114 &408812797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 408812783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48baec410e7b930429616b350d20c7d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: b11b4ade6cd2a754ab2af2491ce51fb8, type: 3}
-  audioSource: {fileID: 408812792}
 --- !u!1 &414337272
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,7 +28,7 @@ MonoBehaviour:
     recipeSprite: {fileID: 21300000, guid: d231c718ac46779409d6ed116dc6a2d9, type: 3}
   - customerPrefab: {fileID: 1775444949632584478, guid: b58fe311fcadb6a4e8f26b5cb09e370e, type: 3}
     fixedOrder: {fileID: 11400000, guid: 2ce84cf403b788944903fc0af5c0a068, type: 2}
-    tarotCard1: {fileID: 21300000, guid: 9705af6e56a108b4481f5278c71d268c, type: 3}
+    tarotCard1: {fileID: 21300000, guid: 3a58706b714779f46b4143e9db614abd, type: 3}
     tarotCard2: {fileID: 21300000, guid: 9705af6e56a108b4481f5278c71d268c, type: 3}
     tarotCard3: {fileID: 21300000, guid: e482055605d70894992f53492d050718, type: 3}
     recipeSprite: {fileID: 21300000, guid: a900d2fbb9bb0b8489d7ca5abda73451, type: 3}
