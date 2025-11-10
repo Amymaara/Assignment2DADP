@@ -140,7 +140,7 @@ public class PotionMixBehaviour : MonoBehaviour
 
         potionBehaviour.currentState = PotionBehaviour.CauldronState.Bottling;
 
-        if (minigameCount == 0 && sceneIndex == 1)
+        if (minigameCount == 0 && sceneIndex == 2)
         {
             popups.PotionsPopup3();
             minigameCount++;

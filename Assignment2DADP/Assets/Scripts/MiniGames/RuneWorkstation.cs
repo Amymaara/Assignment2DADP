@@ -22,7 +22,7 @@ public class RuneWorkstation : MonoBehaviour, IInteractable
     void Start()
     {
         interactionCount = 0;
-        if (sceneIndex == 1)
+        if (sceneIndex == 2)
         {
             Arrow.SetActive(true);
         }
@@ -39,7 +39,7 @@ public class RuneWorkstation : MonoBehaviour, IInteractable
         Debug.Log("trying to interact");
         if (heldObject == null)
         {
-            if (interactionCount == 0 && sceneIndex ==1)
+            if (interactionCount == 0 && sceneIndex ==2)
             {
                 Arrow.SetActive(false);
                 tutorialPopups.RunePopup1();

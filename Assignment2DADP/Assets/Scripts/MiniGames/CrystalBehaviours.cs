@@ -33,7 +33,7 @@ public class CrystalBehaviours : MonoBehaviour
     {
         minigameCount = 0;
         interactionCount = 0;
-        if (sceneIndex == 1)
+        if (sceneIndex == 2)
         {
             arrow.SetActive(true);
         }
@@ -54,7 +54,7 @@ public class CrystalBehaviours : MonoBehaviour
     
     public void FirstInteractCheck()
     {
-        if (interactionCount == 0 && sceneIndex ==1)
+        if (interactionCount == 0 && sceneIndex ==2)
         {
             popups.CrystalPopup1();
             interactionCount++;
@@ -67,7 +67,7 @@ public class CrystalBehaviours : MonoBehaviour
       
         if (NorthPillar.StationFilled && SouthPillar.StationFilled && EastPillar.StationFilled && WestPillar.StationFilled && Table.StationFilled) 
         {
-            if (minigameCount == 0 && sceneIndex == 1)
+            if (minigameCount == 0 && sceneIndex == 2)
             {
                 popups.CrystalPopup2();
                 minigameCount++;

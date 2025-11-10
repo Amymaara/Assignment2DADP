@@ -1066,7 +1066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 855563019901272663}
   - component: {fileID: 3837274981685332106}
-  - component: {fileID: 3125936622653804106}
+  - component: {fileID: 6179264031590606018}
   m_Layer: 0
   m_Name: Customer (3)
   m_TagString: Untagged
@@ -1112,19 +1112,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 4, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3125936622653804106
-MonoBehaviour:
+--- !u!95 &6179264031590606018
+Animator:
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3802059504018641826}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6286e5e8fc0d48f43934c3f6f2ba630f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requiredItem: {fileID: 0}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d8bb48751acfff468c4fd3d9cc29246, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4052822269366000981
 GameObject:
   m_ObjectHideFlags: 0

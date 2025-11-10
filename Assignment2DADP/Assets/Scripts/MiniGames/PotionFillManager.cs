@@ -48,7 +48,7 @@ public class PotionFillManager : MonoBehaviour
     {
         interactCount = 0;
         fullCount = 0;
-        if (sceneIndex == 1)
+        if (sceneIndex == 2)
         {
             Arrows.SetActive(true);
         }
@@ -60,7 +60,7 @@ public class PotionFillManager : MonoBehaviour
 
     public void StartSection()
     {
-        if (interactCount == 0 && sceneIndex == 1)
+        if (interactCount == 0 && sceneIndex == 2)
         {
             tutorialPopups.PotionsPopup1();
             Arrows.SetActive(false);
@@ -201,7 +201,7 @@ public class PotionFillManager : MonoBehaviour
 
     public void OnFullMeter()
     {
-        if (fullCount == 0 && sceneIndex==1)
+        if (fullCount == 0 && sceneIndex==2)
         {
             tutorialPopups.PotionsPopup2();
             fullCount++;
