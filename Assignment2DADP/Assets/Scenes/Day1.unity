@@ -126613,7 +126613,7 @@ MonoBehaviour:
   timerDuration: 150
   totalCustomers: 3
   BedroomDoor: {fileID: 1901619946}
-  bed: {fileID: 0}
+  bed: {fileID: 549496341}
 --- !u!1001 &448503053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138577,7 +138577,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2785540296392917896, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
       propertyPath: m_Name
-      value: 'Bed[Edited]'
+      value: Bed
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785540296392917896, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3306744424355666226, guid: 8674cb489bcaf7c41b7507365e1e64b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -270001,9 +270005,9 @@ CapsuleCollider:
   m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2.2935362
+  m_Height: 2.3849292
   m_Direction: 1
-  m_Center: {x: 0, y: -0.1467681, z: 0}
+  m_Center: {x: 0, y: -0.19246462, z: 0}
 --- !u!23 &1117390998
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -274280,7 +274284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2753083826510537239, guid: 36ce8c0df11f6b14e9ec65a12390e81c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2491003
+      value: -1.338
       objectReference: {fileID: 0}
     - target: {fileID: 2753083826510537239, guid: 36ce8c0df11f6b14e9ec65a12390e81c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -276737,7 +276741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d0e0f935dee98564eb672161a20c5180, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d0e0f935dee98564eb672161a20c5180, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -284781,9 +284785,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 290015210}
     m_Modifications:
+    - target: {fileID: 1065871314250978071, guid: 7c57b9c03238cfa46b30f91619709e06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021760761553785103, guid: 7c57b9c03238cfa46b30f91619709e06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -28.23
+      objectReference: {fileID: 0}
     - target: {fileID: 3493450457420700233, guid: 7c57b9c03238cfa46b30f91619709e06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.51
+      value: -5.52
       objectReference: {fileID: 0}
     - target: {fileID: 3493450457420700233, guid: 7c57b9c03238cfa46b30f91619709e06, type: 3}
       propertyPath: m_LocalPosition.y
@@ -284791,7 +284803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3493450457420700233, guid: 7c57b9c03238cfa46b30f91619709e06, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.582789
+      value: 8.59
       objectReference: {fileID: 0}
     - target: {fileID: 3493450457420700233, guid: 7c57b9c03238cfa46b30f91619709e06, type: 3}
       propertyPath: m_LocalRotation.w

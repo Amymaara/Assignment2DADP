@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5945544363013256041}
   - component: {fileID: 4332499350056899486}
   m_Layer: 8
-  m_Name: Potion bottle empty final
+  m_Name: Potion bottle
   m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

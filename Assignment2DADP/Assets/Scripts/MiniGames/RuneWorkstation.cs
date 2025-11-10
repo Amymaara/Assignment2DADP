@@ -52,7 +52,7 @@ public class RuneWorkstation : MonoBehaviour, IInteractable
         else if (heldObject.GetComponentsInChildren<RuneInteractables>() != null)
         {
             RuneInteractables[] runeBase = heldObject.GetComponentsInChildren<RuneInteractables>();
-            if (interactionCount == 0)
+            if (interactionCount == 0 && sceneIndex == 2)
             {
                 tutorialPopups.RunePopup1();
                 interactionCount++;
@@ -75,7 +75,7 @@ public class RuneWorkstation : MonoBehaviour, IInteractable
         }
         else
         {
-            if (interactionCount == 0)
+            if (interactionCount == 0 && sceneIndex == 2)
             {
                 Arrow.SetActive(false);
                 tutorialPopups.RunePopup1();
