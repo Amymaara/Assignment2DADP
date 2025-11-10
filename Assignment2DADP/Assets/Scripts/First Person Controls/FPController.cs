@@ -46,6 +46,7 @@ public class FPController : MonoBehaviour
 
     [Header("Interaction")]
     [SerializeField] private float interactRange = 3f;
+    private Customer customer;
 
     [Header("Dialogue")]
     //[SerializeField] private DialogueController dialogueController;
@@ -317,15 +318,25 @@ public class FPController : MonoBehaviour
                     }
                 }
 
-                var customer = hit.collider.GetComponentInChildren<Customer>();
+                
+                var customer = hit.collider.GetComponentInParent<Customer>();
                 if (customer)
                 {
+                 
+                    
+                    Debug.Log($"Hit a customer: {customer.name}");
                     var held = holdPoint.GetComponentInChildren<ServeableItem>();
                     if (held)
                     {
                         bool ok = customer.TryServe(held);
                         if (ok) Destroy(held.gameObject);
                     }
+
+                    else
+                    {
+                        Debug.Log("No customer hit");
+                    }
+                   
                 }
 
 
