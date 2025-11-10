@@ -135,7 +135,7 @@ Yay!
 
 #Belladona
 "Go on then, go try things out - I need my naptime, i've been ever so tired since becoming...this."
-
+~AdvanceQuest("ExploreQuest")
 -> END
 
 = canFinish

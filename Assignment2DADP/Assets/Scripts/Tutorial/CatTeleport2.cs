@@ -11,6 +11,11 @@ public class CatTeleport2 : MonoBehaviour
     public BedTrigger bed;
     public GameObject BedroomDoor;
 
+    private void Start()
+    {
+        CatEnd.SetActive(false);
+    }
+
     public void SpawnCatStart()
     {
         StartParticles.Play();
