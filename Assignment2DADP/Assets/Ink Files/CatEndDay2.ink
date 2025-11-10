@@ -112,4 +112,7 @@
   
   #Belladona
   "Welcome to Limbo, baby witch. For better or worse - you belong here now."
+  
+  #Belladona
+  "Get some rest, you're starting to look like the customers."
   -> END
